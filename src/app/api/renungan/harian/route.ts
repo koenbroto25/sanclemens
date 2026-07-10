@@ -1,4 +1,5 @@
-export const dynamic = 'force-dynamic'
+﻿export const dynamic = 'force-dynamic'
+export const runtime = 'nodejs'
 import { NextResponse } from 'next/server';
 import { supabaseServer } from '@/lib/supabase/server';
 import { getLiturgiHarian } from '@/lib/liturgi/liturgi-service';

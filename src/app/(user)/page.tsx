@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect } from 'react';
 import { createClient } from '@/lib/supabase/client';
@@ -35,10 +35,9 @@ export default function DashboardPage() {
           .eq('user_id', user.id)
           .single();
         setProfile(profileData);
-
         const { data: keluargaData } = await supabase
           .from('keluarga')
-          .select('*, anggota_keluarga(* )')
+          .select('*, anggota_keluarga(*)')
           .or(`kepala_keluarga_id.eq.${profileData?.id},id.in.(SELECT keluarga_id FROM anggota_keluarga WHERE profile_id = ${profileData?.id})`);
         setKeluarga(keluargaData || []);
       }
@@ -65,52 +64,44 @@ export default function DashboardPage() {
 
   return (
     <div>
-      {/* Hero Section */}
       <div className="mb-8">
         <h1 className="text-4xl font-bold mb-2">
-          {greeting()}, <span className="text-gold">{profile?.nama_baptis || profile?.full_name}</span>
+          {greeting()},{' '}
+          <span className="text-gold">{profile?.nama_baptis || profile?.full_name}</span>
         </h1>
         <p className="text-gray-400 text-lg">
-          Umat Aktif Ã¢â‚¬Â¢ Lingkungan {profile?.lingkungan_slug || '-'}
+          Umat Aktif &bull; Lingkungan {profile?.lingkungan_slug || '-'}
         </p>
       </div>
 
-      {/* Quick Actions */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-        <Link href="/jadwal-misa" className="card hover:border-[#e2b04a] cursor-pointer">
-          <div className="text-4xl mb-2">Ã°Å¸â€œâ€¦</div>
+        <Link href="/public/jadwal-misa" className="card hover:border-[#e2b04a] cursor-pointer">
+          <div className="text-4xl mb-2">&#x26EA;</div>
           <h3 className="card-title">Jadwal Misa</h3>
           <p className="text-sm text-gray-400 mt-2">Lihat jadwal misa minggu ini</p>
         </Link>
-
-        <Link href="/doa-harian" className="card hover:border-[#e2b04a] cursor-pointer">
-          <div className="text-4xl mb-2">Ã°Å¸â„¢Â</div>
-          <h3 className="card-title">Doa Harian</h3>
-          <p className="text-sm text-gray-400 mt-2">Doa dan refleksi hari ini</p>
+        <Link href="/public/renungan-harian" className="card hover:border-[#e2b04a] cursor-pointer">
+          <div className="text-4xl mb-2">&#x1F64F;</div>
+          <h3 className="card-title">Renungan Harian</h3>
+          <p className="text-sm text-gray-400 mt-2">Refleksi dan doa hari ini</p>
         </Link>
-
-        <Link href="/learn-catholic" className="card hover:border-[#e2b04a] cursor-pointer">
-          <div className="text-4xl mb-2">Ã°Å¸â€œÅ¡</div>
+        <Link href="/public/learn-catholic" className="card hover:border-[#e2b04a] cursor-pointer">
+          <div className="text-4xl mb-2">&#x1F4D6;</div>
           <h3 className="card-title">Learn Catholic</h3>
           <p className="text-sm text-gray-400 mt-2">Modul pembelajaran iman</p>
         </Link>
-
-        <Link href="/dashboard/keahlian" className="card hover:border-[#e2b04a] cursor-pointer">
-          <div className="text-4xl mb-2">Ã°Å¸â€™Â¼</div>
-          <h3 className="card-title">Usaha & Keahlian</h3>
+        <Link href="/keahlian" className="card hover:border-[#e2b04a] cursor-pointer">
+          <div className="text-4xl mb-2">&#x1F4BC;</div>
+          <h3 className="card-title">Usaha &amp; Keahlian</h3>
           <p className="text-sm text-gray-400 mt-2">Daftar usaha dan keahlian Anda</p>
         </Link>
       </div>
 
-      {/* My Data Section */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-        {/* Keluarga Card */}
         <div className="card">
           <div className="card-header flex justify-between items-center">
-            <h3 className="card-title">Ã°Å¸â€˜Â¨Ã¢â‚¬ÂÃ°Å¸â€˜Â©Ã¢â‚¬ÂÃ°Å¸â€˜Â§Ã¢â‚¬ÂÃ°Å¸â€˜Â¦ Keluarga Saya</h3>
-            <Link href="/dashboard/keluarga" className="text-sm text-gold hover:underline">
-              Lihat Semua
-            </Link>
+            <h3 className="card-title">Keluarga Saya</h3>
+            <Link href="/keluarga" className="text-sm text-gold hover:underline">Lihat Semua</Link>
           </div>
           {keluarga.length > 0 ? (
             <div className="space-y-3">
@@ -126,85 +117,61 @@ export default function DashboardPage() {
             </div>
           ) : (
             <div className="empty-state">
-              <div className="empty-state-icon">Ã°Å¸â€˜Â¨Ã¢â‚¬ÂÃ°Å¸â€˜Â©Ã¢â‚¬ÂÃ°Å¸â€˜Â§Ã¢â‚¬ÂÃ°Å¸â€˜Â¦</div>
               <p className="empty-state-title">Belum ada data keluarga</p>
-              <Link href="/dashboard/keluarga" className="btn btn-primary mt-4">
-                Tambah Keluarga
-              </Link>
+              <Link href="/keluarga" className="btn btn-primary mt-4">Tambah Keluarga</Link>
             </div>
           )}
         </div>
 
-        {/* Sakramen Card */}
         <div className="card">
           <div className="card-header flex justify-between items-center">
-            <h3 className="card-title">Ã¢Å“ÂÃ¯Â¸Â Riwayat Sakramen</h3>
-            <Link href="/dashboard/sakramen" className="text-sm text-gold hover:underline">
-              Lihat Semua
-            </Link>
+            <h3 className="card-title">Riwayat Sakramen</h3>
+            <Link href="/sakramen" className="text-sm text-gold hover:underline">Lihat Semua</Link>
           </div>
           <div className="empty-state">
-            <div className="empty-state-icon">Ã¢Å“ÂÃ¯Â¸Â</div>
             <p className="empty-state-title">Belum ada data sakramen</p>
-            <Link href="/dashboard/sakramen" className="btn btn-primary mt-4">
-              Tambah Sakramen
-            </Link>
+            <Link href="/sakramen" className="btn btn-primary mt-4">Tambah Sakramen</Link>
           </div>
         </div>
       </div>
 
-      {/* AI Recommendations Section */}
       <div className="card mb-8">
         <div className="card-header">
-          <h3 className="card-title">Ã¢Å“Â¨ Rekomendasi AI</h3>
+          <h3 className="card-title">Rekomendasi AI</h3>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="p-4 bg-white/5 rounded-lg">
-            <h4 className="font-semibold mb-2">Ã°Å¸â€™Â¼ Lowongan Kerja</h4>
+            <h4 className="font-semibold mb-2">Lowongan Kerja</h4>
             <p className="text-sm text-gray-400">Berdasarkan keahlian Anda, ada 3 lowongan yang cocok</p>
-            <Link href="/dashboard/keahlian" className="text-sm text-gold hover:underline mt-2 inline-block">
-              Lihat Rekomendasi Ã¢â€ â€™
-            </Link>
+            <Link href="/keahlian" className="text-sm text-gold hover:underline mt-2 inline-block">Lihat Rekomendasi &rarr;</Link>
           </div>
           <div className="p-4 bg-white/5 rounded-lg">
-            <h4 className="font-semibold mb-2">Ã°Å¸Â¤Â Charity Volunteer</h4>
-            <p className="text-sm text-gray-400">Ada permintaan bantuan yang bisa Anda bantu</p>
-            <Link href="/dashboard/keahlian" className="text-sm text-gold hover:underline mt-2 inline-block">
-              Lihat Permintaan Ã¢â€ â€™
-            </Link>
+            <h4 className="font-semibold mb-2">Bantuan Sosial</h4>
+            <p className="text-sm text-gray-400">Program bantuan aktif yang mungkin sesuai kebutuhan Anda</p>
+            <Link href="/bantuan" className="text-sm text-gold hover:underline mt-2 inline-block">Lihat Program &rarr;</Link>
           </div>
           <div className="p-4 bg-white/5 rounded-lg">
-            <h4 className="font-semibold mb-2">Ã°Å¸â€ºâ€™ Usaha Lokal</h4>
-            <p className="text-sm text-gray-400">Rekomendasi usaha umat di dekat Anda</p>
-            <Link href="/dashboard/usaha" className="text-sm text-gold hover:underline mt-2 inline-block">
-              Jelajahi Ã¢â€ â€™
-            </Link>
+            <h4 className="font-semibold mb-2">Kegiatan Terdekat</h4>
+            <p className="text-sm text-gray-400">Kegiatan lingkungan dan paroki minggu ini</p>
+            <Link href="/public/kegiatan" className="text-sm text-gold hover:underline mt-2 inline-block">Lihat Kegiatan &rarr;</Link>
           </div>
         </div>
       </div>
 
-      {/* Quick Links untuk Admin */}
-      {(profile?.role === 'super_admin' || 
-        ['pastor', 'wakil_ketua_dpp', 'sekretaris_dpp', 'bendahara_dpp', 'koordinator_bidang'].includes(profile?.role || '')) && (
-        <div className="card">
+      {profile?.role && profile.role !== 'umat' && (
+        <div className="card mb-8">
           <div className="card-header">
-            <h3 className="card-title">Ã°Å¸â€ºÂ Ã¯Â¸Â Panel Admin</h3>
+            <h3 className="card-title">Panel Admin</h3>
           </div>
           <div className="flex flex-wrap gap-3">
-            {profile?.role === 'super_admin' && (
-              <Link href="/super-admin" className="btn btn-primary">
-                Ã°Å¸â€ºÂ¡Ã¯Â¸Â Super Admin
-              </Link>
+            {profile.role === 'super_admin' && (
+              <Link href="/super-admin/dashboard" className="btn btn-primary">Super Admin</Link>
             )}
-            {['pastor', 'wakil_ketua_dpp', 'sekretaris_dpp', 'bendahara_dpp', 'koordinator_bidang'].includes(profile?.role || '') && (
-              <Link href="/admin/paroki" className="btn btn-secondary">
-                Ã°Å¸ÂÂ¢ Admin Paroki
-              </Link>
+            {['pastor', 'wakil_ketua_dpp', 'sekretaris_dpp', 'bendahara_dpp', 'koordinator_bidang'].includes(profile.role) && (
+              <Link href="/admin/paroki/dashboard" className="btn btn-secondary">Admin Paroki</Link>
             )}
-            {['ketua_lingkungan', 'sekretaris_lingkungan', 'bendahara_lingkungan', 'wali_digital_lingkungan'].includes(profile?.role || '') && (
-              <Link href={`/admin/lingkungan/${profile?.lingkungan_slug?.toLowerCase()}`} className="btn btn-secondary">
-                Ã°Å¸ÂËœÃ¯Â¸Â Admin Lingkungan
-              </Link>
+            {['ketua_lingkungan', 'sekretaris_lingkungan', 'bendahara_lingkungan', 'wali_digital_lingkungan'].includes(profile.role) && (
+              <Link href={`/admin/lingkungan/${profile.lingkungan_slug?.toLowerCase()}/dashboard`} className="btn btn-secondary">Admin Lingkungan</Link>
             )}
           </div>
         </div>
