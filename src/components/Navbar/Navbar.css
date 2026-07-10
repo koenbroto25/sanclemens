@@ -1,0 +1,273 @@
+/* ============================================
+   HOMEPAGE SWITCHER (navbar pill — Pintu 1/2/3)
+   ============================================ */
+.switcher {
+  display: flex;
+  align-items: center;
+  background: rgba(200, 169, 110, 0.08);
+  border: 1px solid rgba(200, 169, 110, 0.15);
+  border-radius: 24px;
+  padding: 4px 8px;
+  gap: 2px;
+}
+.switcher-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 26px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+.switcher-item svg {
+  width: 14px;
+  height: 14px;
+  color: var(--color-text-light);
+}
+.switcher-item.active {
+  background: rgba(200, 169, 110, 0.2);
+}
+.switcher-item.active svg {
+  color: var(--color-gold);
+}
+.switcher-item.disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+.switcher-item.disabled svg {
+  color: var(--color-stone);
+}
+.switcher-divider {
+  width: 1px;
+  height: 12px;
+  background: rgba(200, 169, 110, 0.2);
+  flex-shrink: 0;
+}
+.switcher-item .tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-primary);
+  color: var(--color-text-light);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.6rem;
+  letter-spacing: 0.05em;
+  padding: 4px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+.switcher-item:hover .tooltip {
+  opacity: 1;
+}
+
+/* ============================================
+   NAVBAR
+   ============================================ */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(26, 14, 5, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(200, 169, 110, 0.15);
+  transition: var(--transition-smooth);
+}
+.navbar.scrolled {
+  background: rgba(26, 14, 5, 0.95);
+  box-shadow: 0 2px 24px rgba(26, 14, 5, 0.3);
+}
+.navbar-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 2rem;
+  gap: 1.5rem;
+}
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-shrink: 0;
+}
+.navbar-logo .logo-icon {
+  width: 36px;
+  height: 36px;
+  color: var(--color-gold);
+}
+.navbar-logo .logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+.navbar-logo .logo-name {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 1.15rem;
+  color: var(--color-gold);
+  letter-spacing: 0.02em;
+}
+.navbar-logo .logo-sub {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.65rem;
+  color: var(--color-stone);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 1px;
+}
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.navbar-nav a {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text-light);
+  opacity: 0.75;
+  transition: var(--transition-smooth);
+  position: relative;
+  padding: 0.25rem 0;
+}
+.navbar-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-gold);
+  transition: width 0.3s ease;
+}
+.navbar-nav a:hover {
+  opacity: 1;
+  color: var(--color-gold-light);
+}
+.navbar-nav a:hover::after { width: 100%; }
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+.btn-login {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  border: 1px solid var(--color-gold);
+  padding: 0.45rem 1.2rem;
+  border-radius: 2px;
+  transition: var(--transition-smooth);
+}
+.btn-login:hover {
+  background: rgba(200, 169, 110, 0.12);
+  border-color: var(--color-gold-light);
+  color: var(--color-gold-light);
+}
+.btn-register {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  background: var(--color-gold);
+  padding: 0.45rem 1.2rem;
+  border-radius: 2px;
+  transition: var(--transition-smooth);
+}
+.btn-register:hover { background: var(--color-gold-light); }
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  width: 24px;
+  cursor: pointer;
+  z-index: 1002;
+}
+.hamburger span {
+  display: block;
+  height: 1.5px;
+  background: var(--color-gold);
+  transition: var(--transition-smooth);
+}
+.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 4.5px); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -4.5px); }
+
+/* Mobile menu */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: -320px;
+  width: 300px;
+  max-width: 85vw;
+  height: 100vh;
+  background: var(--color-primary);
+  z-index: 1001;
+  padding: 5rem 2rem 2rem;
+  transition: left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  overflow-y: auto;
+}
+.mobile-menu.open { left: 0; }
+.mobile-menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.mobile-menu-overlay.open { opacity: 1; pointer-events: auto; }
+.mobile-menu nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.mobile-menu nav a {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-light);
+  padding: 0.9rem 0;
+  border-bottom: 1px solid rgba(200, 169, 110, 0.1);
+  transition: var(--transition-smooth);
+}
+.mobile-menu nav a:hover { color: var(--color-gold); padding-left: 0.5rem; }
+.mobile-auth {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.mobile-auth .btn-login,
+.mobile-auth .btn-register {
+  display: block;
+  text-align: center;
+  padding: 0.7rem 1rem;
+  font-size: 0.75rem;
+  border-radius: 3px;
+}

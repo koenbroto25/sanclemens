@@ -1,0 +1,85 @@
+{
+    "name":  "@paroki/ui",
+    "version":  "0.0.1",
+    "private":  true,
+    "main":  "./src/index.ts",
+    "types":  "./src/index.ts",
+    "exports":  {
+                    ".":  "./src/index.ts",
+                    "./base/button":  "./src/base/button.tsx",
+                    "./base/card":  "./src/base/card.tsx",
+                    "./base/badge":  "./src/base/badge.tsx",
+"./base/input":  "./src/base/input.tsx",
+"./base/label":  "./src/base/label.tsx",
+                    "./base/modal":  "./src/base/modal.tsx",
+                    "./base/table":  "./src/base/table.tsx",
+                    "./base/toast":  "./src/base/toast.tsx",
+                    "./features/CompanionModeChip":  "./src/features/CompanionModeChip.tsx",
+                    "./features/HomepageSwitcher":  "./src/features/HomepageSwitcher.tsx",
+                    "./features/ApprovalTracker":  "./src/features/ApprovalTracker.tsx",
+                    "./features/LansiaCheckButton":  "./src/features/LansiaCheckButton.tsx",
+                    "./features/LiturgicalColorBand":  "./src/features/LiturgicalColorBand.tsx",
+                    "./features/RoleContextBadge":  "./src/features/RoleContextBadge.tsx",
+                    "./features/SacramentStatusBadge":  "./src/features/SacramentStatusBadge.tsx"
+                },
+    "typesVersions":  {
+                          "*":  {
+                                    "base/button":  [
+                                                        "./src/base/button.tsx"
+                                                    ],
+                                    "base/card":  [
+                                                      "./src/base/card.tsx"
+                                                  ],
+                                    "base/badge":  [
+                                                       "./src/base/badge.tsx"
+                                                   ],
+                                    "base/input":  [
+                                                       "./src/base/input.tsx"
+                                                   ],
+                                    "base/label":  [
+                                                       "./src/base/label.tsx"
+                                                   ],
+                                    "base/modal":  [
+                                                       "./src/base/modal.tsx"
+                                                   ],
+                                    "base/table":  [
+                                                       "./src/base/table.tsx"
+                                                   ],
+                                    "base/toast":  [
+                                                       "./src/base/toast.tsx"
+                                                   ],
+                                    "features/CompanionModeChip":  [
+                                                                       "./src/features/CompanionModeChip.tsx"
+                                                                   ],
+                                    "features/TigaPintuCard":  [
+                                                                   "./src/features/TigaPintuCard.tsx"
+                                                               ],
+                                    "features/ApprovalTracker":  [
+                                                                     "./src/features/ApprovalTracker.tsx"
+                                                                 ],
+                                    "features/HomepageSwitcher":  [
+                                                                      "./src/features/HomepageSwitcher.tsx"
+                                                                  ],
+                                    "features/LansiaCheckButton":  [
+                                                                       "./src/features/LansiaCheckButton.tsx"
+                                                                   ],
+                                    "features/LiturgicalColorBand":  [
+                                                                         "./src/features/LiturgicalColorBand.tsx"
+                                                                     ],
+                                    "features/RoleContextBadge":  [
+                                                                      "./src/features/RoleContextBadge.tsx"
+                                                                  ],
+                                    "features/SacramentStatusBadge":  [
+                                                                          "./src/features/SacramentStatusBadge.tsx"
+                                                                      ]
+                                }
+                      },
+    "license":  "MIT",
+    "scripts":  {
+                    "lint":  "eslint ."
+                },
+    "devDependencies":  {
+                            "eslint":  "^8.57.0",
+                            "typescript":  "^5.4.5"
+                        }
+}

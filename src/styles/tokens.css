@@ -1,0 +1,206 @@
+/* ============================================
+   DESIGN TOKENS — Ekosistem Digital Paroki Santo Klemens v5.1.1
+   Ref: v5/uiux_design_v5.md (Dokumen Resmi & Kanonikal)
+   ============================================ */
+
+:root {
+  /* ═══════════════════════════════════════════
+     CLEMENS DOMAIN — Warm Ecclesiastical
+     ═══════════════════════════════════════════ */
+  
+  /* === FOUNDATION COLORS === */
+  --color-primary:      #1a0e05;  /* Deep Brown — background gelap, navbar */
+  --color-secondary:    #2c1a0e;  /* Medium Brown — secondary surfaces gelap */
+  --color-cream:        #f5f0e8;  /* Warm Cream — background utama halaman */
+  --color-stone:        #8b7355;  /* Stone — teks sekunder, label, ornamen */
+
+  /* === ACCENT COLORS === */
+  --color-gold:         #c8a96e;  /* Liturgical Gold — aksen utama */
+  --color-gold-light:   #e8d5a3;  /* Gold Light — hover state, highlight */
+
+  /* === TEXT COLORS === */
+  --color-text-dark:    #1c1410;  /* Near Black Warm — teks di background terang */
+  --color-text-light:   #f0ebe0;  /* Cream Light — teks di background gelap */
+
+  /* === LITURGICAL ACCENT COLORS === */
+  --color-glass-blue:   #4a6b8a;  /* Stained Glass Blue — respons umat, badge liturgi */
+  --color-glass-red:    #8b2635;  /* Stained Glass Red — waktu misa, drop cap, today badge */
+
+  /* === SEMANTIC COLORS === */
+  --color-success:      #4a8c5c;  /* Green — status sukses */
+  --color-warning:      #c8a96e;  /* Gold — warning (konsisten dengan gold) */
+  --color-error:        #8b2635;  /* Glass Red — error state */
+  --color-emergency:    #b91c1c;  /* Deep Red — SOS emergency */
+
+  /* === LITURGICAL CALENDAR COLORS (dot indicators) === */
+  --liturgi-hijau:      #4a8c5c;  /* Masa Biasa */
+  --liturgi-putih:      #f0ebe0;  /* Natal, Paskah, Pesta Santo/Santa */
+  --liturgi-merah:      #8b2635;  /* Minggu Palma, Pentakosta, Martir */
+  --liturgi-ungu:       #6b4c8a;  /* Adven, Prapaskah */
+  --liturgi-rosa:       #e8a0b0;  /* Minggu Gaudete, Laetare */
+  --liturgi-emas:       #c8a96e;  /* Paskah/Natal tertinggi (fallback) */
+
+  /* === DYNAMIC LITURGICAL (runtime) === */
+  --liturgi-current:    var(--color-gold);  /* Default fallback — di-override oleh JS */
+  --liturgi-current-soft: rgba(200, 169, 110, 0.12);  /* untuk overlay/tint tipis */
+
+  /* ═══════════════════════════════════════════
+     PASAR KASIH DOMAIN — Trustworthy Marketplace
+     ═══════════════════════════════════════════ */
+  --pk-primary:         #059669;  /* Solidarity Green */
+  --pk-primary-hover:   #047857;  /* Green Darker */
+  --pk-secondary:       #ea580c;  /* Action Orange */
+  --pk-secondary-hover: #c2410c;  /* Orange Darker */
+  --pk-bg:              #ffffff;  /* Clean White */
+  --pk-surface:         #f9fafb;  /* Light Gray */
+  --pk-text-primary:    #111827;  /* Near Black */
+  --pk-text-secondary:  #6b7280;  /* Gray */
+  --pk-success:         #10b981;  /* Emerald */
+  --pk-warning:         #f59e0b;  /* Amber */
+  --pk-error:           #ef4444;  /* Red */
+  --pk-border:          #e5e7eb;  /* Border halus */
+
+  /* ═══════════════════════════════════════════
+     SHARED SEMANTIC & SURFACE
+     ═══════════════════════════════════════════ */
+  --bg:                 var(--color-cream);
+  --surface:            #ffffff;
+  --surface-elevated:   #ffffff;
+  --border:             rgba(200, 169, 110, 0.15);
+  --border-light:       rgba(200, 169, 110, 0.08);
+  --text-on-dark:       var(--color-text-light);
+  --text-on-light:      var(--color-text-dark);
+  --text-muted:         var(--color-stone);
+  --text-inverse:       var(--color-primary);
+
+  /* ═══════════════════════════════════════════
+     TYPOGRAPHY
+     ═══════════════════════════════════════════ */
+  --font-heading: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono:    'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Type Scale */
+  --text-hero:      clamp(3rem, 6vw, 7rem);
+  --text-display:   clamp(2rem, 4vw, 3.2rem);
+  --text-h2:        clamp(2rem, 3.5vw, 3rem);
+  --text-h3:        1.35rem;
+  --text-h4:        1.2rem;
+  --text-h5:        1.05rem;
+  --text-body-lg:   1.05rem;
+  --text-body:      0.88rem;
+  --text-ui:        0.82rem;
+  --text-label:     0.78rem;
+  --text-small:     0.72rem;
+  --text-eyebrow:   0.65rem;
+  --text-caption:   0.6rem;
+
+  /* Letter Spacing */
+  --tracking-eyebrow:   0.2em;
+  --tracking-nav:       0.15em;
+  --tracking-btn:       0.12em;
+  --tracking-badge:     0.12em;
+
+  /* ═══════════════════════════════════════════
+     SHAPE & SPACE
+     ═══════════════════════════════════════════ */
+  
+  /* Gothic Alternating Radius (Clemens Signature) */
+  --radius-card:        2px 20px 2px 20px;
+  --radius-card-lg:     4px 24px 4px 24px;
+  --radius-card-xl:     4px 28px 4px 28px;
+  --radius-btn:         2px 24px 2px 24px;
+  --radius-btn-lg:      2px 28px 2px 28px;
+  --radius-pill:        24px;
+  --radius-chat:        8px 28px 8px 28px;
+  --radius-next-mass:   4px 20px 4px 20px;
+  --radius-input:       2px 12px 2px 12px;
+  --radius-modal:       4px 28px 4px 28px;
+
+  /* Conventional Radius (Pasar Kasih) */
+  --pk-radius-card:     12px;
+  --pk-radius-btn:      8px;
+  --pk-radius-badge:    9999px;
+
+  /* Spacing Scale */
+  --space-1:  0.25rem;   /* 4px */
+  --space-2:  0.5rem;    /* 8px */
+  --space-3:  0.75rem;   /* 12px */
+  --space-4:  1rem;      /* 16px */
+  --space-5:  1.25rem;   /* 20px */
+  --space-6:  1.5rem;    /* 24px */
+  --space-8:  2rem;      /* 32px */
+  --space-10: 2.5rem;    /* 40px */
+  --space-12: 3rem;      /* 48px */
+  --space-16: 4rem;      /* 64px */
+  --space-20: 5rem;      /* 80px — section padding standard */
+
+  /* ═══════════════════════════════════════════
+     MOTION & SHADOW
+     ═══════════════════════════════════════════ */
+  
+  /* Shadows — Warm Brown-Based */
+  --shadow-warm:     0 8px 32px rgba(26, 14, 5, 0.15);
+  --shadow-warm-lg:  0 16px 48px rgba(26, 14, 5, 0.2);
+  --shadow-card:     0 4px 20px rgba(26, 14, 5, 0.1);
+  --shadow-gold:     0 4px 20px rgba(200, 169, 110, 0.35);
+  --shadow-gold-lg:  0 6px 28px rgba(200, 169, 110, 0.5);
+  --shadow-today:    0 4px 24px rgba(200, 169, 110, 0.15);
+  --shadow-sos:      0 4px 12px rgba(185, 28, 28, 0.4);
+
+  /* Transitions */
+  --transition-smooth:  all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition-fast:    150ms ease;
+  --transition-normal:  250ms ease;
+  --transition-slow:    400ms ease;
+  --transition-reveal:  0.8s ease;
+
+  /* ═══════════════════════════════════════════
+     Z-INDEX SCALE
+     ═══════════════════════════════════════════ */
+  --z-dropdown:    100;
+  --z-sticky:      200;
+  --z-navbar:      1000;
+  --z-liturgi-bar: 1001;
+  --z-sidebar:     1001;
+  --z-overlay:     1050;
+  --z-chat:        998;
+  --z-bot-fab:     999;
+  --z-sos:         9999;
+  --z-modal:       1100;
+  --z-toast:       700;
+  --z-tooltip:     800;
+
+  /* ═══════════════════════════════════════════
+     RESPONSIVE CONTAINERS
+     ═══════════════════════════════════════════ */
+  --container-max:    1200px;
+  --navbar-max:       1400px;
+}
+
+/* ── Dark Mode Tokens (v5.2 preparation) ── */
+.dark {
+  --color-primary:    #2a1f14;
+  --color-secondary:  #3d2e1a;
+  --color-cream:      #1a1612;
+  --color-stone:      #a89880;
+  --color-gold:       #d4af37;
+  --color-gold-light: #e6c84d;
+  --color-text-dark:  #f5f0e8;
+  --color-text-light: #1c1410;
+  --color-glass-blue: #5a7b9a;
+  --color-glass-red:  #a63d4d;
+  --color-success:    #5a9c6c;
+  --color-error:      #b44252;
+  --color-emergency:  #d93c3c;
+  
+  --bg:               var(--color-cream);
+  --surface:          #252018;
+  --surface-elevated: #30231a;
+  --border:           rgba(200, 169, 110, 0.2);
+  --border-light:     rgba(200, 169, 110, 0.1);
+  
+  --shadow-warm:      0 8px 32px rgba(0, 0, 0, 0.4);
+  --shadow-warm-lg:   0 16px 48px rgba(0, 0, 0, 0.5);
+  --shadow-card:      0 4px 20px rgba(0, 0, 0, 0.3);
+}

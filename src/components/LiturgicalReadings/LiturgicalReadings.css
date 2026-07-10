@@ -1,0 +1,117 @@
+/* Section 3 — BACAAN LITURGI */
+.section-liturgi {
+  background: var(--color-cream);
+  padding: 5rem 2rem;
+  position: relative;
+}
+.liturgi-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.liturgi-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.liturgi-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+.liturgi-meta-item {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-stone);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.liturgi-meta-item .dot { width: 8px; height: 8px; border-radius: 50%; }
+.liturgi-manuscript {
+  background: #fff;
+  border-radius: 4px 28px 4px 28px;
+  padding: 3rem 2.5rem 2.5rem;
+  box-shadow: var(--shadow-card);
+  position: relative;
+  border: 1px solid rgba(200, 169, 110, 0.1);
+}
+.liturgi-manuscript::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 2.5rem; right: 2.5rem;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-gold), rgba(200, 169, 110, 0.2), var(--color-gold));
+}
+.liturgi-reading {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 2rem;
+  border-left: 2px solid var(--color-gold);
+}
+.liturgi-reading .reading-label {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 0.35rem;
+}
+.liturgi-reading .reading-source {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--color-stone);
+  margin-bottom: 0.75rem;
+}
+.liturgi-reading .reading-text {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.88rem;
+  color: var(--color-text-dark);
+  line-height: 1.9;
+  text-indent: 1.5rem;
+}
+.liturgi-reading .reading-text .drop-cap {
+  float: left;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 3.5rem;
+  line-height: 0.8;
+  padding-right: 0.15rem;
+  padding-top: 0.15rem;
+  color: var(--color-glass-red);
+  text-indent: 0;
+}
+.liturgi-reading.injil {
+  background: rgba(200, 169, 110, 0.04);
+  border-radius: 2px 16px 2px 16px;
+  padding: 1.5rem 1.5rem 1.5rem 2.5rem;
+  margin: 1.5rem -1rem 0;
+  border-left: 2px solid var(--color-gold);
+}
+.liturgi-reading.injil .reading-text {
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--color-text-dark);
+  line-height: 1.8;
+  text-indent: 0;
+}
+.liturgi-reading .respons-umat {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-style: italic;
+  font-size: 0.92rem;
+  color: var(--color-glass-blue);
+  margin-top: 0.5rem;
+  text-indent: 0;
+}

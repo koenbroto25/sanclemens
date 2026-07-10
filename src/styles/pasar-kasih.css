@@ -1,0 +1,128 @@
+/*
+ * Pasar Kasih Theme Styles
+ * This CSS file defines the unique visual theme for the Pasar Kasih marketplace,
+ * distinct from the main Clemens website.
+ */
+
+:root {
+  /* Primary Colors */
+  --pk-primary: #e8844a;       /* Warm Orange */
+  --pk-primary-dark: #c66a33;  /* Darker Orange for hover */
+  
+  /* Secondary & Accent Colors */
+  --pk-secondary: #2d8a7e;     /* Teal for badges/verified */
+  --pk-accent: #d4a853;        /* Gold for ratings/featured */
+  
+  /* Backgrounds */
+  --pk-background: #fff8f0;    /* Warm Off-White */
+  --pk-surface: #ffffff;       /* White for cards */
+  
+  /* Text Colors */
+  --pk-text: #2c1810;          /* Dark Warm Brown */
+  --pk-text-muted: #8b7355;    /* Muted Brown for secondary text */
+  
+  /* Borders */
+  --pk-border: rgba(44, 24, 16, 0.1); /* Light border from text color */
+}
+
+/* Base Styles for Pasar Kasih page container */
+.pasar-kasih-page {
+  background-color: var(--pk-background);
+  color: var(--pk-text);
+  font-family: 'Inter', sans-serif; /* Example font */
+  min-height: 100vh;
+}
+
+/* General Link/Button Styles */
+.pasar-kasih-page a,
+.pasar-kasih-page button {
+  color: var(--pk-primary);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.pasar-kasih-page a:hover,
+.pasar-kasih-page button:hover {
+  color: var(--pk-primary-dark);
+}
+
+/* Buttons */
+.pk-btn-primary {
+  background-color: var(--pk-primary);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.pk-btn-primary:hover {
+  background-color: var(--pk-primary-dark);
+}
+
+.pk-btn-secondary {
+  background-color: var(--pk-surface);
+  color: var(--pk-primary);
+  border: 1px solid var(--pk-primary);
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.pk-btn-secondary:hover {
+  background-color: var(--pk-primary);
+  color: #fff;
+}
+
+/* Cards */
+.pk-card {
+  background-color: var(--pk-surface);
+  border: 1px solid var(--pk-border);
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+}
+
+/* Headings */
+.pasar-kasih-page h1,
+.pasar-kasih-page h2,
+.pasar-kasih-page h3,
+.pasar-kasih-page h4 {
+  color: var(--pk-text);
+  margin-bottom: 1rem;
+}
+
+/* Badges */
+.pk-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px; /* pill shape */
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.pk-badge-category {
+  background-color: var(--pk-secondary);
+  color: #fff;
+}
+
+.pk-badge-verified {
+  background-color: var(--pk-accent);
+  color: #fff;
+}
+
+/* Inputs */
+.pk-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--pk-border);
+  border-radius: 0.5rem;
+  background-color: var(--pk-surface);
+  color: var(--pk-text);
+}
+
+.pk-input::placeholder {
+  color: var(--pk-text-muted);
+}

@@ -1,0 +1,80 @@
+intelligible species.
+Reply to Objection 1: The thing understood is in the intellect by its
+own likeness; and it is in this sense that we say that the thing
+actually understood is the intellect in act, because the likeness of the
+thing understood is the form of the intellect, as the likeness of a
+sensible thing is the form of the sense in act. Hence it does not
+follow that the intelligible species abstracted is what is actually
+understood; but rather that it is the likeness thereof.
+Reply to Objection 2: In these words "the thing actually understood"
+there is a double implication---the thing which is understood, and the
+fact that it is understood. In like manner the words "abstract
+universal" imply two things, the nature of a thing and its abstraction
+or universality. Therefore the nature itself to which it occurs to be
+understood, abstracted or considered as universal is only in
+individuals; but that it is understood, abstracted or considered as
+universal is in the intellect. We see something similar to this is in the
+senses. For the sight sees the color of the apple apart from its smell.
+If therefore it be asked where is the color which is seen apart from
+the smell, it is quite clear that the color which is seen is only in the
+apple: but that it be perceived apart from the smell, this is owing to
+the sight, forasmuch as the faculty of sight receives the likeness of
+color and not of smell. In like manner humanity understood is only in
+this or that man; but that humanity be apprehended without
+conditions of individuality, that is, that it be abstracted and
+consequently considered as universal, occurs to humanity inasmuch
+as it is brought under the consideration of the intellect, in which
+there is a likeness of the specific nature, but not of the principles of
+individuality.
+Reply to Objection 3: There are two operations in the sensitive part.
+One, in regard of impression only, and thus the operation of the
+senses takes place by the senses being impressed by the sensible.
+The other is formation, inasmuch as the imagination forms for itself
+an image of an absent thing, or even of something never seen. Both
+of these operations are found in the intellect. For in the first place
+there is the passion of the passive intellect as informed by the
+intelligible species; and then the passive intellect thus informed
+forms a definition, or a division, or a composition, expressed by a
+word. Wherefore the concept conveyed by a word is its definition;
+and a proposition conveys the intellect's division or composition.
+Words do not therefore signify the intelligible species themselves;
+
+but that which the intellect forms for itself for the purpose of judging
+of external things.
+
+### ARTICLE 3. Whether the more universal is first in our
+
+intellectual cognition?
+Objection 1: It would seem that the more universal is not first in our
+intellectual cognition. For what is first and more known in its own
+nature, is secondarily and less known in relation to ourselves. But
+universals come first as regards their nature, because "that is first
+which does not involve the existence of its correlative" (Categor. ix).
+Therefore the universals are secondarily known as regards our
+intellect.
+Objection 2: Further, the composition precedes the simple in relation
+to us. But universals are the more simple. Therefore they are known
+secondarily by us.
+Objection 3: Further, the Philosopher says (Phys. i, 1), that the object
+defined comes in our knowledge before the parts of its definition.
+But the more universal is part of the definition of the less universal,
+as "animal" is part of the definition of "man." Therefore the
+universals are secondarily known by us.
+Objection 4: Further, we know causes and principles by their effects.
+But universals are principles. Therefore universals are secondarily
+known by us.
+On the contrary, "We must proceed from the universal to the singular
+and individual" (Phys. i, 1)
+I answer that, In our knowledge there are two things to be
+considered. First, that intellectual knowledge in some degree arises
+from sensible knowledge: and, because sense has singular and
+individual things for its object, and intellect has the universal for its
+object, it follows that our knowledge of the former comes before our
+knowledge of the latter. Secondly, we must consider that our
+intellect proceeds from a state of potentiality to a state of actuality;
+and every power thus proceeding from potentiality to actuality
+comes first to an incomplete act, which is the medium between
+potentiality and actuality, before accomplishing the perfect act. The
+perfect act of the intellect is complete knowledge, when the object is
+distinctly and determinately known; whereas the incomplete act is
+imperfect knowledge, when the object is known indistinctly, and as it

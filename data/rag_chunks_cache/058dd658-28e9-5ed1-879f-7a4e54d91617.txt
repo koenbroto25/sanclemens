@@ -1,0 +1,54 @@
+---
+document_code: PAUS_EG
+title: "Evangelii Gaudium - Apostolic Exhortation on the Proclamation of the Gospel in Today's World"
+category: "Papal Apostolic Exhortation"
+priority: "MANDATORY"
+word_count: 47683
+paragraph_count: 429
+estimated_chunks: 95
+---
+
+# Evangelii Gaudium - Apostolic Exhortation on the Proclamation of the Gospel in Today's World
+
+**Document Code**: `PAUS_EG`  
+**Category**: Papal Apostolic Exhortation  
+**Priority**: MANDATORY
+
+> **Description**: Apostolic Exhortation on the Proclamation of the Gospel in Today's World by Pope Francis (2013). This document has been precisely cleaned for use in an AI Knowledge Base.
+
+---
+
+1. The joy of the gospel fills the hearts and lives of all who encounter Jesus. Those who accept his
+offer of salvation are set free from sin, sorrow, inner emptiness and loneliness. With Christ joy is
+constantly born anew. In this Exhortation I wish to encourage the Christian faithful to embark upon
+a new chapter of evangelization marked by this joy, while pointing out new paths for the Church’s
+journey in years to come.
+
+### I. A joy ever new, a joy which is shared
+
+2. The great danger in today’s world, pervaded as it is by consumerism, is the desolation and
+anguish born of a complacent yet covetous heart, the feverish pursuit of frivolous pleasures, and a
+blunted conscience. Whenever our interior life becomes caught up in its own interests and
+concerns, there is no longer room for others, no place for the poor. God’s voice is no longer heard,
+the quiet joy of his love is no longer felt, and the desire to do good fades. This is a very real
+danger for believers too. Many fall prey to it, and end up resentful, angry and listless. That is no
+way to live a dignified and fulfilled life; it is not God’s will for us, nor is it the life in the Spirit which
+has its source in the heart of the risen Christ.
+
+3. I invite all Christians, everywhere, at this very moment, to a renewed personal encounter with
+Jesus Christ, or at least an openness to letting him encounter them; I ask all of you to do this
+unfailingly each day. No one should think that this invitation is not meant for him or her, since “no
+one is excluded from the joy brought by the Lord”. The Lord does not disappoint those who take
+this risk; whenever we take a step towards Jesus, we come to realize that he is already there,
+waiting for us with open arms. Now is the time to say to Jesus: “Lord, I have let myself be
+deceived; in a thousand ways I have shunned your love, yet here I am once more, to renew my
+covenant with you. I need you. Save me once again, Lord, take me once more into your
+redeeming embrace”. How good it feels to come back to him whenever we are lost! Let me say
+this once more: God never tires of forgiving us; we are the ones who tire of seeking his mercy.
+Christ, who told us to forgive one another “seventy times seven” (Mt 18:22) has given us his
+example: he has forgiven us seventy times seven. Time and time again he bears us on his
+shoulders. No one can strip us of the dignity bestowed upon us by this boundless and unfailing
+love. With a tenderness which never disappoints, but is always capable of restoring our joy, he
+makes it possible for us to lift up our heads and to start anew. Let us not flee from the resurrection
+of Jesus, let us never give up, come what will. May nothing inspire more than his life, which impels
+us onwards!

@@ -1,0 +1,77 @@
+SECOND PART OF THE SECOND PART : L.60, C.3.
+
+to another. Hence the Philosopher says (Ethic. v, 3,4) that the mean
+in the latter case follows "geometrical proportion," wherein equality
+depends not on quantity but on proportion. For example we say that
+6 is to 4 as 3 is to 2, because in either case the proportion equals 11/2; since the greater number is the sum of the lesser plus its half:
+whereas the equality of excess is not one of quantity, because 6
+exceeds 4 by 2, while 3 exceeds 2 by 1.
+On the other hand in commutations something is paid to an
+individual on account of something of his that has been received, as
+may be seen chiefly in selling and buying, where the notion of
+commutation is found primarily. Hence it is necessary to equalize
+thing with thing, so that the one person should pay back to the other
+just so much as he has become richer out of that which belonged to
+the other. The result of this will be equality according to the
+"arithmetical mean" which is gauged according to equal excess in
+quantity. Thus 5 is the mean between 6 and 4, since it exceeds the
+latter and is exceeded by the former, by 1. Accordingly if, at the start,
+both persons have 5, and one of them receives 1 out of the other's
+belongings, the one that is the receiver, will have 6, and the other will
+be left with 4: and so there will be justice if both be brought back to
+the mean, 1 being taken from him that has 6, and given to him that
+has 4, for then both will have 5 which is the mean.
+Reply to Objection 1: In the other moral virtues the rational, not the
+real mean, is to be followed: but justice follows the real mean;
+wherefore the mean, in justice, depends on the diversity of things.
+Reply to Objection 2: Equality is the general form of justice, wherein
+distributive and commutative justice agree: but in one we find
+equality of geometrical proportion, whereas in the other we find
+equality of arithmetical proportion.
+Reply to Objection 3: In actions and passions a person's station
+affects the quantity of a thing: for it is a greater injury to strike a
+prince than a private person. Hence in distributive justice a person's
+station is considered in itself, whereas in commutative justice it is
+considered in so far as it causes a diversity of things.
+
+SECOND PART OF THE SECOND PART : L.60, C.3.
+
+SECOND PART OF THE SECOND PART : L.60, C.4.
+
+### ARTICLE 3. Whether there is a different matter for both kinds
+
+of justice?
+Objection 1: It would seem that there is not a different matter for both
+kinds of justice. Diversity of matter causes diversity of virtue, as in
+the case of fortitude and temperance. Therefore, if distributive and
+commutative justice have different matters, it would seem that they
+are not comprised under the same virtue, viz. justice.
+Objection 2: Further, the distribution that has to do with distributive
+justice is one of "wealth or of honors, or of whatever can be
+distributed among the members of the community" (Ethic. v, 2),
+which very things are the subject matter of commutations between
+one person and another, and this belongs to commutative justice.
+Therefore the matters of distributive and commutative justice are not
+distinct.
+Objection 3: Further, if the matter of distributive justice differs from
+that of commutative justice, for the reason that they differ
+specifically, where there is no specific difference, there ought to be
+no diversity of matter. Now the Philosopher (Ethic. v, 2) reckons
+commutative justice as one species, and yet this has many kinds of
+matter. Therefore the matter of these species of justice is, seemingly,
+not of many kinds.
+On the contrary, It is stated in Ethic. v, 2 that "one kind of justice
+directs distributions, and another commutations."
+I answer that, As stated above (Question 51, Articles 8,10), justice is
+about certain external operations, namely distribution and
+commutation. These consist in the use of certain externals, whether
+things, persons or even works: of things, as when one man takes
+from or restores to another that which is his; of persons, as when a
+man does an injury to the very person of another, for instance by
+striking or insulting him, or even by showing respect for him; and of
+works, as when a man justly exacts a work of another, or does a
+work for him. Accordingly, if we take for the matter of each kind of
+justice the things themselves of which the operations are the use,
+the matter of distributive and commutative justice is the same, since
+things can be distributed out of the common property to individuals,
+and be the subject of commutation between one person and another;

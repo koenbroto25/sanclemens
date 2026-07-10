@@ -1,0 +1,59 @@
+---
+document_code: BAPA_ST_ST_2
+title: "St. Thomas Aquinas - Summa Theologica: Prima Secundae (First Part of Second Part)"
+category: "Bapa Gereja"
+priority: "Pendalaman"
+word_count: 750917
+paragraph_count: 5055
+estimated_chunks: 1502
+---
+
+# St. Thomas Aquinas - Summa Theologica: Prima Secundae (First Part of Second Part)
+
+**Kode Dokumen**: `BAPA_ST_ST_2`
+**Kategori**: Bapa Gereja
+**Prioritas**: Pendalaman
+
+> **Deskripsi**: Prima Secundae (Bagian Pertama dari Bagian Kedua) Summa Theologica oleh St. Thomas Aquinas, mencakup 114 Quaestio tentang Tujuan Akhir Manusia, Tindakan Manusia, Hukum, dan Rahmat. Diterjemahkan oleh Fathers of the English Dominican Province.
+
+---
+
+FIRST PART OF THE SECOND PART : L.4, C.6.
+
+### ARTICLE 5. Whether the body is necessary for man's
+
+happiness?
+Objection 1: It would seem that the body is necessary for Happiness.
+For the perfection of virtue and grace presupposes the perfection of
+nature. But Happiness is the perfection of virtue and grace. Now the
+soul, without the body, has not the perfection of nature; since it is
+naturally a part of human nature, and every part is imperfect while
+separated from its whole. Therefore the soul cannot be happy
+without the body.
+Objection 2: Further, Happiness is a perfect operation, as stated
+above (Question 3, Articles 2,5). But perfect operation follows perfect
+being: since nothing operates except in so far as it is an actual
+being. Since, therefore, the soul has not perfect being, while it is
+separated from the body, just as neither has a part, while separate
+from its whole; it seems that the soul cannot be happy without the
+body.
+Objection 3: Further, Happiness is the perfection of man. But the
+soul, without the body, is not man. Therefore Happiness cannot be in
+the soul separated from the body.
+Objection 4: Further, according to the Philosopher (Ethic. vii, 13) "the
+operation of bliss," in which operation happiness consists, is "not
+hindered." But the operation of the separate soul is hindered;
+because, as Augustine says (Gen. ad lit. xii, 35), the soul "has a
+natural desire to rule the body, the result of which is that it is held
+back, so to speak, from tending with all its might to the heavenward
+journey," i.e. to the vision of the Divine Essence. Therefore the soul
+cannot be happy without the body.
+Objection 5: Further, Happiness is the sufficient good and lulls
+desire. But this cannot be said of the separated soul; for it yet
+desires to be united to the body, as Augustine says (Gen. ad lit. xii,
+35). Therefore the soul is not happy while separated from the body.
+Objection 6: Further, in Happiness man is equal to the angels. But
+the soul without the body is not equal to the angels, as Augustine
+says (Gen. ad lit. xii, 35). Therefore it is not happy.
+
+FIRST PART OF THE SECOND PART : L.4, C.6.

@@ -1,0 +1,51 @@
+---
+document_code: PAUS_MF
+title: "Mysterium Fidei - Ensiklik tentang Ekaristi sebagai Misteri Iman"
+category: "Ensiklik Paus"
+priority: "Pendalaman"
+word_count: 7284
+paragraph_count: 77
+estimated_chunks: 15
+---
+
+# Mysterium Fidei — Ensiklik tentang Ekaristi sebagai Misteri Iman
+
+**Kode Dokumen**: `PAUS_MF`  
+**Kategori**: Ensiklik Paus  
+**Prioritas**: Pendalaman
+
+> **Deskripsi**: Ensiklik Paus Paulus VI tentang Doktrin dan Tradisi (Kebaktian Kepada) Ekaristi Mahakudus, Roma, 3 September 1965. Dokumen ini telah dibersihkan secara presisi untuk AI Knowledge Base: penanda catatan kaki, referensi akademis non-Alkitabiah, header, footer, dan nomor halaman telah dihapus. Referensi Kitab Suci dipertahankan secara in-line.
+
+---
+
+## ENSIKLIK PAUS PAULUS VI — MYSTERIUM FIDEI
+
+### Tentang Doktrin dan Tradisi (Kebaktian Kepada) Ekaristi Mahakudus
+
+*Surat Ensiklik kepada Saudara Yang Terhormat Para Patriark, Primat, Uskup Agung, Uskup dan Ordinaris Wilayah lainnya dalam damai dan persekutuan dengan Takhta Apostolik, dan kepada para klerus serta umat beriman di seluruh dunia Katolik.*
+
+**Saudara-saudara yang terhormat dan anak-anak terkasih**
+
+**SALAM DAN BERKAT APOSTOLIK**
+
+---
+
+### 1. Pengantar
+
+Gereja Katolik secara religius selalu menjaga misteri iman yang tak terlukiskan yang merupakan karunia Ekaristi sebagai harta yang paling berharga, yang dianugerahkan kepadanya oleh Kristus Mempelainya sebagai janji cinta-Nya yang agung, dan pada Konsili Vatikan II Gereja telah memberikan pengakuan iman dan ibadat yang baru dan paling khidmat.
+
+### 2. Pemulihan Liturgi dan Partisipasi Aktif
+
+Dalam menghadapi pemulihan Liturgi Suci, sesungguhnya para Bapa Konsili, karena perhatian pastoral mereka kepada Gereja universal, mendesak umat beriman agar dengan iman yang utuh dan kesalehan tertinggi mereka berpartisipasi secara aktif dalam perayaan Misteri Suci ini, dengan mempersembahkannya bersama-sama dengan imam sebagai korban kepada Tuhan untuk keselamatan umat sendiri dan seluruh dunia dan menyantapnya sebagai santapan rohani.
+
+---
+
+### Penegasan Kembali oleh Konsili Vatikan Kedua
+
+### 3. Ekaristi sebagai Jantung Liturgi
+
+Liturgi Suci menempati tempat pertama dalam kehidupan Gereja, dan Misteri Ekaristi merupakan jantung dan pusat Liturgi Suci, karena Ekaristi adalah sumber kehidupan yang menyucikan dan menguatkan kita (Gereja) sehingga kita tidak lagi hidup untuk diri kita sendiri, tetapi untuk Tuhan, dan di antara kita sendiri, kita dipersatukan dengan ikatan kasih yang sangat erat.
+
+### 4. Ringkasan Doktrin Ekaristi
+
+Untuk membuat agar ikatan yang tak terpisahkan antara iman dan kesalehan menjadi jelas, para Bapa Konsili, dengan menegaskan kembali doktrin yang senantiasa dipegang dan diajarkan oleh Gereja, menawarkan ringkasan kebenaran berikut sebagai pengantar kepada penghayatan terhadap Misteri Ekaristi kudus: "Pada Perjamuan Terakhir, pada malam ketika Dia dikhianati, Juruselamat kita mengadakan Korban Ekaristi Tubuh dan Darah-Nya. Dia melakukan ini untuk mengabadikan Korban Salib untuk selamanya sampai Dia akan datang kembali, dan dengan demikian mempercayakan kepada Mempelai-Nya yang terkasih, Gereja, kenangan akan Wafat dan Kebangkitan-Nya: sebuah sakramen cinta, tanda kesatuan, ikatan cinta kasih, perjamuan Paskah, di mana Kristus disambut, jiwa dipenuhi dengan rahmat, dan jaminan kemuliaan di masa datang dikaruniakan kepada kita."

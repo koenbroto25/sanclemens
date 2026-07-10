@@ -1,0 +1,163 @@
+/* FLOATING BOT CHAT */
+.bot-fab {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 999;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(200, 169, 110, 0.4);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+.bot-fab:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 28px rgba(200, 169, 110, 0.5);
+}
+.bot-fab svg { width: 24px; height: 24px; color: var(--color-primary); }
+.bot-fab .pulse {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid var(--color-gold);
+  animation: fabPulse 2.5s ease-out infinite;
+}
+@keyframes fabPulse {
+  0% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(1.35); opacity: 0; }
+}
+.bot-tooltip {
+  position: fixed;
+  bottom: 2.2rem;
+  right: 5.5rem;
+  z-index: 999;
+  background: var(--color-primary);
+  color: var(--color-text-light);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.72rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow-warm);
+  opacity: 0;
+  transform: translateX(8px);
+  transition: var(--transition-smooth);
+  pointer-events: none;
+  white-space: nowrap;
+}
+.bot-tooltip.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+/* Chat widget */
+.chat-widget {
+  position: fixed;
+  bottom: 5.5rem;
+  right: 1.5rem;
+  z-index: 998;
+  width: 340px;
+  max-width: calc(100vw - 2rem);
+  background: var(--color-cream);
+  border-radius: 4px 20px 4px 20px;
+  box-shadow: var(--shadow-warm-lg);
+  border: 1px solid rgba(200, 169, 110, 0.15);
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(16px) scale(0.96);
+  pointer-events: none;
+  transition: var(--transition-smooth);
+}
+.chat-widget.open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+.chat-widget-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--color-primary);
+  padding: 1rem 1.25rem;
+}
+.chat-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(200, 169, 110, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.chat-avatar svg { width: 18px; height: 18px; color: var(--color-gold); }
+.chat-info { flex: 1; }
+.chat-name {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--color-text-light);
+}
+.chat-status {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  color: var(--color-stone);
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.chat-status::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4a8c5c;
+}
+.chat-widget-close {
+  color: var(--color-stone);
+  transition: color 0.2s ease;
+}
+.chat-widget-close:hover { color: var(--color-gold); }
+.chat-widget-close svg { width: 16px; height: 16px; }
+.chat-widget-body { padding: 1.25rem; }
+.chat-greeting {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: var(--color-text-dark);
+  line-height: 1.7;
+}
+.chat-widget-input {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border-top: 1px solid rgba(200, 169, 110, 0.1);
+}
+.chat-widget-input input {
+  flex: 1;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: var(--color-text-dark);
+  background: rgba(26, 14, 5, 0.04);
+  border: 1px solid rgba(200, 169, 110, 0.15);
+  border-radius: 20px;
+  padding: 0.5rem 0.9rem;
+  outline: none;
+}
+.chat-widget-input input::placeholder { color: var(--color-stone); }
+.chat-widget-input button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-smooth);
+}
+.chat-widget-input button:hover { background: var(--color-gold-light); }
+.chat-widget-input button svg { width: 14px; height: 14px; color: var(--color-primary); }

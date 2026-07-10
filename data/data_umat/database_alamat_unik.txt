@@ -1,0 +1,746 @@
+Jalan	Gang	Perumahan_Blok_Komplek	Blok	RT	RW	Kelurahan	Kecamatan	Kota_Kab	Jumlah_Entri_Alamat_Sama
+Karang Mulyo	Sudi Mampir			07		Karang Ambun	Tanjung Redeb	Kab. Berau	1
+						Batuah	Loa Janan	Kab. Kutai Kartanegara	3
+M. Hatta Handil 7						Muara Jawa Ilir	Muara Jawa	Kab. Kutai Kartanegara	2
+A. Yani				12		Muara Jawa Pesisir	Muara Jawa	Kab. Kutai Kartanegara	7
+M. Hatta						Muara Jawa Pesisir	Muara Jawa	Kab. Kutai Kartanegara	4
+M. Hatta				20		Muara Jawa Pesisir	Muara Jawa	Kab. Kutai Kartanegara	1
+M. Hatta				23		Muara Jawa Pesisir	Muara Jawa	Kab. Kutai Kartanegara	4
+Tahir				06		Muara Jawa Pesisir	Muara Jawa	Kab. Kutai Kartanegara	2
+Teluk Ladang	Taruna			32		Muara Jawa Pesisir	Muara Jawa	Kab. Kutai Kartanegara	3
+				06		Muara Jawa Tengah	Muara Jawa	Kab. Kutai Kartanegara	5
+A. Yani				07		Muara Jawa Ulu	Muara Jawa	Kab. Kutai Kartanegara	4
+Inpres	Nauli			32		Muara Jawa Ulu	Muara Jawa	Kab. Kutai Kartanegara	5
+Ir. Soekarno				14		Muara Jawa Ulu	Muara Jawa	Kab. Kutai Kartanegara	1
+Ir. Soekarno				17		Muara Jawa Ulu	Muara Jawa	Kab. Kutai Kartanegara	4
+Ir. Soekarno				19		Muara Jawa Ulu	Muara Jawa	Kab. Kutai Kartanegara	2
+Ir. Soekarno				29		Muara Jawa Ulu	Muara Jawa	Kab. Kutai Kartanegara	5
+Ir. Soekarno				40		Muara Jawa Ulu	Muara Jawa	Kab. Kutai Kartanegara	13
+Jalur	Surya					Muara Jawa Ulu	Muara Jawa	Kab. Kutai Kartanegara	1
+Jalur				11		Muara Jawa Ulu	Muara Jawa	Kab. Kutai Kartanegara	3
+Jalur				34		Muara Jawa Ulu	Muara Jawa	Kab. Kutai Kartanegara	1
+Jalur				36		Muara Jawa Ulu	Muara Jawa	Kab. Kutai Kartanegara	9
+Jalur	Bersatu			37		Muara Jawa Ulu	Muara Jawa	Kab. Kutai Kartanegara	4
+				04		Amborawang Darat	Samboja	Kab. Kutai Kartanegara	3
+				06		Amborawang Darat	Samboja	Kab. Kutai Kartanegara	3
+				04		Margomulyo	Samboja	Kab. Kutai Kartanegara	3
+Balikpapan-samboja						Margomulyo	Samboja	Kab. Kutai Kartanegara	3
+			F2	07		Kerta Bumi	Kuaro	Kab. Paser	6
+				09		Krayan Sentosa	Long Ikis	Kab. Paser	3
+Propinsi Km.. 3				27		Penajam	Penajam	Kab. Penajam Paser Utara	5
+Solo Km.9 N0. 17						Maguwoharjo	Depok	Kabupaten Sleman	3
+		Tata Bumi Regency 2				Banyuraden	Gamping	Kabupaten Sleman	3
+Dahor II						Baru Ilir	Balikpapan Barat	Kota Balikpapan	1
+Sepaku				02		Margasari	Balikpapan Barat	Kota Balikpapan	4
+			L3			Damai	Balikpapan Kota	Kota Balikpapan	1
+Jenderal Sudirman						Damai	Balikpapan Kota	Kota Balikpapan	3
+Jenderal Sudirman		Balikpapan Permai	M			Damai	Balikpapan Kota	Kota Balikpapan	2
+Jenderal. Sudirman						Damai	Balikpapan Kota	Kota Balikpapan	1
+Mt. Haryono				12		Damai	Balikpapan Kota	Kota Balikpapan	1
+Penggalang				33		Damai	Balikpapan Kota	Kota Balikpapan	1
+Jenderal. Sudirman						Klandasan Ilir	Balikpapan Kota	Kota Balikpapan	1
+Mayjend. Sutoyo				53		Klandasan Ilir	Balikpapan Kota	Kota Balikpapan	2
+Jenderal Sudirman						Klandasan Ulu	Balikpapan Kota	Kota Balikpapan	5
+Jenderal Sudirman			A			Klandasan Ulu	Balikpapan Kota	Kota Balikpapan	3
+Tanjung Pura			B			Klandasan Ulu	Balikpapan Kota	Kota Balikpapan	2
+Serobong				21		Prapatan	Balikpapan Kota	Kota Balikpapan	4
+Yos Sudarso						Prapatan	Balikpapan Kota	Kota Balikpapan	5
+Tanjungpura				20		Telaga Sari	Balikpapan Kota	Kota Balikpapan	4
+Telagasari IV				31		Telaga Sari	Balikpapan Kota	Kota Balikpapan	4
+Telogo Rejo				31		Telaga Sari	Balikpapan Kota	Kota Balikpapan	5
+						Damai Bahagia	Balikpapan Selatan	Kota Balikpapan	18
+			A3			Damai Bahagia	Balikpapan Selatan	Kota Balikpapan	3
+			B1/9			Damai Bahagia	Balikpapan Selatan	Kota Balikpapan	4
+				30		Damai Bahagia	Balikpapan Selatan	Kota Balikpapan	3
+		Bds I	B2			Damai Bahagia	Balikpapan Selatan	Kota Balikpapan	3
+Jenderal Sudirman						Damai Bahagia	Balikpapan Selatan	Kota Balikpapan	28
+Jenderal Sudirman				22		Damai Bahagia	Balikpapan Selatan	Kota Balikpapan	4
+Jenderal Sudirman				24		Damai Bahagia	Balikpapan Selatan	Kota Balikpapan	1
+Jenderal Sudirman				40		Damai Bahagia	Balikpapan Selatan	Kota Balikpapan	3
+Jenderal Sudirman		Mulia Regency	AB			Damai Bahagia	Balikpapan Selatan	Kota Balikpapan	4
+Jenderal Sudirman Aspol Brimob Stal Kuda						Damai Bahagia	Balikpapan Selatan	Kota Balikpapan	22
+Jenderal. Sudirman				40		Damai Bahagia	Balikpapan Selatan	Kota Balikpapan	1
+Marsma R. Iswahyudi						Damai Bahagia	Balikpapan Selatan	Kota Balikpapan	1
+Mt. Haryono	Suplir					Damai Bahagia	Balikpapan Selatan	Kota Balikpapan	3
+Mt. Haryono				05		Damai Bahagia	Balikpapan Selatan	Kota Balikpapan	2
+Mt. Haryono				37		Damai Bahagia	Balikpapan Selatan	Kota Balikpapan	2
+Mt. Haryono Gang Suplir						Damai Bahagia	Balikpapan Selatan	Kota Balikpapan	1
+Pemuda 12D						Damai Bahagia	Balikpapan Selatan	Kota Balikpapan	7
+Pemuda II						Damai Bahagia	Balikpapan Selatan	Kota Balikpapan	1
+Pemuda II				13		Damai Bahagia	Balikpapan Selatan	Kota Balikpapan	3
+Pemuda III				13		Damai Bahagia	Balikpapan Selatan	Kota Balikpapan	2
+Pemuda IV						Damai Bahagia	Balikpapan Selatan	Kota Balikpapan	5
+Pemuda V						Damai Bahagia	Balikpapan Selatan	Kota Balikpapan	2
+Pemuda VI				13		Damai Bahagia	Balikpapan Selatan	Kota Balikpapan	3
+Penegak				09		Damai Bahagia	Balikpapan Selatan	Kota Balikpapan	5
+Pupuk Barat						Damai Bahagia	Balikpapan Selatan	Kota Balikpapan	6
+Pupuk Barat I						Damai Bahagia	Balikpapan Selatan	Kota Balikpapan	7
+Pupuk Barat I				14		Damai Bahagia	Balikpapan Selatan	Kota Balikpapan	5
+Pupuk Barat III				13		Damai Bahagia	Balikpapan Selatan	Kota Balikpapan	3
+Pupuk Barat V						Damai Bahagia	Balikpapan Selatan	Kota Balikpapan	7
+Pupuk Barat VI						Damai Bahagia	Balikpapan Selatan	Kota Balikpapan	3
+Pupuk Barat VI No10						Damai Bahagia	Balikpapan Selatan	Kota Balikpapan	4
+Pupuk Raya						Damai Bahagia	Balikpapan Selatan	Kota Balikpapan	15
+Pupuk Raya				14		Damai Bahagia	Balikpapan Selatan	Kota Balikpapan	3
+Pupuk Raya				16		Damai Bahagia	Balikpapan Selatan	Kota Balikpapan	7
+Pupuk Timur I						Damai Bahagia	Balikpapan Selatan	Kota Balikpapan	2
+Pupuk Timur II						Damai Bahagia	Balikpapan Selatan	Kota Balikpapan	1
+Pupuk Timur II				38		Damai Bahagia	Balikpapan Selatan	Kota Balikpapan	1
+Pupuk Utara V			E			Damai Bahagia	Balikpapan Selatan	Kota Balikpapan	3
+Pupuk Utara V			C	16		Damai Bahagia	Balikpapan Selatan	Kota Balikpapan	4
+				12		Damai Baru	Balikpapan Selatan	Kota Balikpapan	2
+				13		Damai Baru	Balikpapan Selatan	Kota Balikpapan	1
+		Balikpapan Baru	L3			Damai Baru	Balikpapan Selatan	Kota Balikpapan	1
+		Bpn Baru	L3			Damai Baru	Balikpapan Selatan	Kota Balikpapan	1
+		Wahana Asri II		14		Damai Baru	Balikpapan Selatan	Kota Balikpapan	1
+		Wahana Asri Ii-				Damai Baru	Balikpapan Selatan	Kota Balikpapan	1
+Agung Tunggal		Wahana Asri II		14		Damai Baru	Balikpapan Selatan	Kota Balikpapan	3
+Mt. Haryono						Damai Baru	Balikpapan Selatan	Kota Balikpapan	2
+Mt. Haryono				12		Damai Baru	Balikpapan Selatan	Kota Balikpapan	2
+Mt. Haryono				13		Damai Baru	Balikpapan Selatan	Kota Balikpapan	3
+			E			Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	6
+						Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	7
+			G4	21		Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	3
+			A1	31		Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	4
+				42		Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	3
+			Q	47		Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	4
+				51		Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	4
+			C	58		Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	5
+		Balikpapan Baru				Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	4
+		Bds 1	B1			Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	2
+		Bds 1	A5			Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	1
+		Bds 2	E1			Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	1
+		Bds 2 Jl.enggang 1	U			Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	1
+		Bukit Villa Balikpapan	A4			Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	4
+		Bumi Rengganis	9B			Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	4
+		Bumi Rengganis	12			Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	5
+		Bumi Rengganis	3B	35		Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	3
+		Bumi Rengganis Block 3-c				Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	2
+		Forestville	K15			Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	4
+		Mediterania	R3/16			Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	5
+		Pgri	L			Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	3
+		Pgri	G			Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	3
+		Pgri	B1			Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	4
+		Pgri	J			Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	4
+		Pgri	E	45		Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	2
+		Pgri	K	46		Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	3
+		Pgri	O	47		Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	4
+		Pgri	D1	48		Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	5
+		Regency Balikpapan				Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	4
+		Rengganis	VI	35		Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	5
+		Vila Damai	B-1	31		Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	4
+Bantimurung		Griya Permata Asri Jl.. Bantimurung				Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	1
+Barito		Griya Permata Asri Jl.. Barito		42		Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	4
+Barito		Griya Permata Asri. Jl.. Barito		42		Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	5
+Belatuk			J1	26		Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	5
+Belatuk I				25		Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	4
+Bengawan Solo		Griya Permata Asri Jl.. Bengawan Solo		90		Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	3
+Danau Toba		Griya Permata Asri Jl.. Danau Toba		42		Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	4
+Enggang 1		Bds 2 Jl.. Enggang 1	U	34		Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	1
+Enggang 1 Bol U		Bds 2 Jl.. Enggang 1 Bol U		34		Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	1
+Fisika			K	46		Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	4
+Kakaktua 3		Bds 2 Jl.. Kakaktua 3	E1			Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	1
+Kapuas				42		Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	4
+Ketinjau			F2	16		Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	1
+Kimia Kompleks Pgri			H	46		Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	1
+Kolonel Syarifuddin Yoes						Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	4
+Kolonel Syarifuddin Yoes	Nurul Qomar			53		Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	6
+Kolonel Syarifuddin Yoes Pmip D-4 93				50		Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	5
+Kutilang IV				24		Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	4
+Kutilang Raya				09		Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	1
+Letkol H Asnawi Arbain		Bukit Balikpapan Indah		51		Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	4
+Letkol H. Asnawi Arbain		Bukit Balikpapan Indah Jl.. Letkol H. Asnawi Arbain		51		Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	1
+Letkol Pol H Asnawi Arbain (jl Inhutani	8)					Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	5
+Malioboro				37		Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	8
+Malioboro			6A	37		Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	3
+Mt. Haryono	Pln Alzen Residence					Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	4
+Mt. Haryono	Pln Alzen Residence		M			Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	3
+Mt. Haryono Perum/gg. Orienz				54		Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	4
+Musi		Griya Permata Asri Jl.. Musi				Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	2
+Nuri G2				19		Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	3
+Pialing 1				28		Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	5
+Pipit IV				11		Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	2
+Punai 4				21		Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	3
+Serindit 1			C1	05		Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	4
+Serindit V				04		Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	3
+Syarifuddin Yoes				45		Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	5
+Syarifuddin Yoes		Pondok Mentari	C			Gunung Bahagia	Balikpapan Selatan	Kota Balikpapan	4
+						Sepinggan	Balikpapan Selatan	Kota Balikpapan	8
+			B/7			Sepinggan	Balikpapan Selatan	Kota Balikpapan	4
+			L			Sepinggan	Balikpapan Selatan	Kota Balikpapan	1
+			D			Sepinggan	Balikpapan Selatan	Kota Balikpapan	3
+	Tirtosari					Sepinggan	Balikpapan Selatan	Kota Balikpapan	1
+	Kalasuka			15		Sepinggan	Balikpapan Selatan	Kota Balikpapan	3
+				17		Sepinggan	Balikpapan Selatan	Kota Balikpapan	1
+				23		Sepinggan	Balikpapan Selatan	Kota Balikpapan	1
+				33		Sepinggan	Balikpapan Selatan	Kota Balikpapan	1
+				56		Sepinggan	Balikpapan Selatan	Kota Balikpapan	3
+		Alam Sepinggan Asri	C/60	42		Sepinggan	Balikpapan Selatan	Kota Balikpapan	4
+		Alam Sepinggan Asri G-52		42		Sepinggan	Balikpapan Selatan	Kota Balikpapan	1
+		Alam Sepinggan Asri G-52		445		Sepinggan	Balikpapan Selatan	Kota Balikpapan	1
+		Alam Sepinggan Asri G-52		45		Sepinggan	Balikpapan Selatan	Kota Balikpapan	1
+		Balqis Santoso				Sepinggan	Balikpapan Selatan	Kota Balikpapan	2
+		Balqis Santoso II Prona III		69		Sepinggan	Balikpapan Selatan	Kota Balikpapan	3
+		Batara 3	E			Sepinggan	Balikpapan Selatan	Kota Balikpapan	4
+		Borneo Paradiso	A/3			Sepinggan	Balikpapan Selatan	Kota Balikpapan	5
+		Borneo Paradiso	G5			Sepinggan	Balikpapan Selatan	Kota Balikpapan	4
+		Borneo Paradiso	L			Sepinggan	Balikpapan Selatan	Kota Balikpapan	5
+		Borneo Paradiso Pinewood	K			Sepinggan	Balikpapan Selatan	Kota Balikpapan	5
+		Bukit Her Mandiri		50		Sepinggan	Balikpapan Selatan	Kota Balikpapan	1
+		Bukit Lestari/ Rulita Sari	B-7	56		Sepinggan	Balikpapan Selatan	Kota Balikpapan	3
+		Bukit Prona Indah	J			Sepinggan	Balikpapan Selatan	Kota Balikpapan	4
+		Griya Telaga Ms	J/07			Sepinggan	Balikpapan Selatan	Kota Balikpapan	3
+		Her II	L6	58		Sepinggan	Balikpapan Selatan	Kota Balikpapan	1
+		Her II	M4	58		Sepinggan	Balikpapan Selatan	Kota Balikpapan	2
+		Her III	L6	58		Sepinggan	Balikpapan Selatan	Kota Balikpapan	1
+		Laksana Kencana Indah		50		Sepinggan	Balikpapan Selatan	Kota Balikpapan	4
+		Melati	B	49		Sepinggan	Balikpapan Selatan	Kota Balikpapan	3
+		Melati Anurah Jaya		49		Sepinggan	Balikpapan Selatan	Kota Balikpapan	3
+		Palm Hills	B			Sepinggan	Balikpapan Selatan	Kota Balikpapan	2
+		Palm Hills City Garden Villa		08		Sepinggan	Balikpapan Selatan	Kota Balikpapan	4
+		Papan Lestari				Sepinggan	Balikpapan Selatan	Kota Balikpapan	1
+		Papan Lestari	B	42		Sepinggan	Balikpapan Selatan	Kota Balikpapan	4
+		Papan Lestari		44		Sepinggan	Balikpapan Selatan	Kota Balikpapan	1
+		Papan Lestari Nomor 10		43		Sepinggan	Balikpapan Selatan	Kota Balikpapan	4
+		Pelangi Cozy	B			Sepinggan	Balikpapan Selatan	Kota Balikpapan	3
+		Pelangi Cozy Residence	B-4	57		Sepinggan	Balikpapan Selatan	Kota Balikpapan	5
+		Pesona Paksi Biru	B.17	64		Sepinggan	Balikpapan Selatan	Kota Balikpapan	1
+		Pesona Paksi Biru	B	64		Sepinggan	Balikpapan Selatan	Kota Balikpapan	1
+		Prusda				Sepinggan	Balikpapan Selatan	Kota Balikpapan	2
+	Melon	Pt. Her II	M4			Sepinggan	Balikpapan Selatan	Kota Balikpapan	1
+		Pt. Her II	L8	58		Sepinggan	Balikpapan Selatan	Kota Balikpapan	3
+		Pt. Her Mandiri	W-12	48		Sepinggan	Balikpapan Selatan	Kota Balikpapan	5
+		Regalia Residence				Sepinggan	Balikpapan Selatan	Kota Balikpapan	3
+		Regency Balikpapan				Sepinggan	Balikpapan Selatan	Kota Balikpapan	1
+		Sepinggan Asri	D	43		Sepinggan	Balikpapan Selatan	Kota Balikpapan	1
+		Sepinggan Asri	H	45		Sepinggan	Balikpapan Selatan	Kota Balikpapan	4
+		Telaga Mas	K	52		Sepinggan	Balikpapan Selatan	Kota Balikpapan	3
+		Tni Au Sepinggan				Sepinggan	Balikpapan Selatan	Kota Balikpapan	1
+		Tni Au Sepinggan		31		Sepinggan	Balikpapan Selatan	Kota Balikpapan	3
+Angkasa 1		Renosari Jalan Angkasa 1		40		Sepinggan	Balikpapan Selatan	Kota Balikpapan	4
+Berlian XI			L			Sepinggan	Balikpapan Selatan	Kota Balikpapan	2
+Bromo		Her II	Z1			Sepinggan	Balikpapan Selatan	Kota Balikpapan	1
+Bromo		Her II Jl.. Bromo	Z2			Sepinggan	Balikpapan Selatan	Kota Balikpapan	2
+Bromo		Pt. Her II	Z2	48		Sepinggan	Balikpapan Selatan	Kota Balikpapan	3
+Bukit Prona Indah			N	53		Sepinggan	Balikpapan Selatan	Kota Balikpapan	2
+Daksa Raya			AR	08		Sepinggan	Balikpapan Selatan	Kota Balikpapan	4
+Daksa Raya Residence Ph03			PH3			Sepinggan	Balikpapan Selatan	Kota Balikpapan	4
+Daksa Timur III				05		Sepinggan	Balikpapan Selatan	Kota Balikpapan	4
+Daksa XI Sepinggan						Sepinggan	Balikpapan Selatan	Kota Balikpapan	3
+Hutan Kota Perjuangan I				17		Sepinggan	Balikpapan Selatan	Kota Balikpapan	2
+Intan 3				26		Sepinggan	Balikpapan Selatan	Kota Balikpapan	1
+Intan III				26		Sepinggan	Balikpapan Selatan	Kota Balikpapan	4
+Jaya Wijaya		Pt. Her II Jl.. Jaya Wijaya		66		Sepinggan	Balikpapan Selatan	Kota Balikpapan	4
+Kerinci			W	48		Sepinggan	Balikpapan Selatan	Kota Balikpapan	4
+Lengkeng			L3	58		Sepinggan	Balikpapan Selatan	Kota Balikpapan	5
+Marsma R. Iswahyudi	Melati					Sepinggan	Balikpapan Selatan	Kota Balikpapan	4
+Marsma R. Iswahyudi						Sepinggan	Balikpapan Selatan	Kota Balikpapan	5
+Marsma R. Iswahyudi				15		Sepinggan	Balikpapan Selatan	Kota Balikpapan	9
+Marsma R. Iswahyudi	Melati I			20		Sepinggan	Balikpapan Selatan	Kota Balikpapan	1
+Mukmin Faisal		Batara I		70		Sepinggan	Balikpapan Selatan	Kota Balikpapan	4
+Mukmin Faisal		Griya Bukit Residence	J	70		Sepinggan	Balikpapan Selatan	Kota Balikpapan	1
+Mukmin Faisal		Paksi Biru	F	64		Sepinggan	Balikpapan Selatan	Kota Balikpapan	2
+Mukmin Faisyal				64		Sepinggan	Balikpapan Selatan	Kota Balikpapan	5
+Mukmin Faisyal		Paksi Biru	B.15	64		Sepinggan	Balikpapan Selatan	Kota Balikpapan	4
+Mulawarman	Tesoro					Sepinggan	Balikpapan Selatan	Kota Balikpapan	7
+Mulawarman						Sepinggan	Balikpapan Selatan	Kota Balikpapan	2
+Mulawarman				10		Sepinggan	Balikpapan Selatan	Kota Balikpapan	4
+Mulawarman	Slamet Riyadi 2			12		Sepinggan	Balikpapan Selatan	Kota Balikpapan	3
+Mulawarman	Slamet Riadi			12		Sepinggan	Balikpapan Selatan	Kota Balikpapan	2
+Mulawarman				12		Sepinggan	Balikpapan Selatan	Kota Balikpapan	6
+Mulawarman				13		Sepinggan	Balikpapan Selatan	Kota Balikpapan	3
+Mulawarman				59		Sepinggan	Balikpapan Selatan	Kota Balikpapan	3
+Mulawarman 13						Sepinggan	Balikpapan Selatan	Kota Balikpapan	1
+Mulawarman Rt10				10		Sepinggan	Balikpapan Selatan	Kota Balikpapan	1
+Prona 3	Karya Warga					Sepinggan	Balikpapan Selatan	Kota Balikpapan	4
+Prona III	Rukun			19		Sepinggan	Balikpapan Selatan	Kota Balikpapan	4
+Prona III		Balqis Santoso	BALQIS			Sepinggan	Balikpapan Selatan	Kota Balikpapan	3
+Prona III		Bukit Prona Indah	V/9			Sepinggan	Balikpapan Selatan	Kota Balikpapan	4
+Sepinggan Asri III						Sepinggan	Balikpapan Selatan	Kota Balikpapan	1
+Sepinggan Asri III				41		Sepinggan	Balikpapan Selatan	Kota Balikpapan	4
+Sepinggan Asri Ix/39			D	61		Sepinggan	Balikpapan Selatan	Kota Balikpapan	4
+Sepinggan Asri Utara				44		Sepinggan	Balikpapan Selatan	Kota Balikpapan	3
+Sepinggan Asri Utara 1				45		Sepinggan	Balikpapan Selatan	Kota Balikpapan	4
+Sepinggan Asri Utara IV			G	45		Sepinggan	Balikpapan Selatan	Kota Balikpapan	5
+Sepinggan Asri XIII		Papan Lestari	D	43		Sepinggan	Balikpapan Selatan	Kota Balikpapan	3
+Sepinggan Atas				43		Sepinggan	Balikpapan Selatan	Kota Balikpapan	3
+Sepinggan Baru						Sepinggan	Balikpapan Selatan	Kota Balikpapan	1
+Sepinggan Baru				32		Sepinggan	Balikpapan Selatan	Kota Balikpapan	3
+Sepinggan Baru				33		Sepinggan	Balikpapan Selatan	Kota Balikpapan	3
+Sepinggan Baru				37		Sepinggan	Balikpapan Selatan	Kota Balikpapan	4
+Sepinggan Baru 2				34		Sepinggan	Balikpapan Selatan	Kota Balikpapan	3
+Sepinggan Baru II				38		Sepinggan	Balikpapan Selatan	Kota Balikpapan	3
+Sepinggan Baru III						Sepinggan	Balikpapan Selatan	Kota Balikpapan	2
+Sibayak		Pt. Her II Mandiri 2 Jln. Sibayak	X	48		Sepinggan	Balikpapan Selatan	Kota Balikpapan	1
+Sibayak		Pt. Her Mandiri 2 Jln. Sibayak	X	48		Sepinggan	Balikpapan Selatan	Kota Balikpapan	1
+Sma 4		Sepinggan Regency	B	62		Sepinggan	Balikpapan Selatan	Kota Balikpapan	3
+Smu Negeri 4				46		Sepinggan	Balikpapan Selatan	Kota Balikpapan	7
+Smun 4	Merdeka Bersama II		C	62		Sepinggan	Balikpapan Selatan	Kota Balikpapan	5
+Taman Sepinggan V						Sepinggan	Balikpapan Selatan	Kota Balikpapan	1
+Taman Sepinggan V				32		Sepinggan	Balikpapan Selatan	Kota Balikpapan	2
+Telaga Mas						Sepinggan	Balikpapan Selatan	Kota Balikpapan	4
+Telaga Mas		Griya Telaga Mas	I			Sepinggan	Balikpapan Selatan	Kota Balikpapan	3
+Telagamas	Soraya 2		E1	52		Sepinggan	Balikpapan Selatan	Kota Balikpapan	1
+Teratai Merah						Sepinggan	Balikpapan Selatan	Kota Balikpapan	2
+Teratai Merah				31		Sepinggan	Balikpapan Selatan	Kota Balikpapan	3
+Teratai Merah				56		Sepinggan	Balikpapan Selatan	Kota Balikpapan	2
+Tirtasari				14		Sepinggan	Balikpapan Selatan	Kota Balikpapan	4
+Transad	Perjuangan		R	50		Sepinggan	Balikpapan Selatan	Kota Balikpapan	4
+Umaq Suling	Fajar			39		Sepinggan	Balikpapan Selatan	Kota Balikpapan	6
+			FA4			Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	2
+			FA			Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	2
+			E-1			Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	1
+						Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	98
+			B			Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	3
+			CE			Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	1
+			FB			Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	6
+			M/21			Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	4
+			CE2			Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	4
+			K1			Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	3
+			I			Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	5
+			H-17			Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	3
+			I1			Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	9
+			CD			Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	2
+			BH			Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	5
+			D9			Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	4
+			BO-04			Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	4
+			EB			Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	1
+	Ende Mentarang					Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	7
+	Bhineka 1		G			Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	1
+			CD2			Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	5
+				01		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	3
+				11		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	3
+			B	12		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	2
+				14		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	2
+	Cerry		N	18		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	5
+	Melati		L.2	19		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	4
+				22		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	4
+			E-1	24		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	5
+				25		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	3
+				26		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	3
+			1A	27		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	4
+				31		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	2
+				36		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	14
+			A1	37		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	4
+				39		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	1
+				48		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	5
+				57		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	2
+		Balikpapan Regency Castarica Jf9/12				Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	5
+		Bdl	B7			Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	1
+		Bdl	B7	37		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	1
+		Bukit Lesrari				Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	1
+		Bukit Lestari				Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	21
+		Bukit Pondok Lestari	A.7			Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	2
+		Bukit Pondok Lestari	B2	56		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	3
+		Bumi Balikpapan Indah	CC-II			Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	3
+		Castarica	JD2			Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	4
+		Castarica	JE7/35			Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	2
+		Castarica Jd2				Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	1
+		Castarica Jf9				Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	3
+		De Tulip Eb 10				Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	3
+		Her I				Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	2
+		Her Mandiri 1	L	19		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	4
+		Her Mandiri I	H2	19		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	3
+		Her Mandiri I	L	19		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	6
+		Her Utama Mandiri	L			Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	1
+		Her Utama Mandiri I	L3			Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	1
+		Her Utama Mandiri I	H3	19		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	1
+		Mawija		36		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	6
+		Melati	E.2	49		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	1
+		Melati Bintang Regency	NEPTUNUS			Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	4
+		Pondok Bukit Lestari				Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	8
+		Pondok Bukit Lestari		56		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	10
+		Pondok Bukit Lestari	A9/1	56		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	3
+		Pondok Bukit Lestari	B7	56		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	4
+		Pondok Bukit Lestari	A5	56		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	4
+		Pondok Bukit Lestari	A7	56		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	2
+		Pondok Bukit Lestaribal				Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	1
+		Pondok Bukit Letari	A9/1	56		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	1
+		Pt. Her Mandiri	IP	18		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	3
+		Pt.her Mandiri	IP	18		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	1
+		Puri Kencana	M/05			Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	5
+		Regency Celebration	I-1/07			Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	5
+		Regency De Tulip Eb 6				Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	3
+		Regency De Valley	D5-18			Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	4
+		Sepinggan Pratama	L7/15			Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	3
+		Sepinggan Pratama				Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	4
+		Sepinggan Pratama C2/5				Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	5
+		Sepinggan Pratama G3				Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	3
+		Sepinggan Pratama G4				Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	4
+		Sepinggan Pratama J10/1				Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	5
+		Tampak Siring Cd1				Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	3
+		Valencia	K5			Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	3
+		Valencia A1-1				Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	3
+		Valencia A2				Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	4
+		Valencia B1				Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	3
+		Valencia K3				Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	6
+		Valencia K9				Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	1
+Abdi Praja V		Balikpapan Indah 3		30		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	2
+Baru Lemuku						Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	5
+Baru Lemuku	Ende					Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	4
+Batu Virus III				35		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	2
+Belatuk II			I			Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	2
+Berlian V				32		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	3
+Besakih IV		Balikpapan Regency Jl.. Besakih IV	BD			Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	4
+Besakih XV		Balikpapan Regency Jl.. Besakih XV				Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	4
+Delima Merah II				38		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	1
+Duatan B Sakai						Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	6
+Kelapa Gading	Saudara			57		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	2
+Kintamani II			J-8			Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	3
+Kolonel Syarifuddin Yoes		Central Bizpark 2				Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	1
+Lemuku						Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	3
+Manuntung I			B1	14		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	4
+Manuntung I			C	14		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	1
+Manuntung II			C/67	14		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	3
+Merah Delima II				38		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	2
+Mukmin Faisal				17		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	4
+Perjuangan 5A				62		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	4
+Perjuangan Ujung 05				17		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	4
+Rulita Sari				56		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	1
+Safir II						Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	3
+Safir III				36		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	4
+Sarifuddin Yoes				38		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	3
+Sepinggan Bar				56		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	1
+Sepinggan Baru						Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	1
+Sepinggan Baru				32		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	1
+Sepinggan Baru				56		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	7
+Sepinggan Baru				59		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	6
+Sepinggan Baru 2				34		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	1
+Sepinggan Baru II				38		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	1
+Smu Negeri 4				46		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	4
+Syarifuddin Yoes						Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	1
+Syarifuddin Yoes				01		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	3
+Topaz IV			O	54	60	Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	1
+Topaz IV			O	54		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	3
+Transad	Perjuangan			50		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	3
+Transad				57		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	4
+Wirayudha				12		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	1
+Wirayudha 3						Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	5
+Wirayudha VI				11		Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	4
+Wirayudha VIII						Sepinggan Baru	Balikpapan Selatan	Kota Balikpapan	3
+			I.1			Sepinggan Raya	Balikpapan Selatan	Kota Balikpapan	3
+	Mawar			04		Sepinggan Raya	Balikpapan Selatan	Kota Balikpapan	5
+				33		Sepinggan Raya	Balikpapan Selatan	Kota Balikpapan	5
+		Kartini Residence	G20	34		Sepinggan Raya	Balikpapan Selatan	Kota Balikpapan	3
+H.m Asnawi Arbain		Kartini Residence Bpp2	D	34		Sepinggan Raya	Balikpapan Selatan	Kota Balikpapan	4
+Kolonel Syarifuddin Yoes				13		Sepinggan Raya	Balikpapan Selatan	Kota Balikpapan	1
+Marsma R. Iswahyudi						Sepinggan Raya	Balikpapan Selatan	Kota Balikpapan	2
+Marsma R. Iswahyudi				03		Sepinggan Raya	Balikpapan Selatan	Kota Balikpapan	3
+Marsma R. Iswahyudi	Mawar			03		Sepinggan Raya	Balikpapan Selatan	Kota Balikpapan	4
+Marsma R. Iswahyudi				08		Sepinggan Raya	Balikpapan Selatan	Kota Balikpapan	4
+Marsma R. Iswahyudi				09		Sepinggan Raya	Balikpapan Selatan	Kota Balikpapan	9
+Marsma R. Iswahyudi				10		Sepinggan Raya	Balikpapan Selatan	Kota Balikpapan	2
+Marsma R. Iswahyudi				12		Sepinggan Raya	Balikpapan Selatan	Kota Balikpapan	4
+Marsma R. Iswahyudi				16		Sepinggan Raya	Balikpapan Selatan	Kota Balikpapan	2
+Marsma R. Iswahyudi				25		Sepinggan Raya	Balikpapan Selatan	Kota Balikpapan	4
+Mulawarman						Sepinggan Raya	Balikpapan Selatan	Kota Balikpapan	2
+Mulawarman				22		Sepinggan Raya	Balikpapan Selatan	Kota Balikpapan	5
+Mulawarman				31		Sepinggan Raya	Balikpapan Selatan	Kota Balikpapan	4
+Mulawarman				32		Sepinggan Raya	Balikpapan Selatan	Kota Balikpapan	6
+Prona II				24		Sepinggan Raya	Balikpapan Selatan	Kota Balikpapan	4
+Sepinggan Baru				17		Sepinggan Raya	Balikpapan Selatan	Kota Balikpapan	1
+Sepinggan Baru 1 Belakang Puskermas						Sepinggan Raya	Balikpapan Selatan	Kota Balikpapan	1
+Syarifuddin Yoes		Central Bizpark 2	ARK			Sepinggan Raya	Balikpapan Selatan	Kota Balikpapan	1
+Wiyata				22		Sepinggan Raya	Balikpapan Selatan	Kota Balikpapan	1
+			F2			Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	2
+			M			Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	3
+						Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	23
+			RBC-23			Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	4
+			R			Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	2
+			R.34A			Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	2
+			B.AA-36			Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	5
+			U			Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	1
+			U2			Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	3
+			S			Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	1
+	Inhdutani					Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	2
+			I1-7			Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	1
+			B			Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	5
+			R	31		Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	2
+				40		Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	1
+			K	41		Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	5
+		Bdi	E1			Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	4
+		Bdi	U			Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	1
+		Bds	P			Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	6
+		Bds 2	J1			Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	3
+		Bds 2	A2			Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	4
+		Bds 2	S			Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	1
+		Bds 2	D			Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	4
+		Bds 2	N			Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	1
+		Bds II	S			Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	1
+		Bds II	U1			Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	3
+		Bds II				Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	1
+		Bds II	J3/26			Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	3
+		Bds II	S	31		Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	3
+		Bukit Damai Indah	L			Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	4
+		Bukit Damai Indah	A			Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	3
+		Bukit Damai Indah C1				Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	6
+		Bukit Damai Sentosa 2	R			Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	1
+		Bukit Damai Sentosa 2	R	31		Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	2
+		Ciputra Sp 1				Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	3
+		Citra Bukit Indah	WF			Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	4
+		Kartini Residence	C1			Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	2
+		Pondok Karya Agung	BA			Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	1
+Bukit Damai Indah B 35						Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	1
+Cendrawasih IV			ST	32		Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	2
+Cendrawasih IV Bds 2			U1	32		Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	4
+Inhutani 9				30		Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	4
+Jenderal Didiemin						Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	1
+Jenderal Sudirman				03		Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	3
+Jenderal Sudirman				24		Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	3
+Jenderal Sudirman				30		Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	1
+Kakaktua 2			E1			Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	1
+Kakaktua IX			F2			Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	1
+Kakatua 2			E			Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	3
+Kakatua IX			F2			Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	5
+Letjen (tni) Z A Maulani						Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	3
+Letjen Tni Z. A Maulani						Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	5
+Letjen Tni Za Maulai				21		Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	1
+Letjen Tni Za Maulani						Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	9
+Letkol Asnawai Arbain	Flamboyan			30		Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	1
+Letkol Asnawi Arbain				30		Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	1
+Letkol H Asnawi Arbain						Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	1
+Letkol Pol Hm. Asnawi Arbain						Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	3
+Letkol Pol. H. M. Asnawi Arbain	VII					Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	1
+Letkol Pol. H. M. Asnawi Arbain VII						Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	1
+Manunggal						Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	10
+Manunggal 53						Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	14
+Marsma R. Iswahyudi						Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	51
+Marsma R. Iswahyudi			C			Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	4
+Marsma R. Iswahyudi				01		Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	22
+Marsma R. Iswahyudi				05		Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	2
+Marsma R.iswahyudi				01		Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	1
+Marsma R.iswahyudi				05		Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	1
+Merak II			C3			Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	3
+Merpati 2			S			Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	1
+Merpati 2		Bds II Jalan Merpati 2	S			Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	1
+Merpati 2		Bds II Jalan Merpati 2	S22A			Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	2
+Merpati 2		Bds II Jalan Merpati 2	S	33		Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	1
+Merpati LLL			S			Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	3
+Mt. Haryono		Bukit Damai Indah Jl.. Mt. Haryono				Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	1
+Mt. Haryono Bdi			I			Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	4
+Mt. Haryono Dalam	Inhdutani					Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	3
+Nuri 4		Bds 2 Jln Nuri 4	J1			Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	3
+Oliana		Pondok Karya Agung Jl.. Oliana	RA/23			Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	3
+Pondok Karya Agung				12		Sungai Nangka	Balikpapan Selatan	Kota Balikpapan	4
+Gunung Guntur Asri				35		Gunung Sari Ulu	Balikpapan Tengah	Kota Balikpapan	2
+Gunung Rejo				15		Gunung Sari Ulu	Balikpapan Tengah	Kota Balikpapan	1
+Dr Sutomo 31						Karang Rejo	Balikpapan Tengah	Kota Balikpapan	4
+Re Martadinata						Mekar Sari	Balikpapan Tengah	Kota Balikpapan	4
+						Sumber Rejo	Balikpapan Tengah	Kota Balikpapan	1
+Letjend S Parman				23		Sumber Rejo	Balikpapan Tengah	Kota Balikpapan	2
+	Sumber Rejeki Rt15			15		Lamaru	Balikpapan Timur	Kota Balikpapan	1
+				17		Lamaru	Balikpapan Timur	Kota Balikpapan	4
+	Padatkarya			23		Lamaru	Balikpapan Timur	Kota Balikpapan	1
+				23		Lamaru	Balikpapan Timur	Kota Balikpapan	1
+				24		Lamaru	Balikpapan Timur	Kota Balikpapan	5
+	Sayur			26		Lamaru	Balikpapan Timur	Kota Balikpapan	6
+				34		Lamaru	Balikpapan Timur	Kota Balikpapan	5
+				66		Lamaru	Balikpapan Timur	Kota Balikpapan	1
+		Gryia Mulya Resident A17		177		Lamaru	Balikpapan Timur	Kota Balikpapan	3
+		Pelangi		22		Lamaru	Balikpapan Timur	Kota Balikpapan	6
+		Rawamangun		10		Lamaru	Balikpapan Timur	Kota Balikpapan	3
+		Teritip Mas No4	B2	06		Lamaru	Balikpapan Timur	Kota Balikpapan	4
+Mulawarman	Barokah					Lamaru	Balikpapan Timur	Kota Balikpapan	4
+Mulawarman	Sumber Rezeki			15		Lamaru	Balikpapan Timur	Kota Balikpapan	3
+Mulawarman				16		Lamaru	Balikpapan Timur	Kota Balikpapan	1
+Mulawarman	Barokah			20		Lamaru	Balikpapan Timur	Kota Balikpapan	4
+Mulawarman	Mawar			25		Lamaru	Balikpapan Timur	Kota Balikpapan	5
+Mulawarman G.padat Karya						Lamaru	Balikpapan Timur	Kota Balikpapan	3
+Pemuda		Batakan Asri 2	F2			Lamaru	Balikpapan Timur	Kota Balikpapan	1
+Pesatuan				01		Lamaru	Balikpapan Timur	Kota Balikpapan	2
+Pesatuanrt01						Lamaru	Balikpapan Timur	Kota Balikpapan	1
+Rawamangun Indah				10		Lamaru	Balikpapan Timur	Kota Balikpapan	4
+Telaga Sari I				37		Lamaru	Balikpapan Timur	Kota Balikpapan	4
+			T			Manggar	Balikpapan Timur	Kota Balikpapan	3
+						Manggar	Balikpapan Timur	Kota Balikpapan	11
+	Murni					Manggar	Balikpapan Timur	Kota Balikpapan	1
+	Murni			03		Manggar	Balikpapan Timur	Kota Balikpapan	3
+				08		Manggar	Balikpapan Timur	Kota Balikpapan	4
+				10		Manggar	Balikpapan Timur	Kota Balikpapan	4
+				14		Manggar	Balikpapan Timur	Kota Balikpapan	5
+	Ayam			14		Manggar	Balikpapan Timur	Kota Balikpapan	1
+				15		Manggar	Balikpapan Timur	Kota Balikpapan	1
+				37		Manggar	Balikpapan Timur	Kota Balikpapan	6
+				39		Manggar	Balikpapan Timur	Kota Balikpapan	1
+				44		Manggar	Balikpapan Timur	Kota Balikpapan	3
+				57		Manggar	Balikpapan Timur	Kota Balikpapan	5
+				66		Manggar	Balikpapan Timur	Kota Balikpapan	6
+			J	97		Manggar	Balikpapan Timur	Kota Balikpapan	5
+		Batakan Asri 2	A3			Manggar	Balikpapan Timur	Kota Balikpapan	4
+		Batakan Asri 2	F3			Manggar	Balikpapan Timur	Kota Balikpapan	3
+		Batakan Asri 2	F4			Manggar	Balikpapan Timur	Kota Balikpapan	4
+		Batakan Asri 2	C-5			Manggar	Balikpapan Timur	Kota Balikpapan	5
+		Batakan Asri II				Manggar	Balikpapan Timur	Kota Balikpapan	5
+		Batakan Indah	Q	12		Manggar	Balikpapan Timur	Kota Balikpapan	3
+		Batakan Indah	R	12		Manggar	Balikpapan Timur	Kota Balikpapan	4
+		Batakan Mas		27		Manggar	Balikpapan Timur	Kota Balikpapan	2
+		Batakan Mas	G	65		Manggar	Balikpapan Timur	Kota Balikpapan	5
+		Batakan Permai 3	E2			Manggar	Balikpapan Timur	Kota Balikpapan	4
+		Borneo Paradiso				Manggar	Balikpapan Timur	Kota Balikpapan	6
+		Borneo Paradiso	B	01		Manggar	Balikpapan Timur	Kota Balikpapan	5
+		Bukit Batakan Indah	E	11		Manggar	Balikpapan Timur	Kota Balikpapan	5
+		Bukit Batakan Indah	Q-15A	12		Manggar	Balikpapan Timur	Kota Balikpapan	2
+		Bukit Batakan Indah	Q	12		Manggar	Balikpapan Timur	Kota Balikpapan	3
+		Bukit Batakan Indah	L	12		Manggar	Balikpapan Timur	Kota Balikpapan	9
+		Bukit Batakan Perma 3	D18			Manggar	Balikpapan Timur	Kota Balikpapan	3
+		Bukit Batakan Permai	G7			Manggar	Balikpapan Timur	Kota Balikpapan	3
+		Bukit Batakan Permai	G8			Manggar	Balikpapan Timur	Kota Balikpapan	5
+		Bukit Batakan Permai 3	C5			Manggar	Balikpapan Timur	Kota Balikpapan	3
+		Bukit Batakan Permai 3	A9			Manggar	Balikpapan Timur	Kota Balikpapan	3
+		Bukit Batakan Permai 3		10		Manggar	Balikpapan Timur	Kota Balikpapan	4
+		Bukit Batakan Permai 3	AB5	79		Manggar	Balikpapan Timur	Kota Balikpapan	2
+		Bukit Batakan Permai 3	AA6	79		Manggar	Balikpapan Timur	Kota Balikpapan	3
+		Bukit Batakan Permai 3	B8	80		Manggar	Balikpapan Timur	Kota Balikpapan	4
+		Bukit Batakan Permai 3	G1	80		Manggar	Balikpapan Timur	Kota Balikpapan	3
+		Bukit Batakan Permai 3	B7	80		Manggar	Balikpapan Timur	Kota Balikpapan	4
+		Bukit Batakan Permai II	H2			Manggar	Balikpapan Timur	Kota Balikpapan	3
+		Bukit Batakan Permai II	G1			Manggar	Balikpapan Timur	Kota Balikpapan	5
+		Cgs	AB2	58		Manggar	Balikpapan Timur	Kota Balikpapan	1
+		Cgs 1	AB2	58		Manggar	Balikpapan Timur	Kota Balikpapan	1
+		Daksa Timur III		05		Manggar	Balikpapan Timur	Kota Balikpapan	2
+		Nusa Indah Resident	A5			Manggar	Balikpapan Timur	Kota Balikpapan	2
+		Panji	A	62		Manggar	Balikpapan Timur	Kota Balikpapan	6
+		Pesona Bukit Batakan	A5			Manggar	Balikpapan Timur	Kota Balikpapan	4
+		Pesona Bukit Batakan	A2			Manggar	Balikpapan Timur	Kota Balikpapan	1
+		Pesona Bukit Batakan	N			Manggar	Balikpapan Timur	Kota Balikpapan	5
+		Pesona Bukit Batakan	Q	75		Manggar	Balikpapan Timur	Kota Balikpapan	3
+		Pondok Asri	A			Manggar	Balikpapan Timur	Kota Balikpapan	5
+		Pondok Asri	A	29		Manggar	Balikpapan Timur	Kota Balikpapan	2
+		Pondok Asri	OA	29		Manggar	Balikpapan Timur	Kota Balikpapan	4
+		Pondok Asri	D	29		Manggar	Balikpapan Timur	Kota Balikpapan	2
+		Pondok Asri	NB-06	59		Manggar	Balikpapan Timur	Kota Balikpapan	2
+		Pondok Asri	OA	59		Manggar	Balikpapan Timur	Kota Balikpapan	5
+		Pondok Asri Biru	ZC	60		Manggar	Balikpapan Timur	Kota Balikpapan	4
+		Pondok Asri Blok-d	D	29		Manggar	Balikpapan Timur	Kota Balikpapan	5
+		Taman Intan Geriya	R	63		Manggar	Balikpapan Timur	Kota Balikpapan	4
+		Taman Intan Gerya	T			Manggar	Balikpapan Timur	Kota Balikpapan	2
+		Taman Intan Griya	I	63		Manggar	Balikpapan Timur	Kota Balikpapan	3
+		Taman Intan Griya	X	63		Manggar	Balikpapan Timur	Kota Balikpapan	2
+		Taman Intan Grya	A70	62		Manggar	Balikpapan Timur	Kota Balikpapan	5
+		Tol Residence	H			Manggar	Balikpapan Timur	Kota Balikpapan	4
+	Wonorame	Wono Graha Asri		23		Manggar	Balikpapan Timur	Kota Balikpapan	5
+Al Amin			I	06		Manggar	Balikpapan Timur	Kota Balikpapan	4
+Anggrek				30		Manggar	Balikpapan Timur	Kota Balikpapan	1
+Anggrek 11				30		Manggar	Balikpapan Timur	Kota Balikpapan	2
+Anggrek II				30		Manggar	Balikpapan Timur	Kota Balikpapan	3
+Ar. Rahman						Manggar	Balikpapan Timur	Kota Balikpapan	1
+Arrahman				55		Manggar	Balikpapan Timur	Kota Balikpapan	3
+Arrahman				96		Manggar	Balikpapan Timur	Kota Balikpapan	5
+Banjar	Katesno 50 Rt16			16		Manggar	Balikpapan Timur	Kota Balikpapan	2
+Batakan				14		Manggar	Balikpapan Timur	Kota Balikpapan	3
+Kunang-kunang 80				70		Manggar	Balikpapan Timur	Kota Balikpapan	4
+Kunang-kuunang				52		Manggar	Balikpapan Timur	Kota Balikpapan	5
+Manggar Indah						Manggar	Balikpapan Timur	Kota Balikpapan	4
+Manggar Indah	Anggrek I			30		Manggar	Balikpapan Timur	Kota Balikpapan	4
+Marsma R. Iswahyudi				03		Manggar	Balikpapan Timur	Kota Balikpapan	2
+Melati				15		Manggar	Balikpapan Timur	Kota Balikpapan	3
+Minang Kabau				04		Manggar	Balikpapan Timur	Kota Balikpapan	3
+Mulawarman	Barokah					Manggar	Balikpapan Timur	Kota Balikpapan	1
+Mulawarman	Ar Rahman					Manggar	Balikpapan Timur	Kota Balikpapan	5
+Mulawarman						Manggar	Balikpapan Timur	Kota Balikpapan	11
+Mulawarman				03		Manggar	Balikpapan Timur	Kota Balikpapan	6
+Mulawarman	Hidayatturahman			04		Manggar	Balikpapan Timur	Kota Balikpapan	2
+Mulawarman				06		Manggar	Balikpapan Timur	Kota Balikpapan	4
+Mulawarman				10		Manggar	Balikpapan Timur	Kota Balikpapan	7
+Mulawarman				17		Manggar	Balikpapan Timur	Kota Balikpapan	1
+Mulawarman	Amal			19		Manggar	Balikpapan Timur	Kota Balikpapan	8
+Mulawarman				22		Manggar	Balikpapan Timur	Kota Balikpapan	5
+Mulawarman	Wonorame			23		Manggar	Balikpapan Timur	Kota Balikpapan	5
+Mulawarman				23		Manggar	Balikpapan Timur	Kota Balikpapan	4
+Mulawarman				29		Manggar	Balikpapan Timur	Kota Balikpapan	3
+Mulawarman	Airium Rt30			30		Manggar	Balikpapan Timur	Kota Balikpapan	4
+Mulawarman				31		Manggar	Balikpapan Timur	Kota Balikpapan	4
+Mulawarman				38		Manggar	Balikpapan Timur	Kota Balikpapan	3
+Mulawarman				39		Manggar	Balikpapan Timur	Kota Balikpapan	20
+Mulawarman	Slamet			40		Manggar	Balikpapan Timur	Kota Balikpapan	5
+Mulawarman	Amal			51		Manggar	Balikpapan Timur	Kota Balikpapan	1
+Mulawarman				51		Manggar	Balikpapan Timur	Kota Balikpapan	3
+Mulawarman	Kunang Kunang			52		Manggar	Balikpapan Timur	Kota Balikpapan	3
+Mulawarman	Kunang-kunang			52		Manggar	Balikpapan Timur	Kota Balikpapan	7
+Mulawarman	Alista			52		Manggar	Balikpapan Timur	Kota Balikpapan	5
+Mulawarman	Kunag-kunang			52		Manggar	Balikpapan Timur	Kota Balikpapan	2
+Mulawarman				54		Manggar	Balikpapan Timur	Kota Balikpapan	14
+Mulawarman	Arrahman N0 30 Rt055			55		Manggar	Balikpapan Timur	Kota Balikpapan	1
+Mulawarman				55		Manggar	Balikpapan Timur	Kota Balikpapan	7
+Mulawarman	Ar Rahman			55		Manggar	Balikpapan Timur	Kota Balikpapan	6
+Mulawarman	Kunang-kunang			70		Manggar	Balikpapan Timur	Kota Balikpapan	8
+Mulawarman		Graha Mulawarman	HI	91		Manggar	Balikpapan Timur	Kota Balikpapan	5
+Mulawarman Pjhi				22		Manggar	Balikpapan Timur	Kota Balikpapan	1
+Mulawrman N031 Rt55				55		Manggar	Balikpapan Timur	Kota Balikpapan	4
+Padat Karya				08		Manggar	Balikpapan Timur	Kota Balikpapan	2
+Padat Karya				90		Manggar	Balikpapan Timur	Kota Balikpapan	5
+Padat Karya		De Green Azarya	A3	90		Manggar	Balikpapan Timur	Kota Balikpapan	4
+Pembangunan				94		Manggar	Balikpapan Timur	Kota Balikpapan	4
+Pemuda						Manggar	Balikpapan Timur	Kota Balikpapan	6
+Pemuda				06		Manggar	Balikpapan Timur	Kota Balikpapan	3
+Pemuda	Aster			07		Manggar	Balikpapan Timur	Kota Balikpapan	3
+Pemuda				66		Manggar	Balikpapan Timur	Kota Balikpapan	22
+Pemuda				68		Manggar	Balikpapan Timur	Kota Balikpapan	4
+Pemuda		Batakan Asri 2	F2			Manggar	Balikpapan Timur	Kota Balikpapan	2
+Pemuda		Batakan Indah	K1	68		Manggar	Balikpapan Timur	Kota Balikpapan	4
+Pemuda		Bukit Batakan Permai	F5			Manggar	Balikpapan Timur	Kota Balikpapan	3
+Pemuda		Pesona Bukit Batakan	A2			Manggar	Balikpapan Timur	Kota Balikpapan	5
+Pemuda Batakan						Manggar	Balikpapan Timur	Kota Balikpapan	26
+Pemuda Batakan	Beruang Madu					Manggar	Balikpapan Timur	Kota Balikpapan	4
+Pemuda Batakan				66		Manggar	Balikpapan Timur	Kota Balikpapan	18
+Pemuda Batakan Dalam				66		Manggar	Balikpapan Timur	Kota Balikpapan	2
+Perdana				12		Manggar	Balikpapan Timur	Kota Balikpapan	7
+Persatuan				39		Manggar	Balikpapan Timur	Kota Balikpapan	3
+Pesantren 2	Murni 8			91		Manggar	Balikpapan Timur	Kota Balikpapan	4
+Pesatuan				44		Manggar	Balikpapan Timur	Kota Balikpapan	2
+Pjh Batakan				15		Manggar	Balikpapan Timur	Kota Balikpapan	3
+Pjhi	Birawa					Manggar	Balikpapan Timur	Kota Balikpapan	3
+Pjhi				14		Manggar	Balikpapan Timur	Kota Balikpapan	1
+Pjhi	Swadaya			14		Manggar	Balikpapan Timur	Kota Balikpapan	3
+Pjhi				15		Manggar	Balikpapan Timur	Kota Balikpapan	2
+Pjhi	Nusantara			22		Manggar	Balikpapan Timur	Kota Balikpapan	4
+Pjhi		Cgs	AB2	58		Manggar	Balikpapan Timur	Kota Balikpapan	1
+Pjhi		Cgs	AF	58		Manggar	Balikpapan Timur	Kota Balikpapan	5
+Pjhi Batakan	Nusantara					Manggar	Balikpapan Timur	Kota Balikpapan	4
+Pjhi Batakan				15		Manggar	Balikpapan Timur	Kota Balikpapan	19
+Pjhi Batakan	Asoka			15		Manggar	Balikpapan Timur	Kota Balikpapan	8
+Pjhi Batakan				16		Manggar	Balikpapan Timur	Kota Balikpapan	12
+Pjhi Batakan				17		Manggar	Balikpapan Timur	Kota Balikpapan	2
+Pjhi Batakan				22		Manggar	Balikpapan Timur	Kota Balikpapan	6
+Pjhi Batakan				50		Manggar	Balikpapan Timur	Kota Balikpapan	5
+Pjhi Batakan		Cgs		82		Manggar	Balikpapan Timur	Kota Balikpapan	4
+Pjhi Dalam	Jambu	Cgs 2		81		Manggar	Balikpapan Timur	Kota Balikpapan	3
+Pjhi Dalam	Wira 2	Cgs 2		81		Manggar	Balikpapan Timur	Kota Balikpapan	3
+Pjhi Dalam	Setia	Cgs 2		81		Manggar	Balikpapan Timur	Kota Balikpapan	2
+Pjhi Dalam	Pucuk Merah	Cgs 2		81		Manggar	Balikpapan Timur	Kota Balikpapan	4
+Pjhi Hm Tuadji Batakan				84		Manggar	Balikpapan Timur	Kota Balikpapan	3
+Pjhi Hm Tuadji Batakan				85		Manggar	Balikpapan Timur	Kota Balikpapan	2
+Pjhi Padat Karya	Seruni Batakan			84		Manggar	Balikpapan Timur	Kota Balikpapan	11
+Proklamasi	Al-amin		L			Manggar	Balikpapan Timur	Kota Balikpapan	5
+Proklamasi				32		Manggar	Balikpapan Timur	Kota Balikpapan	1
+Proklamasi				37		Manggar	Balikpapan Timur	Kota Balikpapan	4
+Proklamasi				38		Manggar	Balikpapan Timur	Kota Balikpapan	10
+Proklamasi				62		Manggar	Balikpapan Timur	Kota Balikpapan	5
+Telaga Mas		Griya Telaga Mas	I			Manggar	Balikpapan Timur	Kota Balikpapan	1
+				01		Manggar Baru	Balikpapan Timur	Kota Balikpapan	3
+				48		Manggar Baru	Balikpapan Timur	Kota Balikpapan	3
+Perjuangan				48		Manggar Baru	Balikpapan Timur	Kota Balikpapan	1
+Persatuan 1						Manggar Baru	Balikpapan Timur	Kota Balikpapan	1
+Pesatuanrt01						Manggar Baru	Balikpapan Timur	Kota Balikpapan	1
+				17		Teritip	Balikpapan Timur	Kota Balikpapan	5
+	Abah			18		Teritip	Balikpapan Timur	Kota Balikpapan	4
+Mulawarman						Teritip	Balikpapan Timur	Kota Balikpapan	2
+Mulawarman				04		Teritip	Balikpapan Timur	Kota Balikpapan	5
+Mulawarman				12		Teritip	Balikpapan Timur	Kota Balikpapan	5
+Mulawarman				17		Teritip	Balikpapan Timur	Kota Balikpapan	6
+Mulawarman				19		Teritip	Balikpapan Timur	Kota Balikpapan	3
+Mulawarman	Swadaya No99			35		Teritip	Balikpapan Timur	Kota Balikpapan	1
+Mulawarman	Swadaya			35		Teritip	Balikpapan Timur	Kota Balikpapan	3
+Mulawarman	Swadesa			36		Teritip	Balikpapan Timur	Kota Balikpapan	1
+Mulawarman N01				17		Teritip	Balikpapan Timur	Kota Balikpapan	1
+Mulawarman Rt17				17		Teritip	Balikpapan Timur	Kota Balikpapan	1
+Pendidikan	Abah			18		Teritip	Balikpapan Timur	Kota Balikpapan	1
+Sriwijaya 2				41		Teritip	Balikpapan Timur	Kota Balikpapan	2
+		Batu Ampar Permai	B-2			Graha Indah	Balikpapan Utara	Kota Balikpapan	1
+		Klaus Reppe Km.7		45		Graha Indah	Balikpapan Utara	Kota Balikpapan	3
+Taman Sari			I-3			Graha Indah	Balikpapan Utara	Kota Balikpapan	1
+Lembah Mutiara			H			Gunung Samarinda Baru	Balikpapan Utara	Kota Balikpapan	2
+Arjuna Gn. Polisi				67		Muara Rapak	Balikpapan Utara	Kota Balikpapan	5
+Nangka				03		Bukuan	Palaran	Kota Samarinda	1
+		Puspita Bp	QQ	71		Bukit Pinang	Samarinda Ulu	Kota Samarinda	1
+				07	13	Ngampilan	Ngampilan	Kota Yogyakarta	3

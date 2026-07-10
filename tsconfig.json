@@ -1,0 +1,54 @@
+{
+    "compilerOptions":  {
+                            "target":  "es2017",
+                            "lib":  [
+                                        "dom",
+                                        "dom.iterable",
+                                        "esnext"
+                                    ],
+                            "allowJs":  true,
+                            "skipLibCheck":  true,
+                            "strict":  true,
+                            "noEmit":  true,
+                            "esModuleInterop":  true,
+                            "module":  "esnext",
+                            "moduleResolution":  "bundler",
+                            "resolveJsonModule":  true,
+                            "isolatedModules":  true,
+                            "jsx":  "preserve",
+                            "incremental":  true,
+                            "plugins":  [
+                                            {
+                                                "name":  "next"
+                                            }
+                                        ],
+                            "paths":  {
+                                          "@/*":  [
+                                                      "./src/*"
+                                                  ],
+                                          "@paroki/ui":  [
+                                                             "./packages/ui/src/index.ts"
+                                                         ],
+                                          "@paroki/ui/*":  [
+                                                               "./packages/ui/src/*"
+                                                           ],
+                                          "@paroki/core":  [
+                                                               "./packages/core/src/index.ts"
+                                                           ],
+                                          "@paroki/core/*":  [
+                                                                 "./packages/core/src/*"
+                                                             ]
+                                      }
+                        },
+    "include":  [
+                    "next-env.d.ts",
+                    "**/*.ts",
+                    "**/*.tsx",
+                    ".next/types/**/*.ts"
+                ],
+    "exclude":  [
+                    "node_modules",
+                    "supabase/functions/**",
+                    "packages/core/src/lib/email.ts"
+                ]
+}

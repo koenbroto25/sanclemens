@@ -1,0 +1,54 @@
+---
+document_code: BAPA_SA_SBDT
+title: "Super Boethium De Trinitate (Thomas Aquinas — Komentar atas Boethius De Trinitate)"
+category: "Bapa Gereja"
+priority: "Pendalaman"
+word_count: 60489
+paragraph_count: 915
+estimated_chunks: 121
+---
+
+# Super Boethium De Trinitate
+
+**Kode Dokumen**: `BAPA_SA_SBDT`
+**Kategori**: Bapa Gereja
+**Prioritas**: Pendalaman
+
+> **Deskripsi**: *Super Boethium De Trinitate* adalah komentar filsafat-teologis Thomas Aquinas atas risalah Boethius tentang Tritunggal. Terdiri dari enam quaestio utama yang membahas pengetahuan tentang hal-hal ilahi, manifestasi kebenaran iman, unsur-unsur kepercayaan Kristiani, sebab-sebab kemajemukan, pembagian ilmu spekulatif, dan metode ilmu spekulatif. Pertanyaan 1–4 diterjemahkan oleh Rose E. Brennan, S.H.N. (Herder, 1946); Pertanyaan 5–6 diterjemahkan oleh Armand Mauer (Toronto, 1953). Dokumen ini telah dibersihkan dan diformat untuk AI Knowledge Base.
+
+---
+
+## ST. THOMAS' INTRODUCTION
+
+"I will seek her out from the beginning of her birth, and bring the knowledge of her to
+light" (Wis. 6:24)
+
+The natural intuition of the human mind, burdened by the weight of a corruptible body, cannot
+fix its gaze in the prime light of First Truth, in which all things are easily knowable; whence it
+must be that, according to the progress of its natural manner of cognition, the reason advances
+from the things that are posterior to those that are prior, and from creatures to God. "For the
+invisible things of Him, from the creation of the world, are clearly seen, being understood by the
+things that are made" (Rom. 1:20) and "For by the greatness of the beauty and of the creature, the
+Creator of them may be seen, so as to be known thereby" (Wis. 13:5); and this is what is said in
+Job 36:25: "All men see Him, gazing from afar."
+
+For creatures, through whom God can be known by the natural light of reason, are at an infinite
+distance from Him. But since, in those who look at a thing from a great distance, vision may
+readily be deceived, therefore those striving to attain to a knowledge of God from creatures fell
+into many errors: wherefore it is said: "The creatures of God are... a snare to the feet of the
+unwise" (Wis. 14: 11), and: "They have failed in their search" (Ps. 63:7); and therefore God has
+provided for the human race another safe road of cognition, bestowing upon the minds of men,
+
+by faith, a knowledge of Himself. Therefore, it is said: "The things also that are of God no man
+knows, but the Spirit of God: but to us God has revealed them by His Spirit" (1 Cor. 2: 11): and
+this is the Spirit by whom we are enabled to be believers: "Having the same spirit of faith, as it is
+written: 'I believed, for which cause I have spoken' (Ps. 115: 10); we also believe, for which
+cause we speak also" (2 Cor, 4:13)
+
+Therefore, as the principle of our cognition is naturally the knowledge of created things, obtained
+by means of the senses, so the principle of supernatural cognition is that knowledge of First
+Truth conferred upon us, infused by faith; and hence it follows that in advancing one proceeds
+according to a diverse order. For philosophers, who follow along the way of natural cognition,
+place knowledge about created things before knowledge about divine things: natural science
+before metaphysics: but among theologians the procedure is in reverse order, so that study of the
+Creator comes before that of creatures.

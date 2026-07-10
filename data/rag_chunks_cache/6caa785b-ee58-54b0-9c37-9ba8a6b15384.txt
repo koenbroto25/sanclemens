@@ -1,0 +1,27 @@
+---
+document_code: VATII_SC
+title: "Sacrosanctum Concilium - Konstitusi tentang Liturgi Suci"
+category: "Konsili Vatikan II"
+priority: "WAJIB"
+word_count: 10522
+paragraph_count: 131
+estimated_chunks: 21
+---
+
+# Sacrosanctum Concilium - Konstitusi tentang Liturgi Suci
+
+**Kode Dokumen**: `VATII_SC`  
+**Kategori**: Konsili Vatikan II  
+**Prioritas**: WAJIB
+
+> **Deskripsi**: Konstitusi tentang Liturgi Suci dari Konsili Vatikan II, ditetapkan tanggal 4 Desember 1963. Dokumen ini merupakan dokumen pertama yang dihasilkan Konsili Vatikan II, membahas pembaharuan dan pengembangan Liturgi Gereja Katolik. Diterjemahkan oleh R. Hardawiryana, SJ. Dokumen ini telah dibersihkan secara presisi untuk AI Knowledge Base.
+
+---
+
+## PENDAHULUAN
+
+**1.** KONSILI SUCI bermaksud makin meningkatkan kehidupan kristiani di antara umat beriman; menyesuaikan lebih baik lagi lembaga-lembaga yang dapat berubah dengan kebutuhan zaman kita; memajukan apa saja yang dapat membantu persatuan semua orang yang beriman akan Kristus; dan meneguhkan apa saja yang bermanfaat untuk mengundang semua orang ke dalam pangkuan Gereja. Oleh karena itu Konsili memandang sebagai kewajibannya untuk secara istimewa mengusahakan juga pembaharuan dan pengembangan Liturgi.
+
+**2.** Sebab melalui Liturgilah, terutama dalam Korban ilahi Ekaristi, "terlaksana karya penebusan kita". Liturgi merupakan upaya yang sangat membantu kaum beriman untuk dengan penghayatan mengungkapkan misteri Kristus serta hakikat asli Gereja yang sejati, serta memperlihatkan itu kepada orang-orang lain, yakni bahwa Gereja bersifat sekaligus manusiawi dan ilahi, kelihatan namun penuh kenyataan yang tak kelihatan, penuh semangat dalam kegiatan namun meluangkan waktu juga untuk kontemplasi, hadir di dunia namun sebagai musafir. Dan semua itu berpadu sedemikian rupa, sehingga dalam Gereja apa yang insani diarahkan dan diabdikan kepada yang ilahi, apa yang kelihatan kepada yang tidak nampak, apa yang termasuk kegiatan kepada kontemplasi, dan apa yang ada sekarang kepada kota yang akan datang, yang sedang kita cari (Ibr 13:14). Maka dari itu Liturgi setiap hari membangun mereka yang berada di dalam Gereja menjadi kenisah suci dalam Tuhan, menjadi kediaman Allah dalam Roh (Ef 2:21-22), sampai mereka mencapai kedewasaan penuh sesuai dengan kepenuhan Kristus (Ef 4:13). Maka Liturgi sekaligus secara mengagumkan menguatkan tenaga mereka untuk mewartakan Kristus, dan dengan demikian menunjukkan Gereja kepada mereka yang di luarnya sebagai tanda yang menjulang di antara bangsa-bangsa (Yes 11:12). Di bawah tanda itu putra-putra Allah yang tercerai-berai dihimpun menjadi satu (Yoh 11:52), sampai terwujudlah satu kawanan dan satu gembala (Yoh 10:16).
+
+**3.** Oleh karena itu mengenai pengembangan dan pembaharuan Liturgi Konsili suci berpendapat: perlu mengingatkan lagi asas-asas berikut dan menetapkan kaidah-kaidah praktis.

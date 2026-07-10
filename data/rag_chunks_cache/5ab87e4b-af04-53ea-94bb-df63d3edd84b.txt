@@ -1,0 +1,98 @@
+---
+document_code: BAPA_ST_ST_1
+title: "St. Thomas Aquinas - Summa Theologica: Prima Pars (First Part)"
+category: "Bapa Gereja"
+priority: "Pendalaman"
+word_count: 516893
+paragraph_count: 1837
+estimated_chunks: 1034
+---
+
+# St. Thomas Aquinas - Summa Theologica: Prima Pars (First Part)
+
+**Kode Dokumen**: `BAPA_ST_ST_1`
+**Kategori**: Bapa Gereja
+**Prioritas**: Pendalaman
+
+> **Deskripsi**: Prima Pars (Bagian Pertama) Summa Theologica oleh St. Thomas Aquinas, mencakup 119 Quaestio tentang Allah, Tritunggal Mahakudus, Penciptaan, Malaikat, Manusia, dan Pemerintahan Ilahi. Diterjemahkan oleh Fathers of the English Dominican Province.
+
+---
+
+### PROLOGUE
+
+Because the doctor of Catholic truth ought not only to teach the
+proficient, but also to instruct beginners (according to the Apostle:
+As unto little ones in Christ, I gave you milk to drink, not meat -- 1
+Cor. 3:1-2), we purpose in this book to treat of whatever belongs to
+the Christian religion, in such a way as may tend to the instruction of
+beginners. We have considered that students in this doctrine have
+not seldom been hampered by what they have found written by other
+authors, partly on account of the multiplication of useless questions,
+articles, and arguments, partly also because those things that are
+needful for them to know are not taught according to the order of the
+subject matter, but according as the plan of the book might require,
+or the occasion of the argument offer, partly, too, because frequent
+repetition brought weariness and confusion to the minds of readers.
+Endeavouring to avoid these and other like faults, we shall try, by
+God's help, to set forth whatever is included in this sacred doctrine
+as briefly and clearly as the matter itself may allow.
+
+# FIRST PART
+
+## QUESTION 1 — THE NATURE AND EXTENT OF SACRED DOCTRINE
+
+### PROLOGUE
+
+To place our purpose within proper limits, we first endeavor to
+investigate the nature and extent of this sacred doctrine. Concerning
+this there are ten points of inquiry:
+(1) Whether it is necessary?
+(2) Whether it is a science?
+(3) Whether it is one or many?
+(4) Whether it is speculative or practical?
+(5) How it is compared with other sciences?
+(6) Whether it is the same as wisdom?
+(7) Whether God is its subject-matter?
+(8) Whether it is a matter of argument?
+(9) Whether it rightly employs metaphors and similes?
+(10) Whether the Sacred Scripture of this doctrine may be
+expounded in different senses?
+
+### ARTICLE 1. Whether, besides philosophy, any further doctrine
+
+is required?
+Objection 1: It seems that, besides philosophical science, we have
+no need of any further knowledge. For man should not seek to know
+what is above reason: "Seek not the things that are too high for
+thee" (Ecclus. 3:22). But whatever is not above reason is fully treated
+of in philosophical science. Therefore any other knowledge besides
+philosophical science is superfluous.
+Objection 2: Further, knowledge can be concerned only with being,
+for nothing can be known, save what is true; and all that is, is true.
+But everything that is, is treated of in philosophical science---even
+God Himself; so that there is a part of philosophy called theology, or
+the divine science, as Aristotle has proved (Metaph. vi). Therefore,
+besides philosophical science, there is no need of any further
+knowledge.
+On the contrary, It is written (2 Tim. 3:16): "All Scripture, inspired of
+God is profitable to teach, to reprove, to correct, to instruct in
+justice." Now Scripture, inspired of God, is no part of philosophical
+science, which has been built up by human reason. Therefore it is
+useful that besides philosophical science, there should be other
+knowledge, i.e. inspired of God.
+I answer that, It was necessary for man's salvation that there should
+be a knowledge revealed by God besides philosophical science built
+up by human reason. Firstly, indeed, because man is directed to
+God, as to an end that surpasses the grasp of his reason: "The eye
+hath not seen, O God, besides Thee, what things Thou hast prepared
+for them that wait for Thee" (Is. 66:4). But the end must first be
+known by men who are to direct their thoughts and actions to the
+end. Hence it was necessary for the salvation of man that certain
+truths which exceed human reason should be made known to him by
+divine revelation. Even as regards those truths about God which
+human reason could have discovered, it was necessary that man
+should be taught by a divine revelation; because the truth about God
+such as reason could discover, would only be known by a few, and
+that after a long time, and with the admixture of many errors.
+Whereas man's whole salvation, which is in God, depends upon the
+knowledge of this truth. Therefore, in order that the salvation of men

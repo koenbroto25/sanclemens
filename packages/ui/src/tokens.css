@@ -1,0 +1,101 @@
+/* ============================================
+   CSS CUSTOM PROPERTIES — Pintu 1 (Paroki & Pastoral)
+   Ref: uiux_design_system.md §3.1
+   ============================================ */
+:root {
+  /* Primary Colors */
+  --color-pintu1-primary: #1a0e05; /* Deep Espresso */
+  --color-pintu1-primary-light: #2c1a0e;
+  --color-pintu1-primary-wash: #e8e0d5;
+
+  /* Secondary Colors */
+  --color-pintu1-secondary: #8b4513; /* Brown/Sienna */
+  --color-pintu1-secondary-light: #a0522d;
+  --color-pintu1-secondary-wash: #f5ebe0;
+
+  /* Accent Colors - Gold */
+  --color-pintu1-gold: #c8a96e; /* Emas lilin */
+  --color-pintu1-gold-light: #e8d5a3;
+  --color-pintu1-gold-wash: #fdf6e3;
+
+  /* Liturgical Colors (example, will be dynamic) */
+  --color-liturgical-green: #2d7d3c; /* Masa Biasa */
+  --color-liturgical-purple: #6a1b9a; /* Adven & Prapaskah */
+  --color-liturgical-white: #f5f5f5; /* Natal, Paskah */
+  --color-liturgical-gold: #ffd700; /* Paskah */
+  --color-liturgical-red: #c62828; /* Pentakosta & Martir */
+  --color-liturgical-rose: #e91e8c; /* Gaudete/Laetare */
+
+  /* Surface & Text Colors */
+  --color-pintu1-background: #f5f0e8; /* Cream hangat */
+  --color-pintu1-surface: #ffffff;
+  --color-pintu1-surface-elevated: #ffffff;
+  --color-pintu1-border: #e0dbd4;
+  --color-pintu1-text-primary: #1c1410;
+  --color-pintu1-text-secondary: #6b5e50;
+  --color-pintu1-text-tertiary: #9e9e9e;
+
+  /* Semantic Colors (consistent across Pintu 1, 2, 3) */
+  --color-semantic-success: #2e7d32;
+  --color-semantic-success-wash: #e8f5e9;
+  --color-semantic-warning: #ed6c02;
+  --color-semantic-warning-wash: #fff3e0;
+  --color-semantic-error: #d32f2f;
+  --color-semantic-error-wash: #ffebee;
+  --color-semantic-info: #0288d1;
+  --color-semantic-info-wash: #e1f5fe;
+
+  /* Typography */
+  --font-heading: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-liturgi: 'Merriweather', Georgia, serif;
+  --font-monospace: 'JetBrains Mono', monospace;
+
+  /* Shadows */
+  --shadow-warm-sm: 0 4px 14px rgba(26,14,5,0.25);
+  --shadow-warm-md: 0 8px 32px rgba(26, 14, 5, 0.15);
+  --shadow-warm-lg: 0 16px 48px rgba(26, 14, 5, 0.2);
+  --shadow-card-p1-p2: 0 4px 20px rgba(26, 14, 5, 0.1);
+
+  /* Transitions */
+  --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ============================================
+   CSS CUSTOM PROPERTIES — Pintu 2 (Lingkungan)
+   Ref: uiux_design_system.md §3.2
+   ============================================ */
+[data-homepage-context="lingkungan"] {
+  --color-pintu2-primary: #2c1a0e; /* Coklat kayu lebih terang */
+  --color-pintu2-secondary: #5c3a1e; /* Coklat hangat */
+  --color-pintu2-gold: #c8a96e; /* SAMA dengan Pintu 1 */
+  --color-pintu2-gold-light: #e8d5a3;
+  --color-pintu2-cream: #faf6ef; /* Cream lebih hangat */
+  --color-pintu2-card-bg: #ffffff;
+  --color-pintu2-accent-green: #4a7c59; /* Hijau daun */
+  --color-pintu2-accent-soft: #e8ddd0; /* Krem gelap hover card */
+  --color-pintu2-text-primary: #2a1a0e;
+}
+
+/* ============================================
+   CSS CUSTOM PROPERTIES — Pintu 3 (Pasar Kasih / Marketplace)
+   Ref: uiux_design_system.md §3.3
+   ============================================ */
+[data-homepage-context="marketplace"] {
+  --color-pintu3-primary: #1b5e20; /* Deep Green */
+  --color-pintu3-primary-light: #2e7d32;
+  --color-pintu3-primary-dark: #0d3b10;
+  --color-pintu3-accent: #f9a825; /* Amber */
+  --color-pintu3-accent-light: #ffc107;
+  --color-pintu3-accent-soft: #fff8e1;
+  --color-pintu3-teal: #00695c;
+  --color-pintu3-teal-light: #00897b;
+  --color-pintu3-cream: #f8f6f0;
+  --color-pintu3-surface: #ffffff;
+  --color-pintu3-text-dark: #1a1a1a;
+  --color-pintu3-text-muted: #666666;
+  --color-pintu3-gold: #c8a96e; /* Hanya aksen nostalgia */
+
+  /* Shadows Pintu 3 */
+  --shadow-card-p3: 0 8px 32px rgba(0,0,0,0.12); /* Modern shadow */
+}

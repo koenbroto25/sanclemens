@@ -1,0 +1,323 @@
+#!/usr/bin/env python3
+"""
+Pipeline: chunk -> embed -> upload R2 + Supabase
+Untuk dokumen cleaned/ dan jesuit/ yang belum diproses
+Tanpa simpan ke disk — hemat RAM
+Usage:
+    python upload_new_theology.py          # semua dokumen
+    python upload_new_theology.py small    # dokumen kecil saja (<200KB)
+    python upload_new_theology.py large    # dokumen besar saja (>=200KB)
+"""
+import os, uuid, re, sys, logging, boto3
+from botocore.config import Config
+from pathlib import Path
+from dotenv import load_dotenv
+import psycopg2
+import google.genai as genai
+from google.genai import types
+import asyncio
+
+logging.basicConfig(level=logging.INFO, format='%(asctime)s %(message)s')
+logger = logging.getLogger(__name__)
+load_dotenv(Path(__file__).resolve().parents[2] / '.env.local')
+
+R2_BUCKET    = os.environ.get('R2_BUCKET_NAME', 'paroki-klemens-rag-content')
+PREVIEW_LEN  = 150
+CHUNK_SIZE   = 800
+CHUNK_OVERLAP = 100
+
+CLEANED_DIR = Path(__file__).resolve().parents[2] / 'data' / 'cleaned'
+JESUIT_DIR  = Path(__file__).resolve().parents[2] / 'data' / 'jesuit'
+
+# Metadata per dokumen sesuai §15.7
+DOC_META = {
+    # === CLEANED (sudah ada di theological_chunks, skip) ===
+    # dokumen cleaned sudah diupload via embeddings_output sebelumnya
+    # hanya jesuit yang belum
+
+    # === JESUIT ===
+    'Apophthegmata Patrum': {
+        'nama': 'Apophthegmata Patrum (Kata-Kata Para Bapa Padang Gurun)',
+        'penulis': 'Para Bapa Padang Gurun',
+        'cat': '7a', 'auth': 'reference',
+        'bot': ['bot_3', 'bot_8', 'bot_pastor'],
+        'ref': 'Apophthegmata Patrum (Bapa Padang Gurun)',
+        'domain': 'theology'
+    },
+    'Autobiography of St Ignatius': {
+        'nama': 'Autobiografi St. Ignatius dari Loyola',
+        'penulis': 'St. Ignatius dari Loyola',
+        'cat': '7b', 'auth': 'reference',
+        'bot': ['bot_3', 'bot_8', 'bot_pastor'],
+        'ref': 'Autobiografi St. Ignatius dari Loyola',
+        'domain': 'theology'
+    },
+    'Constitutions of the Society of Jesus': {
+        'nama': 'Konstitusi Serikat Yesus',
+        'penulis': 'St. Ignatius dari Loyola',
+        'cat': '7b', 'auth': 'reference',
+        'bot': ['bot_3', 'bot_8', 'bot_pastor'],
+        'ref': 'Konstitusi Serikat Yesus (St. Ignatius)',
+        'domain': 'theology'
+    },
+    'Formula of the Institute 1540 1550': {
+        'nama': 'Formula Institut Serikat Yesus 1540-1550',
+        'penulis': 'St. Ignatius dari Loyola',
+        'cat': '7b', 'auth': 'reference',
+        'bot': ['bot_3', 'bot_8', 'bot_pastor'],
+        'ref': 'Formula Institut Serikat Yesus',
+        'domain': 'theology'
+    },
+    'GC32 Decree 2 Jesuits Today': {
+        'nama': 'GC32 Dekret 2 - Yesuit Hari Ini',
+        'penulis': 'Kongregasi Jenderal Serikat Yesus ke-32',
+        'cat': '7b', 'auth': 'reference',
+        'bot': ['bot_3', 'bot_8', 'bot_pastor'],
+        'ref': 'GC32 Dekret 2 - Yesuit Hari Ini',
+        'domain': 'theology'
+    },
+    'GC34 Decree 1 United with Christ': {
+        'nama': 'GC34 Dekret 1 - Bersatu dengan Kristus',
+        'penulis': 'Kongregasi Jenderal Serikat Yesus ke-34',
+        'cat': '7b', 'auth': 'reference',
+        'bot': ['bot_3', 'bot_8', 'bot_pastor'],
+        'ref': 'GC34 Dekret 1 - Bersatu dengan Kristus',
+        'domain': 'theology'
+    },
+    'GC35 Decree 2 Fire that Kindles': {
+        'nama': 'GC35 Dekret 2 - Api yang Menyalakan',
+        'penulis': 'Kongregasi Jenderal Serikat Yesus ke-35',
+        'cat': '7b', 'auth': 'reference',
+        'bot': ['bot_3', 'bot_8', 'bot_pastor'],
+        'ref': 'GC35 Dekret 2 - Api yang Menyalakan',
+        'domain': 'theology'
+    },
+    'GC36 Decrees': {
+        'nama': 'GC36 Dekret-Dekret',
+        'penulis': 'Kongregasi Jenderal Serikat Yesus ke-36',
+        'cat': '7b', 'auth': 'reference',
+        'bot': ['bot_3', 'bot_8', 'bot_pastor'],
+        'ref': 'GC36 Dekret-Dekret Serikat Yesus',
+        'domain': 'theology'
+    },
+    'Imitation of Christ Thomas a Kempis': {
+        'nama': 'Imitasi Kristus',
+        'penulis': 'Thomas a Kempis',
+        'cat': '7a', 'auth': 'reference',
+        'bot': ['bot_3', 'bot_8', 'bot_pastor'],
+        'ref': 'Imitasi Kristus (Thomas a Kempis)',
+        'domain': 'theology'
+    },
+    'Selected Letters of St Ignatius': {
+        'nama': 'Surat-Surat Pilihan St. Ignatius dari Loyola',
+        'penulis': 'St. Ignatius dari Loyola',
+        'cat': '7b', 'auth': 'reference',
+        'bot': ['bot_3', 'bot_8', 'bot_pastor'],
+        'ref': 'Surat-Surat Pilihan St. Ignatius',
+        'domain': 'theology'
+    },
+    'Spiritual Diary of St Ignatius': {
+        'nama': 'Buku Harian Rohani St. Ignatius',
+        'penulis': 'St. Ignatius dari Loyola',
+        'cat': '7b', 'auth': 'reference',
+        'bot': ['bot_3', 'bot_8', 'bot_pastor'],
+        'ref': 'Buku Harian Rohani St. Ignatius dari Loyola',
+        'domain': 'theology'
+    },
+    'Spiritual Exercises Ignatius Loyola (Mullan trans)': {
+        'nama': 'Latihan Rohani St. Ignatius dari Loyola',
+        'penulis': 'St. Ignatius dari Loyola',
+        'cat': '7b', 'auth': 'reference',
+        'bot': ['bot_3', 'bot_8', 'bot_pastor'],
+        'ref': 'Latihan Rohani St. Ignatius dari Loyola',
+        'domain': 'theology'
+    },
+}
+
+gemini_keys = [os.environ.get(f'GOOGLE_API_KEY_{i}') for i in range(1, 151) if os.environ.get(f'GOOGLE_API_KEY_{i}')]
+key_index = 0
+
+def get_r2():
+    return boto3.session.Session().client('s3',
+        endpoint_url=f"https://{os.environ.get('R2_ACCOUNT_ID')}.r2.cloudflarestorage.com",
+        region_name='auto', aws_access_key_id=os.environ.get('R2_ACCESS_KEY_ID'),
+        aws_secret_access_key=os.environ.get('R2_SECRET_ACCESS_KEY'),
+        config=Config(signature_version='s3v4'))
+
+def get_db():
+    return psycopg2.connect(
+        host='aws-1-ap-southeast-1.pooler.supabase.com', port=6543,
+        dbname='postgres', user='postgres.brfdzodjzoeoylbfzkry',
+        password=os.environ.get('SUPABASE_DB_PASSWORD',''), sslmode='require')
+
+async def embed_text(text):
+    global key_index
+    for _ in range(len(gemini_keys)):
+        key = gemini_keys[key_index]
+        try:
+            client = genai.Client(api_key=key, http_options={'api_version':'v1beta'})
+            result = await client.aio.models.embed_content(
+                model='models/gemini-embedding-2', contents=text,
+                config=types.EmbedContentConfig(output_dimensionality=768))
+            return result.embeddings[0].values
+        except Exception as e:
+            if '429' in str(e) or 'RESOURCE_EXHAUSTED' in str(e):
+                key_index = (key_index + 1) % len(gemini_keys)
+                await asyncio.sleep(1)
+            else:
+                logger.error(f'  Embed error (key {key_index}): {type(e).__name__}: {e!r}')
+                key_index = (key_index + 1) % len(gemini_keys)
+                await asyncio.sleep(0.5)
+    raise Exception('All keys exhausted (last errors logged above)')
+
+def chunk_text(text):
+    sections = re.split(r'\n(?=#{1,3} |\n)', text)
+    chunks = []
+    for section in sections:
+        if not section.strip():
+            continue
+        if len(section) <= CHUNK_SIZE:
+            chunks.append(section.strip())
+        else:
+            start = 0
+            while start < len(section):
+                end = start + CHUNK_SIZE
+                if end < len(section):
+                    boundary = section.rfind('. ', start, end)
+                    if boundary > start:
+                        end = boundary + 1
+                chunk = section[start:end].strip()
+                if chunk:
+                    chunks.append(chunk)
+                start = end - CHUNK_OVERLAP
+    return [c for c in chunks if len(c.strip()) >= 50]
+
+def already_uploaded(conn, doc_key, idx):
+    with conn.cursor() as cur:
+        cur.execute(
+            "SELECT 1 FROM public.ai_knowledge_base WHERE document_code=%s AND chunk_index=%s",
+            (doc_key, idx))
+        return cur.fetchone() is not None
+
+async def process_file(conn, r2, filepath: Path):
+    doc_key = filepath.stem
+    m = DOC_META.get(doc_key, {
+        'nama': doc_key, 'penulis': 'Unknown',
+        'cat': '7a', 'auth': 'reference',
+        'bot': ['bot_3', 'bot_8'], 'ref': doc_key,
+        'domain': 'theology'
+    })
+
+    logger.info(f'Reading {filepath.name} ({filepath.stat().st_size // 1024}KB)...')
+    text = filepath.read_text(encoding='utf-8', errors='replace')
+    chunks = chunk_text(text)
+    logger.info(f'{doc_key}: {len(chunks)} chunks')
+
+    up = skip = err = 0
+    for idx, chunk in enumerate(chunks):
+        if already_uploaded(conn, doc_key, idx):
+            skip += 1
+            continue
+
+        chunk_id = str(uuid.uuid4())
+        r2_key   = f'chunks/theological/{chunk_id}.txt'
+        preview  = chunk[:PREVIEW_LEN].rstrip() + '...' if len(chunk) > PREVIEW_LEN else chunk
+
+        try:
+            embedding = await embed_text(chunk)
+        except Exception as e:
+            logger.error(f'Embed failed {doc_key}[{idx}]: {e}')
+            err += 1
+            continue
+
+        try:
+            r2.put_object(Bucket=R2_BUCKET, Key=r2_key,
+                Body=chunk.encode('utf-8'), ContentType='text/plain; charset=utf-8')
+        except Exception as e:
+            logger.error(f'R2 failed {doc_key}[{idx}]: {e}')
+            err += 1
+            continue
+
+        try:
+            with conn.cursor() as cur:
+                cur.execute("""
+                    INSERT INTO public.theological_chunks
+                        (id,content_r2_key,content_preview,content_embedding,
+                         chunk_source_domain,source_document,source_reference,
+                         category_code,authority_level,embedding_outdated)
+                    VALUES (%s,%s,%s,%s::vector,%s,%s,%s,%s,%s,FALSE)
+                    ON CONFLICT (id) DO NOTHING
+                """, (chunk_id,r2_key,preview,str(embedding),
+                      'theology',m['nama'],m['ref'],m['cat'],m['auth']))
+            with conn.cursor() as cur:
+                cur.execute("""
+                    INSERT INTO public.ai_knowledge_base
+                        (id,document_code,chunk_index,content_type,
+                         chunk_table_ref,chunk_id,qa_pair_id,
+                         domain,bot_access,access_level_min,status,
+                         source_reference,chunk_quality_score,
+                         question_type_classification,
+                         nama_dokumen,penulis,kategori,theology_topic)
+                    VALUES (%s,%s,%s,%s,%s,%s,NULL,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+                    ON CONFLICT (document_code,chunk_index) DO NOTHING
+                """, (str(uuid.uuid4()),doc_key,idx,'rag_chunk',
+                      'theological_chunks',chunk_id,
+                      m['domain'],m['bot'],0,'approved',
+                      m['ref'],4,'theological_document',
+                      m['nama'],m['penulis'],'ignatian_spirituality',
+                      ['ignatian','spirituality']))
+            conn.commit()
+            up += 1
+        except Exception as e:
+            conn.rollback()
+            logger.error(f'DB failed {doc_key}[{idx}]: {e}')
+            err += 1
+
+        if (up+err) % 50 == 0 and (up+err) > 0:
+            logger.info(f'  {doc_key}: {up} up, {skip} skip, {err} err')
+
+    logger.info(f'DONE {doc_key}: {up} up, {skip} skip, {err} err')
+    return up, err
+
+async def main():
+    mode = sys.argv[1] if len(sys.argv) > 1 else 'all'
+    SIZE_LIMIT = 200 * 1024  # 200KB
+
+    # Kumpulkan semua file jesuit saja (cleaned sudah diupload)
+    all_files = sorted(JESUIT_DIR.glob('*.*'))
+
+    if mode == 'small':
+        files = [f for f in all_files if f.stat().st_size < SIZE_LIMIT]
+    elif mode == 'large':
+        files = [f for f in all_files if f.stat().st_size >= SIZE_LIMIT]
+    else:
+        files = all_files
+
+    logger.info(f'Mode: {mode} | Files: {len(files)}')
+    for f in files:
+        logger.info(f'  {f.name} ({f.stat().st_size//1024}KB)')
+
+    conn = get_db()
+    r2   = get_r2()
+    total_up = total_err = 0
+
+    for filepath in files:
+        try:
+            up, err = await process_file(conn, r2, filepath)
+            total_up  += up
+            total_err += err
+        except (KeyboardInterrupt, asyncio.CancelledError):
+            logger.error(f'Dihentikan manual (Ctrl+C) saat memproses {filepath.name}')
+            conn.rollback()
+            raise
+        except Exception as e:
+            import traceback
+            logger.error(f'Fatal error {filepath.name}: {type(e).__name__}: {e!r}')
+            logger.error(traceback.format_exc())
+            conn.rollback()
+
+    conn.close()
+    logger.info(f'FINISHED: {total_up} total uploaded, {total_err} errors')
+
+if __name__ == '__main__':
+    asyncio.run(main())

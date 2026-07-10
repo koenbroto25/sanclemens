@@ -1,0 +1,46 @@
+5. If a cause is removed, so is its effect. Now it happens that every accident is removed from a
+subject either actually or by thought. If, therefore, an accident were the principle of plurality
+according to number and diversity, it would happen that the same things would sometimes be
+numerically one and sometimes diverse, either actually or by thought.
+
+6. What is posterior is never the cause of what is prior. But among all accidents, quantity holds
+first place, as Boethius says in Lib. praedicam. Among quantities, however, number is prior
+since it is more simple and more abstract. Therefore an accident cannot be the principle of
+plurality according to number.
+
+#### Sed contra
+
+On the contrary is the statement made byy Porphyry, that a collection of accidents which are not
+to be found in another produces the individual. But what is the principle of individuation is the
+principle of numerical plurality; therefore accidents are the principle of plurality according to
+number.
+
+Again, in the individual, there is found nothing except matter, form, and accidents. Diversity of
+form, however, does not produce diversity according to number, but according to species, as is
+said in X Metaph. Now, diversity of matter produces diversity of genus. For the Philosopher
+says in X Metaph. that those things differ in genus in which there is not common matter, or
+generation of one into the other (mutual generation). Therefore diversity according to number
+cannot be produced except by diversity of accidents.
+
+Moreover, what is found as common in many things that are specifically different is not the
+cause of diversity according to number, because the division of genus into species precedes the
+division of species into individuals; but matter is found to be common in things that are different
+in species because the same matter is possessed by contrary forms, otherwise beings having
+contrary forms would not be transmuted one into the other; therefore matter is not the principle of
+individuation according to number, and neither is form, as has been noted at the beginning.
+Hence it remains that accidents are the cause of this kind of diversity.
+
+Again, in the genus of substance there is found only genus and difference; but the individuals of
+one species differ neither in genus, nor by reason of substantial differences; therefore they do not
+differ except because of accidental differences.
+
+Response. I answer: For the clarification of this question and of those other questions treated of
+in the text of Boethius, it is necessary to see what may be the cause of the threefold diversity
+spoken of in the text.
+
+Now, since in the individual composite in the genus of substance there are only three things
+(matter, form, and the composite), it must be that in each of these things the causes of their
+diversities are to be found. Accordingly it must be evident that diversity of genus is reduced to
+diversity of matter; but diversity according to species is reduced to diversity of form; whereas
+diversity according to number is owing partly to diversity of matter, and partly to accidental
+diversity.

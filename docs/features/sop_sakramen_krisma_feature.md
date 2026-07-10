@@ -1,0 +1,61 @@
+# Fitur: SOP Sakramen Krisma
+
+## Overview
+Fitur ini mengelola alur pendaftaran Sakramen Krisma secara digital, mencakup pengecekan kelengkapan data, pengajuan online, approval Ketua Lingkungan (KL), hingga penerbitan surat pengantar elektronik ke Sekretaris 1 Gereja.
+
+## Detail Fitur
+
+### 1. Pengecekan Kelengkapan Data Umat
+*   **Trigger:** Umat mengakses halaman pendaftaran Sakramen Krisma.
+*   **Aksi Sistem:** Memverifikasi kelengkapan data pribadi umat di database, termasuk status upload dokumen yang diperlukan di `Digital Vault` (misal: Surat Baptis).
+*   **Kondisi:**
+    *   **Data Lengkap:** Umat dapat melanjutkan ke form pengajuan.
+    *   **Data Belum Lengkap:** Umat diarahkan ke halaman kelengkapan data (`/data-completion`) dengan notifikasi.
+*   **Notifikasi:** Notifikasi periodik (in-app, WA) akan dikirim jika data belum lengkap.
+
+### 2. Form Pengajuan Sakramen Krisma Online
+*   **Akses:** Umat yang datanya sudah lengkap.
+*   **Input Form:**
+    *   **Data Calon Krisma:** Nama Lengkap, Tanggal Lahir, Tempat Lahir, Rencana Nama Krisma.
+    *   **Data Wali Krisma:** Nama Lengkap, No WA.
+    *   **Dokumen Administratif (Upload via Digital Vault):**
+        *   Surat Baptis asli (scan).
+        *   Fotokopi KTP.
+        *   Surat Pengantar dari Ketua Lingkungan (jika ada).
+        *   Sertifikat Kursus Persiapan Krisma (jika ada).
+*   **Submit:** Pengajuan tersimpan dengan status `Pending KL Approval`.
+
+### 3. Alur Approval Ketua Lingkungan (KL)
+*   **Trigger:** Umat submit form pengajuan.
+*   **Aksi Sistem:** Notifikasi (in-app, WA) dikirim ke Ketua Lingkungan yang relevan. Pengajuan muncul di Dashboard KL.
+*   **Aksi KL:** Meninjau pengajuan dan dokumen di Dashboard KL. Dapat `Approve` atau `Tolak` (dengan catatan).
+*   **Kondisi:**
+    *   **Ditolak:** Notifikasi ke umat. Status pengajuan `Rejected by KL`.
+    *   **Disetujui:** Notifikasi ke umat. Status pengajuan `Approved by KL, Waiting for Sekretaris 1`.
+
+### 4. Penerbitan Surat Pengantar Elektronik ke Sekretaris 1 Gereja
+*   **Trigger:** Pengajuan disetujui oleh KL.
+*   **Aksi Sistem (Otomatis):**
+    *   Sistem menerbitkan "Surat Pengantar Elektronik" dari KL ke Sekretaris 1 Gereja (Portal 1).
+    *   Surat ini dapat diakses oleh Sekretaris 1 melalui Dashboard Admin Portal 1.
+    *   Notifikasi (in-app, WA) dikirim ke umat dan Sekretaris 1.
+
+### 5. Proses Sekretaris 1 Gereja (Portal 1)
+*   **Akses:** Sekretaris 1 mengakses Dashboard Admin Portal 1.
+*   **Aksi Sekretaris 1:**
+    *   Meninjau Surat Pengantar Elektronik dan detail pengajuan.
+    *   Verifikasi dokumen dan syarat lainnya.
+    *   Mengubah status pengajuan.
+*   **Notifikasi:** Notifikasi akan dikirim ke umat setiap kali status diperbarui.
+
+## Integrasi
+*   **Digital Vault:** Digunakan untuk menyimpan dan mengambil dokumen administratif.
+*   **Sistem Notifikasi:** Untuk pemberitahuan in-app dan WhatsApp.
+*   **Dashboard KL:** Integrasi untuk pengelolaan approval.
+*   **Dashboard Admin Portal 1:** Integrasi untuk pengelolaan surat pengantar dan proses selanjutnya.
+
+## API Endpoints (Contoh)
+*   `POST /api/sakramen/krisma/apply`: Mengajukan form pendaftaran.
+*   `GET /api/sakramen/krisma/status`: Cek status pendaftaran.
+*   `POST /api/kl/sakramen/approve`: KL meng-approve/menolak.
+*   `POST /api/sekretaris/sakramen/update-status`: Sekretaris 1 memperbarui status.

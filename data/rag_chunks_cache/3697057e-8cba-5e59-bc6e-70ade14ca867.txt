@@ -1,0 +1,39 @@
+---
+document_code: KHK
+title: "Kitab Hukum Kanonik (KHK) Buku I - VII"
+category: "Hukum Gereja"
+priority: "WAJIB"
+word_count: 104122
+paragraph_count: 2876
+estimated_chunks: 208
+---
+
+# Kitab Hukum Kanonik (KHK) Buku I - VII
+
+**Kode Dokumen**: `KHK`  
+**Kategori**: Hukum Gereja  
+**Prioritas**: WAJIB
+
+> **Deskripsi**: Kodeks Hukum Kanonik (KHK) — Kumpulan undang-undang Gereja Katolik Latin.
+> Mengatur disiplin Gereja, hak dan kewajiban umat, sakramen, ibadat, pengajaran, dan sanksi.
+
+---
+
+﻿BUKU I NORMA-NORMA UMUM
+
+**[Kan.  1  -  ]** Kanon-kanon  Kitab  Hukum ini  berlaku  hanya  untuk Gereja Latin.
+**[Kan. 2 - ]** Pada umumnya Kitab Hukum tidak menentukan ritus yang  harus  ditepati  dalam  perayaan-perayaan  liturgis;  karena  itu, undang-undang liturgis yang berlaku sampai sekarang tetap mempunyai kekuatan hukum, kecuali kalau ada yang bertentangan dengan kanon-kanon Kitab Hukum ini.
+**[Kan. 3 - ]** Kanon-kanon Kitab Hukum ini tidak menghapus selu-ruhnya atau sebagian perjanjian-perjanjian yang telah diadakan oleh Takhta Apostolik dengan negara atau masyarakat politik lain. Karena itu, perjanjian-perjanjian tersebut masih tetap berlaku seperti sekarang, walaupun bertentangan dengan ketentuan-ketentuan Kitab Hukum ini.
+
+**[Kan. 4 - ]** Hak-hak yang telah diperoleh tetap utuh; demikian juga privilegi-privilegi yang sampai sekarang diberikan Takhta Apostolik kepada perorangan atau badan hukum dan yang masih berlaku serta tidak dicabut, kecuali dengan jelas dicabut oleh kanon-kanon Kitab Hukum ini.
+
+**[Kan. 5 - ]** § 1. Kebiasaan-kebiasaan, baik universal maupun par-tikular,  yang  berlaku  sampai  sekarang  dan   bertentangan  dengan ketentuan-ketentuan kanon-kanon ini serta ditolak oleh kanon-kanon Kitab Hukum ini, dinyatakan hapus sama sekali dan selanjutnya jangan dibiarkan  hidup  kembali;  juga  yang  lain-lain  hendaknya  dinyatakan hapus, kecuali Kitab Hukum ini dengan jelas menyatakan lain, atau sudah berumur lebih dari seratus tahun, atau tidak diingat lagi awal-mulanya, yang menurut penilaian Ordinaris dapat dibiarkan, mengingat keadaan tempat dan orang-orangnya, tidak dapat ditiadakan.
+
+§  2.  Kebiasaan-kebiasaan  di  luar  hukum  yang  berlaku  sampai sekarang, baik universal maupun partikular, tetap berlaku.
+
+**[Kan. 6 - ]** § 1. Dengan berlakunya Kitab Hukum ini dihapuslah seluruhnya:
+10 Kitab Hukum Kanonik yang diundangkan pada tahun 1917;
+
+20  juga undang-undang, baik universal maupun partikular, yang bertentangan  dengan  ketentuan-ketentuan  Kitab  Hukum  ini, kecuali   mengenai   undang-undang   partikular   dengan   jelas ditentukan lain;
+30  hukum pidana apapun, baik universal maupun partikular, yang dikeluarkan Takhta Apostolik, kecuali dimasukkan dalam Kitab Hukum ini;
+40  juga undang-undang disipliner universal lain, yang bahannya secara menyeluruh telah diatur oleh Kitab Hukum ini.

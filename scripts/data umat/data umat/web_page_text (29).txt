@@ -1,0 +1,56 @@
+Elviana Nensi  
+Sepinggan
+MENU
+ Manual
+ Umat
+Tambah Umat
+Daftar Umat
+Almarhum
+Pencarian Umat
+Statistik
+Pencarian Data Baptis
+ Pindah Umat
+ Migrasi
+ Sakramen
+ Paroki
+ Pengguna
+Data Umat
+Jangan Lupa Bahagia!
+ LIST UMAT
+ Pencarian
+Wilayah
+Semua Wilayah
+PUSAT PAROKI
+STASI ST. YOSEP - ARGOSARI
+STASI RATU ROSARI - HANDIL
+Semua Wilayah
+Lingkungan
+Pilih Lingkungan
+Pilih Lingkungan
+ 
+Tampilkan
+Paroki Sepinggan
+Kepala Keluarga
+Show 
+10
+25
+50
+100
+ entries
+Search:
+Nama	Nama Baptis	L/P	No. KK	Tempat/Tanggal Lahir	Umur	Alamat
+ZAHRATU TALITASKY TAMBA	ELISABETH	P	6471052203180012	BALIKPAPAN 03-01-2014	12	KOLONEL SYARIFUDIN YOES RT. 48
+ZAKARIAS DODE	ZAKARIAS	L	5307040802050777	DONDO 24-04-1994	32	PERUM. HER I
+ZEPHERINUS JOKO SUPRIYANTO, S.PD	ZEPHERINUS	L	6471050307150000	SEMARANG 26-08-1963	62	BDS 2 BLOK B NO.30
+ZIEL STEVANO GULTOM	-	L	9201071211200004	SORONG 29-08-2021	4	JL. PERJUANGAN UJUNG 05 RT. 017
+Showing 2,801 to 2,804 of 2,804 entries
+Previous
+1
+…
+25
+26
+27
+28
+29
+Next
+© 2023 Keuskupan Agung Samarinda - versi 1.0.0

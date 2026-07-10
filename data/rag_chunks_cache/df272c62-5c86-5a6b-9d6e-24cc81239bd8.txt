@@ -1,0 +1,33 @@
+---
+document_code: VATII_NA
+title: "Nostra Aetate - Pernyataan tentang Hubungan Gereja dengan Agama-agama Bukan Kristiani"
+category: "Konsili Vatikan II"
+priority: "WAJIB"
+word_count: 899
+paragraph_count: 19
+estimated_chunks: 2
+---
+
+# Nostra Aetate — Pernyataan tentang Hubungan Gereja dengan Agama-agama Bukan Kristiani
+
+**Kode Dokumen**: `VATII_NA`  
+**Kategori**: Konsili Vatikan II  
+**Prioritas**: WAJIB
+
+> **Deskripsi**: Pernyataan Konsili Vatikan II tentang Hubungan Gereja dengan Agama-agama Bukan Kristiani, disahkan tanggal 28 Oktober 1965. Dokumen ini telah dibersihkan secara presisi untuk AI Knowledge Base: semua catatan kaki, referensi akademis non-Alkitabiah, header, footer, dan nomor halaman telah dihapus. Referensi Kitab Suci dipertahankan sepenuhnya.
+
+---
+
+## 1. Pendahuluan
+
+Pada zaman kita bangsa manusia semakin erat bersatu dan hubungan-hubungan antara pelbagai bangsa berkembang. Gereja mempertimbangkan dengan lebih cermat, manakah hubungannya dengan agama-agama bukan kristiani. Dalam tugasnya mengembangkan kesatuan dan cinta kasih antarmanusia, bahkan antarbangsa, Gereja di sini terutama mempertimbangkan manakah hal-hal yang pada umumnya terdapat pada bangsa manusia, dan yang mendorong semua untuk bersama-sama menghadapi situasi sekarang.
+
+Sebab semua bangsa merupakan satu masyarakat, mempunyai satu asal, sebab Allah menghendaki segenap umat manusia mendiami seluruh muka bumi (Kis 17:26). Semua juga mempunyai satu tujuan terakhir, yakni Allah, yang penyelenggaraan-Nya, bukti-bukti kebaikan-Nya dan rencana penyelamatan-Nya meliputi semua orang (Keb 8:1; Kis 14:17; Rom 2:6-7; 1Tim 2:4), sampai para terpilih dipersatukan dalam Kota Suci, yang akan diterangi oleh kemuliaan Allah; di sana bangsa-bangsa akan berjalan dalam cahaya-Nya (Why 21:23 dst.).
+
+Dari pelbagai agama manusia mengharapkan jawaban tentang teka-teki keadaan manusiawi yang tersembunyi, yang seperti di masa silam, begitu pula sekarang menyentuh hati manusia secara mendalam: apakah manusia itu? Manakah makna dan tujuan hidup kita? Manakah yang baik dan apakah dosa itu? Dari manakah asal penderitaan dan manakah tujuannya? Manakah jalan untuk memperoleh kebahagiaan yang sejati? Apakah arti maut, pengadilan dan pembalasan sesudah mati? Akhirnya apakah Misteri terakhir dan tak terperikan itu, yang merangkum keberadaan kita, dan menjadi asal serta tujuan kita?
+
+---
+
+## 2. Berbagai Agama Bukan Kristiani
+
+Sudah sejak dahulu kala hingga sekarang ini di antara pelbagai bangsa terdapat suatu kesadaran tentang daya-kekuatan yang gaib, yang hadir pada perjalanan sejarah dan peristiwa-peristiwa hidup manusia; bahkan kadang-kadang ada pengakuan terhadap Kuasa ilahi yang tertinggi atau pun Bapa. Kesadaran dan pengakuan tadi meresapi kehidupan bangsa-bangsa itu dengan semangat religius yang mendalam. Adapun agama-agama, yang terikat pada perkembangan kebudayaan, berusaha menanggapi masalah-masalah tadi dengan paham-paham yang lebih rumit dan bahasa yang lebih terkembangkan.

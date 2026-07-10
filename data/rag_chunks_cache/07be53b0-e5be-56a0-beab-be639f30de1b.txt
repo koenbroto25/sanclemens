@@ -1,0 +1,81 @@
+### ARTICLE 6. Whether in God there are any accidents?
+
+Objection 1: It seems that there are accidents in God. For substance
+cannot be an accident, as Aristotle says (Phys. i). Therefore that
+which is an accident in one, cannot, in another, be a substance. Thus
+it is proved that heat cannot be the substantial form of fire, because
+it is an accident in other things. But wisdom, virtue, and the like,
+which are accidents in us, are attributes of God. Therefore in God
+there are accidents.
+Objection 2: Further, in every genus there is a first principle. But
+there are many "genera" of accidents. If, therefore, the primal
+members of these genera are not in God, there will be many primal
+beings other than God---which is absurd.
+On the contrary, Every accident is in a subject. But God cannot be a
+subject, for "no simple form can be a subject", as Boethius says (De
+Trin.). Therefore in God there cannot be any accident.
+I answer that, From all we have said, it is clear there can be no
+accident in God. First, because a subject is compared to its
+accidents as potentiality to actuality; for a subject is in some sense
+made actual by its accidents. But there can be no potentiality in God,
+as was shown (Question 2, Article 3). Secondly, because God is His
+own existence; and as Boethius says (Hebdom.), although every
+essence may have something superadded to it, this cannot apply to
+absolute being: thus a heated substance can have something
+extraneous to heat added to it, as whiteness, nevertheless absolute
+heat can have nothing else than heat. Thirdly, because what is
+essential is prior to what is accidental. Whence as God is absolute
+primal being, there can be in Him nothing accidental. Neither can He
+have any essential accidents (as the capability of laughing is an
+essential accident of man), because such accidents are caused by
+the constituent principles of the subject. Now there can be nothing
+caused in God, since He is the first cause. Hence it follows that there
+is no accident in God.
+Reply to Objection 1: Virtue and wisdom are not predicated of God
+and of us univocally. Hence it does not follow that there are
+accidents in God as there are in us.
+
+Reply to Objection 2: Since substance is prior to its accidents, the
+principles of accidents are reducible to the principles of the
+substance as to that which is prior; although God is not first as if
+contained in the genus of substance; yet He is first in respect to all
+being, outside of every genus.
+
+### ARTICLE 7. Whether God is altogether simple?
+
+Objection 1: It seems that God is not altogether simple. For whatever
+is from God must imitate Him. Thus from the first being are all
+beings; and from the first good is all good. But in the things which
+God has made, nothing is altogether simple. Therefore neither is
+God altogether simple.
+Objection 2: Further, whatever is best must be attributed to God. But
+with us that which is composite is better than that which is simple;
+thus, chemical compounds are better than simple elements, and
+animals than the parts that compose them. Therefore it cannot be
+said that God is altogether simple.
+On the contrary, Augustine says (De Trin. iv, 6,7): "God is truly and
+absolutely simple."
+I answer that, The absolute simplicity of God may be shown in many
+ways. First, from the previous articles of this question. For there is
+neither composition of quantitative parts in God, since He is not a
+body; nor composition of matter and form; nor does His nature differ
+from His "suppositum"; nor His essence from His existence; neither
+is there in Him composition of genus and difference, nor of subject
+and accident. Therefore, it is clear that God is nowise composite, but
+is altogether simple. Secondly, because every composite is posterior
+to its component parts, and is dependent on them; but God is the
+first being, as shown above (Question 2, Article 3). Thirdly, because
+every composite has a cause, for things in themselves different
+cannot unite unless something causes them to unite. But God is
+uncaused, as shown above (Question 2, Article 3), since He is the
+first efficient cause. Fourthly, because in every composite there
+must be potentiality and actuality; but this does not apply to God; for
+either one of the parts actuates another, or at least all the parts are
+potential to the whole. Fifthly, because nothing composite can be
+predicated of any single one of its parts. And this is evident in a
+whole made up of dissimilar parts; for no part of a man is a man, nor
+any of the parts of the foot, a foot. But in wholes made up of similar
+parts, although something which is predicated of the whole may be
+predicated of a part (as a part of the air is air, and a part of water,
+water), nevertheless certain things are predicable of the whole which
+cannot be predicated of any of the parts; for instance, if the whole

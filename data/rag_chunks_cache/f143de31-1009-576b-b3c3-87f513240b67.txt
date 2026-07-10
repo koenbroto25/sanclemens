@@ -1,0 +1,36 @@
+It follows that since, properly speaking, we can only abstract objects united in existence, there are
+two sorts of abstraction corresponding to the two modes of union mentioned above, namely, the
+union of part and whole, and the union of form and matter. The first is that in which we abstract
+form from matter, and the second is that in which we abstract a whole from its parts.
+
+Now a form can be abstracted from matter if the essential nature of the form does not depend on
+that particular kind of matter; but the intellect cannot abstract form from the kind of matter upon
+which the form depends according to its essential nature. Consequently, because all accidents are
+related to the underlying substance as form to matter, and because it is the nature of every
+accident to depend upon substance, no form of this kind can be separated from substance. But
+accidents befall substance in a definite order. Quantity comes to it first, then quality, after that
+passivities (passiones) and actions. So quantity can be thought of in substance before the
+sensible qualities (because of which matter is called sensible) are considered in it. Quantity, then,
+according to its essential nature does not depend upon sensible matter but only upon intelligible
+matter. For, after accidents have been abstracted, substance is intelligible only to the intellect,
+because it is beyond the sense powers to comprehend substance. And abstract objects of this
+kind are the concern of mathematics; it treats of quantities and the properties of quantity, such as
+figures and the like.
+
+Moreover, we cannot abstract a whole from just any parts. For there are some parts upon which
+the nature of the whole depends, namely, when the being of a particular whole consists in the
+composition of particular parts. It is in this way that a syllable is related to letters and a mixed
+body to the elements. Parts of this sort, which are necessary for understanding the whole because
+they enter into its definition, are called parts of the species and of the form. There are some parts,
+however, that are accidental to the whole as such. The semicircle, for instance, is related to the
+circle in this way, for it is accidental to a circle that it be divided into two or more equal or
+unequal parts. But it is not accidental to a triangle that three lines are designated in it, for because
+of this a triangle is a triangle. Similarly, it is an essential characteristic of man that there be found
+in him a rational soul and a body composed of the four elements. So man cannot be understood
+without these parts and they must be included in his definition; so they are parts of his species
+and form. But finger, foot, and hand, and other parts of this kind are outside the definition of
+man; and thus the essential nature of man does not depend on them and he can be understood
+without them. For whether or not he has feet, as long as he is constituted of a rational soul and a
+body composed of the elements in the proper mixture required by this sort of form, he will be a
+man. These parts are called parts of matter: they are not included in the definition of the whole,
+but rather the converse is true. This is how all determinate (signatae) parts are related to man; for

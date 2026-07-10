@@ -1,0 +1,48 @@
+Reply to 5. Although a universal is not mutable, it is nevertheless the nature of a mutable thing.
+
+Reply to 6. Although the soul and other natural forms are not themselves subject to motion, they
+are moved accidentally, and they are, moreover, the perfections of mutable things; and for this
+reason they come within the domain of natural science. But even though the earth as a whole is
+not moved (for it happens to be in its natural place, where a thing is at rest in virtue of the same
+nature through which it is moved to a place), nevertheless, when its parts are outside their proper
+place, they are moved to a place. Thus the earth falls within the domain of natural science both by
+reason of the immobility of the whole earth and by reason of the movement of its parts.
+
+Reply to 7. The mutability characteristic of all creatures is not with respect to any natural motion,
+but with respect to their dependence on God, separation from whom entails destruction of their
+very being. And that dependence falls under the consideration of metaphysics rather than under
+that of natural philosophy. Spiritual creatures, moreover, are mutable only with regard to choice;
+and this sort of motion is not the concern of the natural philosopher but rather of the
+metaphysician.
+
+### ARTICLE THREE
+
+Does Mathematics Treat, Without Motion and Matter, of What Exists in Matter?
+
+We proceed as follows to the third article:
+
+It seems that mathematical thinking does not treat, without motion and matter, of what exists in
+
+matter, for:
+
+1. Since truth consists in the conformity of thing to intellect, there must be falsehood whenever
+we think of something otherwise than it is. If then in mathematics we consider what is in matter
+in abstraction from matter, we will consider it falsely; and so mathematics will not be a science,
+for every science is concerned with what is true.
+
+2. Again, as the Philosopher states, every science has the task of considering a subject and the
+parts of the subject. Now in actual existence matter is a part of all material things. So it is
+impossible for a science to treat of what is in matter without treating of matter.
+
+3. Again, all straight lines are specifically the same. But the mathematician treats of straight lines
+by numbering them; otherwise he would not treat of the triangle and the square. It follows that he
+considers lines as specifically the same and numerically different. But it is clear from the above
+that matter is the principle differentiating things specifically the same. So the mathematician treats
+of matter.
+
+4. Again, no science completely abstracting from matter demonstrates through a material cause.
+But in mathematics some demonstrations are made which can only be reduced to a material
+cause, as when we demonstrate something about a whole by its parts. For, as the Physics says,
+parts are the matter of the whole. Thus in the Posterior Analytics the demonstration that the angle
+in a semi-circle is a right angle from the fact that each of its two parts is half of a right angle, is
+reduced to a material cause. Therefore, mathematics does not entirely abstract from matter.

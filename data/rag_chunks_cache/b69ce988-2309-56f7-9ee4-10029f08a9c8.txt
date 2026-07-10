@@ -1,0 +1,37 @@
+---
+document_code: VATII_UR
+title: "Unitatis Redintegratio - Decree on Ecumenism"
+category: "Second Vatican Council"
+priority: "MANDATORY"
+word_count: 6949
+paragraph_count: 62
+estimated_chunks: 14
+---
+
+# Unitatis Redintegratio — Decree on Ecumenism
+
+**Document Code**: `VATII_UR`  
+**Category**: Second Vatican Council  
+**Priority**: MANDATORY
+
+> **Description**: Decree on Ecumenism from the Second Vatican Council, promulgated November 21, 1964. This document has been precisely cleaned for an AI Knowledge Base: footnote markers, academic references, non-biblical citations, headers, footers, and page numbers have been removed. Biblical references are retained in-line.
+
+---
+
+## INTRODUCTION
+
+### 1. The Ecumenical Imperative
+
+The restoration of unity among all Christians is one of the principal concerns of the Second Vatican Council. Christ the Lord founded one Church and one Church only. However, many Christian communions present themselves to men as the true inheritors of Jesus Christ; all indeed profess to be followers of the Lord but differ in mind and go their different ways, as if Christ Himself were divided. Such division openly contradicts the will of Christ, scandalizes the world, and damages the holy cause of preaching the Gospel to every creature.
+
+But the Lord of Ages wisely and patiently follows out the plan of grace on our behalf, sinners that we are. In recent times more than ever before, He has been rousing divided Christians to remorse over their divisions and to a longing for unity. Everywhere large numbers have felt the impulse of this grace, and among our separated brethren also there increases from day to day the movement, fostered by the grace of the Holy Spirit, for the restoration of unity among all Christians. This movement toward unity is called "ecumenical." Those belong to it who invoke the Triune God and confess Jesus as Lord and Savior, doing this not merely as individuals but also as corporate bodies. For almost everyone regards the body in which he has heard the Gospel as his Church and indeed, God's Church. All however, though in different ways, long for the one visible Church of God, a Church truly universal and set forth into the world that the world may be converted to the Gospel and so be saved, to the glory of God.
+
+The Sacred Council gladly notes all this. It has already declared its teaching on the Church, and now, moved by a desire for the restoration of unity among all the followers of Christ, it wishes to set before all Catholics the ways and means by which they too can respond to this grace and to this divine call.
+
+---
+
+## CHAPTER I — CATHOLIC PRINCIPLES ON ECUMENISM
+
+### 2. The Unity Willed by Christ
+
+What has revealed the love of God among us is that the Father has sent into the world His only-begotten Son, so that, being made man, He might by His redemption give new life to the entire human race and unify it. Before offering Himself up as a spotless victim upon the altar, Christ prayed to His Father for all who believe in Him: "that they all may be one; even as thou, Father, art in me, and I in thee, that they also may be one in us, so that the world may believe that thou has sent me" (Jn. 17:21). In His Church He instituted the wonderful sacrament of the Eucharist by which the unity of His Church is both signified and made a reality. He gave His followers a new commandment to love one another (Jn. 13:34), and promised the Spirit, their Advocate (Jn. 16:7), who, as Lord and life-giver, should remain with them forever.

@@ -1,0 +1,101 @@
+/* Section 2 — PENGUMUMAN */
+.section-pengumuman {
+  background: var(--color-primary);
+  padding: 5rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+.section-pengumuman::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c8a96e' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.section-pengumuman .section-eyebrow { color: var(--color-gold); }
+.section-pengumuman .section-title { color: var(--color-text-light); }
+.section-pengumuman .section-subtitle { color: var(--color-stone); }
+.pengumuman-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+  align-items: stretch;
+}
+.pengumuman-main { display: flex; flex-direction: column; }
+.pengumuman-main .pengumuman-card { flex: 1; }
+.pengumuman-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(200, 169, 110, 0.1);
+  border-radius: 4px 24px 4px 24px;
+  padding: 1.75rem;
+  transition: var(--transition-smooth);
+  position: relative;
+}
+.pengumuman-card:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(200, 169, 110, 0.2);
+  transform: translateY(-2px);
+}
+.pengumuman-card .card-date {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-stone);
+  margin-bottom: 0.75rem;
+}
+.pengumuman-card .card-title {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1.35rem;
+  color: var(--color-text-light);
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+.pengumuman-card .card-excerpt {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.82rem;
+  color: rgba(240, 235, 224, 0.6);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.pengumuman-card .card-category {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  display: inline-block;
+}
+.card-category.liturgi { background: rgba(74, 107, 138, 0.2); color: var(--color-glass-blue); }
+.card-category.kegiatan { background: rgba(139, 38, 53, 0.2); color: #d4758a; }
+.card-category.sosial { background: rgba(200, 169, 110, 0.15); color: var(--color-gold); }
+.pengumuman-side { display: flex; flex-direction: column; gap: 1.25rem; }
+.pengumuman-side .pengumuman-card .card-title { font-size: 1.05rem; }
+.pengumuman-side .pengumuman-card .card-excerpt { -webkit-line-clamp: 2; }
+.btn-lihat-semua {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-top: 2rem;
+  transition: var(--transition-smooth);
+}
+.btn-lihat-semua:hover { color: var(--color-gold-light); }
+.btn-lihat-semua svg { width: 14px; height: 14px; transition: transform 0.3s ease; }
+.btn-lihat-semua:hover svg { transform: translateX(4px); }

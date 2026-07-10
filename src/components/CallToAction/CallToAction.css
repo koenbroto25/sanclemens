@@ -1,0 +1,101 @@
+/* Section 5 — CTA BERGABUNG */
+.section-cta {
+  position: relative;
+  padding: 6rem 2rem;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--color-primary) 0%, #2c1a0e 50%, var(--color-primary) 100%);
+}
+.cta-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+.cta-content .cta-ornament {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+.cta-content .cta-ornament svg { width: 32px; height: 32px; color: var(--color-gold); opacity: 0.5; }
+.cta-content h2 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  color: var(--color-text-light);
+  line-height: 1.15;
+  margin-bottom: 2rem;
+}
+.cta-benefits {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+.cta-benefit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  max-width: 160px;
+}
+.cta-benefit .benefit-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid rgba(200, 169, 110, 0.25);
+  margin-bottom: 0.25rem;
+}
+.cta-benefit .benefit-icon svg { width: 18px; height: 18px; color: var(--color-gold); }
+.cta-benefit .benefit-text {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.78rem;
+  color: rgba(240, 235, 224, 0.7);
+  line-height: 1.5;
+  text-align: center;
+}
+.cta-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.btn-cta-primary {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  background: var(--color-gold);
+  padding: 0.85rem 2.5rem;
+  border-radius: 2px 28px 2px 28px;
+  transition: var(--transition-smooth);
+  display: inline-block;
+}
+.btn-cta-primary:hover {
+  background: var(--color-gold-light);
+  box-shadow: 0 4px 24px rgba(200, 169, 110, 0.35);
+}
+.btn-cta-secondary {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-light);
+  border: 1px solid rgba(240, 235, 224, 0.25);
+  padding: 0.85rem 2.5rem;
+  border-radius: 2px 28px 2px 28px;
+  transition: var(--transition-smooth);
+  display: inline-block;
+}
+.btn-cta-secondary:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+}

@@ -1,0 +1,33 @@
+---
+document_code: PATR_TL
+title: "Tome of Leo - Epistola ad Flavianum (Epist. 28)"
+category: "Patristik - Bapa Gereja"
+priority: "WAJIB"
+word_count: 3842
+paragraph_count: 28
+estimated_chunks: 8
+---
+
+# Tome of Leo — Surat Santo Leo Agung kepada Flavianus (Epist. 28)
+
+**Kode Dokumen**: `PATR_TL`  
+**Kategori**: Patristik — Bapa Gereja  
+**Prioritas**: WAJIB
+
+> **Deskripsi**: Surat dogmatis Santo Leo Agung, Paus Roma, kepada Flavianus, Uskup Konstantinopel, ditulis pada 13 Juni 449. Dokumen ini dikenal sebagai "Tomus Leonis" dan diterima sebagai dokumen dogmatis oleh Konsili Kalsedon (451). Isinya membahas doktrin dua kodrat dalam satu Pribadi Kristus (melawan heresi Eutikianisme). Teks dalam bahasa Inggris; metadata dan deskripsi dalam bahasa Indonesia. Referensi akademis dan catatan kaki editor telah dihapus; referensi Kitab Suci dipertahankan.
+
+---
+
+*Leo, Bishop, to his dearly beloved brother, Flavian, Bishop of Constantinople.*
+
+---
+
+## CHAPTER I
+
+Having read your letter, dearly beloved Brother, at the tardiness of which we are surprised, and having had the proceedings of the Episcopal Synod explained to us, we now understand the scandal which had arisen among you touching the orthodox faith. What before was obscure is now manifest. And Eutyches, who bore the honoured title of Presbyter, is shewn to be exceedingly foolish and ignorant, so that the prophet's words are applicable to him: "He would not understand that he might do good; he hath devised iniquity upon his bed" (Ps 36:3-4). For what can be more iniquitous than to be wise towards impiety, and to refuse to yield to those who are wiser and more learned than himself. But men fall into this folly, when, on being prevented by some obscurity from becoming acquainted with the truth, they have recourse, not to the writings of the Prophets, not to the Epistles of the Apostles, not to the authority of the Gospels, but to themselves, and thus become teachers of error because they have not been disciples of truth. For what instruction has he gained from the sacred pages of the New and Old Testament who does not comprehend the first words even of the Creed? The truth which is pronounced, through the whole world, by the voice of those who are about to be regenerated, is not yet taken hold of by the understanding of this aged man.
+
+---
+
+## CHAPTER II
+
+Not knowing then what he ought to hold concerning the Incarnation of the Word of God, and not caring to have his understanding enlightened by travailing in the wide field of Holy Scripture, he should at least have listened attentively to that common and uniform confession, in which the whole body of the faithful profess that they believe "IN GOD THE FATHER ALMIGHTY, AND IN JESUS CHRIST HIS ONLY SON OUR LORD, WHO WAS BORN OF THE HOLY GHOST AND THE VIRGIN MARY." By which three sentences the devices of almost all heretics are overthrown. For when God is believed to be both Almighty and Father, it follows that the Son is co-eternal with Him, in no respect different from the Father, because He was born God of God, Almighty of Almighty, co-eternal of eternal, not posterior in time, not inferior in power, not dissimilar in glory, not divided in essence. But the same only-begotten, eternal Son of the eternal Father was born of the Holy Ghost and the Virgin Mary. Which temporal nativity hath made no diminution from, no addition to, that divine and eternal nativity, but hath bestowed itself wholly on the restoration of man who had been deceived, that it might both overcome death, and by its own virtue destroy the devil who had the power of death. For we could not gain the victory over the author of sin and death unless He had taken our nature and made it His own, whom neither sin could defile nor death hold, having been conceived by the Holy Ghost, in the womb of His Virgin mother, whose Virginity remained entire in His birth, as in His conception.

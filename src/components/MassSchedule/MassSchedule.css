@@ -1,0 +1,178 @@
+/* ============================================
+   SECTION 1 — JADWAL MISA
+   ============================================ */
+.section-misa {
+  background: var(--color-cream);
+  padding: 5rem 2rem;
+  position: relative;
+}
+.section-misa::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(200, 169, 110, 0.3), transparent);
+}
+.section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.section-eyebrow {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+.section-title {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  text-align: center;
+  color: var(--color-text-dark);
+  margin-bottom: 0.5rem;
+}
+.section-subtitle {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.85rem;
+  color: var(--color-stone);
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+.misa-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 0.25rem;
+  margin: 2rem auto 2.5rem;
+  background: rgba(26, 14, 5, 0.05);
+  border-radius: 28px;
+  padding: 4px;
+  max-width: 420px;
+}
+.misa-tab {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.55rem 1.3rem;
+  border-radius: 24px;
+  color: var(--color-stone);
+  transition: var(--transition-smooth);
+}
+.misa-tab.active {
+  background: var(--color-primary);
+  color: var(--color-gold);
+}
+.misa-tab:hover:not(.active) { color: var(--color-text-dark); }
+.misa-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+.misa-card {
+  background: #fff;
+  border-radius: 2px 20px 2px 20px;
+  padding: 1.5rem;
+  border: 1px solid rgba(200, 169, 110, 0.1);
+  transition: var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+.misa-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, rgba(200, 169, 110, 0.15), transparent);
+}
+.misa-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card);
+}
+.misa-card.today {
+  border-color: var(--color-gold);
+  background: linear-gradient(135deg, #fff, #faf6ee);
+  box-shadow: 0 4px 24px rgba(200, 169, 110, 0.15);
+}
+.misa-card.today::before {
+  background: var(--color-gold);
+  opacity: 0.8;
+}
+.misa-card .day-label {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-stone);
+  margin-bottom: 0.75rem;
+}
+.misa-card.today .day-label { color: var(--color-gold); }
+.misa-card .day-name {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: var(--color-text-dark);
+  margin-bottom: 0.75rem;
+}
+.misa-card .mass-item {
+  margin-bottom: 0.65rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid rgba(26, 14, 5, 0.06);
+}
+.misa-card .mass-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.misa-card .mass-time {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--color-glass-red);
+  margin-bottom: 0.15rem;
+}
+.misa-card .mass-name {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.78rem;
+  color: var(--color-text-dark);
+  line-height: 1.5;
+}
+.misa-card .mass-location {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.65rem;
+  color: var(--color-stone);
+  margin-top: 0.1rem;
+}
+.misa-card .today-badge {
+  position: absolute;
+  top: 12px; right: 12px;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--color-glass-red);
+}
+.liturgi-widget {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  color: var(--color-stone);
+}
+.liturgi-widget .dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(0,0,0,0.15);
+}
+.dot.hijau { background: #4a8c5c; }
+.dot.putih { background: #f0ebe0; }
+.dot.merah { background: var(--color-glass-red); }
+.dot.ungu { background: #6b4c8a; }
+.dot.rosa { background: #e8a0b0; }

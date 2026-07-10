@@ -1,0 +1,197 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+import { createClient } from '@/lib/supabase/client';
+
+export default function ProfilPage() {
+  const [profile, setProfile] = useState<Record<string, unknown>>(null);
+  const [loading, setLoading] = useState(true);
+  const [editing, setEditing] = useState(false);
+  const supabase = createClient();
+
+  useEffect(() => {
+    fetchProfile();
+  }, [supabase]);
+
+  const fetchProfile = async () => {
+    const { data: { user } } = await supabase.auth.getUser();
+    if (user) {
+      const { data: profileData } = await supabase
+        .from('profiles')
+        .select('*')
+        .eq('user_id', user.id)
+        .single();
+      setProfile(profileData);
+    }
+    setLoading(false);
+  };
+
+  const handleUpdate = async (updates: any) => {
+    await supabase
+      .from('profiles')
+      .update(updates)
+      .eq('id', profile.id);
+    await fetchProfile();
+    setEditing(false);
+    alert('Profil berhasil diperbarui');
+  };
+
+  if (loading) {
+    return <div className="flex items-center justify-center h-96"><div className="spinner"></div></div>;
+  }
+
+  return (
+    <div>
+      <div className="flex justify-between items-center mb-6">
+        <h1 className="text-3xl font-bold">👤 Profil Saya</h1>
+        <button
+          onClick={() => setEditing(!editing)}
+          className="btn btn-primary"
+        >
+          {editing ? '❌ Batal' : '✏️ Edit'}
+        </button>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        {/* Profile Card */}
+        <div className="card">
+          <div className="text-center">
+            <div className="avatar-lg mx-auto mb-4">
+              {profile?.nama_baptis?.[0] || profile?.full_name?.[0] || 'U'}
+            </div>
+            <h2 className="text-2xl font-bold text-gold">
+              {profile?.nama_baptis && `${profile.nama_baptis} `}
+              {profile?.full_name}
+            </h2>
+            <p className="text-gray-400 capitalize">{profile?.role?.replace(/_/g, ' ')}</p>
+            {profile?.lingkungan_slug && (
+              <span className="badge badge-info mt-2 inline-block">
+                {profile.lingkungan_slug}
+              </span>
+            )}
+          </div>
+        </div>
+
+        {/* Profile Details */}
+        <div className="lg:col-span-2">
+          <div className="card">
+            <h3 className="card-title mb-4">Informasi Pribadi</h3>
+            
+            {editing ? (
+              <form onSubmit={(e) => { e.preventDefault(); handleUpdate({ ...profile, ...Object.fromEntries(new FormData(e.target as any).entries() })); }}>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="form-group">
+                    <label className="form-label">Nama Baptis</label>
+                    <input name="nama_baptis" defaultValue={profile?.nama_baptis} className="form-input" />
+                  </div>
+                  <div className="form-group">
+                    <label className="form-label">Nama Lengkap</label>
+                    <input name="full_name" defaultValue={profile?.full_name} className="form-input" />
+                  </div>
+                  <div className="form-group">
+                    <label className="form-label">NIK</label>
+                    <input name="nik" defaultValue={profile?.nik} className="form-input" />
+                  </div>
+                  <div className="form-group">
+                    <label className="form-label">Jenis Kelamin</label>
+                    <select name="jenis_kelamin" defaultValue={profile?.jenis_kelamin} className="form-select">
+                      <option value="L">Laki-laki</option>
+                      <option value="P">Perempuan</option>
+                    </select>
+                  </div>
+                  <div className="form-group">
+                    <label className="form-label">Tempat Lahir</label>
+                    <input name="tempat_lahir" defaultValue={profile?.tempat_lahir} className="form-input" />
+                  </div>
+                  <div className="form-group">
+                    <label className="form-label">Tanggal Lahir</label>
+                    <input type="date" name="tanggal_lahir" defaultValue={profile?.tanggal_lahir} className="form-input" />
+                  </div>
+                  <div className="form-group">
+                    <label className="form-label">Pendidikan Terakhir</label>
+                    <select name="pendidikan_terakhir" defaultValue={profile?.pendidikan_terakhir} className="form-select">
+                      <option value="SD">SD</option>
+                      <option value="SMP">SMP</option>
+                      <option value="SMA">SMA</option>
+                      <option value="D3">D3</option>
+                      <option value="S1">S1</option>
+                      <option value="S2">S2</option>
+                      <option value="S3">S3</option>
+                    </select>
+                  </div>
+                  <div className="form-group">
+                    <label className="form-label">Pekerjaan</label>
+                    <input name="pekerjaan" defaultValue={profile?.pekerjaan} className="form-input" />
+                  </div>
+                </div>
+
+                <div className="form-group">
+                  <label className="form-label">Alamat Lengkap</label>
+                  <textarea name="alamat_lengkap" defaultValue={profile?.alamat_lengkap} className="form-textarea" />
+                </div>
+
+                <div className="flex gap-3">
+                  <button type="submit" className="btn btn-primary">💾 Simpan Perubahan</button>
+                  <button type="button" onClick={() => setEditing(false)} className="btn btn-secondary">Batal</button>
+                </div>
+              </form>
+            ) : (
+              <div className="space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <p className="text-sm text-gray-400">Nama Baptis</p>
+                    <p className="font-semibold">{profile?.nama_baptis || '-'}</p>
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-400">Nama Lengkap</p>
+                    <p className="font-semibold">{profile?.full_name || '-'}</p>
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-400">NIK</p>
+                    <p className="font-semibold">{profile?.nik || '-'}</p>
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-400">Jenis Kelamin</p>
+                    <p className="font-semibold">{profile?.jenis_kelamin || '-'}</p>
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-400">TTL</p>
+                    <p className="font-semibold">
+                      {profile?.tempat_lahir && `${profile.tempat_lahir}, `}
+                      {profile?.tanggal_lahir ? new Date(profile.tanggal_lahir).toLocaleDateString('id-ID') : '-'}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-400">Pendidikan</p>
+                    <p className="font-semibold">{profile?.pendidikan_terakhir || '-'}</p>
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-400">Pekerjaan</p>
+                    <p className="font-semibold">{profile?.pekerjaan || '-'}</p>
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-400">Instansi</p>
+                    <p className="font-semibold">{profile?.instansi_pekerjaan || '-'}</p>
+                  </div>
+                </div>
+
+                <div>
+                  <p className="text-sm text-gray-400">Alamat</p>
+                  <p className="font-semibold">
+                    {profile?.alamat_lengkap || '-'}
+                    {profile?.kelurahan && `, ${profile.kelurahan}`}
+                    {profile?.kecamatan && `, ${profile.kecamatan}`}
+                  </p>
+                </div>
+
+                <button onClick={() => setEditing(true)} className="btn btn-primary">
+                  ✏️ Edit Profil
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

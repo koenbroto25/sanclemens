@@ -1,0 +1,1223 @@
+'use client';
+import { useEffect, useState, useCallback } from 'react';
+import { AdBanner } from '@/components/AdBanner';
+import SpiritualGatewayModal from '@/components/liturgi/SpiritualGatewayModal';
+// import LearnCatholicSlide from '@/components/LearnCatholicSlide'; // Temporarily disabled as per user request
+import AboutUsSlide from '@/components/AboutUsSlide'; // New component for join invitation
+import {
+  CalendarIcon,
+  MapPinIcon,
+  ClockIcon,
+  ArrowRightIcon,
+  Loader2Icon,
+  BookOpenIcon,
+  UsersIcon,
+  ChurchIcon,
+  HeartHandshakeIcon,
+} from 'lucide-react';
+import { getTodayLiturgicalInfo, type LiturgicalInfo } from '@/lib/liturgi/liturgicalCalendar';
+
+/* ============================================================
+   TYPES
+   ============================================================ */
+
+interface Warta {
+  id: string;
+  judul: string;
+  excerpt: string;
+  tanggal: string;
+  kategori: string;
+  gambar_url?: string;
+  published_at?: string;
+}
+
+interface Kegiatan {
+  id: string;
+  nama: string;
+  deskripsi: string;
+  tanggal: string;
+  jam_mulai?: string;
+  jam_selesai?: string;
+  lokasi?: string;
+  kategori: string;
+  gambar_url?: string;
+  is_published: boolean;
+}
+
+interface JadwalMisa {
+  id: string;
+  hari: string;
+  label?: string;
+  jam: string;
+  nama_misa: string;
+  lokasi: string;
+  tipe: string;
+  tanggal_spesifik?: string;
+  is_active: boolean;
+}
+
+interface JadwalMisaGrouped {
+  harian: JadwalMisa[];
+  hari_besar: JadwalMisa[];
+  khusus: JadwalMisa[];
+}
+
+interface BacaanLiturgi {
+  sumber: string;
+  teks: string;
+}
+
+interface DailyLiturgi {
+  bacaan_1: BacaanLiturgi;
+  bacaan_injil: BacaanLiturgi;
+  santo_santa_hari_ini?: { nama: string; keterangan: string }[];
+  pesan_personal?: string;
+}
+
+type MisaTab = 'minggu-ini' | 'hari-besar' | 'khusus';
+
+/* ============================================================
+   STATIC LOOKUPS
+   ============================================================ */
+
+const HARI_MAP: Record<string, string> = {
+  senin: 'Senin',
+  selasa: 'Selasa',
+  rabu: 'Rabu',
+  kamis: 'Kamis',
+  jumat: 'Jumat',
+  sabtu: 'Sabtu',
+  minggu: 'Minggu',
+};
+
+const HARI_ORDER: string[] = ['minggu', 'senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu'];
+
+const LITURGI_COLOR_MAP: Record<string, string> = {
+  Hijau: '#4a8c5c',
+  Putih: '#f0ebe0',
+  Merah: '#8b2635',
+  Ungu: '#6b4c8a',
+  Rosa: '#e8a0b0',
+  Emas: '#c8a96e',
+};
+
+/** Statistik anonim â€” placeholder sampai endpoint /api/public/statistik tersedia. */
+const STATISTIK_UMAT = [
+  { value: '12rb+', label: 'Umat Terdaftar' },
+  { value: '17', label: 'Lingkungan & Stasi' },
+  { value: '35+', label: 'Misa per Bulan' },
+  { value: '1.2rb+', label: 'Keluarga' },
+];
+
+function hexToRgba(hex: string, alpha: number): string {
+  const clean = hex.replace('#', '');
+  const r = parseInt(clean.substring(0, 2), 16);
+  const g = parseInt(clean.substring(2, 4), 16);
+  const b = parseInt(clean.substring(4, 6), 16);
+  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+}
+
+function sortByJam<T extends { jam: string }>(items: T[]): T[] {
+  return [...items].sort((a, b) => {
+    const [ha, ma] = a.jam.split(':').map(Number);
+    const [hb, mb] = b.jam.split(':').map(Number);
+    return ha * 60 + ma - (hb * 60 + mb);
+  });
+}
+
+/* ============================================================
+   COMPONENT
+   ============================================================ */
+
+export default function HomePage() {
+  const BOT_ID = 'info_publik';
+
+  // Bot chat widget state
+  const [isChatOpen, setIsChatOpen] = useState(false);
+  const [botInput, setBotInput] = useState('');
+  const [isBotLoading, setIsBotLoading] = useState(false);
+  const [botMessages, setBotMessages] = useState<Array<{ sender: 'user' | 'bot'; text: string }>>([]);
+
+  // Content state
+  const [publicWarta, setPublicWarta] = useState<Warta[]>([]);
+  const [publicKegiatan, setPublicKegiatan] = useState<Kegiatan[]>([]);
+  const [publicJadwalMisa, setPublicJadwalMisa] = useState<JadwalMisaGrouped | null>(null);
+  const [activeMisaTab, setActiveMisaTab] = useState<MisaTab>('minggu-ini');
+  const [loadingContent, setLoadingContent] = useState(true);
+  const [errorContent, setErrorContent] = useState('');
+  const [dailyLiturgi, setDailyLiturgi] = useState<DailyLiturgi | null>(null);
+  const [liturgicalInfo, setLiturgicalInfo] = useState<LiturgicalInfo | null>(null);
+  const [statistikData, setStatistikData] = useState<Array<{ value: string; label: string }> | null>(null);
+
+  // UI state (replaces direct DOM manipulation)
+  const [isNavScrolled, setIsNavScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  const toggleChat = () => setIsChatOpen((open) => !open);
+  const closeChat = () => setIsChatOpen(false);
+  const toggleMobileMenu = () => setIsMobileMenuOpen((open) => !open);
+  const closeMobileMenu = () => setIsMobileMenuOpen(false);
+
+  const sendBotMessage = async (event?: { preventDefault?: () => void }) => {
+    event?.preventDefault?.();
+
+    const message = botInput.trim();
+    if (!message) return;
+
+    setBotInput('');
+    setBotMessages((current) => [...current, { sender: 'user', text: message }]);
+    setIsBotLoading(true);
+
+    try {
+      const response = await fetch(`/api/bot/${BOT_ID}/chat`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ user_message: message }),
+      });
+
+      const data = await response.json().catch(() => null);
+      if (!response.ok) {
+        throw new Error(data?.error || `HTTP ${response.status}`);
+      }
+
+      setBotMessages((current) => [
+        ...current,
+        { sender: 'bot', text: data?.bot_response || 'Maaf, bot belum bisa menjawab.' },
+      ]);
+    } catch (error) {
+      console.error('Bot error:', error);
+      setBotMessages((current) => [
+        ...current,
+        { sender: 'bot', text: 'Maaf, terjadi kesalahan saat menghubungi bot. Silakan coba lagi.' },
+      ]);
+    } finally {
+      setIsBotLoading(false);
+    }
+  };
+
+  const fetchDailyLiturgi = useCallback(async () => {
+    try {
+      const res = await fetch('/api/liturgi/daily-info');
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Failed to fetch daily liturgy');
+      setDailyLiturgi(data);
+    } catch (err) {
+      console.error('Error fetching daily liturgy:', err);
+    }
+  }, []);
+
+  const fetchLiturgicalTheme = useCallback(async () => {
+    try {
+      const info = await getTodayLiturgicalInfo();
+      setLiturgicalInfo(info);
+
+      if (typeof document !== 'undefined') {
+        const hex = LITURGI_COLOR_MAP[info.color] || '#c8a96e';
+        const root = document.documentElement;
+        root.style.setProperty('--liturgi-current', hex);
+        root.style.setProperty('--liturgi-current-soft', hexToRgba(hex, 0.12));
+      }
+    } catch (err) {
+      console.error('Error fetching liturgical theme:', err);
+    }
+  }, []);
+
+  const fetchStatistik = useCallback(async () => {
+    try {
+      const res = await fetch('/api/public/statistik');
+      const data = await res.json();
+      if (res.ok && data.data && Array.isArray(data.data)) {
+        setStatistikData(data.data);
+      } else {
+        setStatistikData(null);
+      }
+    } catch (err) {
+      console.error('Error fetching statistik:', err);
+      setStatistikData(null);
+    }
+  }, []);
+
+  const fetchPublicContent = useCallback(async () => {
+    setLoadingContent(true);
+    setErrorContent('');
+    try {
+      const wartaRes = await fetch('/api/public/warta-paroki');
+      const wartaData = await wartaRes.json();
+      if (!wartaRes.ok) throw new Error(wartaData.error || 'Failed to fetch warta');
+      setPublicWarta(wartaData.data || []);
+
+      const kegiatanRes = await fetch('/api/public/kegiatan');
+      const kegiatanData = await kegiatanRes.json();
+      if (!kegiatanRes.ok) throw new Error(kegiatanData.error || 'Failed to fetch kegiatan');
+      setPublicKegiatan(kegiatanData.data || []);
+
+      const jadwalMisaRes = await fetch('/api/public/jadwal-misa');
+      const jadwalMisaData = await jadwalMisaRes.json();
+      if (!jadwalMisaRes.ok) throw new Error(jadwalMisaData.error || 'Failed to fetch jadwal misa');
+      setPublicJadwalMisa(jadwalMisaData.grouped);
+    } catch (err) {
+      console.error('Error fetching public content:', err);
+      setErrorContent(err instanceof Error ? err.message : 'Gagal memuat konten publik');
+    } finally {
+      setLoadingContent(false);
+    }
+  }, []);
+
+  // Initial data fetch
+  useEffect(() => {
+    fetchPublicContent();
+    fetchDailyLiturgi();
+    fetchLiturgicalTheme();
+    fetchStatistik();
+  }, [fetchPublicContent, fetchDailyLiturgi, fetchLiturgicalTheme, fetchStatistik]);
+
+  // Navbar scroll state
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsNavScrolled(window.scrollY > 60);
+      setShowScrollTop(window.scrollY > window.innerHeight);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Lock body scroll when mobile menu open
+  useEffect(() => {
+    document.body.style.overflow = isMobileMenuOpen ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMobileMenuOpen]);
+
+  // Scroll-reveal animation observer
+  useEffect(() => {
+    const revealEls = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    );
+    revealEls.forEach((el) => revealObserver.observe(el));
+    return () => revealObserver.disconnect();
+  }, [loadingContent, publicWarta, publicKegiatan, publicJadwalMisa]);
+
+  /** Misa Berikutnya â€” derived purely from data, no DOM writes. */
+  const nextMass = (() => {
+    if (!publicJadwalMisa) return null;
+
+    const now = new Date();
+    const currentDay = now.toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase();
+    const dayKeyMap: Record<string, string> = {
+      sunday: 'minggu', monday: 'senin', tuesday: 'selasa', wednesday: 'rabu',
+      thursday: 'kamis', friday: 'jumat', saturday: 'sabtu',
+    };
+    const todayKey = dayKeyMap[currentDay] || 'senin';
+    const currentMinutes = now.getHours() * 60 + now.getMinutes();
+
+    const todayMasses = sortByJam(publicJadwalMisa.harian.filter((m) => m.hari === todayKey));
+    for (const misa of todayMasses) {
+      const [h, m] = misa.jam.split(':').map(Number);
+      if (h * 60 + m > currentMinutes) return misa;
+    }
+
+    const todayIndex = HARI_ORDER.indexOf(todayKey);
+    for (let i = 1; i <= 7; i++) {
+      const nextDay = HARI_ORDER[(todayIndex + i) % 7];
+      const masses = sortByJam(publicJadwalMisa.harian.filter((m) => m.hari === nextDay));
+      if (masses.length > 0) return masses[0];
+    }
+    return null;
+  })();
+
+  /** Jadwal Misa â€” Minggu Ini, grouped by day, today first highlighted. */
+  const mingguIniCards = (() => {
+    if (!publicJadwalMisa) return [];
+    const todayIndex = new Date().getDay(); // 0 = Sunday
+    const grouped: Record<string, JadwalMisa[]> = {};
+    HARI_ORDER.forEach((d) => (grouped[d] = []));
+    publicJadwalMisa.harian.forEach((m) => {
+      if (grouped[m.hari]) grouped[m.hari].push(m);
+    });
+
+    return HARI_ORDER.map((dayKey, index) => ({
+      dayKey,
+      isToday: index === todayIndex,
+      misaForDay: sortByJam(grouped[dayKey]),
+    })).filter((d) => d.misaForDay.length > 0);
+  })();
+
+  return (
+    <>
+      <SpiritualGatewayModal />
+      {/* <LearnCatholicSlide /> */} {/* Temporarily disabled as per user request */}
+      <AboutUsSlide /> {/* New component for join invitation */}
+
+      <div className="liturgi-accent-bar" suppressHydrationWarning></div>
+
+      <style dangerouslySetInnerHTML={{ __html: `
+/* ============================================================
+   DESIGN TOKENS â€” v5.1.1
+   Ref: uiux_design_v5.md Â§3 (Color) Â§4 (Type) Â§5 (Shape/Space) Â§6 (Motion/Shadow)
+   ============================================================ */
+:root {
+  --color-primary:    #1a0e05;
+  --color-secondary:  #2c1a0e;
+  --color-cream:      #f5f0e8;
+  --color-stone:      #8b7355;
+  --color-gold:       #c8a96e;
+  --color-gold-light: #e8d5a3;
+  --color-text-dark:  #1c1410;
+  --color-text-light: #f0ebe0;
+  --color-glass-blue: #4a6b8a;
+  --color-glass-red:  #8b2635;
+  --color-success:    #4a8c5c;
+  --color-warning:    #c8a96e;
+  --color-error:      #8b2635;
+  --color-emergency:  #b91c1c;
+
+  --liturgi-hijau: #4a8c5c;
+  --liturgi-putih: #f0ebe0;
+  --liturgi-merah: #8b2635;
+  --liturgi-ungu:  #6b4c8a;
+  --liturgi-rosa:  #e8a0b0;
+  --liturgi-emas:  #c8a96e;
+  --liturgi-current: var(--color-gold);
+  --liturgi-current-soft: rgba(200, 169, 110, 0.12);
+
+  --font-heading: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --radius-card:      2px 20px 2px 20px;
+  --radius-card-lg:   4px 24px 4px 24px;
+  --radius-card-xl:   4px 28px 4px 28px;
+  --radius-btn:       2px 24px 2px 24px;
+  --radius-btn-lg:    2px 28px 2px 28px;
+  --radius-pill:      24px;
+  --radius-chat:      8px 28px 8px 28px;
+  --radius-next-mass: 4px 20px 4px 20px;
+
+  --shadow-warm:    0 8px 32px rgba(26, 14, 5, 0.15);
+  --shadow-warm-lg: 0 16px 48px rgba(26, 14, 5, 0.2);
+  --shadow-card:    0 4px 20px rgba(26, 14, 5, 0.1);
+  --shadow-gold:    0 4px 20px rgba(200, 169, 110, 0.35);
+  --shadow-gold-lg: 0 6px 28px rgba(200, 169, 110, 0.5);
+  --shadow-today:   0 4px 24px rgba(200, 169, 110, 0.15);
+
+  --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition-fast:   150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-reveal: 0.8s ease;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family: var(--font-body); font-weight: 400; line-height: 1.7; color: var(--color-text-dark); background-color: var(--color-cream); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+button { border: none; background: none; cursor: pointer; font-family: inherit; }
+ul { list-style: none; }
+.svg-filters { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+/* === Scroll reveal === */
+.reveal { opacity: 0; transform: translateY(40px); transition: opacity var(--transition-reveal), transform var(--transition-reveal); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* === Liturgical accent bar (top of viewport, Â§8.1b) === */
+.liturgi-accent-bar { position: fixed; top: 0; left: 0; width: 100%; height: 3px; background: var(--liturgi-current); z-index: 1001; transition: background-color 0.6s ease; }
+
+/* === Ornament divider === */
+.ornament-divider { display: flex; align-items: center; justify-content: center; gap: 16px; margin: 0 auto 2.5rem; max-width: 280px; }
+.ornament-divider .line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--color-gold), transparent); }
+.ornament-divider .cross { width: 14px; height: 14px; flex-shrink: 0; }
+.ornament-divider .cross svg { width: 100%; height: 100%; }
+
+/* === Navbar === */
+.navbar { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: rgba(26, 14, 5, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 2px solid var(--liturgi-current); transition: var(--transition-smooth), border-color 0.6s ease; }
+.navbar.scrolled { background: rgba(26, 14, 5, 0.95); box-shadow: 0 2px 24px rgba(26, 14, 5, 0.3); }
+.navbar-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0.75rem 2rem; gap: 1.5rem; }
+.navbar-logo { display: flex; align-items: center; gap: 0.6rem; flex-shrink: 0; }
+.navbar-logo .logo-icon { width: 36px; height: 36px; }
+.navbar-logo .logo-text { display: flex; flex-direction: column; line-height: 1.15; }
+.navbar-logo .logo-name { font-family: var(--font-heading); font-weight: 500; font-size: 1.15rem; color: var(--color-gold); letter-spacing: 0.02em; }
+.navbar-logo .logo-sub { font-family: var(--font-body); font-weight: 400; font-size: 0.65rem; color: var(--color-stone); letter-spacing: 0.12em; text-transform: uppercase; margin-top: 1px; }
+.navbar-nav { display: flex; align-items: center; gap: 2rem; }
+.navbar-nav a { font-family: var(--font-body); font-weight: 500; font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-text-light); opacity: 0.75; transition: var(--transition-smooth); position: relative; padding: 0.25rem 0; }
+.navbar-nav a::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1px; background: var(--color-gold); transition: width 0.3s ease; }
+.navbar-nav a:hover { opacity: 1; color: var(--color-gold-light); }
+.navbar-nav a:hover::after { width: 100%; }
+.navbar-right { display: flex; align-items: center; gap: 1rem; flex-shrink: 0; }
+.btn-login { font-family: var(--font-body); font-weight: 500; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-gold); border: 1px solid var(--color-gold); padding: 0.45rem 1.2rem; border-radius: 2px; transition: var(--transition-smooth); }
+.btn-login:hover { background: rgba(200, 169, 110, 0.12); border-color: var(--color-gold-light); color: var(--color-gold-light); }
+.btn-register { font-family: var(--font-body); font-weight: 500; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-primary); background: var(--color-gold); padding: 0.45rem 1.2rem; border-radius: 2px; transition: var(--transition-smooth); }
+.btn-register:hover { background: var(--color-gold-light); }
+.hamburger { display: none; flex-direction: column; gap: 5px; width: 24px; min-height: 44px; align-items: center; justify-content: center; cursor: pointer; z-index: 1002; }
+.hamburger span { display: block; width: 100%; height: 1.5px; background: var(--color-gold); transition: var(--transition-smooth); }
+.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 4.5px); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -4.5px); }
+
+/* === Mobile menu === */
+.mobile-menu { position: fixed; top: 0; left: -320px; width: 300px; max-width: 85vw; height: 100vh; background: var(--color-primary); z-index: 1001; padding: 5rem 2rem 2rem; transition: left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); overflow-y: auto; }
+.mobile-menu.open { left: 0; }
+.mobile-menu-overlay { position: fixed; inset: 0; background: rgba(26, 14, 5, 0.65); z-index: 1000; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+.mobile-menu-overlay.open { opacity: 1; pointer-events: auto; }
+.mobile-menu nav { display: flex; flex-direction: column; gap: 0.25rem; }
+.mobile-menu nav a { font-family: var(--font-body); font-weight: 500; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text-light); padding: 0.9rem 0; border-bottom: 1px solid rgba(200, 169, 110, 0.1); transition: var(--transition-smooth); display: block; min-height: 44px; }
+.mobile-menu nav a:hover { color: var(--color-gold); padding-left: 0.5rem; }
+.mobile-menu .mobile-auth { margin-top: 2rem; display: flex; flex-direction: column; gap: 0.75rem; }
+.mobile-menu .mobile-auth .btn-login, .mobile-menu .mobile-auth .btn-register { display: block; text-align: center; padding: 0.7rem 1rem; font-size: 0.75rem; border-radius: 3px; }
+
+/* === Hero === */
+.hero { position: relative; min-height: 100vh; display: flex; align-items: flex-end; overflow: hidden; }
+.hero-bg { position: absolute; inset: 0; z-index: 0; }
+.hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 25%; filter: contrast(1.15) brightness(0.78) sepia(0.30) saturate(0.80) hue-rotate(-5deg); }
+.hero-bg .overlay {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(180deg, rgba(26,14,5,0.70) 0%, rgba(26,14,5,0.30) 30%, rgba(26,14,5,0.15) 55%, rgba(26,14,5,0.85) 100%),
+    linear-gradient(135deg, var(--liturgi-current-soft), transparent 60%);
+  transition: background 0.6s ease;
+}
+.hero-bg .grain { position: absolute; inset: 0; opacity: 0.035; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); background-size: 128px 128px; pointer-events: none; }
+.hero-content { position: relative; z-index: 2; max-width: 1400px; margin: 0 auto; padding: 0 2rem 6rem; width: 100%; }
+.hero-eyebrow { font-family: var(--font-body); font-weight: 500; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-gold); margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.75rem; }
+.hero-eyebrow::before { content: ''; width: 32px; height: 1px; background: var(--color-gold); opacity: 0.6; }
+.hero h1 { font-family: var(--font-heading); font-weight: 300; font-size: clamp(3rem, 6vw, 7rem); line-height: 1.05; color: var(--color-text-light); margin-bottom: 1.5rem; max-width: 680px; letter-spacing: -0.01em; }
+.hero-sub { font-family: var(--font-body); font-weight: 300; font-size: 0.85rem; color: var(--color-cream); opacity: 0.7; line-height: 1.8; margin-bottom: 2.25rem; max-width: 400px; }
+.hero-actions { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+.btn-hero-primary { font-family: var(--font-body); font-weight: 500; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-primary); background: var(--color-gold); padding: 0.75rem 2rem; border-radius: var(--radius-btn); transition: var(--transition-smooth); display: inline-flex; align-items: center; gap: 0.5rem; min-height: 44px; }
+.btn-hero-primary:hover { background: var(--color-gold-light); box-shadow: var(--shadow-gold); }
+.btn-hero-primary svg { width: 14px; height: 14px; }
+.btn-hero-secondary { font-family: var(--font-body); font-weight: 500; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text-light); border: 1px solid rgba(240, 235, 224, 0.35); padding: 0.75rem 2rem; border-radius: var(--radius-btn); transition: var(--transition-smooth); display: inline-flex; align-items: center; min-height: 44px; }
+.btn-hero-secondary:hover { border-color: var(--color-text-light); background: rgba(240, 235, 224, 0.08); }
+
+.hero-next-mass { position: absolute; right: 2.5rem; bottom: 6rem; z-index: 3; background: rgba(26, 14, 5, 0.7); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(200, 169, 110, 0.2); border-radius: var(--radius-next-mass); padding: 1.25rem 1.5rem; max-width: 220px; }
+.hero-next-mass .label { font-family: var(--font-body); font-weight: 500; font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-gold); margin-bottom: 0.5rem; }
+.hero-next-mass .time { font-family: var(--font-heading); font-weight: 600; font-size: 1.8rem; color: var(--color-text-light); line-height: 1.1; }
+.hero-next-mass .name { font-family: var(--font-body); font-weight: 400; font-size: 0.78rem; color: var(--color-cream); opacity: 0.7; margin-top: 0.35rem; }
+.liturgi-today-tag { display: flex; align-items: center; gap: 0.4rem; font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-light); opacity: 0.85; margin-top: 0.65rem; }
+.liturgi-today-tag .dot { width: 8px; height: 8px; border-radius: 50%; border: 1px solid rgba(240,235,224,0.3); background: var(--liturgi-current); flex-shrink: 0; }
+
+.scroll-indicator { position: absolute; bottom: 1.5rem; left: 50%; transform: translateX(-50%); z-index: 3; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+.scroll-indicator .text { font-family: var(--font-body); font-weight: 400; font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-text-light); opacity: 0.5; }
+.scroll-indicator .chevron { animation: scrollBounce 2s ease-in-out infinite; }
+.scroll-indicator .chevron svg { width: 18px; height: 18px; color: var(--color-gold); opacity: 0.6; }
+@keyframes scrollBounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+
+/* === Generic section header pattern === */
+.section-eyebrow { font-family: var(--font-body); font-weight: 500; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-gold); text-align: center; margin-bottom: 0.5rem; }
+.section-title { font-family: var(--font-heading); font-weight: 600; font-size: clamp(2rem, 3.5vw, 3rem); text-align: center; color: var(--color-text-dark); margin-bottom: 0.5rem; }
+.section-subtitle { font-family: var(--font-body); font-weight: 400; font-size: 0.85rem; color: var(--color-stone); text-align: center; margin-bottom: 0.5rem; }
+.section-inner { max-width: 1200px; margin: 0 auto; }
+
+/* === Jadwal Misa === */
+.section-misa { background: var(--color-cream); padding: 5rem 2rem; position: relative; }
+.section-misa::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(200, 169, 110, 0.3), transparent); }
+.misa-tabs { display: flex; justify-content: center; gap: 0.25rem; margin: 2rem 0 2.5rem; background: rgba(26, 14, 5, 0.05); border-radius: var(--radius-pill); padding: 4px; max-width: 420px; margin-left: auto; margin-right: auto; }
+.misa-tab { font-family: var(--font-body); font-weight: 500; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.55rem 1.3rem; border-radius: 24px; color: var(--color-stone); transition: var(--transition-smooth); min-height: 44px; }
+.misa-tab.active { background: var(--color-primary); color: var(--color-gold); }
+.misa-tab:hover:not(.active) { color: var(--color-text-dark); }
+.misa-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; margin-bottom: 1.5rem; }
+.misa-card { background: #fff; border-radius: var(--radius-card); padding: 1.5rem; border: 1px solid rgba(200, 169, 110, 0.1); transition: var(--transition-smooth); position: relative; overflow: hidden; }
+.misa-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, rgba(200, 169, 110, 0.15), transparent); }
+.misa-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-card); }
+.misa-card.today { border-color: var(--color-gold); background: linear-gradient(135deg, #fff, #faf6ee); box-shadow: var(--shadow-today); }
+.misa-card.today::before { background: var(--color-gold); opacity: 0.8; }
+.misa-card .day-label { font-family: var(--font-body); font-weight: 600; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-stone); margin-bottom: 0.75rem; min-height: 1em; }
+.misa-card.today .day-label { color: var(--color-gold); }
+.misa-card .day-name { font-family: var(--font-heading); font-weight: 600; font-size: 1.2rem; color: var(--color-text-dark); margin-bottom: 0.75rem; }
+.misa-card .mass-item { margin-bottom: 0.65rem; padding-bottom: 0.65rem; border-bottom: 1px solid rgba(26, 14, 5, 0.06); }
+.misa-card .mass-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.misa-card .mass-time { font-family: var(--font-heading); font-weight: 500; font-size: 1rem; color: var(--color-glass-red); margin-bottom: 0.15rem; }
+.misa-card .mass-name { font-family: var(--font-body); font-weight: 400; font-size: 0.78rem; color: var(--color-text-dark); line-height: 1.5; }
+.misa-card .mass-location { font-family: var(--font-body); font-weight: 400; font-size: 0.65rem; color: var(--color-stone); margin-top: 0.1rem; }
+.misa-card .today-badge { position: absolute; top: 12px; right: 12px; width: 8px; height: 8px; border-radius: 50%; background: var(--color-glass-red); }
+.liturgi-widget { display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-top: 1rem; font-family: var(--font-body); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-stone); }
+.liturgi-widget .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+.dot.hijau { background: var(--liturgi-hijau); }
+.dot.putih { background: var(--liturgi-putih); border: 1px solid rgba(28,20,16,0.2); }
+.dot.merah { background: var(--liturgi-merah); }
+.dot.ungu  { background: var(--liturgi-ungu); }
+.dot.rosa  { background: var(--liturgi-rosa); }
+
+/* === Warta Paroki (dark section) === */
+.section-pengumuman { background: var(--color-primary); padding: 5rem 2rem; position: relative; overflow: hidden; }
+.section-pengumuman::before { content: ''; position: absolute; inset: 0; opacity: 0.03; background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c8a96e' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); pointer-events: none; }
+.section-pengumuman .section-eyebrow { color: var(--color-gold); }
+.section-pengumuman .section-title { color: var(--color-text-light); }
+.section-pengumuman .section-subtitle { color: var(--color-stone); }
+.pengumuman-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 1.25rem; margin-top: 2.5rem; }
+.pengumuman-main { display: flex; flex-direction: column; }
+.pengumuman-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(200,169,110,0.1); border-radius: var(--radius-card-lg); padding: 1.75rem; transition: var(--transition-smooth); position: relative; }
+.pengumuman-card:hover { background: rgba(255,255,255,0.07); border-color: rgba(200,169,110,0.2); transform: translateY(-2px); }
+.pengumuman-card .card-date { font-family: var(--font-body); font-weight: 500; font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-stone); margin-bottom: 0.75rem; }
+.pengumuman-card .card-title { font-family: var(--font-heading); font-weight: 600; font-size: 1.35rem; color: var(--color-text-light); margin-bottom: 0.75rem; line-height: 1.3; }
+.pengumuman-card .card-excerpt { font-family: var(--font-body); font-weight: 400; font-size: 0.82rem; color: rgba(240,235,224,0.6); line-height: 1.7; margin-bottom: 1rem; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.pengumuman-card .card-category { font-family: var(--font-body); font-weight: 500; font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.25rem 0.75rem; border-radius: 20px; display: inline-block; }
+.card-category.liturgi { background: rgba(74,107,138,0.2); color: var(--color-glass-blue); }
+.card-category.kegiatan { background: rgba(139,38,53,0.2); color: #d4758a; }
+.card-category.sosial { background: rgba(200,169,110,0.15); color: var(--color-gold); }
+.pengumuman-side { display: flex; flex-direction: column; gap: 1.25rem; }
+.pengumuman-side .pengumuman-card .card-title { font-size: 1.05rem; }
+.pengumuman-side .pengumuman-card .card-excerpt { -webkit-line-clamp: 2; }
+.btn-lihat-semua { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-body); font-weight: 500; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-gold); margin-top: 2rem; transition: var(--transition-smooth); min-height: 44px; }
+.btn-lihat-semua:hover { color: var(--color-gold-light); }
+.btn-lihat-semua svg { width: 14px; height: 14px; transition: transform 0.3s ease; }
+.btn-lihat-semua:hover svg { transform: translateX(4px); }
+
+/* === Liturgi Hari Ini (manuscript) === */
+.section-liturgi { background: var(--color-cream); padding: 5rem 2rem; }
+.liturgi-container { max-width: 900px; margin: 0 auto; }
+.liturgi-header { text-align: center; margin-bottom: 3rem; }
+.liturgi-meta { display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: 1rem; flex-wrap: wrap; }
+.liturgi-meta-item { font-family: var(--font-body); font-weight: 500; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-stone); display: flex; align-items: center; gap: 0.4rem; }
+.liturgi-meta-item .dot { width: 8px; height: 8px; border-radius: 50%; }
+.liturgi-manuscript { background: #fff; border-radius: var(--radius-card-xl); padding: 3rem 2.5rem 2.5rem; box-shadow: var(--shadow-card); position: relative; border: 1px solid rgba(200,169,110,0.1); }
+.liturgi-manuscript::before { content: ''; position: absolute; top: 0; left: 2.5rem; right: 2.5rem; height: 2px; background: linear-gradient(90deg, var(--color-gold), rgba(200,169,110,0.2), var(--color-gold)); }
+.liturgi-reading { position: relative; padding-left: 1.5rem; margin-bottom: 2rem; border-left: 2px solid var(--color-gold); }
+.liturgi-reading .reading-label { font-family: var(--font-body); font-weight: 600; font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-gold); margin-bottom: 0.35rem; }
+.liturgi-reading .reading-source { font-family: var(--font-heading); font-weight: 500; font-style: italic; font-size: 0.9rem; color: var(--color-stone); margin-bottom: 0.75rem; }
+.liturgi-reading .reading-text { font-family: var(--font-body); font-weight: 400; font-size: 0.88rem; color: var(--color-text-dark); line-height: 1.9; text-indent: 1.5rem; }
+.liturgi-reading .reading-text .drop-cap { float: left; font-family: var(--font-heading); font-weight: 600; font-size: 3.5rem; line-height: 0.8; padding-right: 0.15rem; padding-top: 0.15rem; color: var(--color-glass-red); text-indent: 0; }
+.liturgi-reading.injil { background: rgba(200,169,110,0.04); border-radius: 2px 16px 2px 16px; padding: 1.5rem 1.5rem 1.5rem 2.5rem; margin: 1.5rem -1rem 0; border-left: 2px solid var(--color-gold); }
+.liturgi-reading.injil .reading-text { font-family: var(--font-heading); font-weight: 300; font-style: italic; font-size: 1.05rem; color: var(--color-text-dark); line-height: 1.8; text-indent: 0; }
+.liturgi-reading .respons-umat { font-family: var(--font-heading); font-weight: 400; font-style: italic; font-size: 0.92rem; color: var(--color-stone); margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid rgba(200,169,110,0.15); }
+
+/* === Kegiatan Paroki === */
+.section-kegiatan { background: var(--color-cream); padding: 5rem 2rem; }
+.kegiatan-container { max-width: 1200px; margin: 0 auto; }
+.kegiatan-timeline { display: flex; gap: 1.25rem; overflow-x: auto; padding-bottom: 1rem; scroll-snap-type: x mandatory; }
+.kegiatan-card { flex: 0 0 280px; background: #fff; border-radius: var(--radius-card-xl); padding: 1.75rem; border: 1px solid rgba(200,169,110,0.1); transition: var(--transition-smooth); scroll-snap-align: start; }
+.kegiatan-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-card); border-color: rgba(200,169,110,0.2); }
+.kegiatan-card .event-date { font-family: var(--font-heading); font-weight: 600; font-size: 2.5rem; color: var(--color-gold); line-height: 1; }
+.kegiatan-card .event-month { font-family: var(--font-body); font-weight: 500; font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-stone); margin-bottom: 1rem; }
+.kegiatan-card .event-name { font-family: var(--font-heading); font-weight: 600; font-size: 1.1rem; color: var(--color-text-dark); margin-bottom: 0.75rem; line-height: 1.3; }
+.kegiatan-card .event-detail { display: flex; align-items: center; gap: 0.4rem; font-family: var(--font-body); font-size: 0.72rem; color: var(--color-stone); margin-bottom: 0.35rem; }
+.kegiatan-card .event-detail svg { width: 12px; height: 12px; flex-shrink: 0; }
+.event-badge { display: inline-block; margin-top: 0.75rem; font-family: var(--font-body); font-weight: 500; font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.2rem 0.65rem; border-radius: 20px; }
+.event-badge.ibadah { background: rgba(200,169,110,0.15); color: var(--color-stone); }
+.event-badge.sosial { background: rgba(200,169,110,0.15); color: var(--color-gold); }
+.event-badge.pendidikan { background: rgba(74,140,92,0.15); color: var(--color-success); }
+.event-badge.pemuda { background: rgba(74,107,138,0.15); color: var(--color-glass-blue); }
+.btn-kalender { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-body); font-weight: 500; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-gold); margin-top: 2rem; transition: var(--transition-smooth); min-height: 44px; }
+.btn-kalender:hover { color: var(--color-gold-light); }
+.btn-kalender svg { width: 14px; height: 14px; transition: transform 0.3s ease; }
+.btn-kalender:hover svg { transform: translateX(4px); }
+
+/* === Iklan Umum / Dynamic Ad System (Â§8.6) === */
+.section-ads { background: var(--color-cream); padding: 4rem 2rem 5rem; }
+.ads-eyebrow-row { text-align: center; margin-bottom: 2rem; }
+.ads-eyebrow-row .label { font-family: var(--font-body); font-weight: 500; font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-stone); }
+.ads-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; max-width: 1200px; margin: 0 auto; }
+
+/* === Data Umat dalam Angka (Â§8.8) === */
+.section-statistik { background: #fff; padding: 4.5rem 2rem; border-top: 1px solid rgba(200,169,110,0.1); border-bottom: 1px solid rgba(200,169,110,0.1); }
+.statistik-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; max-width: 1000px; margin: 2.5rem auto 0; }
+.stat-card { text-align: center; padding: 1.5rem 1rem; }
+.stat-card .stat-number { font-family: var(--font-heading); font-size: clamp(2rem, 3vw, 2.8rem); font-weight: 600; color: var(--color-primary); }
+.stat-card .stat-label { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-stone); margin-top: 0.25rem; }
+.statistik-note { text-align: center; font-size: 0.7rem; color: var(--color-stone); opacity: 0.8; margin-top: 2rem; font-style: italic; }
+
+/* === Learn Catholic Quick Access strip (Â§8.9) === */
+.section-learn-strip { background: var(--color-gold-light); background: linear-gradient(90deg, rgba(232, 213, 163, 0.35), rgba(232, 213, 163, 0.55)); padding: 2rem 2rem; }
+.learn-strip-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
+.learn-strip-left { display: flex; align-items: center; gap: 1rem; }
+.learn-strip-icon { width: 48px; height: 48px; border-radius: 50%; background: var(--color-primary); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.learn-strip-icon svg { width: 22px; height: 22px; color: var(--color-gold); }
+.learn-strip-title { font-family: var(--font-heading); font-weight: 600; font-size: 1.1rem; color: var(--color-text-dark); }
+.learn-strip-sub { font-family: var(--font-body); font-size: 0.78rem; color: var(--color-stone); margin-top: 0.15rem; }
+.btn-learn-strip { font-family: var(--font-body); font-weight: 600; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-light); background: var(--color-primary); padding: 0.7rem 1.5rem; border-radius: var(--radius-btn); display: inline-flex; align-items: center; gap: 0.5rem; transition: var(--transition-smooth); flex-shrink: 0; min-height: 44px; }
+.btn-learn-strip:hover { background: var(--color-secondary); box-shadow: var(--shadow-warm); }
+.btn-learn-strip svg { width: 14px; height: 14px; }
+
+/* === Profil Paroki teaser === */
+.lingkungan-teaser-note { text-align: center; font-size: 0.78rem; color: var(--color-stone); margin-top: -1rem; margin-bottom: 2rem; }
+
+/* === CTA sections (Profil Paroki mission, Learn Catholic intro, Bergabung) === */
+.section-cta { position: relative; padding: 7rem 2rem; overflow: hidden; background: var(--color-primary); }
+.section-cta.cta-photo::before { content: ''; position: absolute; inset: 0; background-image: url('/gereja-santo-clemens.jpg'); background-size: cover; background-position: center; filter: brightness(0.15) saturate(0.5) sepia(0.2); opacity: 0.4; }
+.section-cta.cta-photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, var(--color-primary), rgba(26,14,5,0.6), var(--color-primary)); }
+.cta-content { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; text-align: center; }
+.cta-content .cta-ornament { display: flex; justify-content: center; margin-bottom: 1.5rem; }
+.cta-content .cta-ornament svg { width: 32px; height: 32px; color: var(--color-gold); opacity: 0.5; }
+.cta-content h2 { font-family: var(--font-heading); font-weight: 400; font-size: clamp(2rem, 4vw, 3.2rem); color: var(--color-text-light); line-height: 1.15; margin-bottom: 2rem; }
+.cta-content .cta-body-text { font-family: var(--font-body); font-weight: 300; font-size: 0.92rem; color: var(--color-text-light); opacity: 0.75; max-width: 560px; margin: -1rem auto 2rem; line-height: 1.8; }
+.cta-benefits { display: flex; justify-content: center; gap: 2.5rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
+.cta-benefit { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; max-width: 160px; }
+.cta-benefit .benefit-icon { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; border: 1px solid rgba(200,169,110,0.25); margin-bottom: 0.25rem; }
+.cta-benefit .benefit-icon svg { width: 18px; height: 18px; color: var(--color-gold); }
+.cta-benefit .benefit-text { font-family: var(--font-body); font-weight: 400; font-size: 0.78rem; color: rgba(240,235,224,0.7); line-height: 1.5; text-align: center; }
+.cta-actions { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+.btn-cta-primary { font-family: var(--font-body); font-weight: 600; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-primary); background: var(--color-gold); padding: 0.85rem 2.5rem; border-radius: var(--radius-btn-lg); transition: var(--transition-smooth); display: inline-flex; align-items: center; min-height: 44px; }
+.btn-cta-primary:hover { background: var(--color-gold-light); box-shadow: var(--shadow-gold); }
+.btn-cta-secondary { font-family: var(--font-body); font-weight: 500; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text-light); border: 1px solid rgba(240,235,224,0.25); padding: 0.85rem 2.5rem; border-radius: var(--radius-btn-lg); transition: var(--transition-smooth); display: inline-flex; align-items: center; min-height: 44px; }
+.btn-cta-secondary:hover { border-color: var(--color-gold); color: var(--color-gold); }
+
+/* === Bot FAB & Chat Widget === */
+.bot-fab { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 999; width: 56px; height: 56px; border-radius: 50%; background: var(--color-gold); display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-gold); cursor: pointer; transition: var(--transition-smooth); }
+.bot-fab:hover { transform: scale(1.05); box-shadow: var(--shadow-gold-lg); }
+.bot-fab svg { width: 24px; height: 24px; color: var(--color-primary); }
+.bot-fab .pulse { position: absolute; inset: -4px; border-radius: 50%; border: 2px solid var(--color-gold); animation: fabPulse 2.5s ease-out infinite; }
+@keyframes fabPulse { 0% { transform: scale(1); opacity: 0.6; } 100% { transform: scale(1.35); opacity: 0; } }
+.bot-tooltip { position: fixed; bottom: 2.2rem; right: 5.5rem; z-index: 999; background: var(--color-primary); color: var(--color-text-light); font-family: var(--font-body); font-weight: 500; font-size: 0.72rem; padding: 0.5rem 1rem; border-radius: 8px; box-shadow: var(--shadow-warm); opacity: 0; transform: translateX(8px); transition: var(--transition-smooth); pointer-events: none; white-space: nowrap; }
+.bot-fab:hover + .bot-tooltip, .bot-tooltip.show { opacity: 1; transform: translateX(0); }
+.chat-widget { position: fixed; bottom: 5.5rem; right: 1.5rem; z-index: 998; width: 340px; height: 400px; max-width: calc(100vw - 2rem); background: var(--color-cream); border-radius: var(--radius-chat); box-shadow: var(--shadow-warm-lg); border: 1px solid rgba(200,169,110,0.15); transform: translateY(20px) scale(0.95); opacity: 0; pointer-events: none; transition: var(--transition-smooth); display: flex; flex-direction: column; }
+.chat-widget.open { transform: translateY(0) scale(1); opacity: 1; pointer-events: auto; }
+.chat-widget-header { display: flex; align-items: center; gap: 0.75rem; padding: 1rem 1.25rem; background: var(--color-primary); border-radius: 8px 28px 0 0; flex-shrink: 0; }
+.chat-avatar { width: 36px; height: 36px; border-radius: 50%; background: rgba(200,169,110,0.15); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.chat-avatar svg { width: 18px; height: 18px; color: var(--color-gold); }
+.chat-info { flex: 1; }
+.chat-name { font-family: var(--font-heading); font-weight: 500; font-size: 1rem; color: var(--color-text-light); }
+.chat-status { font-family: var(--font-body); font-size: 0.65rem; color: var(--color-gold); }
+.chat-widget-close { width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: rgba(255,255,255,0.08); transition: background 0.2s; cursor: pointer; }
+.chat-widget-close:hover { background: rgba(255,255,255,0.15); }
+.chat-widget-close svg { width: 14px; height: 14px; color: var(--color-stone); }
+.chat-widget-body { padding: 1.25rem; flex-grow: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 0.75rem; }
+.chat-greeting { font-family: var(--font-body); font-size: 0.82rem; color: var(--color-text-dark); line-height: 1.7; }
+.chat-widget-input { display: flex; gap: 0.5rem; padding: 0.75rem 1rem; border-top: 1px solid rgba(200,169,110,0.1); flex-shrink: 0; }
+.chat-widget-input input { flex: 1; font-family: var(--font-body); font-size: 0.8rem; color: var(--color-text-dark); background: rgba(26,14,5,0.04); border: 1px solid rgba(200,169,110,0.15); border-radius: 20px; padding: 0.5rem 1rem; outline: none; }
+.chat-widget-input input:focus { border-color: var(--color-gold); }
+.chat-widget-input button { width: 32px; height: 32px; border-radius: 50%; background: var(--color-gold); display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; }
+.chat-widget-input button:disabled { cursor: not-allowed; opacity: 0.5; }
+.chat-widget-input button svg { width: 14px; height: 14px; color: var(--color-primary); }
+
+/* === Footer === */
+.footer { background: var(--color-primary); padding: 4rem 2rem 0; border-top: 1px solid rgba(200,169,110,0.1); }
+.footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1.5fr; gap: 3rem; padding-bottom: 3rem; }
+.footer-logo { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem; }
+.footer-logo svg { width: 32px; height: 32px; flex-shrink: 0; }
+.footer-logo span { font-family: var(--font-heading); font-weight: 500; font-size: 1.1rem; color: var(--color-gold); }
+.footer-col p { font-family: var(--font-body); font-size: 0.78rem; color: rgba(240,235,224,0.55); line-height: 1.8; }
+.footer-col h4 { font-family: var(--font-heading); font-weight: 500; font-size: 1rem; color: var(--color-gold); margin-bottom: 1.25rem; }
+.footer-col ul { display: flex; flex-direction: column; gap: 0.5rem; }
+.footer-col ul li a { font-family: var(--font-body); font-size: 0.78rem; color: rgba(240,235,224,0.55); transition: color 0.2s; }
+.footer-col ul li a:hover { color: var(--color-gold); }
+.contact-item { display: flex; align-items: flex-start; gap: 0.6rem; margin-bottom: 0.75rem; }
+.contact-item svg { width: 14px; height: 14px; color: var(--color-gold); flex-shrink: 0; margin-top: 2px; }
+.contact-item span { font-family: var(--font-body); font-size: 0.78rem; color: rgba(240,235,224,0.55); line-height: 1.6; }
+.footer-bottom { border-top: 1px solid rgba(200,169,110,0.08); padding: 1.25rem 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; max-width: 1200px; margin: 0 auto; }
+.copyright { font-family: var(--font-body); font-size: 0.68rem; color: rgba(240,235,224,0.35); }
+.legal { display: flex; gap: 1.5rem; }
+.legal a { font-family: var(--font-body); font-size: 0.68rem; color: rgba(240,235,224,0.35); transition: color 0.2s; }
+.legal a:hover { color: var(--color-gold); }
+.version { font-family: var(--font-body); font-size: 0.62rem; color: rgba(200,169,110,0.25); letter-spacing: 0.05em; }
+
+/* === Responsive (Â§11) === */
+@media (max-width: 1024px) {
+  .misa-grid { grid-template-columns: repeat(2, 1fr); }
+  .pengumuman-grid { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr 1fr; }
+  .statistik-grid { grid-template-columns: repeat(2, 1fr); }
+  .ads-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .navbar-nav { display: none; }
+  .hamburger { display: flex; }
+  .navbar-inner { padding: 0.65rem 1.25rem; }
+  .btn-login, .btn-register { display: none; }
+  .misa-grid { grid-template-columns: 1fr; }
+  .hero-content { padding: 0 1.25rem 4rem; }
+  .hero-next-mass { right: 1.25rem; bottom: 4rem; }
+  .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .cta-benefits { gap: 1.5rem; }
+  .statistik-grid { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
+  .ads-grid { grid-template-columns: 1fr; }
+  .learn-strip-inner { flex-direction: column; align-items: flex-start; }
+}
+
+/* === Scroll to top button === */
+.scroll-top-btn {
+  position: fixed; bottom: 6rem; right: 1.5rem; z-index: 9999;
+  width: 44px; height: 44px; border-radius: 50%; background: var(--color-gold);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 20px rgba(200,169,110,0.4); cursor: pointer;
+  opacity: 0; transform: scale(0.8); pointer-events: none;
+  transition: all 0.4s cubic-bezier(0.25,0.46,0.45,0.94); border: none;
+}
+.scroll-top-btn.visible { opacity: 1; transform: scale(1); pointer-events: auto; }
+.scroll-top-btn svg { width: 20px; height: 20px; color: var(--color-primary); }
+
+/* === Focus ring (Â§12 A11Y) === */
+a:focus-visible, button:focus-visible, input:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { transition: none; opacity: 1; transform: none; }
+  .scroll-indicator .chevron { animation: none; }
+  .bot-fab .pulse { animation: none; }
+  * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
+      `}} />
+
+      <svg className="svg-filters" aria-hidden="true">
+        <defs>
+          <filter id="grain">
+            <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
+            <feColorMatrix type="saturate" values="0" />
+            <feBlend in="SourceGraphic" mode="multiply" />
+          </filter>
+        </defs>
+      </svg>
+
+
+      {/* ============ HERO (Â§8.1) ============ */}
+      <section className="hero" id="beranda">
+        <div className="hero-bg">
+          <img src="/gereja-santo-clemens.jpg" alt="Gereja Santo Klemens Sepinggan" />
+          <div className="overlay"></div>
+          <div className="grain"></div>
+        </div>
+        <div className="hero-content">
+          <p className="hero-eyebrow">Paroki Santo Klemens Sepinggan</p>
+          <h1>Selamat Datang di<br />Rumah Kita Bersama</h1>
+          <p className="hero-sub">Gereja Santo Martinus &middot; Lanud Balikpapan<br />Keuskupan Agung Samarinda</p>
+          <div className="hero-actions">
+            <a href="/auth/register" className="btn-hero-primary">
+              Daftar sebagai Umat
+            </a>
+            <a href="/auth/login" className="btn-hero-secondary">Sudah Punya Akun? Masuk</a>
+          </div>
+        </div>
+
+        <div className="hero-next-mass">
+          {nextMass ? (
+            <>
+              <div className="label">Misa Berikutnya</div>
+              <div className="time">{nextMass.jam.substring(0, 5)}</div>
+              <div className="name">{nextMass.nama_misa}</div>
+            </>
+          ) : (
+            <>
+              <div className="label">Misa Berikutnya</div>
+              <div className="time">N/A</div>
+              <div className="name">Tidak ada jadwal misa</div>
+            </>
+          )}
+          <div className="liturgi-today-tag" data-liturgi-label>
+            <span className="dot"></span>
+            <span>{liturgicalInfo?.color || 'Hijau'} &mdash; {liturgicalInfo?.celebration || 'Masa Biasa'}</span>
+          </div>
+        </div>
+
+        <div className="scroll-indicator">
+          <span className="text">Gulir untuk mengenal kami</span>
+          <span className="chevron">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 9l6 6 6-6" /></svg>
+          </span>
+        </div>
+      </section>
+
+      {/* ============ JADWAL MISA (Â§8.2) ============ */}
+      {loadingContent ? (
+        <section className="section-misa reveal" id="jadwal-misa">
+          <div className="section-inner text-center py-12">
+            <Loader2Icon className="w-8 h-8 animate-spin text-gold mx-auto" />
+            <p className="text-stone-500 mt-2">Memuat jadwal misa...</p>
+          </div>
+        </section>
+      ) : errorContent ? (
+        <section className="section-misa reveal" id="jadwal-misa">
+          <div className="section-inner text-center py-12">
+            <p style={{ color: 'var(--color-glass-red)' }}>Terjadi kesalahan: {errorContent}</p>
+            <button onClick={fetchPublicContent} className="btn-lihat-semua" style={{ margin: '1rem auto 0' }}>
+              Coba Lagi <ArrowRightIcon className="w-4 h-4" />
+            </button>
+          </div>
+        </section>
+      ) : (
+        <>
+          <section className="section-misa reveal" id="jadwal-misa">
+            <div className="section-inner">
+              <p className="section-eyebrow">Ibadat &amp; Sakramen</p>
+              <h2 className="section-title">Jadwal Misa</h2>
+              <p className="section-subtitle">Paroki Santo Klemens Sepinggan</p>
+              <div className="ornament-divider">
+                <span className="line"></span>
+                <span className="cross"><svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="1" width="2" height="12" rx="0.5" fill="#c8a96e" /><rect x="3" y="4" width="8" height="2" rx="0.5" fill="#c8a96e" /></svg></span>
+                <span className="line"></span>
+              </div>
+
+              <div className="misa-tabs" role="tablist" aria-label="Pilih kategori jadwal misa">
+                {(['minggu-ini', 'hari-besar', 'khusus'] as MisaTab[]).map((tab) => (
+                  <button
+                    key={tab}
+                    className={`misa-tab ${activeMisaTab === tab ? 'active' : ''}`}
+                    role="tab"
+                    aria-selected={activeMisaTab === tab}
+                    onClick={() => setActiveMisaTab(tab)}
+                  >
+                    {tab === 'minggu-ini' ? 'Minggu Ini' : tab === 'hari-besar' ? 'Hari Besar' : 'Misa Khusus'}
+                  </button>
+                ))}
+              </div>
+
+              <div className="misa-grid">
+                {activeMisaTab === 'minggu-ini' && mingguIniCards.map(({ dayKey, isToday, misaForDay }) => (
+                  <div key={dayKey} className={`misa-card${isToday ? ' today' : ''}`}>
+                    {isToday && <div className="today-badge"></div>}
+                    <div className="day-label">{isToday ? 'Hari Ini' : '\u00A0'}</div>
+                    <div className="day-name">{HARI_MAP[dayKey]}</div>
+                    {misaForDay.map((m) => (
+                      <div key={m.id} className="mass-item">
+                        <div className="mass-time">{m.jam.substring(0, 5)}</div>
+                        <div className="mass-name">{m.nama_misa}</div>
+                        <div className="mass-location">{m.lokasi}</div>
+                      </div>
+                    ))}
+                  </div>
+                ))}
+
+                {activeMisaTab === 'hari-besar' && publicJadwalMisa && publicJadwalMisa.hari_besar.length > 0 &&
+                  publicJadwalMisa.hari_besar.map((item) => (
+                    <div key={item.id} className="misa-card">
+                      <div className="day-label">{item.label || '\u00A0'}</div>
+                      <div className="day-name">
+                        {item.tanggal_spesifik
+                          ? new Date(item.tanggal_spesifik).toLocaleDateString('id-ID', { day: 'numeric', month: 'short' })
+                          : HARI_MAP[item.hari]}
+                      </div>
+                      <div className="mass-item">
+                        <div className="mass-time">{item.jam.substring(0, 5)}</div>
+                        <div className="mass-name">{item.nama_misa}</div>
+                        <div className="mass-location">{item.lokasi}</div>
+                      </div>
+                    </div>
+                  ))}
+
+                {activeMisaTab === 'khusus' && publicJadwalMisa && publicJadwalMisa.khusus.length > 0 &&
+                  publicJadwalMisa.khusus.map((item) => (
+                    <div key={item.id} className="misa-card">
+                      <div className="day-label">{item.label || '\u00A0'}</div>
+                      <div className="day-name">
+                        {item.tanggal_spesifik
+                          ? new Date(item.tanggal_spesifik).toLocaleDateString('id-ID', { day: 'numeric', month: 'short' })
+                          : HARI_MAP[item.hari]}
+                      </div>
+                      <div className="mass-item">
+                        <div className="mass-time">{item.jam.substring(0, 5)}</div>
+                        <div className="mass-name">{item.nama_misa}</div>
+                        <div className="mass-location">{item.lokasi}</div>
+                      </div>
+                    </div>
+                  ))}
+
+                {((activeMisaTab === 'minggu-ini' && mingguIniCards.length === 0) ||
+                  (activeMisaTab === 'hari-besar' && (!publicJadwalMisa || publicJadwalMisa.hari_besar.length === 0)) ||
+                  (activeMisaTab === 'khusus' && (!publicJadwalMisa || publicJadwalMisa.khusus.length === 0))) && (
+                  <p className="text-center text-stone-500" style={{ gridColumn: '1 / -1' }}>
+                    Tidak ada jadwal misa untuk kategori ini.
+                  </p>
+                )}
+              </div>
+
+              <a href="/jadwal-misa" className="btn-lihat-semua">
+                Lihat Jadwal Lengkap <ArrowRightIcon className="w-4 h-4" />
+              </a>
+            </div>
+          </section>
+
+          {/* ============ WARTA PAROKI (Â§8.3) ============ */}
+          <section className="section-pengumuman reveal" id="pengumuman">
+            <div className="section-inner">
+              <p className="section-eyebrow">Kabar &amp; Warta</p>
+              <h2 className="section-title">Warta Paroki</h2>
+              <p className="section-subtitle">Informasi terbaru dari Paroki Santo Klemens</p>
+              <div className="ornament-divider">
+                <span className="line"></span>
+                <span className="cross"><svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="1" width="2" height="12" rx="0.5" fill="#c8a96e" /><rect x="3" y="4" width="8" height="2" rx="0.5" fill="#c8a96e" /></svg></span>
+                <span className="line"></span>
+              </div>
+
+              {publicWarta.length > 0 ? (
+                <div className="pengumuman-grid">
+                  <div className="pengumuman-main">
+                    <div className="pengumuman-card">
+                      <div className="card-date">{new Date(publicWarta[0].tanggal).toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' })}</div>
+                      <div className="card-title">{publicWarta[0].judul}</div>
+                      <div className="card-excerpt">{publicWarta[0].excerpt}</div>
+                      <span className={`card-category ${publicWarta[0].kategori}`}>{publicWarta[0].kategori}</span>
+                    </div>
+                  </div>
+                  <div className="pengumuman-side">
+                    {publicWarta.slice(1, 3).map((warta) => (
+                      <div key={warta.id} className="pengumuman-card">
+                        <div className="card-date">{new Date(warta.tanggal).toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' })}</div>
+                        <div className="card-title">{warta.judul}</div>
+                        <div className="card-excerpt">{warta.excerpt}</div>
+                        <span className={`card-category ${warta.kategori}`}>{warta.kategori}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <p className="text-center" style={{ color: 'var(--color-stone)' }}>Tidak ada warta terbaru.</p>
+              )}
+
+              <a href="/warta-paroki" className="btn-lihat-semua">
+                Lihat Semua Pengumuman <ArrowRightIcon className="w-4 h-4" />
+              </a>
+            </div>
+          </section>
+        </>
+      )}
+
+      {/* ============ BACAAN/LITURGI HARI INI (Â§8.5) ============ */}
+      <section className="section-liturgi reveal" id="liturgi">
+        <div className="liturgi-container">
+          <div className="liturgi-header">
+            <p className="section-eyebrow">Sabda Allah</p>
+            <h2 className="section-title">Bacaan &amp; Liturgi Hari Ini</h2>
+            <div className="liturgi-meta">
+              <span className="liturgi-meta-item">
+                <span className="dot" style={{ background: liturgicalInfo?.color ? LITURGI_COLOR_MAP[liturgicalInfo.color] : 'var(--liturgi-hijau)' }}></span>
+                <span>{liturgicalInfo?.celebration || 'Memuat informasi liturgi...'}</span>
+              </span>
+              <span className="liturgi-meta-item">
+                <span className="dot" style={{ background: liturgicalInfo?.color ? LITURGI_COLOR_MAP[liturgicalInfo.color] : 'var(--liturgi-hijau)' }}></span>
+                <span>Warna Liturgi: {liturgicalInfo?.color || 'Hijau'}</span>
+              </span>
+            </div>
+          </div>
+          <div className="ornament-divider">
+            <span className="line"></span>
+            <span className="cross"><svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="1" width="2" height="12" rx="0.5" fill="var(--color-gold)" /><rect x="3" y="4" width="8" height="2" rx="0.5" fill="var(--color-gold)" /></svg></span>
+            <span className="line"></span>
+          </div>
+          <div className="liturgi-manuscript">
+            {dailyLiturgi ? (
+              <>
+                <div className="liturgi-reading">
+                  <div className="reading-label">Bacaan Pertama</div>
+                  <div className="reading-source">{dailyLiturgi.bacaan_1.sumber}</div>
+                  <div className="reading-text">{dailyLiturgi.bacaan_1.teks}</div>
+                </div>
+                <div className="liturgi-reading injil">
+                  <div className="reading-label">Bacaan Injil</div>
+                  <div className="reading-source">{dailyLiturgi.bacaan_injil.sumber}</div>
+                  <div className="reading-text">
+                    <span className="drop-cap">{dailyLiturgi.bacaan_injil.teks.charAt(0)}</span>
+                    {dailyLiturgi.bacaan_injil.teks.substring(1)}
+                  </div>
+                  <div className="respons-umat">Demikianlah Injil Tuhan. U: Terpujilah Kristus.</div>
+                </div>
+                {dailyLiturgi.santo_santa_hari_ini && dailyLiturgi.santo_santa_hari_ini.length > 0 && (
+                  <div className="liturgi-reading" style={{ marginTop: '2rem' }}>
+                    <div className="reading-label">Santo/Santa Hari Ini</div>
+                    {dailyLiturgi.santo_santa_hari_ini.map((santo, idx) => (
+                      <div key={idx} className="reading-text" style={{ textIndent: 0 }}>{santo.nama}: {santo.keterangan}</div>
+                    ))}
+                    {dailyLiturgi.pesan_personal && (
+                      <div className="reading-text" style={{ textIndent: 0, marginTop: '1rem', fontStyle: 'italic', color: 'var(--color-stone)' }}>
+                        {dailyLiturgi.pesan_personal}
+                      </div>
+                    )}
+                  </div>
+                )}
+              </>
+            ) : (
+              <div className="text-center py-8" style={{ color: 'var(--color-stone)' }}>Tidak dapat memuat bacaan liturgi hari ini.</div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* ============ KEGIATAN PAROKI (Â§8.4) ============ */}
+      <section className="section-kegiatan reveal" id="kegiatan">
+        <div className="kegiatan-container">
+          <p className="section-eyebrow">Agenda Paroki</p>
+          <h2 className="section-title">Kegiatan Paroki</h2>
+          <p className="section-subtitle">Kegiatan dan acara mendatang</p>
+          <div className="ornament-divider">
+            <span className="line"></span>
+            <span className="cross"><svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="1" width="2" height="12" rx="0.5" fill="#c8a96e" /><rect x="3" y="4" width="8" height="2" rx="0.5" fill="#c8a96e" /></svg></span>
+            <span className="line"></span>
+          </div>
+
+          <div className="kegiatan-timeline">
+            {publicKegiatan.length > 0 ? (
+              publicKegiatan.map((k) => (
+                <div key={k.id} className="kegiatan-card">
+                  <div className="event-date">{new Date(k.tanggal).getDate()}</div>
+                  <div className="event-month">{new Date(k.tanggal).toLocaleDateString('id-ID', { month: 'long', year: 'numeric' })}</div>
+                  <div className="event-name">{k.nama}</div>
+                  {k.jam_mulai && (
+                    <div className="event-detail">
+                      <ClockIcon className="w-3 h-3" />
+                      {k.jam_mulai}{k.jam_selesai ? ` - ${k.jam_selesai}` : ''}
+                    </div>
+                  )}
+                  {k.lokasi && (
+                    <div className="event-detail">
+                      <MapPinIcon className="w-3 h-3" />
+                      {k.lokasi}
+                    </div>
+                  )}
+                  <span className={`event-badge ${k.kategori}`}>{k.kategori}</span>
+                </div>
+              ))
+            ) : (
+              <p className="text-center" style={{ color: 'var(--color-stone)', width: '100%' }}>Tidak ada kegiatan mendatang.</p>
+            )}
+          </div>
+
+          <a href="/kegiatan" className="btn-kalender">
+            Lihat Kalender Lengkap <CalendarIcon className="w-4 h-4" />
+          </a>
+        </div>
+      </section>
+
+      {/* ============ IKLAN UMUM / DYNAMIC AD SYSTEM (Â§8.6) ============ */}
+      <section className="section-ads reveal" id="iklan">
+        <div className="ads-eyebrow-row">
+          <span className="label">Dipersembahkan oleh</span>
+        </div>
+        <div className="ads-grid" style={{ gridTemplateColumns: '1fr', maxWidth: '700px' }}>
+          <AdBanner location="homepage" />
+        </div>
+      </section>
+
+      {/* ============ SEKILAS PROFIL PAROKI (Â§8.10 teaser) ============ */}
+      <section className="section-misa reveal" id="profil-paroki">
+        <div className="section-inner">
+          <p className="section-eyebrow">Tentang Kami</p>
+          <h2 className="section-title">Sekilas Profil Paroki</h2>
+          <p className="section-subtitle">Mengenal Paroki Santo Klemens Sepinggan</p>
+          <div className="ornament-divider">
+            <span className="line"></span>
+            <span className="cross"><svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="1" width="2" height="12" rx="0.5" fill="var(--color-gold)" /><rect x="3" y="4" width="8" height="2" rx="0.5" fill="var(--color-gold)" /></svg></span>
+            <span className="line"></span>
+          </div>
+          <div className="misa-grid" style={{ gridTemplateColumns: 'repeat(2, 1fr)' }}>
+            <div className="misa-card">
+              <div className="day-name">Visi</div>
+              <div className="mass-item">
+                <div className="mass-name">Menjadi Komunitas Umat Allah yang beriman, berpengharapan, dan berbelas kasih.</div>
+              </div>
+            </div>
+            <div className="misa-card">
+              <div className="day-name">Misi</div>
+              <div className="mass-item">
+                <div className="mass-name">Mengembangkan semangat persaudaraan sejati, pelayanan kasih, dan pewartaan Injil melalui teladan hidup.</div>
+              </div>
+            </div>
+          </div>
+          <p className="lingkungan-teaser-note">17 Lingkungan &amp; Stasi siap menyambut Anda &mdash; lihat daftar lengkap di Profil Paroki.</p>
+          <a href="/profil-paroki" className="btn-lihat-semua" style={{ margin: '0 auto', display: 'flex' }}>
+            Lihat Profil Lengkap <ArrowRightIcon className="w-4 h-4" />
+          </a>
+        </div>
+      </section>
+
+      {/* ============ DATA UMAT DALAM ANGKA (Â§8.8) ============ */}
+      <section className="section-statistik reveal" id="statistik">
+        <p className="section-eyebrow">Statistik Anonim</p>
+        <h2 className="section-title">Paroki Santo Klemens dalam Angka</h2>
+        <div className="statistik-grid">
+          {statistikData && statistikData.length > 0 ? (
+            statistikData.map((stat) => (
+              <div key={stat.label} className="stat-card">
+                <div className="stat-number">{stat.value}</div>
+                <div className="stat-label">{stat.label}</div>
+              </div>
+            ))
+          ) : (
+            <p className="text-center" style={{ color: 'var(--color-stone)', width: '100%', padding: '2rem' }}>Belum ada data</p>
+          )}
+        </div>
+        <p className="statistik-note">Data bersifat agregat dan anonim &mdash; tidak menampilkan identitas umat individual.</p>
+      </section>
+
+      {/* ============ SCROLL TO TOP BUTTON ============ */}
+      <button
+        className={`scroll-top-btn ${showScrollTop ? 'visible' : ''}`}
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        aria-label="Kembali ke atas"
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 15l-6-6-6 6"/></svg>
+      </button>
+
+      {/* ============ BOT 1 FAB & CHAT WIDGET (Â§9.1) ============ */}
+      <div
+        className="bot-fab"
+        aria-label="Tanya Bot Paroki"
+        role="button"
+        tabIndex={0}
+        onClick={toggleChat}
+        onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') toggleChat(); }}
+      >
+        <span className="pulse"></span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="14" y="4" width="3" height="16" rx="1" /><rect x="7" y="8" width="10" height="3" rx="1" /><path d="M3 20l3-3h2" strokeWidth="1.5" /></svg>
+      </div>
+      <div className={`bot-tooltip ${isChatOpen ? 'show' : ''}`}>Tanya Bot Paroki</div>
+      <div className={`chat-widget ${isChatOpen ? 'open' : ''}`} role="dialog" aria-label="Chat dengan Bot Paroki" aria-hidden={!isChatOpen}>
+        <div className="chat-widget-header">
+          <div className="chat-avatar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="14" y="4" width="3" height="16" rx="1" /><rect x="7" y="8" width="10" height="3" rx="1" /></svg>
+          </div>
+          <div className="chat-info">
+            <div className="chat-name">Bot Paroki</div>
+            <div className="chat-status">Online</div>
+          </div>
+          <button className="chat-widget-close" aria-label="Tutup chat" onClick={closeChat}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6L6 18M6 6l12 12" /></svg>
+          </button>
+        </div>
+        <div className="chat-widget-body">
+          {botMessages.length === 0 ? (
+            <p className="chat-greeting">
+              Halo! Ada yang bisa saya bantu?<br /><br />
+              Saya bisa membantu Anda mencari informasi tentang jadwal misa, sakramen, kegiatan paroki, dan lainnya.
+            </p>
+          ) : (
+            botMessages.map((msg, index) => (
+              <div key={index} className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
+                <div
+                  className="max-w-[70%] p-2 rounded-lg"
+                  style={{
+                    background: msg.sender === 'user' ? 'var(--color-gold-light)' : 'rgba(26,14,5,0.06)',
+                    color: 'var(--color-text-dark)',
+                  }}
+                >
+                  {msg.text}
+                </div>
+              </div>
+            ))
+          )}
+          {isBotLoading && (
+            <div className="flex justify-start">
+              <div className="max-w-[70%] p-2 rounded-lg animate-pulse" style={{ background: 'rgba(26,14,5,0.06)', color: 'var(--color-text-dark)' }}>
+                <span>Mengetik...</span>
+              </div>
+            </div>
+          )}
+        </div>
+        <form onSubmit={sendBotMessage} className="chat-widget-input">
+          <input
+            type="text"
+            placeholder="Ketik pertanyaan Anda..."
+            aria-label="Pesan chat"
+            value={botInput}
+            onChange={(e) => setBotInput(e.target.value)}
+            disabled={isBotLoading}
+          />
+          <button type="submit" aria-label="Kirim pesan" disabled={isBotLoading}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" /></svg>
+          </button>
+        </form>
+      </div>
+
+
+    </>
+  );
+}
+
+

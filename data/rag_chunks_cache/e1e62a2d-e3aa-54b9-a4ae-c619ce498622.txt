@@ -1,0 +1,56 @@
+---
+document_code: PAUS_HG
+title: "Humani Generis - Ensiklik tentang Beberapa Pandangan Keliru yang Mengancam Ajaran Katolik"
+category: "Ensiklik Paus"
+priority: "Pendalaman"
+word_count: 6127
+paragraph_count: 52
+estimated_chunks: 12
+---
+
+# Humani Generis - Ensiklik tentang Beberapa Pandangan Keliru yang Mengancam Ajaran Katolik
+
+**Kode Dokumen**: `PAUS_HG`
+**Kategori**: Ensiklik Paus
+**Prioritas**: Pendalaman
+
+> **Deskripsi**: Ensiklik tentang Beberapa Pandangan Keliru yang Mengancam Ajaran Katolik. Dokumen ini telah dibersihkan secara presisi untuk AI Knowledge Base.
+
+---
+
+Venerable Brethren,
+Greetings and Apostolic Benediction
+
+Disagreement and error among men on moral and religious matters have always been a cause of
+profound sorrow to all good men, but above all to the true and loyal sons of the Church, especially
+today, when we see the principles of Christian culture being attacked on all sides.
+
+2. It is not surprising that such discord and error should always have existed outside the fold of Christ.
+For though, absolutely speaking, human reason by its own natural force and light can arrive at a true
+and certain knowledge of the one personal God, Who by His providence watches over and governs the
+world, and also of the natural law, which the Creator has written in our hearts, still there are not a few
+obstacles to prevent reason from making efficient and fruitful use of its natural ability. The truths that
+have to do with God and the relations between God and men, completely surpass the sensible order
+and demand self-surrender and self-abnegation in order to be put into practice and to influence
+practical life. Now the human intellect, in gaining the knowledge of such truths is hampered both by
+the activity of the senses and the imagination, and by evil passions arising from original sin. Hence
+men easily persuade themselves in such matters that what they do not wish to believe is false or at
+least doubtful.
+
+3. It is for this reason that divine revelation must be considered morally necessary so that those
+religious and moral truths which are not of their nature beyond the reach of reason in the present
+condition of the human race, may be known by all mean readily with a firm certainty and with
+freedom from all error.
+
+4. Furthermore the human intelligence sometimes experiences difficulties in forming a judgment about
+the credibility of the Catholic faith, notwithstanding the many wonderful external signs God has given,
+which are sufficient to prove with certitude by the natural light of reason alone the divine origin of the Christian religion. For man can, whether from prejudice or passion or bad faith, refuse and resist not
+only the evidence of the external proofs that are available, but also the impulses of actual grace.
+
+5. If anyone examines the state of affairs outside the Christian fold, he will easily discover the
+principle trends that not a few learned men are following. Some imprudently and indiscreetly hold that
+evolution, which has not been fully proved even in the domain of natural sciences, explains the origin
+of all things, and audaciously support the monistic and pantheistic opinion that the world is in
+continual evolution. Communists gladly subscribe to this opinion so that, when the souls of men have
+been deprived of every idea of a personal God, they may the more efficaciously defend and propagate
+their dialectical materialism.

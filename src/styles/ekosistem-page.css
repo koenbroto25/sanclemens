@@ -1,0 +1,189 @@
+/* === LOCAL TOKENS (inherit from public.css) === */
+.ekosistem-page {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #1c1410;
+  background: #f5f0e8;
+  overflow-x: hidden;
+}
+.ekosistem-page * { margin: 0; padding: 0; box-sizing: border-box; }
+.ekosistem-page img { max-width: 100%; display: block; }
+.ekosistem-page a { text-decoration: none; color: inherit; }
+.ekosistem-page .section-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+/* === Scroll reveal === */
+.ekosistem-page .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.ekosistem-page .reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* === Ornament === */
+.ekosistem-page .ornament-divider { display: flex; align-items: center; justify-content: center; gap: 16px; margin: 0 auto 2.5rem; max-width: 280px; }
+.ekosistem-page .ornament-divider .line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, #c8a96e, transparent); }
+.ekosistem-page .ornament-divider .cross { width: 14px; height: 14px; flex-shrink: 0; color: #c8a96e; }
+
+/* === Section headers === */
+.ekosistem-page .section-eyebrow { font-family: "Inter", sans-serif; font-weight: 500; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: #c8a96e; text-align: center; margin-bottom: 0.5rem; }
+.ekosistem-page .section-title { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 600; font-size: clamp(2rem, 3.5vw, 3rem); text-align: center; margin-bottom: 0.5rem; }
+.ekosistem-page .section-subtitle { font-size: 0.85rem; color: #8b7355; text-align: center; margin-bottom: 0.5rem; }
+
+/* === 1. HERO === */
+.ekosistem-page .hero-ekosistem {
+  position: relative; min-height: 90vh; display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(160deg, #1a0e05 0%, #2c1a0e 50%, #1a0e05 100%);
+  overflow: hidden; padding: 8rem 2rem 4rem;
+}
+.ekosistem-page .hero-ekosistem::before {
+  content: ''; position: absolute; inset: 0;
+  background-image: radial-gradient(circle at 25% 50%, rgba(200,169,110,0.06) 0%, transparent 50%),
+                    radial-gradient(circle at 75% 30%, rgba(200,169,110,0.04) 0%, transparent 50%);
+}
+.ekosistem-page .hero-ekosistem .content { position: relative; z-index: 2; max-width: 800px; text-align: center; }
+.ekosistem-page .hero-eyebrow { font-weight: 500; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: #c8a96e; margin-bottom: 1.5rem; }
+.ekosistem-page .hero-ekosistem h1 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 300; font-size: clamp(2.4rem, 5vw, 4.5rem); line-height: 1.1; color: #f0ebe0; margin-bottom: 1.5rem; }
+.ekosistem-page .hero-ekosistem h1 em { font-style: italic; color: #c8a96e; font-weight: 400; }
+.ekosistem-page .hero-ekosistem .sub { font-size: 0.9rem; color: rgba(240,235,224,0.65); line-height: 1.8; max-width: 600px; margin: 0 auto 2rem; }
+.ekosistem-page .hero-actions { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+.ekosistem-page .btn-primary {
+  font-family: "Inter", sans-serif; font-weight: 500; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: #1a0e05; background: #c8a96e; padding: 0.85rem 2.5rem; border-radius: 2px 28px 2px 28px;
+  transition: all 0.4s cubic-bezier(0.25,0.46,0.45,0.94); display: inline-flex; align-items: center; gap: 0.5rem; min-height: 44px;
+}
+.ekosistem-page .btn-primary:hover { background: #e8d5a3; box-shadow: 0 4px 20px rgba(200,169,110,0.35); }
+.ekosistem-page .btn-secondary {
+  font-family: "Inter", sans-serif; font-weight: 500; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: #f0ebe0; border: 1px solid rgba(240,235,224,0.25); padding: 0.85rem 2.5rem; border-radius: 2px 28px 2px 28px;
+  transition: all 0.4s cubic-bezier(0.25,0.46,0.45,0.94); display: inline-flex; align-items: center; min-height: 44px;
+}
+.ekosistem-page .btn-secondary:hover { border-color: #c8a96e; color: #c8a96e; }
+.ekosistem-page .btn-gold-outline {
+  font-family: "Inter", sans-serif; font-weight: 500; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: #c8a96e; border: 1px solid rgba(200,169,110,0.3); background: transparent; padding: 0.7rem 1.8rem;
+  border-radius: 2px 24px 2px 24px; transition: all 0.4s cubic-bezier(0.25,0.46,0.45,0.94); display: inline-flex; align-items: center; gap: 0.5rem; min-height: 44px;
+}
+.ekosistem-page .btn-gold-outline:hover { background: rgba(200,169,110,0.08); border-color: #e8d5a3; color: #e8d5a3; }
+
+/* === 2. PAIN POINTS === */
+.ekosistem-page .section-pain { background: #fff; padding: 5rem 2rem; }
+.ekosistem-page .pain-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2.5rem; max-width: 1100px; margin-left: auto; margin-right: auto; }
+.ekosistem-page .pain-card {
+  background: #f5f0e8; border-radius: 2px 20px 2px 20px; padding: 2rem 1.5rem;
+  border: 1px solid rgba(200,169,110,0.1); transition: all 0.4s cubic-bezier(0.25,0.46,0.45,0.94); text-align: center;
+}
+.ekosistem-page .pain-card:hover { transform: translateY(-4px); box-shadow: 0 4px 20px rgba(26,14,5,0.1); }
+.ekosistem-page .pain-card .icon { font-size: 2.2rem; margin-bottom: 1rem; }
+.ekosistem-page .pain-card h3 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 600; font-size: 1.2rem; color: #1a0e05; margin-bottom: 0.75rem; }
+.ekosistem-page .pain-card p { font-size: 0.82rem; color: #8b7355; line-height: 1.7; }
+.ekosistem-page .pain-hook { text-align: center; margin-top: 2.5rem; font-family: "Cormorant Garamond", Georgia, serif; font-style: italic; font-size: 1.1rem; color: #c8a96e; }
+
+/* === 3. AI MATCH (BINTANG UTAMA) === */
+.ekosistem-page .section-ai-match {
+  background: #1a0e05; padding: 6rem 2rem; position: relative; overflow: hidden;
+}
+.ekosistem-page .section-ai-match::before {
+  content: ''; position: absolute; inset: 0; opacity: 0.04;
+  background-image: radial-gradient(circle at 50% 50%, rgba(200,169,110,0.3), transparent 70%);
+}
+.ekosistem-page .section-ai-match .section-eyebrow { color: #c8a96e; }
+.ekosistem-page .section-ai-match .section-title { color: #f0ebe0; }
+.ekosistem-page .ai-intro { text-align: center; font-size: 0.88rem; color: rgba(240,235,224,0.6); line-height: 1.8; max-width: 700px; margin: 0 auto 3rem; }
+.ekosistem-page .ai-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.ekosistem-page .ai-card {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(200,169,110,0.1); border-radius: 4px 24px 4px 24px;
+  padding: 2rem 1.5rem; transition: all 0.4s cubic-bezier(0.25,0.46,0.45,0.94); text-align: center;
+}
+.ekosistem-page .ai-card:hover { background: rgba(255,255,255,0.07); border-color: rgba(200,169,110,0.2); transform: translateY(-3px); }
+.ekosistem-page .ai-card .icon { font-size: 2.5rem; margin-bottom: 1rem; }
+.ekosistem-page .ai-card h3 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 600; font-size: 1.25rem; color: #f0ebe0; margin-bottom: 0.75rem; }
+.ekosistem-page .ai-card .how { font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; color: #c8a96e; margin-bottom: 0.5rem; }
+.ekosistem-page .ai-card p { font-size: 0.82rem; color: rgba(240,235,224,0.65); line-height: 1.7; }
+.ekosistem-page .ai-card .impact { font-size: 0.78rem; color: rgba(200,169,110,0.8); font-style: italic; margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid rgba(200,169,110,0.1); }
+.ekosistem-page .ai-bottom-hook { text-align: center; margin-top: 3rem; font-size: 1rem; color: #c8a96e; font-style: italic; }
+
+/* === Visual Demo AI Match === */
+.ekosistem-page .section-ai-demo { background: #2c1a0e; padding: 4rem 2rem; }
+.ekosistem-page .ai-demo-visual { max-width: 800px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 0.5rem; flex-wrap: wrap; }
+.ekosistem-page .ai-demo-box {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(200,169,110,0.15); border-radius: 2px 16px 2px 16px;
+  padding: 1rem 1.5rem; text-align: center; min-width: 140px;
+}
+.ekosistem-page .ai-demo-box .label { font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; color: #c8a96e; margin-bottom: 0.25rem; }
+.ekosistem-page .ai-demo-box .value { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 500; font-size: 1rem; color: #f0ebe0; }
+.ekosistem-page .ai-demo-arrow { color: #c8a96e; opacity: 0.5; font-size: 1.5rem; }
+.ekosistem-page .ai-demo-center {
+  background: rgba(200,169,110,0.1); border: 2px solid #c8a96e; border-radius: 2px 28px 2px 28px;
+  padding: 1.2rem 2rem; text-align: center;
+}
+.ekosistem-page .ai-demo-center .label { font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: #e8d5a3; }
+.ekosistem-page .ai-demo-center .value { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 600; font-size: 1.2rem; color: #c8a96e; }
+
+/* === 4. SIX FEATURES === */
+.ekosistem-page .section-fitur { padding: 5rem 2rem; background: #fff; }
+.ekosistem-page .fitur-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 2.5rem; }
+.ekosistem-page .fitur-card {
+  background: #f5f0e8; border-radius: 2px 20px 2px 20px; padding: 1.75rem;
+  border: 1px solid rgba(200,169,110,0.1); transition: all 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+.ekosistem-page .fitur-card:hover { transform: translateY(-3px); box-shadow: 0 4px 20px rgba(26,14,5,0.1); }
+.ekosistem-page .fitur-card .icon { font-size: 1.8rem; margin-bottom: 0.75rem; }
+.ekosistem-page .fitur-card h3 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 600; font-size: 1.1rem; color: #1a0e05; margin-bottom: 0.5rem; }
+.ekosistem-page .fitur-card p { font-size: 0.8rem; color: #8b7355; line-height: 1.7; }
+
+/* === 5. MENGAPA DATA PENTING === */
+.ekosistem-page .section-data-penting { background: #1a0e05; padding: 5rem 2rem; }
+.ekosistem-page .data-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
+.ekosistem-page .data-card {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(200,169,110,0.1); border-radius: 4px 28px 4px 28px;
+  padding: 2rem 1.5rem; text-align: center; transition: all 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+.ekosistem-page .data-card:hover { background: rgba(255,255,255,0.07); border-color: rgba(200,169,110,0.2); }
+.ekosistem-page .data-card .num { font-size: 2rem; margin-bottom: 0.75rem; }
+.ekosistem-page .data-card h3 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 600; font-size: 1.2rem; color: #f0ebe0; margin-bottom: 0.75rem; }
+.ekosistem-page .data-card p { font-size: 0.82rem; color: rgba(240,235,224,0.65); line-height: 1.7; }
+
+/* === 6. TESTIMONI === */
+.ekosistem-page .section-testimoni { background: #fff; padding: 5rem 2rem; }
+.ekosistem-page .testimoni-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
+.ekosistem-page .testimoni-card {
+  background: #f5f0e8; border-radius: 2px 20px 2px 20px; padding: 1.75rem;
+  border: 1px solid rgba(200,169,110,0.1); position: relative;
+}
+.ekosistem-page .testimoni-card::before { content: '"'; font-family: "Cormorant Garamond", Georgia, serif; font-size: 4rem; color: #c8a96e; opacity: 0.2; position: absolute; top: 0.5rem; left: 1rem; line-height: 1; }
+.ekosistem-page .testimoni-card .quote { font-size: 0.9rem; color: #1c1410; line-height: 1.8; margin-bottom: 1rem; font-style: italic; }
+.ekosistem-page .testimoni-card .author { font-weight: 600; font-size: 0.78rem; color: #c8a96e; letter-spacing: 0.05em; }
+.ekosistem-page .testimoni-card .role { font-size: 0.7rem; color: #8b7355; margin-top: 0.15rem; }
+
+/* === 7. CTA FINAL === */
+.ekosistem-page .section-cta-final { background: #f5f0e8; padding: 6rem 2rem; text-align: center; }
+.ekosistem-page .section-cta-final h2 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 400; font-size: clamp(2rem, 4vw, 3.2rem); color: #1c1410; line-height: 1.2; margin-bottom: 1rem; }
+.ekosistem-page .section-cta-final .sub { font-size: 0.9rem; color: #8b7355; max-width: 500px; margin: 0 auto 2rem; line-height: 1.7; }
+.ekosistem-page .cta-final-actions { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+.ekosistem-page .cta-small-note { margin-top: 1rem; font-size: 0.7rem; color: #8b7355; opacity: 0.7; }
+
+/* === SCROLL TO TOP === */
+.ekosistem-page .scroll-top-btn {
+  position: fixed; bottom: 6rem; right: 1.5rem; z-index: 9999;
+  width: 44px; height: 44px; border-radius: 50%; background: #c8a96e;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 20px rgba(200,169,110,0.4); cursor: pointer;
+  opacity: 0; transform: scale(0.8); pointer-events: none;
+  transition: all 0.4s cubic-bezier(0.25,0.46,0.45,0.94); border: none;
+}
+.ekosistem-page .scroll-top-btn.visible { opacity: 1; transform: scale(1); pointer-events: auto; }
+.ekosistem-page .scroll-top-btn svg { width: 20px; height: 20px; color: #1a0e05; }
+
+/* === RESPONSIVE === */
+@media (max-width: 1024px) {
+  .ekosistem-page .pain-grid { grid-template-columns: repeat(2, 1fr); }
+  .ekosistem-page .ai-grid { grid-template-columns: repeat(2, 1fr); }
+  .ekosistem-page .fitur-grid { grid-template-columns: repeat(2, 1fr); }
+  .ekosistem-page .data-grid { grid-template-columns: repeat(2, 1fr); }
+  .ekosistem-page .testimoni-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .ekosistem-page .pain-grid { grid-template-columns: 1fr; }
+  .ekosistem-page .ai-grid { grid-template-columns: 1fr; }
+  .ekosistem-page .fitur-grid { grid-template-columns: 1fr; }
+  .ekosistem-page .data-grid { grid-template-columns: 1fr; }
+  .ekosistem-page .testimoni-grid { grid-template-columns: 1fr; }
+  .ekosistem-page .hero-ekosistem { padding: 6rem 1.25rem 3rem; min-height: 70vh; }
+  .ekosistem-page .ai-demo-visual { flex-direction: column; }
+  .ekosistem-page .ai-demo-arrow { transform: rotate(90deg); }
+}

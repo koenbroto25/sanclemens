@@ -1,0 +1,28 @@
+---
+document_code: KGK
+title: "Catechism of the Catholic Church (KGK) - Konten Indonesia"
+category: "Katekismus"
+priority: "WAJIB"
+word_count: 198427
+paragraph_count: 2790
+estimated_chunks: 396
+---
+
+# Catechism of the Catholic Church (KGK) - Konten Indonesia
+
+**Kode Dokumen**: `KGK`  
+**Kategori**: Katekismus  
+**Prioritas**: WAJIB
+
+> **Deskripsi**: Katekismus Gereja Katolik — Acuan resmi ajaran Gereja Katolik (Bahasa Indonesia).  
+> Berisi seluruh ajaran iman dan susila Katolik dalam 4 bagian utama.
+
+---
+
+**[§1]** Allah dalam Dirinya sendiri sempurna dan bahagia tanpa Batas. Berdasarkan keputusan-Nya yang dibuat Karena kebaikan semata-mata, Ia telah menciptakan manusia dengan kehendak bebas, supaya manusia itu dapat mengambil bagian dalam kehidupan-Nya yang bahagia. Karena itu, pada setup saat dan di mana-mana Ia dekat dengan manusia. Ia memanggil manusia dan menolongnya untuk mencari-Nya, untuk mengenal-Nya, dan untuk mencintai-Nya dengan segala kekuatannya. Ia memanggil semua manusia yang sudah tercerai-berai satu dari yang lain oleh dosa ke dalam kesatuan keluarga-Nya, Gereja. Ia melakukan seluruh usaha itu dengan perantaraan Putera-Nya, yang telah Ia utus sebagai Penebus dan Juru Selamat, ketika genap waktunya. Dalam Dia dan oleh Dia Allah memanggil manusia supaya menjadi anak-anak-Nya dalam Roh Kudus, dan dengan demikian mewarisi kehidupan-Nya yang bahagia.
+
+**[§2]** Supaya panggilan ini didengar di seluruh dunia, Kristus mengutus para Rasul yang telah dipilih-Nya dan memberi mereka tugas untuk mewartakan Injil: "Karena itu, pergilah, jadikanlah semua bangsa murid-Ku dan baptislah mereka dalam nama Bapa dan Anak dan Roh Kudus, dan ajarlah mereka melakukan segala sesuatu yang telah Kuperintahkan kepadamu. Dan ketahuilah, Aku menyertai kamu senantiasa sampai kepada akhir zaman" (Mat 28:19-20). Berdasarkan perutusan ini mereka "pergi memberitakan Injil ke segala penjuru dan Tuhan turut bekerja dan meneguhkan firman itu dengan tanda-tanda yang menyertainya" (Mrk 16:20).
+**[§3]** Barang siapa dengan bantuan Allah telah menerima panggilan ini dan telah menyetujuinya dalam kebebasan, ia didorong oleh cinta kepada Kristus supaya mewartakan Kabar Gembira kepada seluruh dunia. Warisan bernilai yang diterima dari para Rasul ini dipelihara dengan setia oleh pengganti-pengganti mereka. Semua yang beriman kepada Kristus dipanggil supaya melanjutkannya dari generasi ke generasi, dengan mewartakan imam dengan menghayatinya dalam persekutuan persaudaraan dan dengan merayakannya dalamliturgi dan dalam doa.
+
+##### II. Mewariskan Iman - Katekese
+**[§4]** Gereja berusaha untuk menjadikan manusia murid-murid Kristus; ia hendak membantu mereka agar dapat percaya bahwa Yesus adalah Putera Allah, supaya dengan perantaraan iman itu mereka memperoleh kehidupan dalam nama-Nya. Melalui pengajaran, Gereja berusaha mendidik manusia menuju kehidupan mi dan dengan demikian membangun Tubuh Kristus. Semua usaha ini sudah sejak dahulu disebut katekese.

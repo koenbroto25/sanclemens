@@ -1,0 +1,53 @@
+FIRST PART OF THE SECOND PART : L.18, C.7.
+
+commit adultery, is strictly speaking, more adulterer than thief."
+Reply to Objection 1: The end also has the character of an object, as
+stated above.
+Reply to Objection 2: Although it is accidental to the external action
+to be ordained to some particular end, it is not accidental to the
+interior act of the will, which act is compared to the external act, as
+form to matter.
+Reply to Objection 3: When many actions, differing in species, are
+ordained to the same end, there is indeed a diversity of species on
+the part of the external actions; but unity of species on the part of
+the internal action.
+
+FIRST PART OF THE SECOND PART : L.18, C.8.
+
+### ARTICLE 7. Whether the species derived from the end is
+
+contained under the species derived from the object, as under
+its genus, or conversely?
+Objection 1: It would seem that the species of goodness derived
+from the end is contained under the species of goodness derived
+from the object, as a species is contained under its genus; for
+instance, when a man commits a theft in order to give alms. For an
+action takes its species from its object, as stated above (Articles
+2,6). But it is impossible for a thing to be contained under another
+species, if this species be not contained under the proper species of
+that thing; because the same thing cannot be contained in different
+species that are not subordinate to one another. Therefore the
+species which is taken from the end, is contained under the species
+which is taken from the object.
+Objection 2: Further, the last difference always constitutes the most
+specific species. But the difference derived from the end seems to
+come after the difference derived from the object: because the end is
+something last. Therefore the species derived from the end, is
+contained under the species derived from the object, as its most
+specific species.
+Objection 3: Further, the more formal a difference is compared to
+genus, as form to matter. But the species derived from the end, is
+more formal than that which is derived from the object, as stated
+above (Article 6). Therefore the species derived from the end is
+contained under the species derived from the object, as the most
+specific species is contained under the subaltern genus.
+On the contrary, Each genus has its determinate differences. But an
+action of one same species on the part of its object, can be ordained
+to an infinite number of ends: for instance, theft can be ordained to
+an infinite number of good and bad ends. Therefore the species
+derived from the end is not contained under the species derived
+from the object, as under its genus.
+I answer that, The object of the external act can stand in a twofold
+relation to the end of the will: first, as being of itself ordained
+thereto; thus to fight well is of itself ordained to victory; secondly, as
+being ordained thereto accidentally; thus to take what belongs to

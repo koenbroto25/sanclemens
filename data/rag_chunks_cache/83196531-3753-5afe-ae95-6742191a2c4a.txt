@@ -1,0 +1,31 @@
+---
+document_code: PAUS_LF
+title: "Lumen Fidei - Ensiklik tentang Iman"
+category: "Ensiklik Paus"
+priority: "WAJIB"
+word_count: 18465
+paragraph_count: 60
+estimated_chunks: 37
+---
+
+# Lumen Fidei - Ensiklik tentang Iman
+
+**Kode Dokumen**: `PAUS_LF`  
+**Kategori**: Ensiklik Paus  
+**Prioritas**: WAJIB
+
+> **Deskripsi**: Ensiklik tentang Iman oleh Paus Fransiskus (29 Juni 2013). Dokumen ini telah dibersihkan secara presisi untuk AI Knowledge Base.
+
+---
+
+## SURAT ENSIKLIK *LUMEN FIDEI*
+
+**Dari Paus Fransiskus kepada Para Uskup, Imam dan Diakon, Kaum Religius, dan Umat Awam — tentang Iman**
+
+---
+
+1. The light of Faith: this is how the Church's tradition speaks of the great gift brought by Jesus. In John's Gospel, Christ says of himself: "I have come as light into the world, that whoever believes in me may not remain in darkness" (Jn 12:46). Saint Paul uses the same image: "God who said 'Let light shine out of darkness,' has shone in our hearts" (2 Cor 4:6). The pagan world, which hungered for light, had seen the growth of the cult of the sun god, *Sol Invictus*, invoked each day at sunrise. Yet though the sun was born anew each morning, it was clearly incapable of casting its light on all of human existence. The sun does not illumine all reality; its rays cannot penetrate to the shadow of death, the place where men's eyes are closed to its light. "No one — Saint Justin Martyr writes — has ever been ready to die for his faith in the sun." Conscious of the immense horizon which their faith opened before them, Christians invoked Jesus as the true sun "whose rays bestow life." To Martha, weeping for the death of her brother Lazarus, Jesus said: "Did I not tell you that if you believed, you would see the glory of God?" (Jn 11:40). Those who believe, see; they see with a light that illumines their entire journey, for it comes from the risen Christ, the morning star which never sets.
+
+### An Illusory Light?
+
+2. Yet in speaking of the light of faith, we can almost hear the objections of many of our contemporaries. In modernity, that light might have been considered sufficient for societies of old, but was felt to be of no use for new times, for a humanity come of age, proud of its rationality and anxious to explore the future in novel ways. Faith thus appeared to some as an illusory light, preventing mankind from boldly setting out in quest of knowledge. The young Nietzsche encouraged his sister Elisabeth to take risks, to tread "new paths… with all the uncertainty of one who must find his own way", adding that "this is where humanity's paths part: if you want peace of soul and happiness, then believe, but if you want to be a follower of truth, then seek." Belief would be incompatible with seeking. From this starting point Nietzsche was to develop his critique of Christianity for diminishing the full meaning of human existence and stripping life of novelty and adventure. Faith would thus be the illusion of light, an illusion which blocks the path of a liberated humanity to its future.

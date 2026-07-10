@@ -1,0 +1,105 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><meta http-equiv="content-type" content="application/vnd.ms-excel; charset=UTF-8"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>Sheet0</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body><table><tr><td colspan='3' />
+                                                <h6>DATA UMAT</h6>
+                                            </td></tr><tr><td colspan='2' />
+                                                DATA
+                                            </td><td/>
+                                            2804</td></tr><tr><td colspan='2' />
+                                                UMAT
+                                            </td><td/>2682</td></tr><tr><td colspan='2' />
+                                                MENINGGAL
+                                            </td><td/>
+                                            9</td></tr><tr><td colspan='2' />
+                                                MIGRASI DOMISILI
+                                            </td><td/>
+                                            </td></tr><tr><td colspan='2' />
+                                                PINDAH AGAMA
+                                            </td><td/>
+                                            2</td></tr><tr><td colspan='2' />
+                                                DATA TERITORI GEREJA
+                                            </td><td/>
+                                            </td></tr><tr><td/></td><td/>wilayah</td><td/>3</td></tr><tr><td/></td><td/>lingkungan</td><td/>14</td></tr><tr><td/></td><td/>stasi</td><td/>0</td></tr><tr><td colspan='2' />GENDER
+                                            </td><td/>
+                                            2682</td></tr><tr><td/></td><td/>Pria</td><td/>1358</td></tr><tr><td/></td><td/>Wanita</td><td/>1324</td></tr><tr><td/></td><td/>Kosong</td><td/>0</td></tr><tr><td colspan='2' />
+                                                MENINGGAL
+                                            </td><td/>
+                                            9</td></tr><tr><td/></td><td/>Jumlah</td><td/>9</td></tr><tr><td colspan='2' />
+                                                KELOMPOK
+                                                UMUR
+                                            </td><td/>
+                                            2679</td></tr><tr><td/></td><td/>Usia Dini (0-5)</td><td/>101</td></tr><tr><td/></td><td/>Anak (6-10)</td><td/>222</td></tr><tr><td/></td><td/>Remaja (11-14)</td><td/>208</td></tr><tr><td/></td><td/>Orang Muda (15-35)</td><td/>901</td></tr><tr><td/></td><td/>Orang Dewasa (36-60)</td><td/>1036</td></tr><tr><td/></td><td/>Usia Lanjut (60 ke atas)</td><td/>206</td></tr><tr><td/></td><td/>Kosong</td><td/>5</td></tr><tr><td colspan='2' />
+                                                AGAMA
+                                            </td><td/>
+                                            2804</td></tr><tr><td/></td><td/>Katekumen</td><td/>0</td></tr><tr><td/></td><td/>Kristen</td><td/>63</td></tr><tr><td/></td><td/>Kong Hu Cu</td><td/>1</td></tr><tr><td/></td><td/>Katolik</td><td/>2682</td></tr><tr><td/></td><td/>Islam</td><td/>9</td></tr><tr><td/></td><td/>Hindu</td><td/>1</td></tr><tr><td/></td><td/>Budha</td><td/>2</td></tr><tr><td/></td><td/>Lain-Lain</td><td/>0</td></tr><tr><td/></td><td/>Kosong</td><td/>46</td></tr><tr><td colspan='2' />
+                                                STATUS NIKAH
+                                            </td><td/>
+                                            2682</td></tr><tr><td/></td><td/>Kawin Belum Tercatat</td><td/>11</td></tr><tr><td/></td><td/>Pisah Rumah</td><td/>0</td></tr><tr><td/></td><td/>Menikah</td><td/>1263</td></tr><tr><td/></td><td/>Lajang</td><td/>1270</td></tr><tr><td/></td><td/>Janda</td><td/>60</td></tr><tr><td/></td><td/>Duda</td><td/>19</td></tr><tr><td/></td><td/>Orang Tua Tunggal</td><td/>5</td></tr><tr><td/></td><td/>Cerai Sipil</td><td/>9</td></tr><tr><td/></td><td/>Kosong</td><td/>45</td></tr><tr><td colspan='2' />
+                                                STATUS EKONOMI UMAT
+                                            </td><td/>
+                                            2682</td></tr><tr><td/></td><td/>Sejahtera</td><td/>2507</td></tr><tr><td/></td><td/>Pra Sejahtera</td><td/>175</td></tr><tr><td/></td><td/>Kosong</td><td/>0</td></tr><tr><td colspan='2' />
+                                                STATUS EKONOMI KELUARGA
+                                            </td><td/>
+                                            890</td></tr><tr><td/></td><td/>Sejahtera</td><td/>820</td></tr><tr><td/></td><td/>Prasejahtera</td><td/>70</td></tr><tr><td/></td><td/>Kosong</td><td/>0</td></tr><tr><td colspan='2' />
+                                                STATUS AKTIVITAS SOSIAL
+                                            </td><td/>
+                                            2682</td></tr><tr><td/></td><td/>Pengurus Lembaga Adat</td><td/>2</td></tr><tr><td/></td><td/>Warga Biasa</td><td/>2329</td></tr><tr><td/></td><td/>Pengurus Ormas</td><td/>3</td></tr><tr><td/></td><td/>Pengurus LSM</td><td/>2</td></tr><tr><td/></td><td/>Pengurus Partai</td><td/>3</td></tr><tr><td/></td><td/>Pengurus RT/RW/Kelurahan</td><td/>7</td></tr><tr><td/></td><td/>data kosong</td><td/>336</td></tr><tr><td colspan='2' />
+                                                GOLONGAN DARAH
+                                            </td><td/>
+                                            2682</td></tr><tr><td/></td><td/>Tidak Tahu</td><td/>1137</td></tr><tr><td/></td><td/>AB</td><td/>69</td></tr><tr><td/></td><td/>O</td><td/>606</td></tr><tr><td/></td><td/>B</td><td/>255</td></tr><tr><td/></td><td/>A</td><td/>285</td></tr><tr><td/></td><td/>Kosong</td><td/>330</td></tr><tr><td colspan='2' />
+                                                SUKU
+                                            </td><td/>
+                                            2682</td></tr><tr><td/></td><td/>Bali</td><td/>13</td></tr><tr><td/></td><td/>Jawa</td><td/>549</td></tr><tr><td/></td><td/>Papua</td><td/>0</td></tr><tr><td/></td><td/>Flores</td><td/>618</td></tr><tr><td/></td><td/>Dayak</td><td/>61</td></tr><tr><td/></td><td/>Bugis</td><td/>7</td></tr><tr><td/></td><td/>Betawi</td><td/>5</td></tr><tr><td/></td><td/>Kutai</td><td/>3</td></tr><tr><td/></td><td/>Sumba</td><td/>11</td></tr><tr><td/></td><td/>Minahasa</td><td/>100</td></tr><tr><td/></td><td/>Lainnya</td><td/>232</td></tr><tr><td/></td><td/>Batak</td><td/>400</td></tr><tr><td/></td><td/>Non Indonesia</td><td/>2</td></tr><tr><td/></td><td/>Toraja</td><td/>409</td></tr><tr><td/></td><td/>Tionghoa</td><td/>159</td></tr><tr><td/></td><td/>Timor</td><td/>84</td></tr><tr><td/></td><td/>Sunda</td><td/>7</td></tr><tr><td/></td><td/>Sumbawa</td><td/>0</td></tr><tr><td/></td><td/>Nias</td><td/>0</td></tr><tr><td/></td><td/>Minangkabau</td><td/>0</td></tr><tr><td/></td><td/>Makasar</td><td/>11</td></tr><tr><td/></td><td/>Madura</td><td/>0</td></tr><tr><td/></td><td/>Ambon</td><td/>11</td></tr><tr><td/></td><td/>Kosong</td><td/>0</td></tr><tr><td colspan='2' />
+                                                STATUS HUBUNGAN KELUARGA
+                                            </td><td/>
+                                            2682</td></tr><tr><td/></td><td/>Lainnya</td><td/>49</td></tr><tr><td/></td><td/>Asisten Rumah Tangga</td><td/>1</td></tr><tr><td/></td><td/>Orangtua/Mertua</td><td/>9</td></tr><tr><td/></td><td/>Cucu</td><td/>3</td></tr><tr><td/></td><td/>Menantu</td><td/>0</td></tr><tr><td/></td><td/>Anak</td><td/>1238</td></tr><tr><td/></td><td/>Istri</td><td/>685</td></tr><tr><td/></td><td/>Suami</td><td/>667</td></tr><tr><td/></td><td/>Famili Lain</td><td/>25</td></tr><tr><td/></td><td/>Kosong</td><td/>5</td></tr><tr><td colspan='2' />
+                                                DISABILITAS
+                                            </td><td/>
+                                            2682</td></tr><tr><td/></td><td/>Autis</td><td/>4</td></tr><tr><td/></td><td/>Disabilitas Fisik</td><td/>6</td></tr><tr><td/></td><td/>Disabilitas Ganda</td><td/>1</td></tr><tr><td/></td><td/>Disalibilitas Laras</td><td/>0</td></tr><tr><td/></td><td/>Disabilitas Mental</td><td/>3</td></tr><tr><td/></td><td/>Disabilitas Netra</td><td/>1</td></tr><tr><td/></td><td/>Disabilitas Wicara</td><td/>2</td></tr><tr><td/></td><td/>Disalibilitas Rungu</td><td/>1</td></tr><tr><td/></td><td/>Disabilitas Intelektual</td><td/>1</td></tr><tr><td/></td><td/>ODGJ (Orang Dengan Gangguan Jiwa)</td><td/>1</td></tr><tr><td/></td><td/>Gifted</td><td/>1</td></tr><tr><td/></td><td/>Normal</td><td/>2652</td></tr><tr><td/></td><td/>Kosong</td><td/>9</td></tr><tr><td colspan='2' />
+                                                PEKERJAAN
+                                            </td><td/>
+                                            2682</td></tr><tr><td/></td><td/>Asisten Rumah Tangga</td><td/>2</td></tr><tr><td/></td><td/>Karyawan Honorer</td><td/>17</td></tr><tr><td/></td><td/>Karyawan BUMN</td><td/>14</td></tr><tr><td/></td><td/>Karyawan Swasta</td><td/>667</td></tr><tr><td/></td><td/>Pegawai Negeri Sipil</td><td/>65</td></tr><tr><td/></td><td/>Pensiunan</td><td/>41</td></tr><tr><td/></td><td/>Pelajar/Mahasiswa</td><td/>473</td></tr><tr><td/></td><td/>Mengurus Rumah Tangga</td><td/>452</td></tr><tr><td/></td><td/>Lain-lain</td><td/>115</td></tr><tr><td/></td><td/>Wiraswasta</td><td/>129</td></tr><tr><td/></td><td/>Pengusaha</td><td/>1</td></tr><tr><td/></td><td/>Kepolisian RI</td><td/>20</td></tr><tr><td/></td><td/>Tentara Nasional Indonesia</td><td/>5</td></tr><tr><td/></td><td/>Rohaniwan</td><td/>1</td></tr><tr><td/></td><td/>Belum/Tidak Bekerja</td><td/>492</td></tr><tr><td/></td><td/>Kosong</td><td/>188</td></tr><tr><td colspan='2' />
+                                                PROFESI
+                                            </td><td/>
+                                            2682</td></tr><tr><td/></td><td/>Dunia Entertainment</td><td/>0</td></tr><tr><td/></td><td/>Dosen</td><td/>3</td></tr><tr><td/></td><td/>Dokter</td><td/>9</td></tr><tr><td/></td><td/>Wakil Bupati</td><td/>0</td></tr><tr><td/></td><td/>Perangkat Desa</td><td/>0</td></tr><tr><td/></td><td/>Buruh</td><td/>25</td></tr><tr><td/></td><td/>Perbankan</td><td/>3</td></tr><tr><td/></td><td/>Asuransi</td><td/>1</td></tr><tr><td/></td><td/>Mengurus Rumah Tangga</td><td/>182</td></tr><tr><td/></td><td/>Aktuaris</td><td/>0</td></tr><tr><td/></td><td/>Penilai Aset</td><td/>0</td></tr><tr><td/></td><td/>Marketing Kesehatan</td><td/>0</td></tr><tr><td/></td><td/>Analis Kesehatan</td><td/>0</td></tr><tr><td/></td><td/>Dukuh</td><td/>0</td></tr><tr><td/></td><td/>Lurah</td><td/>0</td></tr><tr><td/></td><td/>Bidan Dan Perawat</td><td/>18</td></tr><tr><td/></td><td/>Camat</td><td/>0</td></tr><tr><td/></td><td/>Bupati</td><td/>0</td></tr><tr><td/></td><td/>Walikota</td><td/>0</td></tr><tr><td/></td><td/>Gubernur</td><td/>0</td></tr><tr><td/></td><td/>Marketing</td><td/>13</td></tr><tr><td/></td><td/>Pedagang</td><td/>12</td></tr><tr><td/></td><td/>Peternak</td><td/>1</td></tr><tr><td/></td><td/>Tenaga Pemasaran</td><td/>1</td></tr><tr><td/></td><td/>Wartawan</td><td/>1</td></tr><tr><td/></td><td/>Transportasi</td><td/>2</td></tr><tr><td/></td><td/>Biarawan/Biarawati</td><td/>1</td></tr><tr><td/></td><td/>Tenaga Administrasi</td><td/>12</td></tr><tr><td/></td><td/>Tehnologi Informasi</td><td/>2</td></tr><tr><td/></td><td/>Sopir</td><td/>13</td></tr><tr><td/></td><td/>Seniman</td><td/>2</td></tr><tr><td/></td><td/>Psikiater/Psiokolog</td><td/>0</td></tr><tr><td/></td><td/>Politikus</td><td/>0</td></tr><tr><td/></td><td/>Pilot</td><td/>0</td></tr><tr><td/></td><td/>Pialang</td><td/>0</td></tr><tr><td/></td><td/>Petani/Pekebun</td><td/>13</td></tr><tr><td/></td><td/>Pertukangan (Kayu, Listrik, Gigi, dll)</td><td/>1</td></tr><tr><td/></td><td/>Arsitek</td><td/>3</td></tr><tr><td/></td><td/>Perancang Busana</td><td/>0</td></tr><tr><td/></td><td/>Penyiar TV/Radio</td><td/>0</td></tr><tr><td/></td><td/>Penterjemah</td><td/>0</td></tr><tr><td/></td><td/>Peneliti</td><td/>0</td></tr><tr><td/></td><td/>Pengobatan Alternatif</td><td/>0</td></tr><tr><td/></td><td/>Pengacara</td><td/>3</td></tr><tr><td/></td><td/>Penata Kecantikan</td><td/>0</td></tr><tr><td/></td><td/>Pelaut</td><td/>1</td></tr><tr><td/></td><td/>Pekerja Media (cetak, internet, dll)</td><td/>1</td></tr><tr><td/></td><td/>Pastor</td><td/>1</td></tr><tr><td/></td><td/>Apoteker</td><td/>3</td></tr><tr><td/></td><td/>Paranormal</td><td/>0</td></tr><tr><td/></td><td/>Notaris</td><td/>3</td></tr><tr><td/></td><td/>Nelayan/Perikanan</td><td/>0</td></tr><tr><td/></td><td/>Mekanik/Elektrikal</td><td/>23</td></tr><tr><td/></td><td/>Lain-lain</td><td/>962</td></tr><tr><td/></td><td/>Konsultan</td><td/>3</td></tr><tr><td/></td><td/>Kontraktor</td><td/>4</td></tr><tr><td/></td><td/>Juru Masak</td><td/>7</td></tr><tr><td/></td><td/>Hakim dan Jaksa</td><td/>0</td></tr><tr><td/></td><td/>Guru</td><td/>56</td></tr><tr><td/></td><td/>Akuntansi dan Keuangan</td><td/>14</td></tr><tr><td/></td><td/>Kosong</td><td/>1283</td></tr><tr><td colspan='2' />
+                                                STATUS RUMAH
+                                            </td><td/>
+                                            2682</td></tr><tr><td/></td><td/>Sewa/Kontrak</td><td/>385</td></tr><tr><td/></td><td/>Pinjaman Perusahaan (Dinas)</td><td/>84</td></tr><tr><td/></td><td/>Pinjaman Perseorangan</td><td/>10</td></tr><tr><td/></td><td/>Milik Keluarga</td><td/>426</td></tr><tr><td/></td><td/>Milik Sendiri</td><td/>1777</td></tr><tr><td/></td><td/>Kosong</td><td/>0</td></tr><tr><td colspan='2' />
+                                                PENDIDIKAN
+                                            </td><td/>
+                                            2682</td></tr><tr><td/></td><td/>D4</td><td/>42</td></tr><tr><td/></td><td/>D3</td><td/>136</td></tr><tr><td/></td><td/>D2</td><td/>7</td></tr><tr><td/></td><td/>D1</td><td/>13</td></tr><tr><td/></td><td/>SLTA/SMA</td><td/>945</td></tr><tr><td/></td><td/>SLTP/SMP</td><td/>270</td></tr><tr><td/></td><td/>SD</td><td/>314</td></tr><tr><td/></td><td/>KB/TK</td><td/>83</td></tr><tr><td/></td><td/>Non Formal</td><td/>0</td></tr><tr><td/></td><td/>SLB</td><td/>1</td></tr><tr><td/></td><td/>S3</td><td/>0</td></tr><tr><td/></td><td/>S2</td><td/>23</td></tr><tr><td/></td><td/>S1</td><td/>400</td></tr><tr><td/></td><td/>Lain-Lain</td><td/>252</td></tr><tr><td/></td><td/>Kosong</td><td/>196</td></tr><tr><td colspan='3' />
+                                                ================================================================================
+                                            </td></tr><tr><td colspan='3' />
+                                                <h6>DATA SAKRAMEN</h6>
+                                            </td></tr><tr><td colspan='2' />
+                                                BAPTIS
+                                                2026
+                                            </td><td/>
+                                            0</td></tr><tr><td/></td><td/>Anak ( &lt; 7 Tahun)</td><td/>0</td></tr><tr><td/></td><td/>Dewasa ( &gt;= 7 Tahun)</td><td/>0</td></tr><tr><td colspan='2' />
+                                                KOMUNI
+                                                2026
+                                            </td><td/>
+                                            0</td></tr><tr><td/></td><td/>Perempuan </td><td/>0</td></tr><tr><td/></td><td/>Laki-laki </td><td/>0</td></tr><tr><td colspan='2' />
+                                                UMAT BELUM KOMUNI
+                                            </td><td/>
+                                            2671</td></tr><tr><td colspan='2' />
+                                                PENGUATAN
+                                                2026
+                                            </td><td/>
+                                            0</td></tr><tr><td/></td><td/>Perempuan </td><td/>0</td></tr><tr><td/></td><td/>Laki-laki </td><td/>0</td></tr><tr><td colspan='2' />
+                                                UMAT BELUM PENGUATAN
+                                            </td><td/>
+                                            2676</td></tr><tr><td colspan='2' />
+                                                PERKAWINAN
+                                                2026
+                                            </td><td/>
+                                            0</td></tr><tr><td/></td><td/>Katolik - Budha</td><td/>0</td></tr><tr><td/></td><td/>Katolik - Hindu</td><td/>0</td></tr><tr><td/></td><td/>Katolik - Islam</td><td/>0</td></tr><tr><td/></td><td/>Katolik - Katolik</td><td/>0</td></tr><tr><td/></td><td/>Katolik - Protestan</td><td/>0</td></tr><tr><td/></td><td/>Katolik - Kong Hu Cu</td><td/>0</td></tr><tr><td/></td><td/>Katolik - Lain</td><td/>0</td></tr><tr><td colspan='2' />
+                                                PERKAWINAN DENGAN PROTESTAN
+                                                2026
+                                            </td><td/>
+                                            0</td></tr><tr><td/></td><td/>Adventis</td><td/>0</td></tr><tr><td/></td><td/>Angklikan</td><td/>0</td></tr><tr><td/></td><td/>Baptis</td><td/>0</td></tr><tr><td/></td><td/>Calvinis</td><td/>0</td></tr><tr><td/></td><td/>Injili</td><td/>0</td></tr><tr><td/></td><td/>Lutheran</td><td/>0</td></tr><tr><td/></td><td/>Mennonit</td><td/>0</td></tr><tr><td/></td><td/>Methodis</td><td/>0</td></tr><tr><td/></td><td/>Ortodoks</td><td/>0</td></tr><tr><td/></td><td/>Pentakosta - Karismatik</td><td/>0</td></tr><tr><td/></td><td/>Lain- lain</td><td/>0</td></tr><tr><td colspan='2' />
+                                                JANDA DUDA
+                                            </td><td/>
+                                            82</td></tr><tr><td/></td><td/>Duda</td><td/>19</td></tr><tr><td/></td><td/>Janda</td><td/>63</td></tr><tr><td colspan='2' />
+                                                USIA PERKAWINAN
+
+                                            </td><td/>
+                                            </td></tr></table></body></html>

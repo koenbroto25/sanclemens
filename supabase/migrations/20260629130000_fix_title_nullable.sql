@@ -1,0 +1,1 @@
+ALTER TABLE public.theology_references ALTER COLUMN title DROP NOT NULL;

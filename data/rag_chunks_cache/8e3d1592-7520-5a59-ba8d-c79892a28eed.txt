@@ -1,0 +1,65 @@
+FIRST PART OF THE SECOND PART : L.18, C.9.
+
+Reply to Objection 1: Privation is twofold. One is privation "as a
+result" [privatum esse], and this leaves nothing, but takes all away:
+thus blindness takes away sight altogether; darkness, light; and
+death, life. Between this privation and the contrary habit, there can
+be no medium in respect of the proper subject. The other is privation
+"in process" [privari]: thus sickness is privation of health; not that it
+takes health away altogether, but that it is a kind of road to the entire
+loss of health, occasioned by death. And since this sort of privation
+leaves something, it is not always the immediate contrary of the
+opposite habit. In this way evil is a privation of good, as Simplicius
+says in his commentary on the Categories: because it does not take
+away all good, but leaves some. Consequently there can be
+something between good and evil.
+Reply to Objection 2: Every object or end has some goodness or
+malice, at least natural to it: but this does not imply moral goodness
+or malice, which is considered in relation to the reason, as stated
+above. And it is of this that we are here treating.
+Reply to Objection 3: Not everything belonging to an action belongs
+also to its species. Wherefore although an action's specific nature
+may not contain all that belongs to the full complement of its
+goodness, it is not therefore an action specifically bad; nor is it
+specifically good. Thus a man in regard to his species is neither
+virtuous nor wicked.
+
+FIRST PART OF THE SECOND PART : L.18, C.10.
+
+### ARTICLE 9. Whether an individual action can be indifferent?
+
+Objection 1: It would seem that an individual action can be
+indifferent. For there is no species that does not, cannot, contain an
+individual. But an action can be indifferent in its species, as stated
+above (Article 8). Therefore an individual action can be indifferent.
+Objection 2: Further, individual actions cause like habits, as stated in
+Ethic. ii, 1. But a habit can be indifferent: for the Philosopher says
+(Ethic. iv, 1) that those who are of an even temper and prodigal
+disposition are not evil; and yet it is evident that they are not good,
+since they depart from virtue; and thus they are indifferent in respect
+of a habit. Therefore some individual actions are indifferent.
+Objection 3: Further, moral good belongs to virtue, while moral evil
+belongs to vice. But it happens sometimes that a man fails to ordain
+a specifically indifferent action to a vicious or virtuous end.
+Therefore an individual action may happen to be indifferent.
+On the contrary, Gregory says in a homily (vi in Evang.): "An idle
+word is one that lacks either the usefulness of rectitude or the
+motive of just necessity or pious utility." But an idle word is an evil,
+because "men . . . shall render an account of it in the day of
+judgment" (Mt. 12:36): while if it does not lack the motive of just
+necessity or pious utility, it is good. Therefore every word is either
+good or bad. For the same reason every other action is either good
+or bad. Therefore no individual action is indifferent.
+I answer that, It sometimes happens that an action is indifferent in its
+species, but considered in the individual it is good or evil. And the
+reason of this is because a moral action, as stated above (Article 3),
+derives its goodness not only from its object, whence it takes its
+species; but also from the circumstances, which are its accidents, as
+it were; just as something belongs to a man by reason of his
+individual accidents, which does not belong to him by reason of his
+species. And every individual action must needs have some
+circumstance that makes it good or bad, at least in respect of the
+intention of the end. For since it belongs to the reason to direct; if an
+action that proceeds from deliberate reason be not directed to the
+due end, it is, by that fact alone, repugnant to reason, and has the
+character of evil. But if it be directed to a due end, it is in accord with

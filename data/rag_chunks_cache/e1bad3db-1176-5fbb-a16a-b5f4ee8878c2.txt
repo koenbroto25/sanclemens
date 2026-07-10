@@ -1,0 +1,58 @@
+---
+document_code: BAPA_ST_ST_3
+title: "St. Thomas Aquinas - Summa Theologica: Secunda Secundae (Second Part of Second Part)"
+category: "Bapa Gereja"
+priority: "Pendalaman"
+word_count: 609044
+paragraph_count: 4051
+estimated_chunks: 1219
+---
+
+# St. Thomas Aquinas - Summa Theologica: Secunda Secundae (Second Part of Second Part)
+
+**Kode Dokumen**: `BAPA_ST_ST_3`
+**Kategori**: Bapa Gereja
+**Prioritas**: Pendalaman
+
+> **Deskripsi**: Secunda Secundae (Bagian Kedua dari Bagian Kedua) Summa Theologica oleh St. Thomas Aquinas, mencakup 189 Quaestio tentang Kebajikan Teologal (Iman, Harapan, Kasih), Kebajikan Kardinal, dan Karisma. Diterjemahkan oleh Fathers of the English Dominican Province.
+
+---
+
+SECOND PART OF THE SECOND PART : L.62, C.3.
+
+### ARTICLE 2. Whether respect of persons takes place in the
+
+dispensation of spiritual goods?
+Objection 1: It would seem that respect of persons does not take
+place in the dispensation of spiritual goods. For it would seem to
+savor of respect of persons if a man confers ecclesiastical dignity or
+benefice on account of consanguinity, since consanguinity is not a
+cause whereby a man is rendered worthy of an ecclesiastical
+benefice. Yet this apparently is not a sin, for ecclesiastical prelates
+are wont to do so. Therefore the sin of respect of persons does not
+take place in the conferring of spiritual goods.
+Objection 2: Further, to give preference to a rich man rather than to a
+poor man seems to pertain to respect of persons, according to
+James 2:2,3. Nevertheless dispensations to marry within forbidden
+degrees are more readily granted to the rich and powerful than to
+others. Therefore the sin of respect of persons seems not to take
+place in the dispensation of spiritual goods.
+Objection 3: Further, according to jurists [Cap. Cum dilectus.] it
+suffices to choose a good man, and it is not requisite that one
+choose the better man. But it would seem to savor of respect of
+persons to choose one who is less good for a higher position.
+Therefore respect of persons is not a sin in spiritual matters.
+Objection 4: Further, according to the law of the Church (Cap. Cum
+dilectus.) the person to be chosen should be "a member of the
+flock." Now this would seem to imply respect of persons, since
+sometimes more competent persons would be found elsewhere.
+Therefore respect of persons is not a sin in spiritual matters.
+On the contrary, It is written (James 2:1): "Have not the faith of our
+Lord Jesus Christ . . . with respect of persons." On these words a
+gloss of Augustine says: "Who is there that would tolerate the
+promotion of a rich man to a position of honor in the Church, to the
+exclusion of a poor man more learned and holier?" [Augustine, Ep.
+ad Hieron. clxvii.]
+I answer that, As stated above (Article 1), respect of persons is a sin,
+in so far as it is contrary to justice. Now the graver the matter in
+which justice is transgressed, the more grievous the sin: so that,

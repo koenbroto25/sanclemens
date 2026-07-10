@@ -1,0 +1,31 @@
+---
+document_code: PAUS_DCE
+title: "Deus Caritas Est - Ensiklik tentang Cinta Kasih Kristiani"
+category: "Ensiklik Paus"
+priority: "WAJIB"
+word_count: 9847
+paragraph_count: 89
+estimated_chunks: 20
+---
+
+# Deus Caritas Est - Ensiklik tentang Cinta Kasih Kristiani
+
+**Kode Dokumen**: `PAUS_DCE`  
+**Kategori**: Ensiklik Paus  
+**Prioritas**: WAJIB
+
+> **Deskripsi**: Ensiklik tentang Cinta Kasih Kristiani, ditulis oleh Paus Benediktus XVI dan diterbitkan pada 25 Desember 2005. Dokumen ini telah dibersihkan secara presisi untuk AI Knowledge Base — referensi akademis, catatan kaki non-Alkitabiah, header, dan footer telah dihapus; referensi Kitab Suci dipertahankan.
+
+---
+
+*Kepada para Uskup, imam dan diakon, kepada para pengemban hidup bakti dan kepada semua orang beriman tentang kasih kristiani.*
+
+---
+
+## PENGANTAR
+
+**1.** "Allah adalah kasih, dan barangsiapa tetap berada di dalam kasih, ia tetap berada di dalam Allah dan Allah di dalam dia" (1 Yoh 4:16). Dalam kata-kata ini dari surat pertama Yohanes dinyatakan dengan amat jelas pusat iman kristiani, gambar Allah kristiani dan juga gambar manusia yang timbul daripadanya serta jalannya. Selain itu dalam ayat yang sama Yohanes juga memberikan rumus hidup kristiani: "Kita telah mengenal dan telah percaya akan kasih Allah kepada kita" (bdk. 1 Yoh 4:16).
+
+Kita percaya akan kasih. Demikianlah orang kristiani dapat merumuskan keputusan dasar hidupnya. Pada permulaan hidup kristiani bukanlah keputusan etis atau suatu gagasan besar, melainkan pertemuan dengan suatu peristiwa, seorang pribadi yang memberi kepada hidup kita wawasan baru dan dengan demikian arah yang menentukan. Dalam injilnya Yohanes merumuskan peristiwa itu dengan kata-kata sebagai berikut: "Begitu besar kasih Allah akan dunia ini, sehingga Ia mengaruniakan Anak-Nya yang tunggal, supaya setiap orang yang percaya kepada-Nya beroleh hidup kekal" (Yoh 3:16). Dengan menerima kasih sebagai pusat iman kristiani telah menerima apa yang merupakan pusat iman Israel, dan memberinya kedalaman dan keluasan baru. Karena orang Israel yang beriman setiap hari mendoakan kata-kata dari Kitab Ulangan, yang diketahuinya merangkum pusat hidupnya: "Dengarlah, hai orang Israel: Tuhan itu Allah kita, Tuhan itu esa. Kasihilah Tuhan Allahmu, dengan segenap hatimu dan dengan segenap jiwamu dan dengan segenap kekuatanmu" (Ul 6:4-6). Perintah kasih akan Allah ini dipadukan oleh Yesus (bdk. Mrk 12:29-31) dengan perintah kasih akan sesama dari Kitab Imamat: "Kasihilah sesamamu manusia seperti dirimu sendiri" (Im 19:18). Karena Allah yang lebih dahulu mengasihi kita (bdk. 1 Yoh 4:10), maka kasih bukan lagi hanya "perintah", melainkan jawaban atas anugerah dikasihi oleh Allah yang menyambut kita.
+
+Dalam dunia, di mana dengan nama Allah kadang-kadang dikaitkan dengan balas dendam atau bahkan kewajiban akan kebencian dan kekerasan, pesan ini amat aktual dan praktis. Maka dari itu dalam ensiklik kami yang pertama kami ingin berbicara tentang kasih yang dianugerahkan Allah kepada kita dan yang harus kita teruskan. Dengan demikian sudah dimaklumkan kedua bagian besar tulisan ini yang saling berkaitan dengan erat.

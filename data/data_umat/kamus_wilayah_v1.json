@@ -1,0 +1,1207 @@
+[
+  {
+    "lingkungan": "St. Andreas Rasul",
+    "nama_kml": "St. Andreas Rasul",
+    "ketua": "Tjioe Hendra",
+    "kontak": "082156489400",
+    "keywords": [
+      "Balikpapan Regency",
+      "Pelangi Residance",
+      "Pelangi Residence",
+      "Puri Ratu Kencana"
+    ],
+    "kecamatan": [
+      "Balikpapan Selatan"
+    ],
+    "kelurahan": [
+      "Sepinggan Baru",
+      "Sepinggan"
+    ],
+    "rt": [
+      "41",
+      "42",
+      "43",
+      "51",
+      "52",
+      "63",
+      "55"
+    ],
+    "nama_jalan": [
+      "Jl. Kolonel Syarifuddin Yoes (Ring Road)",
+      "Jl. Besakih I",
+      "Jl. Besakih V",
+      "Jl. Besakih IX",
+      "Jl. Besakih XI",
+      "Jl. Besakih XIV",
+      "Jl. Sepinggan Baru 2"
+    ],
+    "nama_gang": [],
+    "perumahan_blok": [
+      "Perumahan Balikpapan Regency (Cluster Besakih, Blok D1, Cluster Mediterania, Cluster De Tulip, Cluster Celebration, Blok CC3)",
+      "Pelangi Grand Residence (Blok C/C14, Blok D/D3, Blok E/E35)",
+      "Perumahan Puri Ratu Kencana (Blok K, Blok M/M15)"
+    ]
+  },
+  {
+    "lingkungan": "St. Fransiskus Asisi",
+    "nama_kml": "St. Fransiskus Asisi",
+    "ketua": "Paula Melani Kistia D",
+    "kontak": "082157408213",
+    "keywords": [
+      "Perumahan Pupuk",
+      "Perum Pupuk",
+      "UNIBA",
+      "Brimob",
+      "BSB",
+      "Jembatan Zurich",
+      "Apt Mulia",
+      "Apartemen Mulia"
+    ],
+    "kecamatan": [
+      "Balikpapan Selatan",
+      "Balikpapan Kota"
+    ],
+    "kelurahan": [
+      "Damai Bahagia",
+      "Gunung Bahagia",
+      "Damai",
+      "Sungai Nangka",
+      "Gunung Sari Ilir",
+      "Gunung Sari Ulu",
+      "Klandasan Ilir",
+      "Batu Ampar"
+    ],
+    "rt": [
+      "02",
+      "11",
+      "13",
+      "14",
+      "16",
+      "19",
+      "20",
+      "25",
+      "30",
+      "38",
+      "40",
+      "42",
+      "48",
+      "86"
+    ],
+    "nama_jalan": [
+      "Jl. Pupuk Barat",
+      "Jl. Pupuk Barat I",
+      "Jl. Pupuk Barat VI",
+      "Jl. Pupuk Raya",
+      "Jl. Pupuk Timur II",
+      "Jl. Pupuk Timur IV",
+      "Jl. Pupuk Utara",
+      "Jl. Pupuk Utara V",
+      "Jl. Pemuda",
+      "Jl. Pemuda 4/IV",
+      "Jl. Pemuda Raya",
+      "Jl. Aipda KS Tubun",
+      "Jl. Marsma Iswahyudi",
+      "Jl. Banjar",
+      "Jl. Letjen S. Parman",
+      "Jl. Ketinjau 1",
+      "Jl. Jenderal Sudirman",
+      "Jl. MT Haryono",
+      "Jl. Agung Tunggal"
+    ],
+    "nama_gang": [
+      "Gang Sampurna",
+      "Gang Mufakat"
+    ],
+    "perumahan_blok": [
+      "Perumahan Pupuk/Pupuk Kaltim (Blok A3 Bukit Damai Sentosa 1)",
+      "Area UNIBA (Universitas Balikpapan)",
+      "Area Brimob/Batalyon A Pelopor (Blok F2)",
+      "BSB/Balikpapan Super Block - Borneo Bay City (Pentapolis Apartment, The Sapphire Apartment, Ruby Tower, E-Walk Mall)",
+      "Jembatan Zurich / Hotel Zurich",
+      "Apartemen Mulia / Grand Mulia Guest House"
+    ]
+  },
+  {
+    "lingkungan": "St. Maria Ratu Rosari",
+    "nama_kml": "St. Maria Ratu Rosari",
+    "ketua": "Harkel Marthinu",
+    "kontak": "087812091944",
+    "keywords": [
+      "Sepinggan Dalam",
+      "Polsek Sepinggan",
+      "Taman Lalu Lintas",
+      "Perum Sosial",
+      "Perumahan Sosial",
+      "SMA 4",
+      "Papan Lestari",
+      "Perum HER2",
+      "Perum HER 2",
+      "Perum Paksi Biru",
+      "Perum LKI",
+      "Perum Melati",
+      "Perum Batara"
+    ],
+    "kecamatan": [
+      "Balikpapan Selatan"
+    ],
+    "kelurahan": [
+      "Sepinggan",
+      "Sepinggan Baru",
+      "Sepinggan Raya"
+    ],
+    "rt": [
+      "14",
+      "17",
+      "23",
+      "30",
+      "33",
+      "34",
+      "35",
+      "41",
+      "42",
+      "43",
+      "45",
+      "48",
+      "49",
+      "50",
+      "61",
+      "64",
+      "68",
+      "70"
+    ],
+    "nama_jalan": [
+      "Jl. Sepinggan Dalam",
+      "Jl. Sepinggan Baru No. 58/96",
+      "Jl. Sepinggan Baru No. 85",
+      "Jl. Perumahan Sosial",
+      "Jl. Sepinggan Baru III No. 36",
+      "Jl. SMA IV Sepinggan Baru",
+      "Jl. Sepinggan Asri XIII",
+      "Jl. Sepinggan Asri Utara",
+      "Jl. Perum Her 2",
+      "Jl. Muria",
+      "Jl. Hutan Sepinggan",
+      "Jl. Faisal Mukmin (Mukmin Faisal)",
+      "Jl. Siaga Dalam",
+      "Jl. Sepinggan Baru II No. 42"
+    ],
+    "nama_gang": [
+      "Gang Mandiri II",
+      "Gang Melati"
+    ],
+    "perumahan_blok": [
+      "Hutan Kota Sepinggan Dalam",
+      "Polsek Balikpapan Selatan/Polsek Sepinggan",
+      "Taman Lalu Lintas Sepinggan/Taman Sepinggan 9",
+      "Perumahan Sosial",
+      "SMA Negeri 4 Balikpapan",
+      "Perumahan Papan Lestari",
+      "Perum PT HER II (Blok Z, Blok T1)",
+      "Perumahan Pesona Paksi Biru (Blok F)",
+      "Perumahan Laksana Kencana Indah (LKI)",
+      "Perumahan Melati/Melati Bukit Indah (Blok O1)",
+      "Perum Batara Residence"
+    ]
+  },
+  {
+    "lingkungan": "St. Albertus",
+    "nama_kml": "St. Albertus",
+    "ketua": "Marihat Sinaga",
+    "kontak": "082158582331",
+    "keywords": [
+      "Manggar Baru",
+      "Lamaru",
+      "Teritip",
+      "Gunung Tembak",
+      "Gn. Tembak"
+    ],
+    "kecamatan": [
+      "Balikpapan Timur"
+    ],
+    "kelurahan": [
+      "Manggar Baru",
+      "Lamaru",
+      "Teritip"
+    ],
+    "rt": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "21",
+      "24",
+      "26",
+      "30",
+      "31",
+      "32",
+      "33",
+      "39",
+      "41",
+      "44",
+      "45",
+      "47",
+      "48",
+      "49",
+      "50",
+      "53",
+      "01",
+      "16",
+      "20",
+      "22",
+      "23",
+      "34",
+      "03",
+      "05",
+      "14",
+      "29",
+      "42",
+      "17",
+      "58"
+    ],
+    "nama_jalan": [
+      "Jl. Pesut",
+      "Jl. Persatuan",
+      "Jl. Tengiri",
+      "Jl. Mulawarman",
+      "Jl. Padat Karya",
+      "Jl. Sosial",
+      "Jl. Teritip Laut",
+      "Jl. Soekar",
+      "Jl. Handil Tarun",
+      "Jl. Gunung Binjai",
+      "Jl. Pinang",
+      "Jl. Ruhui Rahayu 2",
+      "Jl. Pasar Gunung Tembak",
+      "Jalan Raya Balikpapan-Samboja"
+    ],
+    "nama_gang": [
+      "Gang Widyatama",
+      "Gang Sumber Rejeki",
+      "Gang Kacang",
+      "Gang HD Junaedi",
+      "Gang Mentari",
+      "Gang Masjid",
+      "Gang Mufakat",
+      "Gang Bbi"
+    ],
+    "perumahan_blok": [
+      "BTN Manggar Baru",
+      "Graha Mulawarman (Blok N, Blok H1)",
+      "The Manggar Residence",
+      "Batakan Village",
+      "Perumahan Lamaru View",
+      "Perumnas Lamaru",
+      "Sentra Industri Kecil Teritip (Blok A10, Blok B)",
+      "Dinan Teritip Village",
+      "Gunung Tembak"
+    ]
+  },
+  {
+    "lingkungan": "St. Maria Salve Regina",
+    "nama_kml": "St. Maria Salve Regina",
+    "ketua": "Marsiana",
+    "kontak": "082358118700",
+    "keywords": [
+      "Jembatan Kembar",
+      "Gg Amal",
+      "Gang Amal",
+      "PJHI",
+      "Gg Wonorame",
+      "Gang Wonorame"
+    ],
+    "kecamatan": [
+      "Balikpapan Timur"
+    ],
+    "kelurahan": [
+      "Manggar"
+    ],
+    "rt": [
+      "01",
+      "09",
+      "10",
+      "12",
+      "15",
+      "16",
+      "18",
+      "19",
+      "20",
+      "25",
+      "26",
+      "27",
+      "39",
+      "53",
+      "65",
+      "67",
+      "68",
+      "73",
+      "76",
+      "83"
+    ],
+    "nama_jalan": [
+      "Jl. Mulawarman",
+      "Jl. Pemuda",
+      "Jalan PJHI Batakan",
+      "Jalan Wonorame"
+    ],
+    "nama_gang": [
+      "Gang Amal (Nurul Amal)",
+      "Gang Damai 3",
+      "Gang Damai 12",
+      "Gang Nusantara",
+      "Gang Wonorame",
+      "Gang Bakau",
+      "Gang Kediri/Gang Baru"
+    ],
+    "perumahan_blok": [
+      "Jembatan Kembar Batakan",
+      "PJHI Batakan",
+      "Stadion Batakan",
+      "Batakan Housing Complex",
+      "Perumahan Batakan Mas (Blok G, Blok BB, Blok CC, Blok JJ)",
+      "Perumahan Bukit Batakan Permai (Blok B4-B5, Blok E10)",
+      "Perumahan Batakan Asri 2",
+      "Perumahan Batakan Indah (Blok M, Blok C)",
+      "Perumahan Nuansa Batakan Permai",
+      "Perumahan PJHI Batakan",
+      "Wono Graha Asri"
+    ]
+  },
+  {
+    "lingkungan": "St. Anna",
+    "nama_kml": "St. Anna",
+    "ketua": "Sinton Sinaga",
+    "kontak": "082159922315",
+    "keywords": [
+      "Perum Tentara",
+      "Asrama AD",
+      "Perum HJ Maskuni",
+      "Jln Manuntung",
+      "Jl Manuntung",
+      "Perum Korpri",
+      "Perumahan Korpri",
+      "Perum Her Mandiri",
+      "Perum Prusda",
+      "Bukit Damai Lestari",
+      "Perum Mawija",
+      "Hutan Kota",
+      "Perum Pondok Bukit Lestari",
+      "Mentarang"
+    ],
+    "kecamatan": [
+      "Balikpapan Selatan"
+    ],
+    "kelurahan": [
+      "Sepinggan",
+      "Sepinggan Baru",
+      "Gunung Bahagia",
+      "Sumber Rejo"
+    ],
+    "rt": [
+      "23",
+      "35",
+      "38",
+      "14",
+      "112",
+      "03",
+      "05",
+      "06",
+      "24",
+      "26",
+      "27",
+      "73",
+      "18",
+      "19",
+      "20",
+      "59",
+      "34",
+      "37",
+      "36",
+      "41",
+      "51",
+      "17",
+      "56",
+      "57",
+      "49"
+    ],
+    "nama_jalan": [
+      "Jl. Sepinggan Baru II",
+      "Jl. Marsma R. Iswahyudi",
+      "Jl. Ruhui Rahayu",
+      "Jl. Syarifuddin Yoes",
+      "Jl. Manuntung",
+      "Jl. Manuntung 1",
+      "Jl. Tata Praja I",
+      "Jl. Pamong Praja II",
+      "Jl. Abdi Raya",
+      "Jl. Widya Praja IV",
+      "Poros Perumahan Korpri",
+      "Jl. Perum Her 2 (Jalan Tranat)",
+      "Jl. Safir VI",
+      "Jl. Sumber Rejo I",
+      "Jl. Hutan Kota",
+      "Jl. Sepinggan Baru",
+      "Jl. Mukmin Faisal"
+    ],
+    "nama_gang": [
+      "Gang Perjuangan",
+      "Gang Milenium 2"
+    ],
+    "perumahan_blok": [
+      "Perum Tentara (Asrama TNI AD)",
+      "Perum HJ Maskuni",
+      "Perum Korpri (Blok A, 1E, 2C, 2G)",
+      "Perum Her Mandiri 1/Her Utama Mandiri 1 (Blok D, H, H1, I, J, K, L, S1)",
+      "Perum Perusda/Bukit Damai Lestari 2 (Blok H, I, K)",
+      "Perum Mawija (Blok B4)",
+      "Hutan Kota (Agathis Residence)",
+      "Perum Pondok Bukit Lestari (Blok A3)",
+      "Mentarang / Bumi Balikpapan Indah (BBI)",
+      "Perum Melati / Melati Bukit Indah / Melati Anugerah Indah (Blok B2, Blok Asoka)"
+    ]
+  },
+  {
+    "lingkungan": "St. Clara",
+    "nama_kml": "St. Clara",
+    "ketua": "Kadson Batubara",
+    "kontak": "082158421114",
+    "keywords": [
+      "Syarifuddin Yoes",
+      "Gg. Milenium",
+      "Gang Milenium",
+      "Sekolah Susteran",
+      "MASF",
+      "PH Tower",
+      "Pelangi Business Point",
+      "Pelangi B. Point",
+      "Sepinggan Pratama",
+      "Polda",
+      "Jl. Bhinneka",
+      "Flobamora",
+      "Ende",
+      "Lemuku",
+      "Mentarang Besar",
+      "Mentarang Pondok Lestari"
+    ],
+    "kecamatan": [
+      "Balikpapan Selatan"
+    ],
+    "kelurahan": [
+      "Sepinggan Baru",
+      "Sepinggan",
+      "Gunung Bahagia",
+      "Damai Bahagia"
+    ],
+    "rt": [
+      "45",
+      "19",
+      "09",
+      "43",
+      "44",
+      "46",
+      "75",
+      "57",
+      "56"
+    ],
+    "nama_jalan": [
+      "Jl. Syarifuddin Yoes",
+      "Jl. Jend. Sudirman",
+      "Jl. Marsma R. Iswahyudi",
+      "Jl. Pelita",
+      "Jl. Sepinggan Pratama",
+      "Jl. Boulevard",
+      "Jl. Bhinneka/Bhineka",
+      "Jl. Baru Lemuku/Lemuku Baru"
+    ],
+    "nama_gang": [
+      "Gang Milenium 2",
+      "Gang Milenium 3",
+      "Gang 4"
+    ],
+    "perumahan_blok": [
+      "Gang Milenium (Syarifuddin Yoes)",
+      "SD Katolik Santa Theresia 2 Sepinggan",
+      "Tower (Ruby Tower/G-Soho Tower/PAM Tower BSB, atau Tamansari Skylounge)",
+      "Pelangi Business Point (Blok B/B2,B5,B8, Blok C/C-1,C-2, Blok D, Blok E/E5)",
+      "Perumahan Sepinggan Pratama (Blok B/B9, Blok D/D7,D14, Blok G, Blok H)",
+      "Polda Kalimantan Timur",
+      "Flobamora (komunitas NTT)",
+      "Ende",
+      "Mentarang Besar / Bumi Balikpapan Indah - BBI (Blok CC3, CC4)",
+      "Mentarang Pondok Lestari / Perumahan Pondok Bukit Lestari (Blok A3, C1)"
+    ]
+  },
+  {
+    "lingkungan": "St. Monica",
+    "nama_kml": "St. Monica",
+    "ketua": "Alexander Daung",
+    "kontak": "081255099784",
+    "keywords": [
+      "Kartini Residence",
+      "Eks Giant",
+      "Simpang 3 Beje Beje",
+      "Beje Beje",
+      "Kantor Walikota",
+      "Simpang 4 Dome",
+      "Jl Ruhui Rahayu",
+      "Villa Damai Permai",
+      "Rengganis",
+      "Komplek PGRI",
+      "Perumahan PGRI"
+    ],
+    "kecamatan": [
+      "Balikpapan Selatan",
+      "Balikpapan Kota"
+    ],
+    "kelurahan": [
+      "Gunung Bahagia",
+      "Sepinggan",
+      "Sepinggan Baru",
+      "Sepinggan Raya",
+      "Sungai Nangka",
+      "Prapatan"
+    ],
+    "rt": [
+      "01",
+      "13",
+      "03",
+      "10",
+      "23",
+      "15",
+      "28",
+      "37",
+      "31",
+      "32",
+      "33",
+      "34",
+      "35",
+      "44",
+      "47",
+      "49",
+      "74",
+      "51",
+      "52",
+      "53",
+      "56",
+      "59",
+      "71"
+    ],
+    "nama_jalan": [
+      "Jl. Jenderal Sudirman",
+      "Jl. Letjen MT Haryono",
+      "Jl. Syarifuddin Yoes",
+      "Jl. Letkol Pol. H.M. Asnawi Arbain",
+      "Jl. Ruhui Rahayu (I & II)",
+      "Jl. Rengganis",
+      "Jl. Marsma R. Iswahyudi",
+      "Jl. Kimia",
+      "Jl. Sejarah",
+      "Jl. Belibis"
+    ],
+    "nama_gang": [
+      "jalur internal Komplek PGRI",
+      "jalur antar-blok Rengganis/Villa Damai Permai"
+    ],
+    "perumahan_blok": [
+      "Kartini Residence (Blok I, Blok C1, Blok U)",
+      "Eks Giant",
+      "Simpang 3 Beje Beje (BJBJ)",
+      "Kantor Walikota Balikpapan",
+      "Simpang 4 Dome",
+      "Villa Damai Permai (Blok A/A2, B/B-09,B-3, D/D3, E/E-2)",
+      "Bumi Rengganis (Blok 4C,5C,6A,6C)",
+      "Komplek PGRI (Blok 1, N, O)"
+    ]
+  },
+  {
+    "lingkungan": "St. Theresia dari Lisieux",
+    "nama_kml": "St. Theresia dari Liseiux",
+    "ketua": "Rembak Barus",
+    "kontak": "081347291634",
+    "keywords": [
+      "Jl. Penegak",
+      "Simpang 3 BDS",
+      "Jl. Manunggal",
+      "Perum Citra City",
+      "Perum Posindo",
+      "Perum Amsco",
+      "Perum BDS 1",
+      "Perum BDS 2",
+      "Perum BDS 3",
+      "Forest Hill"
+    ],
+    "kecamatan": [
+      "Balikpapan Selatan",
+      "Balikpapan Kota"
+    ],
+    "kelurahan": [
+      "Damai Bahagia",
+      "Sungai Nangka (eks Gunung Bahagia)",
+      "Damai"
+    ],
+    "rt": [
+      "06",
+      "07",
+      "08",
+      "09",
+      "10",
+      "21",
+      "23",
+      "31",
+      "32",
+      "33",
+      "34",
+      "35",
+      "36",
+      "37",
+      "38",
+      "015",
+      "025",
+      "036",
+      "038",
+      "085",
+      "040",
+      "042",
+      "043"
+    ],
+    "nama_jalan": [
+      "Jl. Penegak",
+      "Jl. Manunggal",
+      "Jl. MT Haryono",
+      "Jl. Letjen TNI ZA Maulani",
+      "Jl. Jend. Sudirman",
+      "Jl. Perum BDS 1",
+      "Jl. Perum BDS 2",
+      "Jl. Kenanga",
+      "Jl. Kakatua II/XII",
+      "Jl. Merpati 1/III",
+      "Jl. Merak II/V",
+      "Jl. Enggang Raya",
+      "Jl. Cendrawasih II",
+      "Jl. Nuri III",
+      "Jl. Mahoni",
+      "Jl. Flamboyan",
+      "Jl. Pemuda",
+      "Jl. Pupuk Baru",
+      "Jl. Masjid Ar-Raudah",
+      "Jl. Asoka"
+    ],
+    "nama_gang": [
+      "Gang Damai 2/Gang Damai II",
+      "Gang Damai 3",
+      "Gang 3",
+      "Manunggal Dalam",
+      "Gang PLN",
+      "Gang Mufakat 1",
+      "Gang Inhutani"
+    ],
+    "perumahan_blok": [
+      "Perum Citra City (Cluster Landmark, Luxmore, Townville, Gading Hills, Richwood)",
+      "Perum Posindo (Blok A,B,C/C3,C81,F)",
+      "Bukit Amsco",
+      "Perum BDS 1 (Blok B/B1,B3, Blok C/C2)",
+      "Perum BDS 2 (Blok B,C,E,F,S/S7B,V,CC4,15)",
+      "Perum BDS 3/Forest Hill (Blok G/G5,G6,G8)"
+    ]
+  },
+  {
+    "lingkungan": "St. Theresia dari Avila",
+    "nama_kml": "St. Theresia dari Avilla",
+    "ketua": "Setyo Harsanto",
+    "kontak": "081347996321",
+    "keywords": [
+      "Jl. MT. Haryono",
+      "MT Haryono",
+      "Simpang Bj Bj",
+      "Perum BDI",
+      "CBI",
+      "Jl BJ BJ",
+      "Asnawi Arbain",
+      "Perum BBI",
+      "Marsma Iswahyudi",
+      "Perum Jamrud",
+      "Kartini Residence",
+      "Perum Balikpapan Kota"
+    ],
+    "kecamatan": [
+      "Balikpapan Selatan"
+    ],
+    "kelurahan": [
+      "Damai Bahagia",
+      "Sungai Nangka",
+      "Gunung Bahagia",
+      "Sepinggan",
+      "Sepinggan Raya"
+    ],
+    "rt": [
+      "15",
+      "26",
+      "28",
+      "29",
+      "30",
+      "34",
+      "40",
+      "82",
+      "89",
+      "14",
+      "49",
+      "51",
+      "57",
+      "38",
+      "84",
+      "94"
+    ],
+    "nama_jalan": [
+      "Jl. MT. Haryono",
+      "Jl. Bukit Damai Indah",
+      "Jl. Letkol Pol. H.M. Asnawi Arbain (Jl. BJBJ)",
+      "Jl. Syarifuddin Yoes",
+      "Jl. Ratte Daeng Nai",
+      "Jl. Marsma Iswahyudi"
+    ],
+    "nama_gang": [
+      "Gang 4",
+      "Gang Melati"
+    ],
+    "perumahan_blok": [
+      "Perum BDI/Bukit Damai Indah (Blok A,B,C,H,S, Cluster Lavender)",
+      "Perum CBI/Citra Bukit Indah (Cluster Roseavenue)",
+      "Perum BBI/Bumi Balikpapan Indah (Blok AA,BB,CC)",
+      "Perum Jamrud/Bima Jamrud (Blok C,F)",
+      "Perum Kartini Residence (Blok A,C1,G1,H1,I-1,L-1,Y1)",
+      "Perum Balikpapan Kota (Blok C,G)"
+    ]
+  },
+  {
+    "lingkungan": "St. Gabriel",
+    "nama_kml": "St. Gabriel",
+    "ketua": "Marianus Pian",
+    "kontak": "081346660024",
+    "keywords": [
+      "Stadion Batakan",
+      "Jembatan Manggar",
+      "Manggar Indah",
+      "Pondok Asri",
+      "Perum Panji",
+      "Pasir Putih",
+      "TPA Manggar"
+    ],
+    "kecamatan": [
+      "Balikpapan Timur"
+    ],
+    "kelurahan": [
+      "Manggar",
+      "Manggar Baru",
+      "Lamaru"
+    ],
+    "rt": [
+      "07",
+      "09",
+      "19",
+      "13",
+      "32",
+      "34",
+      "63",
+      "71",
+      "22",
+      "28",
+      "30",
+      "31",
+      "26",
+      "27",
+      "18",
+      "54",
+      "29",
+      "60",
+      "35",
+      "36",
+      "37",
+      "39",
+      "61",
+      "72",
+      "76"
+    ],
+    "nama_jalan": [
+      "Jl. Mulawarman",
+      "Jl. Proklamasi",
+      "Jl. Pasir Putih",
+      "Jl. Manggar Indah",
+      "Jl. Manggar Damai",
+      "Jl. Sukadamai",
+      "Jl. Pembangunan",
+      "Jl. Baitul Makmur",
+      "Jl. Harun Nafsi",
+      "Jl. Mangga 5"
+    ],
+    "nama_gang": [
+      "Gang Japar",
+      "Gang Amal",
+      "Gang Mufakat",
+      "Gang Angrek 1",
+      "Gang Anthorium 1",
+      "Gang Lumba-lumba",
+      "Gang Padaidi",
+      "Gang Pasir Putih",
+      "Gang Al Amin",
+      "Gang Sejahtera",
+      "Gang Cinta Damai",
+      "Gang Al Mu'min",
+      "Gang Wahid"
+    ],
+    "perumahan_blok": [
+      "Stadion Batakan",
+      "Manggar Indah",
+      "Perumahan Pondok Asri (Blok A,B,D,ZC,ZG)",
+      "Perum Panji/Intan Griya",
+      "Pasir Putih",
+      "TPA Manggar",
+      "Perumahan Bukit Aradiar (Blok A1)",
+      "Perumahan Batakan Mas",
+      "Graha Mulawarman"
+    ]
+  },
+  {
+    "lingkungan": "St. Maria La Salette",
+    "nama_kml": "St. Maria LaSalette",
+    "ketua": "Bagus",
+    "kontak": "081352700306",
+    "keywords": [
+      "Gn. Bakaran",
+      "Gunung Bakaran",
+      "Lapas Rutan Stalkuda",
+      "Perum Poka",
+      "SMP 10",
+      "Villa Beta",
+      "Gg. Bersatu",
+      "Gang Bersatu",
+      "Jl. Manunggal",
+      "Simpang BDS"
+    ],
+    "kecamatan": [
+      "Balikpapan Selatan"
+    ],
+    "kelurahan": [
+      "Sungai Nangka",
+      "Sepinggan",
+      "Sepinggan Raya",
+      "Gunung Bahagia"
+    ],
+    "rt": [
+      "5",
+      "7",
+      "9",
+      "10",
+      "17",
+      "18",
+      "20",
+      "30",
+      "01",
+      "23",
+      "29"
+    ],
+    "nama_jalan": [
+      "Jl. Marsma Iswahyudi",
+      "Jl. MT. Haryono",
+      "Jl. Manunggal",
+      "Jl. Pondok Karya Agung",
+      "Jl. Z.A. Maulani"
+    ],
+    "nama_gang": [
+      "Gang Bersatu"
+    ],
+    "perumahan_blok": [
+      "Komplek Perumahan Total Gunung Bakaran",
+      "Lapas Rutan Stalkuda/Lapas Kelas IIA Balikpapan",
+      "Perum Poka (Blok RA, DA, DC)",
+      "SMP Negeri 10 Balikpapan",
+      "Villa Beta (PatraJasa/New Vilabeta Resort)",
+      "Simpang BDS / Bukit Damai Sejahtera (Blok S7B)"
+    ]
+  },
+  {
+    "lingkungan": "St. Maria Immaculata",
+    "nama_kml": "St. Maria Immaculata",
+    "ketua": "Lahang",
+    "kontak": "082154338699",
+    "keywords": [
+      "Perumahan Daksa Barat",
+      "Perumahan Daksa Timur",
+      "Palm Hill",
+      "AURI",
+      "Jl. Tirta",
+      "Jl. Selamet Riadi",
+      "Selamat Riyadi",
+      "Pondok Pesantren Saikona Kholil",
+      "Jl Teratai Merah",
+      "Rumah Jabatan Walikota",
+      "Jl. Kala Sula",
+      "Puskesmas Sepinggan",
+      "Lampu Merah Sepinggan",
+      "Aero Food"
+    ],
+    "kecamatan": [
+      "Balikpapan Selatan"
+    ],
+    "kelurahan": [
+      "Sepinggan",
+      "Sepinggan Raya",
+      "Sepinggan Baru"
+    ],
+    "rt": [
+      "02",
+      "05",
+      "06",
+      "07",
+      "08",
+      "10",
+      "13",
+      "14",
+      "15",
+      "17",
+      "23",
+      "31",
+      "56",
+      "108",
+      "41",
+      "09",
+      "53",
+      "64"
+    ],
+    "nama_jalan": [
+      "Jl. Mulawarman",
+      "Jl. Daksa (Barat & Timur/Raya)",
+      "Jl. Tirtasari (Jl. Tirta)",
+      "Jl. Slamet Riyadi",
+      "Jl. Teratai Merah",
+      "Jl. Kala Sula",
+      "Jl. Marsma R. Iswahyudi",
+      "Jl. Avia/Jambrud"
+    ],
+    "nama_gang": [
+      "Gang Arjuna",
+      "Gang Topas",
+      "Gang Slamet Riyadi/Gang 5",
+      "Gang Seberang Mesjid AURI"
+    ],
+    "perumahan_blok": [
+      "Gereja Santo Klemens (Komplek AURI)",
+      "Perumahan Daksa Barat & Timur (Blok C9, G5)",
+      "Palm Hill (Blok B1, Cluster Pavillion Blok D, Komplek Puri Alamanda)",
+      "Perumahan AURI",
+      "Pondok Pesantren Syaichona Cholil",
+      "Rumah Jabatan Walikota",
+      "Puskesmas Sepinggan",
+      "Lampu Merah Sepinggan",
+      "Aero Food / AeroFood ACS"
+    ]
+  },
+  {
+    "lingkungan": "St. Lukas Penginjil",
+    "nama_kml": "St. Lukas Penginjil",
+    "ketua": "Yunus Toding",
+    "kontak": "081350993621",
+    "keywords": [
+      "Pemuda Batakan Dalam",
+      "Kampung Tator",
+      "Pesona Batakan",
+      "Batakan Permai 2",
+      "Perum Jokowi",
+      "Batakan Permai 3",
+      "Perum CGS 3"
+    ],
+    "kecamatan": [
+      "Balikpapan Timur"
+    ],
+    "kelurahan": [
+      "Manggar"
+    ],
+    "rt": [
+      "10",
+      "66",
+      "53",
+      "75",
+      "17",
+      "27",
+      "76",
+      "78",
+      "79",
+      "80",
+      "81",
+      "58"
+    ],
+    "nama_jalan": [
+      "Jl. Pemuda",
+      "Jl. Pemuda Dalam",
+      "Jl. Mulawarman",
+      "Jl. PJHI"
+    ],
+    "nama_gang": [],
+    "perumahan_blok": [
+      "Kampung Tator (Batakan Dalam)",
+      "Perumahan Pesona Bukit Batakan",
+      "Perumahan Bukit Batakan Permai 2 (Blok A,B,C,D,G)",
+      "Perum Jokowi / Bukit Batakan Permai 3 (Blok AA,C,E,F)",
+      "Perum CGS 3 / PJHI Perum CGS (Blok AB, AD)"
+    ]
+  },
+  {
+    "lingkungan": "St. Yosef Pekerja",
+    "nama_kml": "St. Yoseph Pekerja",
+    "ketua": "Bartholomeus Boro",
+    "kontak": "08125416827",
+    "keywords": [
+      "Perumahan Daksa Timur",
+      "Perumahan Daksa Barat",
+      "Jl Telaga Mas",
+      "Borneo Paradiso",
+      "Samsat Batakan",
+      "Jembatan Kembar Batakan",
+      "Lapangan Futsal Kampung Tator"
+    ],
+    "kecamatan": [
+      "Balikpapan Selatan",
+      "Balikpapan Timur"
+    ],
+    "kelurahan": [
+      "Sepinggan",
+      "Manggar",
+      "Lamaru",
+      "Batakan"
+    ],
+    "rt": [
+      "04",
+      "05",
+      "10",
+      "24",
+      "66"
+    ],
+    "nama_jalan": [
+      "Jl. Daksa (Barat, Timur, Raya)",
+      "Jl. Telaga Mas",
+      "Jl. Borneo Paradiso",
+      "Jl. Mulawarman",
+      "Jl. Pemuda (Pemuda Dalam)",
+      "Jl. Padat Karya"
+    ],
+    "nama_gang": [
+      "Gang Soraya 2",
+      "Gang Amal/Gang Japar",
+      "Gang Internal Kampung Tator"
+    ],
+    "perumahan_blok": [
+      "Perumahan Daksa Barat & Timur (Blok B11/32)",
+      "Kantor Samsat Batakan",
+      "Perumahan Borneo Paradiso (Cluster Rosewood Blok D,J, Cluster Pinewood, Ruko Blok B)",
+      "Jembatan Kembar Batakan",
+      "Kampung Tator",
+      "Lapangan Futsal Kampung Tator"
+    ]
+  },
+  {
+    "lingkungan": "Stasi St. Yosef (Argosari)",
+    "nama_kml": "Stasi Argosari",
+    "ketua": "Silvester Kosa",
+    "kontak": "085731097244",
+    "keywords": [
+      "Argosari",
+      "Amburawang"
+    ],
+    "kecamatan": [
+      "Samboja Barat (Kab. Kutai Kartanegara)"
+    ],
+    "kelurahan": [
+      "Argosari",
+      "Amborawang Darat",
+      "Amborawang Laut"
+    ],
+    "rt": [
+      "01",
+      "11",
+      "04"
+    ],
+    "nama_jalan": [
+      "Jalan Argosari",
+      "Jalan Poros Samboja - Balikpapan",
+      "Jalan Balikpapan - Handil II",
+      "Jalan Dr. Sutomo"
+    ],
+    "nama_gang": [],
+    "perumahan_blok": [
+      "Area Pantai Ambalat (wisata mangrove/pantai)"
+    ]
+  },
+  {
+    "lingkungan": "Stasi Ratu Rosari (Handil)",
+    "nama_kml": "Stasi Handil",
+    "ketua": "Marlin Situmorang",
+    "kontak": "082253384699",
+    "keywords": [
+      "Handil"
+    ],
+    "kecamatan": [
+      "Samboja",
+      "Muara Jawa (Kab. Kutai Kartanegara)"
+    ],
+    "kelurahan": [
+      "Handil Baru",
+      "Handil Baru Darat",
+      "Muara Jawa Ulu",
+      "Muara Jawa Tengah",
+      "Muara Jawa Ilir",
+      "Muara Jawa Pesisir"
+    ],
+    "rt": [
+      "01",
+      "02",
+      "03",
+      "04",
+      "05",
+      "06",
+      "07",
+      "08",
+      "09",
+      "10",
+      "11",
+      "12",
+      "13",
+      "17",
+      "18",
+      "23",
+      "26",
+      "28"
+    ],
+    "nama_jalan": [
+      "Jalan Samarinda-Handil (Gunung Tambih)",
+      "Jalan Handil Baru Darat",
+      "Jalan Juanda",
+      "Jalan Ahmad Yani",
+      "Jalan Moh Hatta",
+      "Jalan Damai",
+      "Jalan Delima",
+      "Jalan Teluk Ladang",
+      "Jalan Darul Amin",
+      "Jalan Arif Rahman Hakim",
+      "Jalan Darussalam",
+      "Jalan Toha",
+      "Jalan Darul Ilmi"
+    ],
+    "nama_gang": [
+      "Gang Bone",
+      "Gang Tapeng",
+      "Gang Sariwang",
+      "Gang Ponde",
+      "Gang Camar",
+      "Gang Rambai",
+      "Gang Hidayah",
+      "Gang Barokah",
+      "Gang Sawit",
+      "Gang Sekumpul"
+    ],
+    "perumahan_blok": [
+      "Handil 1-7 (Muara Jawa)",
+      "Blok IX.A.5 dan Blok IX.A.6 (RDTR Handil 2)",
+      "Handil 6 Bawah",
+      "Jalur Pipa Gas / Handil Terusan"
+    ]
+  }
+]

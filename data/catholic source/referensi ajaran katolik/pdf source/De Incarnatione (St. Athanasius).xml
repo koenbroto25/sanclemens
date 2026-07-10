@@ -1,0 +1,2105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ThML PUBLIC 
+    "-//CCEL/DTD Theological Markup Language//EN"
+    "http://www.ccel.org/dtd/ThML10.dtd">
+<!--
+<?xml-stylesheet type="text/xml"
+    href="http://www.ccel.org/ss/thml.html.xsl" ?>
+<?xml-stylesheet type="text/xsl"
+    href="http://www.ccel.org/ss/thml.html.xsl" ?>
+-->
+    
+<!-- Copyright Christian Classics Ethereal Library -->
+<ThML>
+<ThML.head>
+
+<generalInfo>
+<description><i>On the Incarnation of the Word</i> is a classic 
+work of Orthodox theology written by noted bishop of 
+Alexandria, St. Athanasius. In this apologetic treatise, 
+St. Athanasius defends the incarnation of Christ against 
+the derision of 4th century non-believers. St Athanasius 
+explains why God chose to approach his fallen people in 
+human form. He states, "The death of all was consummated 
+in the Lord's body; yet, because the Word was in it, death and 
+corruption were in the same act utterly abolished." St. Athanasius 
+resolves the paradox of the Incarnate by relying heavily on both 
+Scripture and the teachings of the early Church. St. Athanasius also 
+answers several objections to his account, many of which are still 
+raised against Christians today by those outside the Church. <i>On the 
+Incarnation of the Word</i> was highly recommended by modern writer and 
+Christian apologist, C.S. Lewis, who suggested that contemporary 
+Christian audiences could benefit from reading more ancient classics. 
+Indeed, though St. Athanasius wrote this text in the 4th century, his 
+style is easy to follow and his concepts are of irreplaceable worth. 
+<br /><br />Emmalon Davis<br />CCEL Staff Writer </description>
+<firstPublished />
+<pubHistory />
+<comments /></generalInfo>
+
+<printSourceInfo>
+<published />
+</printSourceInfo>
+
+<electronicEdInfo>
+<publisherID>ccel</publisherID>
+<authorID>athanasius</authorID>
+<bookID>incarnation</bookID>
+<workID>incarnation</workID>
+<bkgID>athanasius-incarnation</bkgID>
+<version>1.0</version>
+<series /><editorialComments />
+<revisionHistory />
+<status />
+
+<DC>
+<DC.Title>On the Incarnation of the Word</DC.Title>
+<DC.Title sub="short" />
+<DC.Creator sub="Author" scheme="short-form">St. Athanasius</DC.Creator>
+<DC.Creator sub="Author" scheme="file-as">Athanasius, St. Archbishop of Alexandria (c.296-c.373)</DC.Creator>
+<DC.Creator sub="Author" scheme="ccel">athanasius</DC.Creator>
+<DC.Creator scheme="ccel" sub="Translator" />
+<DC.Creator scheme="file-as" sub="Translator" />
+<DC.Creator scheme="short-form" sub="Translator" />
+<DC.Subject scheme="ccel">All; Theology; Early Church</DC.Subject>
+<DC.Subject scheme="LCCN">BT220.A75</DC.Subject>
+<DC.Subject scheme="lcsh1">Doctrinal theology</DC.Subject>
+    <DC.Subject scheme="lcsh2">Christology</DC.Subject>
+    <DC.Description />
+<DC.Publisher>Christian Classics Ethereal Library, Grand Rapids, MI</DC.Publisher>
+<DC.Date sub="Created" scheme="ISO8601">2004-08-25</DC.Date>
+<DC.Contributor sub="Transcriber" />
+<DC.Contributor sub="Markup" />
+<DC.Source sub="ElectronicEdition" />
+<DC.Source sub="ElectronicEdition" scheme="URL" />
+<DC.Language scheme="ISO639-3">eng</DC.Language>
+<DC.Rights>Public Domain</DC.Rights>
+<DC.Type>Text.Monograph</DC.Type>
+<DC.Identifier scheme="URL">/ccel/athanasius/incarnation.html</DC.Identifier>
+<DC.Format scheme="IMT">text/xml</DC.Format>
+</DC>
+</electronicEdInfo>
+
+
+
+
+
+<style type="text/css">
+</style>
+
+<style type="text/xcss">
+</style>
+
+
+</ThML.head>
+
+
+<ThML.body>
+
+<div1 title="Title Page" progress="0.27%" prev="toc" next="ii" id="i">
+<h1 id="i-p0.1">On the Incarnation</h1>
+<h3 id="i-p0.2">by St. Athanasius</h3>
+</div1>
+
+<div1 type="chapter" title="Chapter 1. Creation and the Fall" progress="0.30%" prev="i" next="iii" id="ii">
+<h2 id="ii-p0.1">Chapter 1</h2>
+<p style="margin-left:-.25in; margin-bottom:24pt; text-align:center; font-size:large; font-weight:bold" id="ii-p1"><i>Creation and the Fall</i></p>
+
+<p id="ii-p2"><b>(1) </b>In our former book<note n="1" id="ii-p2.1">i.e. the <i>Contra Gentes</i>.</note> 
+we dealt fully enough with a few of the chief points about the 
+heathen worship of idols, and how those false fears originally arose. We also, 
+by God's grace, briefly indicated that the Word of the Father is Himself divine, 
+that all things that are owe their being to His will and power, and that it is 
+through Him that the Father gives order to creation, by Him that all things are 
+moved, and through Him that they receive their being. Now, Macarius, true lover 
+of Christ, we must take a step further in the faith of our holy religion, and 
+consider also the Word's becoming Man and His divine Appearing in our midst. 
+That mystery the Jews traduce, the Greeks deride, but we adore; and your own 
+love and devotion to the Word also will be the greater, because in His Manhood 
+He seems so little worth. For it is a fact that the more unbelievers pour scorn 
+on Him, so much the more does He make His Godhead evident. The things which 
+they, as men, rule out as impossible, He plainly shows to be possible; that 
+which they deride as unfitting, His goodness makes most fit; and things which 
+these wiseacres laugh at as "human" He by His inherent might declares divine. 
+Thus by what seems His utter poverty and weakness on the cross He overturns the 
+pomp and parade of idols, and quietly and hiddenly wins over the mockers and 
+unbelievers to recognize Him as God.</p>
+<p id="ii-p3">Now in dealing with these matters it is necessary first to recall what has 
+already been said. You must understand why it is that the Word of the Father, so 
+great and so high, has been made manifest in bodily form. He has not assumed a 
+body as proper to His own nature, far from it, for as the Word He is without 
+body. He has been manifested in a human body for this reason only, out of the 
+love and goodness of His Father, for the salvation of us men. We will begin, 
+then, with the creation of the world and with God its Maker, for the first fact 
+that you must grasp is this: <i>the renewal of creation has been 
+wrought by the Self-same Word Who made it in the beginning</i>. There is thus no inconsistency between creation and salvation for the One Father has 
+employed the same Agent for both works, effecting the salvation of the world 
+through the 
+same Word Who made it in the beginning.</p>
+<p id="ii-p4"><b>(2)</b> In regard to the making of the universe and the 
+creation of all things there have been various opinions, and each person has 
+propounded the theory that suited his own taste. For instance, some say that all 
+things are self-originated and, so to speak, haphazard. The Epicureans are among 
+these; they deny that there is any Mind behind the universe at all. This view is 
+contrary to all the facts of experience, their own existence included. For if 
+all things had come into being in this automatic fashion, instead of being the 
+outcome of Mind, though they existed, they would all be uniform and without 
+distinction. In the universe everything would be sun or moon or whatever it was, 
+and in the human body the whole would be hand or eye or foot. But in point of 
+fact the sun and the moon and the earth are all different things, and even 
+within the human body there are different members, such as foot and hand and 
+head. This distinctness of things argues not a spontaneous generation but a 
+prevenient Cause; and from that Cause we can apprehend God, the Designer and 
+Maker of all.</p>
+<p id="ii-p5">Others take the view expressed by Plato, that giant among the Greeks. He said 
+that God had made all things out of pre-existent and uncreated matter, just as 
+the carpenter makes things only out of wood that already exists. But those who 
+hold this view do not realize that to deny that God is Himself the Cause of 
+matter is to impute limitation to Him, just as it is undoubtedly a limitation on 
+the part of the carpenter that he can make nothing unless he has the wood. How 
+could God be called Maker and Artificer if His ability to make depended on some 
+other cause, namely on matter itself? If He only worked up existing matter and 
+did not Himself bring matter into being, He would be not the Creator but only a 
+craftsman.</p>
+<p id="ii-p6">Then, again, there is the theory of the Gnostics, who have invented for 
+themselves an Artificer of all things other than the Father of our Lord Jesus 
+Christ. These simply shut their eyes to the obvious meaning of Scripture. For 
+instance, the Lord, having reminded the Jews of the statement in Genesis, "He Who created them in the beginning made them male 
+and female . . . ," and having shown that for that reason a man should leave 
+his parents and cleave to his wife, goes on to say with reference to the 
+Creator, "What therefore God has joined together, let no man put asunder."<note n="2" id="ii-p6.1"><scripRef passage="Matthew 19:4-6" id="ii-p6.2" parsed="|Matt|19|4|19|6" osisRef="Bible:Matt.19.4-Matt.19.6">Matt. xix. 4–6</scripRef></note> 
+How 
+can they get a creation independent of the Father out of that? And, again, St. 
+John, speaking all inclusively, says, 
+"All things became by Him and without Him came nothing 
+into being."<note n="3" id="ii-p6.3"><scripRef passage="John 1:3" id="ii-p6.4" parsed="|John|1|3|0|0" osisRef="Bible:John.1.3">John i. 3</scripRef></note> 
+How then could the Artificer be someone different, other than the Father of Christ?</p>
+<p id="ii-p7"><b>(3)</b> Such are the notions which men put forward. But the 
+impiety of their foolish talk is plainly declared by the divine teaching of the 
+Christian faith. From it we know that, because there is Mind behind the 
+universe, it did not originate itself; because God is infinite, not finite, it 
+was not made from pre-existent matter, but out of nothing and out of 
+non-existence absolute and utter God brought it into being through the Word. He 
+says as much in Genesis: 
+
+"In the beginning God created the heavens and the 
+earth;<note n="4" id="ii-p7.1"><scripRef passage="Genesis 1:1" id="ii-p7.2" parsed="|Gen|1|1|0|0" osisRef="Bible:Gen.1.1">Gen.  i. 1</scripRef></note> 
+and again through that most helpful book <i>The Shepherd</i>, 
+"Believe thou first and foremost that there is One God 
+Who created and arranged all things and brought them out of non-existence into 
+being."<note n="5" id="ii-p7.3"><i>The Shepherd of Hermas</i>, Book II. I</note> 
+Paul also indicates the same thing when he says, 
+"By faith we understand that the worlds were framed by 
+the Word of God, so that the things which we see now did not come into being 
+out of things which had previously appeared."<note n="6" id="ii-p7.4"><scripRef passage="Hebrews 11:3" id="ii-p7.5" parsed="|Heb|11|3|0|0" osisRef="Bible:Heb.11.3">Heb. xi. 3</scripRef></note> 
+For God is good—or rather, of all goodness He is Fountainhead, and it is impossible 
+for one who is good to be mean or grudging about anything. Grudging existence to 
+none therefore, He made all things out of nothing through His own Word, our Lord 
+Jesus Christ and of all these His earthly creatures He reserved especial mercy 
+for the race of men. Upon them, therefore, upon men who, as animals, were 
+essentially impermanent, He bestowed a grace which other creatures 
+lacked—namely the impress of His own Image, a share in the reasonable being of 
+the very Word Himself, so that, reflecting Him and themselves becoming 
+reasonable and expressing the Mind of God even as He does, though in limited 
+degree they might continue for ever in the blessed and only true life of the 
+saints in paradise. But since the will of man could turn either way, God secured 
+this grace that He had given by making it conditional from the first upon two 
+things—namely, a law and a place. He set them in His own paradise, and laid 
+upon them a single prohibition. If they guarded the grace and retained the 
+loveliness of their original innocence, then the life of paradise should be 
+theirs, without sorrow, pain or care, and after it the assurance of immortality 
+in heaven. But if they went astray and became vile, throwing away their 
+birthright of beauty, then they would come under the natural law of death and 
+live no longer in paradise, but, dying outside of it, continue in death and in 
+corruption. This is what Holy Scripture tells us, proclaiming the command of God, 
+"Of every tree that is in the garden thou shalt surely 
+eat, but of the tree of the knowledge of good and evil ye shall not eat, but 
+in the day that ye do eat, ye shall surely die."<note n="7" id="ii-p7.6"><scripRef passage="Genesis 2:16" id="ii-p7.7" parsed="|Gen|2|16|0|0" osisRef="Bible:Gen.2.16">Gen.  ii. 16 f.</scripRef></note> 
+<i>"Ye shall surely die"</i>—not just die only, but remain in the state of death 
+and of corruption.</p>
+<p id="ii-p8"><b>(4)</b> You may be wondering why we are discussing the 
+origin of men when we set out to talk about the Word's becoming Man. The former 
+subject is relevant to the latter for this reason: it was our sorry case that 
+caused the Word to come down, our transgression that called out His love for us, 
+so that He made haste to help us and to appear among us. It is we who were the 
+cause of His taking human form, and for our salvation that in His great love He 
+was both born and manifested in a human body. For God had made man thus (that 
+is, as an embodied spirit), and had willed that he should remain in 
+incorruption. But men, having turned from the contemplation of God to evil of 
+their own devising, had come inevitably under the law of death. Instead of 
+remaining in the state in which God had created them, they were in process of 
+becoming corrupted entirely, and death had them completely under its dominion. 
+For the 
+transgression of the commandment was making them turn back again 
+according to their nature; and as they had at the beginning come into being out 
+of non-existence, so were they now on the way to returning, through corruption, 
+to non-existence again. The presence and love of the Word had called them into 
+being; inevitably, therefore when they lost the knowledge of God, they lost 
+existence with it; for it is God alone Who exists, evil is non-being, the 
+negation and antithesis of good. By nature, of course, man is mortal, since he 
+was made from nothing; but he bears also the Likeness of Him Who is, and if he 
+preserves that Likeness through constant contemplation, then his nature is 
+deprived of its power and he remains incorrupt. So is it affirmed in Wisdom: 
+"The keeping of His laws is the assurance of 
+incorruption."<note n="8" id="ii-p8.1"><scripRef passage="Wisdom 6:18 " id="ii-p8.2" parsed="|Wis|6|18|0|0" osisRef="Bible:Wis.6.18">Wisdom vi. 18</scripRef></note> 
+And being incorrupt, he would be henceforth as God, as Holy Scripture says, 
+"I have said, Ye are gods and sons of the Highest all 
+of you: but ye die as men and fall as one of the princes."<note n="9" id="ii-p8.3"><scripRef passage="Psalm 82:6" id="ii-p8.4" parsed="|Ps|82|6|0|0" osisRef="Bible:Ps.82.6">Psalm  lxxxii. 6 f.</scripRef></note></p>
+<p id="ii-p9"><b>(5)</b> This, then, was the plight of men. God had not only 
+made them out of nothing, but had also graciously bestowed on them His own life 
+by the grace of the Word. Then, turning from eternal things to things 
+corruptible, by counsel of the devil, they had become the cause of their own 
+corruption in death; for, as I said before, though they were by nature subject 
+to corruption, the grace of their union with the Word made them capable of 
+escaping from the natural law, provided that they retained the beauty of 
+innocence with which they were created. That is to say, the presence of the Word 
+with them shielded them even from natural corruption, as also Wisdom says: 
+"God created man for incorruption and as an image of 
+His own eternity; but by envy of the devil death entered into the world."<note n="10" id="ii-p9.1"><scripRef passage="Wisdom 2:23" id="ii-p9.2" parsed="|Wis|2|23|0|0" osisRef="Bible:Wis.2.23">Wisdom ii. 23 f.</scripRef></note> 
+When this happened, men began to die, and corruption ran riot among them and held 
+sway over them to an even more than natural degree, because it was the penalty 
+of which God had forewarned them for transgressing the commandment. Indeed, they 
+had in their sinning surpassed all limits; for, having invented wickedness in 
+the beginning and so involved themselves in death and corruption, they had gone 
+on gradually from bad to worse, not stopping at any one kind of evil, but 
+continually, as with insatiable appetite, devising new kinds of sins. Adulteries 
+and thefts were everywhere, murder and raping filled the earth, law was 
+disregarded in corruption and injustice, all kinds of iniquities were 
+perpetrated by all, both singly and in common. Cities were warring with cities, 
+nations were rising against nations, and the whole earth was rent with factions 
+and battles, while each strove to outdo the other in wickedness. Even crimes 
+contrary to nature were not unknown, but as the martyr-apostle of Christ says: 
+"Their women changed the natural use into that which 
+is against nature; and the men also, leaving the natural use of the woman, 
+flamed out in lust towards each other, perpetrating shameless acts with their 
+own sex, and receiving in their own persons the due recompense of their 
+pervertedness."<note n="11" id="ii-p9.3"><scripRef passage="Romans 1:26" id="ii-p9.4" parsed="|Rom|1|26|0|0" osisRef="Bible:Rom.1.26">Rom.   i. 26 f.</scripRef></note></p>
+
+
+</div1>
+
+<div1 type="chapter" title="Chapter 2. The Divine Dilemma and Its Solution in the Incarnation" progress="9.43%" prev="ii" next="iv" id="iii">
+
+<h2 id="iii-p0.1">Chapter 2</h2>
+<p style="margin-left:-.25in; margin-bottom:24pt; text-align:center; font-size:large; font-weight:bold" id="iii-p1"><i>The Divine Dilemma 
+and its Solution in the Incarnation</i></p>
+
+<p id="iii-p2"><b>(6)</b> We saw in the last chapter that, because death and 
+corruption were gaining ever firmer hold on them, the human race was in process 
+of destruction. Man, who was created in God's image and in his possession of 
+reason reflected the very Word Himself, was disappearing, and the work of God 
+was being undone. The law of death, which followed from the Transgression, 
+prevailed upon us, and from it there was no escape. The thing that was happening 
+was in truth both monstrous and unfitting. It would, of course, have been 
+unthinkable that God should go back upon His word and that man, having 
+transgressed, should not die; but it was equally monstrous that beings which 
+once had shared the nature of the Word should perish and turn back again into 
+non-existence through corruption. It was unworthy of the goodness of God that 
+creatures made by Him should be brought to nothing through the deceit wrought 
+upon man by the devil; and it was supremely unfitting that the work of God in 
+mankind should disappear, either through their own negligence or through the 
+deceit of evil spirits. As, then, the creatures whom He had created reasonable, 
+like the Word, were in fact perishing, and such noble works were on the road to 
+ruin, what then was God, being Good, to do? Was He to let corruption and death 
+have their way with them? In that case, what was the use of having made them in 
+the beginning? Surely it would have been better never to have been created at 
+all than, having been created, to be neglected and perish; and, besides that, 
+such indifference to the ruin of His own work before His very eyes would argue 
+not goodness in God but limitation, and that far more than if He had never 
+created men at all. It was impossible, therefore, that God should leave man to 
+be carried off by corruption, because it would be unfitting and unworthy of 
+Himself.</p>
+<p id="iii-p3"><b>(7)</b> Yet, true though this is, it is not the whole 
+matter. As we have already 
+noted, it was unthinkable that God, the Father of 
+Truth, should go back upon His word regarding death in order to ensure our 
+continued existence. He could not falsify Himself; what, then, was God to do? 
+Was He to demand repentance from men for their transgression? You might say that 
+that was worthy of God, and argue further that, as through the Transgression 
+they became subject to corruption, so through repentance they might return to 
+incorruption again. But repentance would not guard the Divine consistency, for, 
+if death did not hold dominion over men, God would still remain untrue. Nor does 
+repentance recall men from what is according to their nature; all that it does 
+is to make them cease from sinning. Had it been a case of a trespass only, and 
+not of a subsequent corruption, repentance would have been well enough; but when 
+once transgression had begun men came under the power of the corruption proper 
+to their nature and were bereft of the grace which belonged to them as creatures 
+in the Image of God. No, repentance could not meet the case. What—or rather Who 
+was it that was needed for such grace and such recall as we required? Who, save 
+the Word of God Himself, Who also in the beginning had made all things out of 
+nothing? His part it was, and His alone, both to bring again the corruptible to 
+incorruption and to maintain for the Father His consistency of character with 
+all. For He alone, being Word of the Father and above all, was in consequence 
+both able to recreate all, and worthy to suffer on behalf of all and to be an 
+ambassador for all with the Father.</p>
+<p id="iii-p4"><b>(8)</b> For this purpose, then, the incorporeal and 
+incorruptible and immaterial Word of God entered our world. In one sense, 
+indeed, He was not far from it before, for no part of creation had ever been 
+without Him Who, while ever abiding in union with the Father, yet fills all 
+things that are. But now He entered the world in a new way, stooping to our 
+level in His love and Self-revealing to us. He saw the reasonable race, the race 
+of men that, like Himself, expressed the Father's Mind, wasting out of 
+existence, and death reigning over all in corruption. He saw that corruption 
+held us all the closer, because it was the penalty for the Transgression; He 
+saw, too, how unthinkable it would be for the law to be repealed before it was 
+fulfilled. He saw how unseemly it was that the very things of which He Himself 
+was the Artificer should be disappearing. He saw how the surpassing wickedness 
+of men was mounting up against them; He saw also their universal liability to 
+death. All this He saw and, pitying our race, moved with compassion for our 
+limitation, unable to endure that death should have the mastery, rather than 
+that His creatures should perish and the work of His Father for us men come to 
+nought, He took to Himself a body, a human body even as our own. Nor did He will 
+merely to become embodied or merely to appear; had that been so, He could have 
+revealed His divine majesty in some other and better way. No, He took our body, 
+and not only so, but He took it directly from a spotless, stainless virgin, 
+without the agency of human father—a pure body, untainted by intercourse with 
+man. He, the Mighty One, the Artificer of all, Himself prepared this body in the 
+virgin as a temple for Himself, and took it for His very own, as the instrument 
+through which He was known and in which He dwelt. Thus, taking a body like our 
+own, because all our bodies were liable to the corruption of death, He 
+surrendered His body to 
+death instead of all, and offered it to the Father. This 
+He did out of sheer love for us, so that in His death all might die, and the law 
+of death thereby be abolished because, having fulfilled in His body that for 
+which it was appointed, it was thereafter voided of its power for men. This He 
+did that He might turn again to incorruption men who had turned back to 
+corruption, and make them alive through death by the appropriation of His body 
+and by the grace of His resurrection. Thus He would make death to disappear from 
+them as utterly as straw from fire.</p>
+<p id="iii-p5"><b>(9)</b> The Word perceived that corruption could not be got 
+rid of otherwise than through death; yet He Himself, as the Word, being immortal 
+and the Father's Son, was such as could not die. For this reason, therefore, He 
+assumed a body capable of death, in order that it, through belonging to the Word 
+Who is above all, might become in dying a sufficient exchange for all, and, 
+itself remaining incorruptible through His indwelling, might thereafter put an 
+end to corruption for all others as well, by the grace of the resurrection. It 
+was by surrendering to death the body which He had taken, as an offering and 
+sacrifice free from every stain, that He forthwith abolished death for His human 
+brethren by the offering of the equivalent. For naturally, since the Word of God 
+was above all, when He offered His own temple and bodily instrument as a 
+substitute for the life of all, He fulfilled in death all that was required. 
+Naturally also, through this union of the immortal Son of God with our human 
+nature, all men were clothed with incorruption in the promise of the 
+resurrection. For the solidarity of mankind is such that, by virtue of the 
+Word's indwelling in a single human body, the corruption which goes with death 
+has lost its power over all. You know how it is when some great king enters a 
+large city and dwells in one of its houses; because of his dwelling in that 
+single house, the whole city is honored, and enemies and robbers cease to molest 
+it. Even so is it with the King of all; He has come into our country and dwelt 
+in one body amidst the many, and in consequence the designs of the enemy against 
+mankind have been foiled and the corruption of death, which formerly held them 
+in its power, has simply ceased to be. For the human race would have perished 
+utterly had not the Lord and Savior of all, the Son of God, come among us to put 
+an end to death.</p>
+<p id="iii-p6"><b>(10)</b> This great work was, indeed, supremely worthy of 
+the goodness of God. A king who has founded a city, so far from neglecting it 
+when through the carelessness of the inhabitants it is attacked by robbers, 
+avenges it and saves it from destruction, having regard rather to his own honor 
+than to the people's neglect. Much more, then, the Word of the All-good Father 
+was not unmindful of the human race that He had called to be; but rather, by the 
+offering of His own body He abolished the death which they had incurred, and 
+corrected their neglect by His own teaching. Thus by His own power He restored 
+the whole nature of man. The Savior's own inspired disciples assure us of this. 
+We read in one place: "For the love of Christ constraineth us, because we 
+thus judge that, if One died on behalf of all, then all died, and He died for 
+all that we should no longer live unto ourselves, but unto Him who died 
+and 
+rose again from the dead, even our Lord Jesus Christ."<note n="12" id="iii-p6.1"><scripRef passage="2 Corinthians 5:14" id="iii-p6.2" parsed="|2Cor|5|14|0|0" osisRef="Bible:2Cor.5.14">2 Cor.  v. 14 f.</scripRef></note> 
+And again another says: 
+"But we behold Him Who hath been made a little lower than the 
+angels, even Jesus, because of the suffering of death crowned with glory and 
+honor, that by the grace of God He should taste of death on behalf of every man." 
+The same writer goes on to point out why it was necessary for 
+God the Word and none other to become Man: 
+"For it became Him, for Whom are all things and through 
+Whom are all things, in bringing many sons unto glory, to make the Author of 
+their salvation perfect through suffering."<note n="13" id="iii-p6.3"><scripRef passage="Hebrews 2:9" id="iii-p6.4" parsed="|Heb|2|9|0|0" osisRef="Bible:Heb.2.9">Heb. ii. 9 ff.</scripRef></note>  
+
+He means that the rescue of mankind from corruption was the proper 
+part only of Him Who made them in the beginning. He points out also that the 
+Word assumed a human body, expressly in order that He might offer it in 
+sacrifice for other like bodies: 
+"Since then the children are sharers in flesh and 
+blood, He also Himself assumed the same, in order that through death He might 
+bring to nought Him that hath the power of death, that is to say, the Devil, 
+and might rescue those who all their lives were enslaved by the fear of 
+death."<note n="14" id="iii-p6.5"><scripRef passage="Hebrews 2:14" id="iii-p6.6" parsed="|Heb|2|14|0|0" osisRef="Bible:Heb.2.14">Heb. ii. 14 f.</scripRef></note> 
+For by the sacrifice of His own body He did two things: He put an 
+end to the law of death which barred our way; and He made a new beginning of 
+life for us, by giving us the hope of resurrection. By man death has gained its 
+power over men; by the Word made Man death has been destroyed and life raised up 
+anew. That is what Paul says, that true servant of Christ: 
+"For since by man came death, by man came also the 
+resurrection of the dead. Just as in Adam all die, even so in Christ shall all 
+be made alive,"<note n="15" id="iii-p6.7"><scripRef passage="1 Corinthians 15:21" id="iii-p6.8" parsed="|1Cor|15|21|0|0" osisRef="Bible:1Cor.15.21">1 Cor. xv. 21 f.</scripRef></note> 
+and so forth. Now, therefore, when we die we no longer do so as men 
+condemned to death, but as those who are even now in process of rising we await 
+the general resurrection of all, "which in its own times He shall 
+show,"<note n="16" id="iii-p6.9"><scripRef passage="1 Timothy 6:15" id="iii-p6.10" parsed="|1Tim|6|15|0|0" osisRef="Bible:1Tim.6.15">1 Tim. vi. 15</scripRef></note> 
+even God Who wrought it and bestowed it on us.</p>
+<p id="iii-p7">This, then, is the first cause of the Savior's becoming Man. There are, 
+however, other things which show how wholly fitting is His blessed presence in 
+our midst; and these we must now go on to consider.</p>
+</div1>
+
+<div1 type="chapter" title="Chapter 3. The Divine Dilemma and Its Solution in the Incarnation—Continued" progress="17.87%" prev="iii" next="v" id="iv">
+
+<h2 id="iv-p0.1">Chapter 3</h2>
+<p style="margin-left:-.25in; margin-bottom:24pt; text-align:center; font-size:large; font-weight:bold" id="iv-p1"><i>The Divine Dilemma and its Solution in the Incarnation — continued</i></p>
+
+<p id="iv-p2"><b>(11)</b> When God the Almighty was making mankind through 
+His own Word, He perceived that they, owing to the limitation of their nature, 
+could not of themselves have any knowledge of their Artificer, the Incorporeal 
+and Uncreated. He took pity on them, therefore, and did not leave them destitute 
+of the knowledge of Himself, lest their very existence should prove purposeless. 
+For of what use is existence to the creature if it cannot know its Maker? How 
+could men be reasonable beings if they had no knowledge of the Word and Reason 
+of the Father, through Whom they had received their being? They would be no 
+better than the beasts, had they no knowledge save of earthly things; and why 
+should God have made them at all, if He had not intended them to know Him? But, 
+in fact, the good God has given them a share in His own Image, that is, in our 
+Lord Jesus Christ, and has made even themselves after the same Image and 
+Likeness. Why? Simply in order that through this gift of Godlikeness in 
+themselves they may be able to perceive the Image Absolute, that is the Word 
+Himself, and through Him to apprehend the Father; which knowledge of their Maker 
+is for men the only really happy and blessed life.</p>
+<p id="iv-p3">But, as we have already seen, men, foolish as they are, thought little of the 
+grace they had received, and turned away from God. They defiled their own soul 
+so completely that they not only lost their apprehension of God, but invented 
+for themselves other gods of various kinds. They fashioned idols for themselves 
+in place of the truth and reverenced things that are not, rather than God Who 
+is, as St. Paul says, "worshipping the creature rather than the 
+Creator."<note n="17" id="iv-p3.1"><scripRef passage="Romans 1:25" id="iv-p3.2" parsed="|Rom|1|25|0|0" osisRef="Bible:Rom.1.25">Rom. i. 25</scripRef></note> 
+Moreover, and much worse, they transferred the honor which is due to God to 
+material objects such as wood and stone, and also to man; and further 
+even than 
+that they went, as we said in our former book. Indeed, so impious were they that 
+they worshipped evil spirits as gods in satisfaction of their lusts. They 
+sacrificed brute beasts and immolated men, as the just due of these deities, 
+thereby bringing themselves more and more under their insane control. Magic arts 
+also were taught among them, oracles in sundry places led men astray, and the 
+cause of everything in human life was traced to the stars as though nothing 
+existed but that which could be seen. In a word, impiety and lawlessness were 
+everywhere, and neither God nor His Word was known. Yet He had not hidden 
+Himself from the sight of men nor given the knowledge of Himself in one way 
+only; but rather He had unfolded it in many forms and by many ways.</p>
+<p id="iv-p4"><b>(12)</b> God knew the limitation of mankind, you see; and 
+though the grace of being made in His Image was sufficient to give them 
+knowledge of the Word and through Him of the Father, as a safeguard against 
+their neglect of this grace, He provided the works of creation also as means by 
+which the Maker might be known. Nor was this all. Man's neglect of the 
+indwelling grace tends ever to increase; and against this further frailty also 
+God made provision by giving them a law, and by sending prophets, men whom they 
+knew. Thus, if they were tardy in looking up to heaven, they might still gain 
+knowledge of their Maker from those close at hand; for men can learn directly 
+about higher things from other men. Three ways thus lay open to them, by which 
+they might obtain the knowledge of God. They could look up into the immensity of 
+heaven, and by pondering the harmony of creation come to know its Ruler, the 
+Word of the Father, Whose all-ruling providence makes known the Father to all. 
+Or, if this was beyond them, they could converse with holy men, and through them 
+learn to know God, the Artificer of all things, the Father of Christ, and to 
+recognize the worship of idols as the negation of the truth and full of all 
+impiety. Or else, in the third place, they could cease from lukewarmness and 
+lead a good life merely by knowing the law. For the law was not given only for 
+the Jews, nor was it solely for their sake that God sent the prophets, though it 
+was to the Jews that they were sent and by the Jews that they were persecuted. 
+The law and the prophets were a sacred school of the knowledge of God and the 
+conduct of the spiritual life for the whole world.</p>
+<p id="iv-p5">So great, indeed, were the goodness and the love of God. Yet men, bowed down 
+by the pleasures of the moment and by the frauds and illusions of the evil 
+spirits, did not lift up their heads towards the truth. So burdened were they 
+with their wickednesses that they seemed rather to be brute beasts than 
+reasonable men, reflecting the very Likeness of the Word.</p>
+<p id="iv-p6"><b>(13)</b> What was God to do in face of this dehumanising of 
+mankind, this universal hiding of the knowledge of Himself by the wiles of evil 
+spirits? Was He to keep silence before so great a wrong and let men go on being 
+thus deceived and kept in ignorance of Himself? If so, what was the use of 
+having made them in His own Image originally? It would surely have been better 
+for them always to have been brutes, rather than to revert to that condition 
+when once they had shared the nature of the Word. Again, things being as they 
+were, what was the use of their ever having had the knowledge of God? Surely it 
+would have been better for God never to have bestowed it, than that men should 
+subsequently be 
+found unworthy to receive it. Similarly, what possible profit 
+could it be to God Himself, Who made men, if when made they did not worship Him, 
+but regarded others as their makers? This would be tantamount to His having made 
+them for others and not for Himself. Even an earthly king, though he is only a 
+man, does not allow lands that he has colonized to pass into other hands or to 
+desert to other rulers, but sends letters and friends and even visits them 
+himself to recall them to their allegiance, rather than allow His work to be 
+undone. How much more, then, will God be patient and painstaking with His 
+creatures, that they be not led astray from Him to the service of those that are 
+not, and that all the more because such error means for them sheer ruin, and 
+because it is not right that those who had once shared His Image should be 
+destroyed.</p>
+<p id="iv-p7">What, then, was God to do? What else could He possibly do, being God, but 
+renew His Image in mankind, so that through it men might once more come to know 
+Him? And how could this be done save by the coming of the very Image Himself, 
+our Savior Jesus Christ? Men could not have done it, for they are only made 
+after the Image; nor could angels have done it, for they are not the images of 
+God. The Word of God came in His own Person, because it was He alone, the Image 
+of the Father Who could recreate man made after the Image.</p>
+<p id="iv-p8">In order to effect this re-creation, however, He had first to do away with 
+death and corruption. Therefore He assumed a human body, in order that in it 
+death might once for all be destroyed, and that men might be renewed according 
+to the Image. The Image of the Father only was sufficient for this need. Here is 
+an illustration to prove it.</p>
+<p id="iv-p9"><b>(14)</b> You know what happens when a portrait that has 
+been painted on a panel becomes obliterated through external stains. The artist 
+does not throw away the panel, but the subject of the portrait has to come and 
+sit for it again, and then the likeness is re-drawn on the same material. Even 
+so was it with the All-holy Son of God. He, the Image of the Father, came and 
+dwelt in our midst, in order that He might renew mankind made after Himself, and 
+seek out His lost sheep, even as He says in the Gospel: 
+"I came to seek and to save that which was lost.<note n="18" id="iv-p9.1"><scripRef passage="Luke 19:10" id="iv-p9.2" parsed="|Luke|19|10|0|0" osisRef="Bible:Luke.19.10">Luke xix. 10</scripRef></note> 
+This also explains His saying to the Jews: "<i>Except a man be born 
+anew . . .</i>"<note n="19" id="iv-p9.3"><scripRef passage="John 3:3" id="iv-p9.4" parsed="|John|3|3|0|0" osisRef="Bible:John.3.3">John iii. 3</scripRef></note> 
+a He was not referring to a man's natural birth from his mother, as they thought, 
+but to the re-birth and re-creation of the soul in the Image of God.</p>
+<p id="iv-p10">Nor was this the only thing which only the Word could do. When the madness of 
+idolatry and irreligion filled the world and the knowledge of God was hidden, 
+whose part was it to teach the world about the Father? Man's, would you say? But 
+men cannot run everywhere over the world, nor would their words carry sufficient 
+weight if they did, nor would they be, unaided, a match for the evil spirits. 
+Moreover, since even the best of men were confused and blinded by evil, how 
+could they convert the souls and minds of others? You cannot put straight in 
+others what is warped in yourself. Perhaps you will say, then, that creation was 
+enough to teach men about the Father. But if that had 
+been so, such great evils 
+would never have occurred. Creation was there all the time, but it did not 
+prevent men from wallowing in error. Once more, then, it was the Word of God, 
+Who sees all that is in man and moves all things in creation, Who alone could 
+meet the needs of the situation. It was His part and His alone, Whose ordering 
+of the universe reveals the Father, to renew the same teaching. But how was He 
+to do it? By the same means as before, perhaps you will say, that is, through 
+the works of creation. But this was proven insufficient. Men had neglected to 
+consider the heavens before, and now they were looking in the opposite 
+direction. Wherefore, in all naturalness and fitness, desiring to do good to 
+men, as Man He dwells, taking to Himself a body like the rest; and through His 
+actions done in that body, as it were on their own level, He teaches those who 
+would not learn by other means to know Himself, the Word of God, and through Him 
+the Father.</p>
+<p id="iv-p11"><b>(15)</b> He deals with them as a good teacher with his 
+pupils, coming down to their level and using simple means. St. Paul says as 
+much: 
+"Because in the wisdom of God the world in its wisdom 
+knew not God, God thought fit through the simplicity of the News proclaimed to 
+save those who believe."<note n="20" id="iv-p11.1"><scripRef passage="1 Corinthians 1:21 " id="iv-p11.2" parsed="|1Cor|1|21|0|0" osisRef="Bible:1Cor.1.21">1 Cor. i. 21</scripRef></note> 
+Men had turned from the contemplation of God above, and were 
+looking for Him in the opposite direction, down among created things and things 
+of sense. The Savior of us all, the Word of God, in His great love took to 
+Himself a body and moved as Man among men, meeting their senses, so to speak, 
+half way. He became Himself an object for the senses, so that those who were 
+seeking God in sensible things might apprehend the Father through the works 
+which He, the Word of God, did in the body. Human and human minded as men were, 
+therefore, to whichever side they looked in the sensible world they found 
+themselves taught the truth. Were they awe-stricken by creation? They beheld it 
+confessing Christ as Lord. Did their minds tend to regard men as Gods? The 
+uniqueness of the Savior's works marked Him, alone of men, as Son of God. Were 
+they drawn to evil spirits? They saw them driven out by the Lord and learned 
+that the Word of God alone was God and that the evil spirits were not gods at 
+all. Were they inclined to hero-worship and the cult of the dead? Then the fact 
+that the Savior had risen from the dead showed them how false these other 
+deities were, and that the Word of the Father is the one true Lord, the Lord 
+even of death. For this reason was He both born and manifested as Man, for this 
+He died and rose, in order that, eclipsing by His works all other human deeds, 
+He might recall men from all the paths of error to know the Father. As He says 
+Himself, 
+"I came to seek and to save that which was lost."<note n="21" id="iv-p11.3"><scripRef passage="Luke 19:10" id="iv-p11.4" parsed="|Luke|19|10|0|0" osisRef="Bible:Luke.19.10">Luke xix. 10</scripRef></note></p> 
+<p id="iv-p12"><b>(16)</b> When, then, the minds of men had fallen finally to 
+the level of sensible things, the Word submitted to appear in a body, in order 
+that He, as Man, might center their senses on Himself, and convince them through 
+His human acts that He Himself is not man only but also God, the Word and Wisdom of 
+the true God. This is what Paul wants to tell us when he says: 
+"That ye, being rooted and grounded in love, may be 
+strong to apprehend with all the saints what is the length and breadth and 
+height and depth, and to know the love of God that surpasses knowledge, so 
+that ye may be filled unto all the fullness of God."<note n="22" id="iv-p12.1"><scripRef passage="Ephesians 3:17" id="iv-p12.2" parsed="|Eph|3|17|0|0" osisRef="Bible:Eph.3.17">Eph. iii. 17 ff.</scripRef></note>  
+The Self-revealing of the Word is in every dimension—above, in 
+creation; below, in the Incarnation; in the depth, in Hades; in the breadth, 
+throughout the world. All things have been filled with the knowledge of God.</p>
+<p id="iv-p13">For this reason He did not offer the sacrifice on behalf of all immediately 
+He came, for if He had surrendered His body to death and then raised it again at 
+once He would have ceased to be an object of our senses. Instead of that, He 
+stayed in His body and let Himself be seen in it, doing acts and giving signs 
+which showed Him to be not only man, but also God the Word. There were thus two 
+things which the Savior did for us by becoming Man. He banished death from us 
+and made us anew; and, invisible and imperceptible as in Himself He is, He 
+became visible through His works and revealed Himself as the Word of the Father, 
+the Ruler and King of the whole creation.</p>
+<p id="iv-p14"><b>(17)</b> There is a paradox in this last statement which we 
+must now examine. The Word was not hedged in by His body, nor did His presence 
+in the body prevent His being present elsewhere as well. When He moved His body 
+He did not cease also to direct the universe by His Mind and might. No. The 
+marvelous truth is, that being the Word, so far from being Himself contained by 
+anything, He actually contained all things Himself. In creation He is present 
+everywhere, yet is distinct in being from it; ordering, directing, giving life 
+to all, containing all, yet is He Himself the Uncontained, existing solely in 
+His Father. As with the whole, so also is it with the part. Existing in a human 
+body, to which He Himself gives life, He is still Source of life to all the 
+universe, present in every part of it, yet outside the whole; and He is revealed 
+both through the works of His body and through His activity in the world. It is, 
+indeed, the function of soul to <i>behold</i> things that are outside the body, but it 
+cannot energize or move them. A man cannot transport things from one place to 
+another, for instance, merely by thinking about them; nor can you or I move the 
+sun and the stars just by sitting at home and looking at them. With the Word of 
+God in His human nature, however, it was otherwise. His body was for Him not a 
+limitation, but an instrument, so that He was both in it and in all things, and 
+outside all things, resting in the Father alone. At one and the same time—this 
+is the wonder—as Man He was living a human life, and as Word He was sustaining 
+the life of the universe, and as Son He was in constant union with the Father. 
+Not even His birth from a virgin, therefore, changed Him in any way, nor was He 
+defiled by being in the body. Rather, He sanctified the body by being in it. For 
+His being in everything does not mean that He shares the nature of everything, 
+only that He gives all things their being and sustains them in it. Just as the 
+sun is not defiled by the contact of its rays with earthly objects, but rather 
+enlightens and purifies them, so He Who made the sun is not defiled by being 
+made known in 
+a body, but rather the body is cleansed and quickened by His 
+indwelling, 
+"Who did no sin, neither was guile found in His 
+mouth."<note n="23" id="iv-p14.1"><scripRef passage="1 Peter " id="iv-p14.2">1 Peter ii. 22</scripRef></note></p> 
+<p id="iv-p15"><b>(18)</b> You must understand, therefore, that when writers 
+on this sacred theme speak of Him as eating and drinking and being born, they 
+mean that the body, as a body, was born and sustained with the food proper to 
+its nature; while God the Word, Who was united with it, was at the same time 
+ordering the universe and revealing Himself through His bodily acts as not man 
+only but God. Those acts are rightly said to be His acts, because the body which 
+did them did indeed belong to Him and none other; moreover, it was right that 
+they should be thus attributed to Him as Man, in order to show that His body was 
+a real one and not merely an appearance. From such ordinary acts as being born 
+and taking food, He was recognized as being actually present in the body; but by 
+the extraordinary acts which He did through the body He proved Himself to be the 
+Son of God. That is the meaning of His words to the unbelieving Jews: 
+"If I do not the works of My Father, believe Me not; 
+but if I do, even if ye believe not Me, believe My works, that ye may know 
+that the Father is in Me and I in the Father."<note n="24" id="iv-p15.1"><scripRef passage="John 10:37-38" id="iv-p15.2" parsed="|John|10|37|10|38" osisRef="Bible:John.10.37-John.10.38">John x. 37–38</scripRef></note></p>
+<p id="iv-p16">Invisible in Himself, He is known from the works of creation; so also, when 
+His Godhead is veiled in human nature, His bodily acts still declare Him to be 
+not man only, but the Power and Word of God. To speak authoritatively to evil 
+spirits, for instance, and to drive them out, is not human but divine; and who 
+could see-Him curing all the diseases to which mankind is prone, and still deem 
+Him mere man and not also God? He cleansed lepers, He made the lame to walk, He 
+opened the ears of the deaf and the eyes of the blind, there was no sickness or 
+weakness that He did not drive away. Even the most casual observer can see that 
+these were acts of God. The healing of the man born blind, for instance, who but 
+the Father and Artificer of man, the Controller of his whole being, could thus 
+have restored the faculty denied at birth? He Who did thus must surely be 
+Himself the Lord of birth. This is proved also at the outset of His becoming 
+Man. He formed His own body from the virgin; and that is no small proof of His 
+Godhead, since He Who made that was the Maker of all else. And would not anyone 
+infer from the fact of that body being begotten of a virgin only, without human 
+father, that He Who appeared in it was also the Maker and Lord of all beside?</p>
+<p id="iv-p17">Again, consider the miracle at Cana. Would not anyone who saw the substance 
+of water transmuted into wine understand that He Who did it was the Lord and 
+Maker of the water that He changed? It was for the same reason that He walked on 
+the sea as on dry land—to prove to the onlookers that He had mastery over all. 
+And the feeding of the multitude, when He made little into much, so that from 
+five loaves five thousand mouths were filled—did not that prove Him none other 
+than the very Lord Whose Mind is over all?</p>
+</div1>
+
+<div1 type="chapter" title="Chapter 4. The Death of Christ" progress="31.71%" prev="iv" next="vi" id="v">
+
+<h2 id="v-p0.1">Chapter 4</h2>
+<p style="margin-left:-.25in; margin-bottom:24pt; text-align:center; font-size:large; font-weight:bold" id="v-p1"><i>The Death of Christ</i></p>
+
+<p id="v-p2"><b>(19)</b> All these things the Savior thought fit to do, so 
+that, recognizing His bodily acts as works of God, men who were blind to His 
+presence in creation might regain knowledge of the Father. For, as I said 
+before, who that saw His authority over evil spirits and their response to it 
+could doubt that He was, indeed, the Son, the Wisdom and the Power of God? Even 
+the very creation broke silence at His behest and, marvelous to relate, 
+confessed with one voice before the cross, that monument of victory, that He Who 
+suffered thereon in the body was not man only, but Son of God and Savior of all. 
+The sun veiled his face, the earth quaked, the mountains were rent asunder, all 
+men were stricken with awe. These things showed that Christ on the cross was 
+God, and that all creation was His slave and was bearing witness by its fear to 
+the presence of its Master.</p>
+<p id="v-p3">Thus, then, God the Word revealed Himself to men through His works. We must 
+next consider the end of His earthly life and the nature of His bodily death. 
+This is, indeed, the very center of our faith, and everywhere you hear men speak 
+of it; by it, too, no less than by His other acts, Christ is revealed as God and 
+Son of God.</p>
+<p id="v-p4"><b>(20)</b> We have dealt as far as circumstances and our own 
+understanding permit with the reason for His bodily manifestation. We have seen 
+that to change the corruptible to incorruption was proper to none other than the 
+Savior Himself, Who in the beginning made all things out of nothing; that only 
+the Image of the Father could re-create the likeness of the Image in men, that 
+none save our Lord Jesus Christ could give to mortals immortality, and that only 
+the Word Who orders all things and is alone the Father's true and sole-begotten 
+Son could teach men about Him and abolish the worship of idols. But beyond all 
+this, there was a debt owing which must needs be paid; for, as I said before, 
+all men were due to die. Here, then, is the second reason why the Word dwelt 
+among us, namely that having proved His Godhead by His works, He might offer the 
+sacrifice on behalf of all, surrendering His own temple to death in place of 
+all, to settle man's account with death and free him from the primal 
+transgression. In the same act also He showed Himself mightier than death, 
+displaying His own 
+body incorruptible as the first-fruits of the resurrection.</p>
+
+<p id="v-p5">You must not be surprised if we repeat ourselves in dealing with this 
+subject. We are speaking of the good pleasure of God and of the things which He 
+in His loving wisdom thought fit to do, and it is better to put the same thing 
+in several ways than to run the risk of leaving something out. The body of the 
+Word, then, being a real human body, in spite of its having been uniquely formed 
+from a virgin, was of itself mortal and, like other bodies, liable to death. But 
+the indwelling of the Word loosed it from this natural liability, so that 
+corruption could not touch it. Thus it happened that two opposite marvels took 
+place at once: the death of all was consummated in the Lord's body; yet, because 
+the Word was in it, death and corruption were in the same act utterly abolished. 
+Death there had to be, and death for all, so that the due of all might be paid. 
+Wherefore, the Word, as I said, being Himself incapable of death, assumed a 
+mortal body, that He might offer it as His own in place of all, and suffering 
+for the sake of all through His union with it, 
+" might bring to nought Him that had the power of 
+death, that is, the devil, and might deliver them who all their lifetime were 
+enslaved by the fear of death."<note n="25" id="v-p5.1"><scripRef passage="Hebrews 2:14" id="v-p5.2" parsed="|Heb|2|14|0|0" osisRef="Bible:Heb.2.14">Heb. ii. 14 f.</scripRef></note></p> 
+<p id="v-p6"><b>(21)</b> Have no fears then. Now that the common Savior of 
+all has died on our behalf, we who believe in Christ no longer die, as men died 
+aforetime, in fulfillment of the threat of the law. That condemnation has come 
+to an end; and now that, by the grace of the resurrection, corruption has been 
+banished and done away, we are loosed from our mortal bodies in God's good time 
+for each, so that we may obtain thereby a better resurrection. Like seeds cast 
+into the earth, we do not perish in our dissolution, but like them shall rise 
+again, death having been brought to nought by the grace of the Savior. That is 
+why blessed Paul, through whom we all have surety of the resurrection, says: 
+"This corruptible must put on incorruption and this 
+mortal must put on immortality; but when this corruptible shall have put on 
+incorruption and this mortal shall have put on immortality, then shall be 
+brought to pass the saying that is written, 'Death is swallowed up in victory. 
+O Death, where is thy sting? O Grave, where is thy victory?'"<note n="26" id="v-p6.1"><scripRef passage="1 Corinthians 15:53" id="v-p6.2" parsed="|1Cor|15|53|0|0" osisRef="Bible:1Cor.15.53">1 Cor. xv. 53 ff.</scripRef></note></p>
+<p id="v-p7">"Well then," some people may say, "if the essential thing was that 
+He should surrender His body to death in place of all, why did He not do so as 
+Man privately, without going to the length of public crucifixion? Surely it 
+would have been more suitable for Him to have laid aside His body with honor 
+than to endure so shameful a death." But look at this argument closely, and see 
+how merely human it is, whereas what the Savior did was truly divine and worthy 
+of His Godhead for several reasons. The first is this. The death of men under 
+ordinary circumstances is the result of their natural weakness. They are 
+essentially impermanent, so after a time they fall ill and when worn out they 
+die. But the Lord is not like that. He is not weak, He is the Power of God and 
+Word of God and Very Life Itself. If He had died quietly in His bed like other 
+men it would have looked as if He did so in accordance with His nature, and as 
+though He was indeed no more than other men. But because He was Himself Word and 
+Life and Power His body was made strong, and because the death had to be 
+accomplished, He took the occasion of perfecting His sacrifice not from Himself, 
+but from others. How could He fall sick, Who had healed others? Or how could 
+that body weaken and fail by means of which others are made strong? Here, again, 
+you may say, "Why did He not prevent death, as He did sickness?" Because it was 
+precisely in order to be able to die that He had taken a body, and to prevent 
+the death would have been to impede the resurrection. And as to the 
+unsuitability of sickness for His body, as arguing weakness, you may say, 
+"<i>Did He then not hunger</i>?" Yes, He hungered, because that was 
+the property of His body, but He did not die of hunger because He Whose body 
+hungered was the Lord. Similarly, though He died to ransom all, He did not see 
+corruption. His body rose in perfect soundness, for it was the body of none 
+other than the Life Himself.</p>
+<p id="v-p8"><b>(22)</b> Someone else might say, perhaps, that it would 
+have been better for the Lord to have avoided the designs of the Jews against 
+Him, and so to have guarded His body from death altogether. But see how 
+unfitting this also would have been for Him. Just as it would not have been 
+fitting for Him to give His body to death by His own hand, being Word and being 
+Life, so also it was not consonant with Himself that He should avoid the death 
+inflicted by others. Rather, He pursued it to the uttermost, and in pursuance of 
+His nature neither laid aside His body of His own accord nor escaped the 
+plotting Jews. And this action showed no limitation or weakness in the Word; for 
+He both waited for death in order to make an end of it, and hastened to 
+accomplish it as an offering on behalf of all. Moreover, as it was the death of 
+all mankind that the Savior came to accomplish, not His own, He did not lay 
+aside His body by an individual act of dying, for to Him, as Life, this simply 
+did not belong; but He accepted death at the hands of men, thereby completely to 
+destroy it in His own body.</p>
+<p id="v-p9">There are some further considerations which enable one to understand why the 
+Lord's body had such an end. The supreme object of His coming was to bring about 
+the resurrection of the body. This was to be the monument to His victory over 
+death, the assurance to all that He had Himself conquered corruption and that 
+their own bodies also would eventually be incorrupt; and it was in token of that 
+and as a pledge of the future resurrection that He kept His body incorrupt. But 
+there again, if His body had fallen sick and the Word had left it in that 
+condition, how unfitting it would have been! Should He Who healed the bodies of 
+others neglect to keep His own in health? How would His miracles of healing be 
+believed, if this were so? Surely people would either laugh at Him as unable to 
+dispel disease or else consider Him lacking in proper human feeling because He 
+could do so, but did not.</p>
+<p id="v-p10"><b>(23)</b> Then, again, suppose without any illness He had 
+just concealed His body somewhere, and then suddenly reappeared and said that He 
+had risen from the dead. He would have been regarded merely as a teller of 
+tales, and because there was no witness of His death, nobody would believe His 
+resurrection. Death had to precede resurrection, for there could be no 
+resurrection without it. A 
+secret and unwitnessed death would have left the 
+resurrection without any proof or evidence to support it. Again, why should He 
+die a secret death, when He proclaimed the fact of His rising openly? Why should 
+He drive out evil spirits and heal the man blind from birth and change water 
+into wine, all publicly, in order to convince men that He was the Word, and not 
+also declare publicly that incorruptibility of His mortal body, so that He might 
+Himself be believed to be the Life? And how could His disciples have had 
+boldness in speaking of the resurrection unless they could state it as a fact 
+that He had first died? Or how could their hearers be expected to believe their 
+assertion, unless they themselves also had witnessed His death? For if the 
+Pharisees at the time refused to believe and forced others to deny also, though 
+the things had happened before their very eyes, how many excuses for unbelief 
+would they have contrived, if it had taken place secretly? Or how could the end 
+of death and the victory over it have been declared, had not the Lord thus 
+challenged it before the sight of all, and by the incorruption of His body 
+proved that henceforward it was annulled and void?</p>
+<p id="v-p11"><b>(24)</b> There are some other possible objections that must 
+be answered. Some might urge that, even granting the necessity of a public death 
+for subsequent belief in the resurrection, it would surely have been better for 
+Him to have arranged an honorable death for Himself, and so to have avoided the 
+ignominy of the cross. But even this would have given ground for suspicion that 
+His power over death was limited to the particular kind of death which He chose 
+for Himself; and that again would furnish excuse for disbelieving the 
+resurrection. Death came to His body, therefore, not from Himself but from enemy 
+action, in order that the Savior might utterly abolish death in whatever form 
+they offered it to Him. A generous wrestler, virile and strong, does not himself 
+choose his antagonists, lest it should be thought that of some of them he is 
+afraid. Rather, he lets the spectators choose them, and that all the more if 
+these are hostile, so that he may overthrow whomsoever they match against him 
+and thus vindicate his superior strength. Even so was it with Christ. He, the 
+Life of all, our Lord and Savior, did not arrange the manner of his own death 
+lest He should seem to be afraid of some other kind. No. He accepted and bore 
+upon the cross a death inflicted by others, and those others His special 
+enemies, a death which to them was supremely terrible and by no means to be 
+faced; and He did this in order that, by destroying even this death, He might 
+Himself be believed to be the Life, and the power of death be recognized as 
+finally annulled. A marvelous and mighty paradox has thus occurred, for the 
+death which they thought to inflict on Him as dishonor and disgrace has become 
+the glorious monument to death's defeat. Therefore it is also, that He neither 
+endured the death of John, who was beheaded, nor was He sawn asunder, like 
+Isaiah: even in death He preserved His body whole and undivided, so that there 
+should be no excuse hereafter for those who would divide the Church.</p>
+<p id="v-p12"><b>(25)</b> So much for the objections of those outside the 
+Church. But if any honest Christian wants to know why He suffered death on the 
+cross and not in some other way, we answer thus: in no other way was it 
+expedient for us, indeed the Lord offered for our sakes the one death that was 
+supremely good. He had come to bear the curse that lay on us; and how could He 
+"become a curse"<note n="27" id="v-p12.1"><scripRef passage="Galatians 3:13" id="v-p12.2" parsed="|Gal|3|13|0|0" osisRef="Bible:Gal.3.13">Gal. iii. 13</scripRef></note> 
+otherwise than by accepting the accursed death? And that death is the cross, for 
+it is written "Cursed is every one that hangeth on 
+tree."<note n="28" id="v-p12.3"><scripRef passage="Galatians 3:13" id="v-p12.4" parsed="|Gal|3|13|0|0" osisRef="Bible:Gal.3.13">Gal. iii. 13</scripRef></note> 
+Again, the death of the Lord is the ransom of all, and by it "the middle wall of 
+partition"<note n="29" id="v-p12.5"><scripRef passage="Ephesians 2:14" id="v-p12.6" parsed="|Eph|2|14|0|0" osisRef="Bible:Eph.2.14">Eph. ii. 14</scripRef></note> is 
+broken down and the call of the Gentiles comes about. How could He have called 
+us if He had not been crucified, for it is only on the cross that a man dies 
+with arms outstretched? Here, again, we see the fitness of His death and of 
+those outstretched arms: it was that He might draw His ancient people with the 
+one and the Gentiles with the other, and join both together in Himself. Even so, 
+He foretold the manner of His redeeming death, 
+"I, if I be lifted up, will draw all men unto 
+Myself."<note n="30" id="v-p12.7"><scripRef passage="John 12:32" id="v-p12.8" parsed="|John|12|32|0|0" osisRef="Bible:John.12.32">John xii. 32</scripRef></note> 
+Again, the air is the sphere of the devil, the enemy of our race 
+who, having fallen from heaven, endeavors with the other evil spirits who shared 
+in his disobedience both to keep souls from the truth and to hinder the progress 
+of those who are trying to follow it. The apostle refers to this when he says, 
+"According to the prince of the power of the air, of 
+the spirit that now worketh in the sons of disobedience."<note n="31" id="v-p12.9"><scripRef passage="Ephesians 2:2" id="v-p12.10" parsed="|Eph|2|2|0|0" osisRef="Bible:Eph.2.2">Eph. ii. 2</scripRef></note> 
+But the Lord came to overthrow the devil and to purify the air and 
+to make "a way" for us up to heaven, as the apostle says, 
+"through the veil, that is to say, His flesh."<note n="32" id="v-p12.11"><scripRef passage="Hebrews 10:20" id="v-p12.12" parsed="|Heb|10|20|0|0" osisRef="Bible:Heb.10.20">Heb. x. 20</scripRef></note> 
+This had to be done through death, and by what other kind of death could it be 
+done, save by a death in the air, that is, on the cross? Here, again, you see 
+how right and natural it was that the Lord should suffer thus; for being thus "lifted up," 
+He cleansed the air from all the evil influences of the enemy. 
+"I beheld Satan as lightning falling,"<note n="33" id="v-p12.13"><scripRef passage="Luke 10:18" id="v-p12.14" parsed="|Luke|10|18|0|0" osisRef="Bible:Luke.10.18">Luke x. 18</scripRef></note> 
+He says; and thus He re-opened the road to heaven, saying again, 
+"Lift up your gates, O ye princes, and be ye lift up, ye 
+everlasting doors."<note n="34" id="v-p12.15"><scripRef passage="Psalm 24:7" id="v-p12.16" parsed="|Ps|24|7|0|0" osisRef="Bible:Ps.24.7">Psalm  xxiv. 7</scripRef></note> 
+For it was not the Word Himself Who needed an opening of the gates, 
+He being Lord of all, nor was any of His works closed to their Maker. No, it was 
+we who needed it, we whom He Himself upbore in His own body—that body which He 
+first offered to death on behalf of all, and then made through it a path to 
+heaven.</p>
+
+</div1>
+
+<div1 type="chapter" title="Chapter 5. The Resurrection" progress="42.99%" prev="v" next="vii" id="vi">
+<h2 id="vi-p0.1">Chapter 5</h2>
+<p style="margin-left:-.25in; margin-bottom:24pt; text-align:center; font-size:large; font-weight:bold" id="vi-p1"><i>The Resurrection</i></p>
+
+<p id="vi-p2"><b>(26)</b> Fitting indeed, then, and wholly consonant was the 
+death on the cross for us; and we can see how reasonable it was, and why it is 
+that the salvation of the world could be accomplished in no other way. Even on 
+the cross He did not hide Himself from sight; rather, He made all creation 
+witness to the presence of its Maker. Then, having once let it be seen that it 
+was truly dead, He did not allow that temple of His body to linger long, but 
+forthwith on the third day raised it up, impassable and incorruptible, the 
+pledge and token of His victory.</p>
+<p id="vi-p3">It was, of course, within His power thus to have raised His body and 
+displayed it as alive directly after death. But the all-wise Savior did not do 
+this, lest some should deny that it had really or completely died. Besides this, 
+had the interval between His death and resurrection been but two days, the glory 
+of His incorruption might not have appeared. He waited one whole day to show 
+that His body was really dead, and then on the third day showed it incorruptible 
+to all. The interval was no longer, lest people should have forgotten about it 
+and grown doubtful whether it were in truth the same body. No, while the affair 
+was still ringing in their ears and their eyes were still straining and their 
+minds in turmoil, and while those who had put Him to death were still on the 
+spot and themselves witnessing to the fact of it, the Son of God after three 
+days showed His once dead body immortal and incorruptible; and it was evident to 
+all that it was from no natural weakness that the body which the Word indwelt 
+had died, but in order that in it by the Savior's power death might be done 
+away.</p>
+<p id="vi-p4"><b>(27)</b> A very strong proof of this destruction of death 
+and its conquest by the cross is supplied by a present fact, namely this. All 
+the disciples of Christ despise death; they take the offensive against it and, 
+instead of fearing it, by the sign of the cross and by faith in Christ trample 
+on it as on something dead. Before the divine sojourn of the Savior, even the 
+holiest of men were afraid of death, and mourned the dead as those who perish. 
+But now that the Savior has raised His body, death is no longer terrible, but 
+all those who believe in Christ tread it underfoot as nothing, and prefer to die 
+rather than to deny their faith in Christ, knowing full well that when they die 
+they do not perish, but live indeed, and become incorruptible through the 
+resurrection. But that devil who of old wickedly exulted in death, now that the 
+pains of death are loosed, he alone it is who remains truly dead. There is proof 
+of this too; for men who, before they believe in Christ, think death horrible 
+and are afraid of it, once they are converted despise it so completely that they 
+go eagerly to meet it, and themselves become witnesses of the Savior's 
+resurrection from it. Even children hasten thus to die, and not men only, but 
+women train themselves by bodily discipline to meet it. So weak has death become 
+that even women, who used to be taken in by it, mock at it now as a dead thing 
+robbed of all its strength. Death has become like a tyrant who has been 
+completely conquered by the legitimate monarch; bound hand and foot the 
+passers-by sneer at him, hitting him and abusing him, no longer afraid of his 
+cruelty and rage, because of the king who has conquered him. So has death been 
+conquered and branded for what it is by the Savior on the cross. It is bound 
+hand and foot, all who are in Christ trample it as they pass and as witnesses to 
+Him deride it, scoffing and saying, "O Death, where is thy 
+victory? O Grave, where is thy sting?"<note n="35" id="vi-p4.1"><scripRef passage="1 Corinthians 15:55" id="vi-p4.2" parsed="|1Cor|15|55|0|0" osisRef="Bible:1Cor.15.55">I Cor. xv. 55</scripRef></note> 
+</p>
+<p id="vi-p5"><b>(28)</b> Is this a slender proof of the impotence of death, 
+do you think? Or is it a slight indication of the Savior's victory over it, when 
+boys and young girls who are in Christ look beyond this present life and train 
+themselves to die? Every one is by nature afraid of death and of bodily 
+dissolution; the marvel of marvels is that he who is enfolded in the faith of 
+the cross despises this natural fear and for the sake of the cross is no longer 
+cowardly in face of it. The natural property of fire is to burn. Suppose, then, 
+that there was a substance such as the Indian asbestos is said to be, which had 
+no fear of being burnt, but rather displayed the impotence of the fire by 
+proving itself unburnable. If anyone doubted the truth of this, all he need do 
+would be to wrap himself up in the substance in question and then touch the 
+fire. Or, again, to revert to our former figure, if anyone wanted to see the 
+tyrant bound and helpless, who used to be such a terror to others, he could do 
+so simply by going into the country of the tyrant's conqueror. Even so, if 
+anyone still doubts the conquest of death, after so many proofs and so many 
+martyrdoms in Christ and such daily scorn of death by His truest servants, he 
+certainly does well to marvel at so great a thing, but he must not be obstinate 
+in unbelief and disregard of plain facts. No, he must be like the man who wants 
+to prove the property of the asbestos, and like him who enters the conqueror's 
+dominions to see the tyrant bound. He must embrace the faith of Christ, this 
+disbeliever in the conquest of death, and come to His teaching. Then he will see 
+how impotent death is and how completely conquered. Indeed, there have been many 
+former unbelievers and deriders who, after they became believers, so scorned 
+death as even themselves to become martyrs for Christ's sake.</p>
+<p id="vi-p6"><b>(29)</b> If, then, it is by the sign of the cross and by 
+faith in Christ that death is trampled underfoot, it is clear that it is Christ 
+Himself and none other Who is the Archvictor over death and has robbed it of its 
+power. Death used to be strong and terrible, but now, since the sojourn of the 
+Savior and the death and resurrection of His body, it is despised; and obviously 
+it is by the very Christ Who mounted on the cross that it has been destroyed and 
+vanquished finally. When the sun rises after the night and the whole world is 
+lit up by it, nobody doubts that it is the sun which has thus shed its light 
+everywhere and driven away the dark. Equally clear is it, since this utter 
+scorning and trampling down of death has ensued upon the Savior's manifestation 
+in the body and His death on the cross, that it is He Himself Who brought death 
+to nought and daily raises monuments to His victory in His own disciples. How 
+can you think otherwise, when you see men naturally weak hastening to death, 
+unafraid at the prospect of corruption, fearless of the descent into Hades, even 
+indeed with eager soul provoking it, not shrinking from tortures, but preferring 
+thus to rush on death for Christ's sake, rather than to remain in this present 
+life? If you see with your own eyes men and women and children, even, thus 
+welcoming death for the sake of Christ's religion, how can you be so utterly 
+silly and incredulous and maimed in your mind as not to realize that Christ, to 
+Whom these all bear witness, Himself gives the victory to each, making death 
+completely powerless for those who hold His faith and bear the sign of the 
+cross? No one in his senses doubts that a snake is dead when he sees it trampled 
+underfoot, especially when he knows how savage it used to be; nor, if he sees 
+boys making fun of a lion, does he doubt that the brute is either dead or 
+completely bereft of strength. These things can be seen with our own eyes, and 
+it is the same with the conquest of death. Doubt no longer, then, when you see 
+death mocked and scorned by those who believe in Christ, that by Christ death 
+was destroyed, and the corruption that goes with it resolved and brought to end. 
+</p>
+<p id="vi-p7"><b>(30)</b> What we have said is, indeed, no small proof of 
+the destruction of death and of the fact that the cross of the Lord is the 
+monument to His victory. But the resurrection of the body to immortality, which 
+results henceforward from the work of Christ, the common Savior and true Life of 
+all, is more effectively proved by facts than by words to those whose mental 
+vision is sound. For, if, as we have shown, death was destroyed and everybody 
+tramples on it because of Christ, how much more did He Himself first trample and 
+destroy it in His own body! Death having been slain by Him, then, what other 
+issue could there be than the resurrection of His body and its open 
+demonstration as the monument of His victory? How could the destruction of death 
+have been manifested at all, had not the Lord's body been raised? But if anyone 
+finds even this insufficient, let him find proof of what has been said in 
+present facts. Dead men cannot take effective action; their power of influence 
+on others lasts only till the grave. Deeds and actions that energize others 
+belong only to the living. Well, then, look at the facts in this case. The 
+Savior is working mightily among men, every day He is invisibly persuading 
+numbers of people all over the world, both within and beyond the Greek-speaking 
+world, to accept His faith and be obedient to His teaching. Can anyone, in face 
+of this, still doubt that He has risen and lives, or rather that He is Himself 
+the Life? Does a dead man prick the consciences of men, so that they throw all 
+the traditions of their fathers to the winds and bow down before the teaching of 
+Christ? If He is no longer active in the world, as He must needs be if He is 
+dead, how is it that He makes the living to cease from their activities, the 
+adulterer from his adultery, the murderer from murdering, the unjust from 
+avarice, while the profane and godless man becomes religious? If He did not 
+rise, but is still dead, how is it that He routs and persecutes and overthrows 
+the false gods, whom unbelievers think to be alive, and the evil spirits whom 
+they worship? For where Christ is named, idolatry is destroyed and the fraud of 
+evil spirits is exposed; indeed, no such spirit can endure that Name, but takes 
+to flight on sound of it. This is the work of One Who lives, not of one dead; 
+and, more than that, it is the work of God. It would be absurd to say that the 
+evil spirits whom He drives out and the idols which He destroys are alive, but 
+that He Who drives out and destroys, and Whom they themselves acknowledge to be 
+Son of God, is dead.</p>
+<p id="vi-p8"><b>(31)</b> In a word, then, those who disbelieve in the 
+resurrection have no support in facts, if their gods and evil spirits do not 
+drive away the supposedly dead Christ. Rather, it is He Who convicts them of 
+being dead. We are agreed that a dead person can do nothing: yet the Savior 
+works mightily every day, drawing men to religion, persuading them to virtue, 
+teaching them about immortality, quickening their thirst for heavenly things, 
+revealing the knowledge of the Father, inspiring strength in face of death, 
+manifesting Himself to each, and displacing the irreligion of idols; while the 
+gods and evil spirits of the unbelievers can do none of these things, but rather 
+become dead at Christ's presence, all their ostentation barren and void. By the 
+sign of the cross, on the contrary, all magic is stayed, all sorcery confounded, 
+all the idols are abandoned and deserted, and all senseless pleasure ceases, as 
+the eye of faith looks up from earth to heaven. Whom, then, are we to call dead? 
+Shall we call Christ dead, Who effects all this? But the dead have not the 
+faculty to effect anything. Or shall we call death dead, which effects nothing 
+whatever, but lies as lifeless and ineffective as are the evil spirits and the 
+idols? The Son of God, "living and effective,"<note n="36" id="vi-p8.1"><scripRef passage="Hebrews 4:12" id="vi-p8.2" parsed="|Heb|4|12|0|0" osisRef="Bible:Heb.4.12">Heb. iv. 12</scripRef></note> 
+is active every day and effects the salvation of all; but death is daily proved to 
+be stripped of all its strength, and it is the idols and the evil spirits who 
+are dead, not He. No room for doubt remains, therefore, concerning the 
+resurrection of His body.</p>
+<p id="vi-p9">Indeed, it would seem that he who disbelieves this bodily rising of the Lord 
+is ignorant of the power of the Word and Wisdom of God. If He took a body to 
+Himself at all, and made it His own in pursuance of His purpose, as we have 
+shown that He did, what was the Lord to do with it, and what was ultimately to 
+become of that body upon which the Word had descended? Mortal and offered to 
+death on behalf of all as it was, it could not but die; indeed, it was for that 
+very purpose that the Savior had prepared it for Himself. But on the other hand 
+it could not remain dead, because it had become the very temple of Life. It 
+therefore died, as mortal, but lived again because of the Life within it; and 
+its resurrection is made known through its works.</p>
+<p id="vi-p10"><b>(32)</b> It is, indeed, in accordance with the nature of 
+the invisible God that He should be thus known through His works; and those who 
+doubt the Lord's resurrection because they do not now behold Him with their 
+eyes, might as well deny the very laws of nature. They have ground for disbelief 
+when works are lacking; but when the works cry out and prove the fact so 
+clearly, why do they deliberately deny the risen life so manifestly shown? Even 
+if their mental faculties are defective, surely their eyes can give them 
+irrefragable proof of the power and Godhead of Christ. A blind man cannot see 
+the sun, but he knows that it is above the earth from the warmth which it 
+affords; similarly, let those who are still in the blindness of unbelief 
+recognize the Godhead of Christ and the resurrection which He has brought about 
+through His manifested power in others. Obviously He would not be expelling evil 
+spirits and despoiling idols, if He were dead, for the evil spirits would not 
+obey one who was dead. If, on the other hand, the very naming of Him drives them 
+forth, He clearly is not dead; and the more so that the spirits, who perceive 
+things unseen by men, would know if He were so and would refuse to obey Him. 
+But, as a matter of fact, what profane persons doubt, the evil spirits 
+know—namely that He is God; and for that reason they flee from Him and fall at 
+His feet, crying out even as they cried when He was in the body, "We know Thee Who Thou art, the Holy One of God," and, 
+"Ah, what have I in common with Thee, Thou Son of God? I implore Thee, 
+torment me not."<note n="37" id="vi-p10.1">Cf. <scripRef passage="Luke 4:34" id="vi-p10.2" parsed="|Luke|4|34|0|0" osisRef="Bible:Luke.4.34">Luke iv. 34</scripRef> and <scripRef passage="Mark 5:7" id="vi-p10.3" parsed="|Mark|5|7|0|0" osisRef="Bible:Mark.5.7">Mark v. 7</scripRef></note> 
+</p>
+<p id="vi-p11">Both from the confession of the evil spirits and from the daily witness of 
+His works, it is manifest, then, and let none presume to doubt it, that the 
+Savior has raised His own body, and that He is very Son of God, having His being 
+from God as from a Father, Whose Word and Wisdom and Whose Power He is. He it is 
+Who in these latter days assumed a body for the salvation of us all, and taught 
+the world concerning the Father. He it is Who has destroyed death and freely 
+graced us all with incorruption through the promise of the resurrection, having 
+raised His own body as its first-fruits, and displayed it by the sign of the 
+cross as the monument to His victory over death and its corruption.</p>
+
+</div1>
+
+<div1 type="chapter" title="Chapter 6. Refutation of the Jews" progress="54.33%" prev="vi" next="viii" id="vii">
+<h2 id="vii-p0.1">Chapter 6</h2>
+<p style="margin-left:-.25in; margin-bottom:24pt; text-align:center; font-size:large; font-weight:bold" id="vii-p1"><i>Refutation of the Jews</i></p>
+
+<p id="vii-p2"><b>(33)</b> We have dealt thus far with the Incarnation of our 
+Savior, and have found clear proof of the resurrection of His Body and His 
+victory over death. Let us now go further and investigate the unbelief and the 
+ridicule with which Jews and Gentiles respectively regard these same facts. It 
+seems that in both cases the points at issue are the same, namely the unfittingness or incongruity (as it seems to them) alike of the cross and of the 
+Word's becoming man at all. But we have no hesitation in taking up the argument 
+against these objectors, for the proofs on our side are extremely clear.</p>
+<p id="vii-p3">First, then, we will consider the Jews. Their unbelief has its refutation in 
+the Scriptures which even themselves read; for from cover to cover the inspired 
+Book clearly teaches these things both in its entirety and in its actual words. 
+Prophets foretold the marvel of the Virgin and of the Birth from her, saying, 
+"Behold, a virgin shall conceive and bear a son, and 
+they shall call his name '<i>Emmanuel</i>,' which means '<i>God is with us</i>.'"<note n="38" id="vii-p3.1"><scripRef passage="Isaiah 7:14" id="vii-p3.2" parsed="|Isa|7|14|0|0" osisRef="Bible:Isa.7.14">Isaiah vii. 14</scripRef></note>  
+And Moses, that truly great one in whose word the Jews trust so 
+implicitly, he also recognized the importance and truth of the matter. He puts 
+it thus: "There shall arise a star from Jacob and a man from 
+Israel, and he shall break in pieces the rulers of Moab.<note n="39" id="vii-p3.3"><scripRef passage="Numbers 24:17" id="vii-p3.4" parsed="|Num|24|17|0|0" osisRef="Bible:Num.24.17">Numbers xxiv. 17</scripRef></note>  
+And, again, 
+"How lovely are thy dwellings, O Jacob, thy tents, O 
+Israel! Like woodland valleys they give shade, and like parks by rivers, like 
+tents which the Lord has pitched, like cedar-trees by streams. There shall 
+come forth a Man from among his seed, and he shall rule over many peoples."<note n="40" id="vii-p3.5"><scripRef passage="Numbers 24:5-7" id="vii-p3.6" parsed="|Num|24|5|24|7" osisRef="Bible:Num.24.5-Num.24.7">Numbers xxiv. 5–7</scripRef></note>  
+And, again, Isaiah says, 
+"Before the Babe shall be old enough to call father or 
+mother, he shall take the power of Damascus and the spoils of Samaria from 
+under the eyes of the king of Assyria."<note n="41" id="vii-p3.7"><scripRef passage="Isaiah 8:4" id="vii-p3.8" parsed="|Isa|8|4|0|0" osisRef="Bible:Isa.8.4">Isaiah viii. 4</scripRef></note> 
+These words, then, foretell that a Man shall appear. And Scripture 
+proclaims further that He that is to come is Lord of all. These are the words, 
+"Behold, the Lord sitteth on an airy cloud and shall 
+come into Egypt, and the man-made images of Egypt shall be shaken."<note n="42" id="vii-p3.9"><scripRef passage="Isaiah 19:1" id="vii-p3.10" parsed="|Isa|19|1|0|0" osisRef="Bible:Isa.19.1">Isaiah xix. 1</scripRef></note>  
+And it is from Egypt also that the Father calls him back, saying, 
+"Out of Egypt have I called My Son."<note n="43" id="vii-p3.11"><scripRef passage="Hosea 11:1" id="vii-p3.12" parsed="|Hos|11|1|0|0" osisRef="Bible:Hos.11.1">Hosea xi. 1</scripRef></note></p> 
+<p id="vii-p4"><b>(34)</b> Moreover, the Scriptures are not silent even about 
+His death. On the contrary, they refer to it with the utmost clearness. They 
+have not feared to speak also of the cause of it. He endures it, they say, not 
+for His own sake, but for the sake of bringing immortality and salvation to all, 
+and they record also the plotting of the Jews against Him and all the 
+indignities which He suffered at their hands. Certainly nobody who reads the 
+Scriptures can plead ignorance of the facts as an excuse for error! There is 
+this passage, for instance: 
+"A man that is afflicted and knows how to bear 
+weakness, for His face is turned away. He was dishonored and not considered, 
+He bears our sins and suffers for our sakes. And we for our part thought Him 
+distressed and afflicted and ill-used; but it was for our sins that He was 
+wounded and for our lawlessness that He was made weak. Chastisement for our 
+peace was upon Him, and by His bruising we are healed."<note n="44" id="vii-p4.1"><scripRef passage="Isaiah 53:3-5" id="vii-p4.2" parsed="|Isa|53|3|53|5" osisRef="Bible:Isa.53.3-Isa.53.5">Isaiah liii. 3–5</scripRef></note>  
+O marvel at the love of the Word for men, for it is on 
+our account that He is dishonored, so that we may be brought to honor. 
+"For all we," it goes on, "have strayed like sheep, man has 
+strayed from his path, and the Lord has given Him up for our sins; and He 
+Himself did not open His mouth at the ill-treatment. Like a sheep He was led 
+to slaughter, and as a lamb is dumb before its shearer, so He opened not His 
+mouth; in His humiliation His judgment was taken away."<note n="45" id="vii-p4.3"><scripRef passage="Isaiah 53:6-8" id="vii-p4.4" parsed="|Isa|53|6|53|8" osisRef="Bible:Isa.53.6-Isa.53.8">Isaiah liii. 6–8</scripRef></note>  
+And then Scripture anticipates the surmises of any who might think 
+from His suffering thus that He was just an ordinary man, and shows what power 
+worked in His behalf. 
+"Who shall declare of what lineage He comes?" it says, "for His life is exalted from the earth. By the lawlessnesses of the people 
+was He brought to death, and I will give the wicked in return for His burial 
+and the rich in return for His death. For He did no lawlessness, neither was 
+deceit found in His mouth. And the Lord wills to heal Him of His 
+affliction."<note n="46" id="vii-p4.5"><scripRef passage="Isaiah 53:8-10" id="vii-p4.6" parsed="|Isa|53|8|53|10" osisRef="Bible:Isa.53.8-Isa.53.10">Isaiah liii. 8–10</scripRef></note></p> 
+<p id="vii-p5"><b>(35)</b> You have heard the prophecy of His death, and now, 
+perhaps, you want to know what indications there are about the cross. Even this 
+is not passed over in silence: on the contrary, the sacred writers proclaim it 
+with the utmost plainness. Moses foretells it first, and that right loudly, when 
+he says, 
+"You shall see your Life hanging before your eyes, and 
+shall not believe."<note n="47" id="vii-p5.1"><scripRef passage="Deuteronomy 28:66" id="vii-p5.2" parsed="|Deut|28|66|0|0" osisRef="Bible:Deut.28.66">Deut. xxviii. 66</scripRef></note> 
+After him the prophets also give their witness, saying, 
+"But I as an innocent lamb brought to be offered was 
+yet ignorant of it. They plotted evil against Me, saying, 'Come, let us cast 
+wood into His bread, and wipe Him out from the land of the living."<note n="48" id="vii-p5.3"><scripRef passage="Jeremiah 11:19" id="vii-p5.4" parsed="|Jer|11|19|0|0" osisRef="Bible:Jer.11.19">Jer. xi. 19</scripRef></note> 
+And, again, 
+"They pierced My hands and My feet, they counted all 
+My bones, they divided My garments for themselves and cast lots for My 
+clothing."<note n="49" id="vii-p5.5"><scripRef passage="Psalm 22:16-18" id="vii-p5.6" parsed="|Ps|22|16|22|18" osisRef="Bible:Ps.22.16-Ps.22.18">Psalm  xxii. 16–18</scripRef></note>
+Now a death lifted up and that takes place on wood can be none 
+other than the death of the cross; moreover, it is only in that death that the 
+hands and feet are pierced. Besides this, since the Savior dwelt among men, all 
+nations everywhere have begun to know God; and this too Holy Writ expressly 
+mentions. "There shall be the Root of Jesse," it says, 
+"and he who rises up to rule the nations, on Him nations 
+shall set their hope."<note n="50" id="vii-p5.7"><scripRef passage="Isaiah 11:10" id="vii-p5.8" parsed="|Isa|11|10|0|0" osisRef="Bible:Isa.11.10">Isaiah xi. 10</scripRef></note></p>
+
+<p id="vii-p6">These are just a few things in proof of what has taken place; but indeed all 
+Scripture teems with disproof of Jewish unbelief. For example, which of the 
+righteous men and holy prophets and patriarchs of whom the Divine Scriptures 
+tell ever had his bodily birth from a virgin only? Was not Abel born of Adam, 
+Enoch of Jared, Noah of Lamech, Abraham of Terah, Isaac of Abraham, and Jacob of 
+Isaac? Was not Judah begotten by Jacob and Moses and Aaron by Ameram? Was not 
+Samuel the son of Elkanah, David of Jesse, Solomon of David, Hezekiah of Ahaz, 
+Josiah of Amon, Isaiah of Amos, Jeremiah of Hilkiah and Ezekiel of Buzi? Had not 
+each of these a father as author of his being? So who is He that is born of a 
+virgin only, that sign of which the prophet makes so much? Again, which of all 
+those people had his birth announced to the world by a star in the heavens? When 
+Moses was born his parents hid him. David was unknown even in his own 
+neighborhood, so that mighty Samuel himself was ignorant of his existence and 
+asked whether Jesse had yet another son. Abraham again became known to his 
+neighbors as a great man only after his birth. But with Christ it was otherwise. 
+The witness to His birth was not man, but a star shining in the heavens whence 
+He was coming down.</p>
+<p id="vii-p7"><b>(36)</b> Then, again, what king that ever was reigned and 
+took trophies from his enemies before he had strength to call father or mother? 
+Was not David thirty years old when he came to the throne and Solomon a grown 
+young man? Did not Joash enter on his reign at the age of seven, and Josiah, 
+some time after him, at about the same age, both of them fully able by that time 
+to call father or mother? Who is there, then, that was reigning and despoiling 
+his enemies almost before he was born? Let the Jews, who have investigated the 
+matter, tell us if there was ever such a king in Israel or Judah—a king upon 
+whom all the nations set their hopes and had peace, instead of being at enmity 
+with him on every side! As long as Jerusalem stood there was constant war 
+between them, and they all fought against Israel. The Assyrians oppressed 
+Israel, the Egyptians persecuted them, the Babylonians fell upon them, and, 
+strange to relate, even the Syrians their neighbors were at war with them. And 
+did not David fight with Moab and smite the Syrians, and Hezekiah quail at the 
+boasting of Sennacherib? Did not Amalek make war on Moses and the Amorites 
+oppose him, and did not the inhabitants of Jericho array themselves against 
+Joshua the son of Nun? Did not the nations always regard Israel with implacable 
+hostility? Then it is worth inquiring who it is, on whom the nations are to set 
+their hopes. Obviously there must be someone, for the prophet could not have 
+told a lie. But did any of the holy prophets or of the early patriarchs die on 
+the cross for the salvation of all? Was any of them wounded and killed for the 
+healing of all? Did the idols of Egypt fall down before any righteous man or 
+king that came there? Abraham came there certainly, but idolatry prevailed just 
+the same; and Moses was born there, but the mistaken worship was unchanged.</p>
+<p id="vii-p8"><b>(37)</b> Again, does Scripture tell of anyone who was 
+pierced in hands and feet or hung upon a tree at all, and by means of a cross 
+perfected his sacrifice for the salvation of all? It was not Abraham, for he 
+died in his bed, as did also Isaac and Jacob. Moses and Aaron died in the 
+mountain, and David ended his days in his house, without anybody having plotted 
+against him. Certainly he had been sought by Saul, but he was preserved 
+unharmed. Again Isaiah was sawn asunder, but he was not hung on a tree. Jeremiah 
+was shamefully used, but he did not die under condemnation. Ezekiel suffered, 
+but he did so, not on behalf of the people, but only to signify to them what was 
+going to happen. Moreover, all these even when they suffered were but men, like 
+other men; but He Whom the Scriptures declare to suffer on behalf of all is 
+called not merely man but Life of all, although in point of fact He did share 
+our human nature. "You shall see your Life hanging before your 
+eyes," they say, and "Who shall declare of what lineage He 
+comes?" With all the saints we can trace their descent from the 
+beginning, and see exactly how each came to be; but the Divine Word maintains 
+that we cannot declare the lineage of Him Who is the Life. Who is it, then, of 
+Whom Holy Writ thus speaks? Who is there so great that even the prophets 
+foretell of Him such mighty things? There is indeed no one in the Scriptures at 
+all, save the common Savior of all, the Word of God, our Lord Jesus Christ. He 
+it is that proceeded from a virgin, and appeared as man on earth, He it is Whose 
+earthly lineage cannot be declared, because He alone derives His body from no 
+human father, but from a virgin alone. We can trace the paternal descent of 
+David and Moses and of all the patriarchs. But with the Savior we cannot do so, 
+for it was He Himself Who caused the star to announce His bodily birth, and it 
+was fitting that the Word, when He came down from heaven, should have His sign 
+in heaven too, and fitting that the King of creation on His coming forth should 
+be visibly recognized by all the world. He was actually born in Judea, yet men 
+from Persia came to worship Him. He it is Who won victory from His demon foes 
+and trophies from the idolaters even before His bodily appearing—namely, all 
+the heathen who from every region have abjured the tradition of their fathers 
+and the false worship of idols and are now placing their hope in Christ and 
+transferring their allegiance to Him. The thing is happening before our very 
+eyes, here in Egypt; and thereby another prophecy is fulfilled, for at no other 
+time have the Egyptians ceased from their false worship save when the Lord of 
+all, riding as on a cloud, came down here in the body and brought the error of 
+idols to nothing and won over everybody to Himself and through Himself to the 
+Father. He it is Who was crucified with the sun and moon as witnesses; and by 
+His death salvation has come to all men, and all creation has been redeemed. He 
+is the Life of all, and He it is Who like a sheep gave up His own body to death, 
+His life for ours and our salvation.</p>
+<p id="vii-p9"><b>(38)</b> Yet the Jews disbelieve this. This argument does 
+not satisfy them. Well, then, let them be persuaded by other things in their own 
+oracles. Of whom, for instance, do the prophets say 
+"I was made manifest to those who did not seek Me, I 
+was found by those who had not asked for Me? I said, 'See, here am I,' to the 
+nation that had not called upon My Name. I stretched out My hands to a 
+disobedient and gainsaying people."<note n="51" id="vii-p9.1"><scripRef passage="Isaiah 65:1,2" id="vii-p9.2" parsed="|Isa|65|1|65|2" osisRef="Bible:Isa.65.1-Isa.65.2">Isaiah lxv. 1, 2</scripRef></note> 
+Who is this person that was made manifest, one might ask the Jews? 
+If the prophet is speaking of himself, then they must tell us how he was first 
+hidden, in order to be manifested afterwards. And, again, what kind of man is 
+this prophet, who was not only revealed after being hidden, but also stretched 
+out his hands upon the cross? Those things happened to none of those righteous 
+men: they happened only to the Word of God Who, being by nature without body, on 
+our account appeared in a body and suffered for us all. And if even this is not 
+enough for them, there is other overwhelming evidence by which they may be 
+silenced. The Scripture says, 
+"Be strong, hands that hang down and feeble knees, 
+take courage, you of little faith, be strong and do not fear. See, our God 
+will recompense judgment, He Himself will come and save us. Then the eyes of 
+blind men shall be opened and the ears of deaf men shall hear, and stammerers 
+shall speak distinctly."<note n="52" id="vii-p9.3"><scripRef passage="Isaiah 35:3-6" id="vii-p9.4" parsed="|Isa|35|3|35|6" osisRef="Bible:Isa.35.3-Isa.35.6">Isaiah xxxv. 3–6</scripRef></note> 
+What can they say to this, or how can they look it in the face at 
+all? For the prophecy does not only declare that God will dwell here, it also 
+makes known the signs and the time of His coming. When God comes, it says, the 
+blind will see, the lame will walk, the deaf will hear and the stammerers will 
+speak distinctly. Can the Jews tell us when such signs occurred in Israel, or 
+when anything of the kind took place at all in Jewry? The leper Naaman was 
+cleansed, it is true, but no deaf man heard nor did any lame man walk. Elijah 
+raised a dead person and so did Elisha; but no one blind from birth received his 
+sight. To raise a dead person is a great thing indeed, but it is not such as the 
+Savior did. And surely, since the Scriptures have not kept silence about the 
+leper and the dead son of the widow, if a lame man had walked and a blind man 
+had received his sight, they would have mentioned these as well. Their silence 
+on these points proves that the events never took place. When therefore did 
+these things happen, unless when the Word of God Himself came in the body? Was 
+it not when He came that lame men walked and stammerers spoke clearly and men 
+blind from birth were given sight? And the Jews who saw it themselves testified 
+to the fact that such things had never before occurred. "Since the world 
+began," they said, 
+"it has never been heard of that anyone should open 
+the eyes of a man born blind. If this Man were not from God, He could do 
+nothing."<note n="53" id="vii-p9.5"><scripRef passage="John 9:32,33" id="vii-p9.6" parsed="|John|9|32|9|33" osisRef="Bible:John.9.32-John.9.33">John ix. 32, 33</scripRef></note></p>
+<p id="vii-p10"><b>(39)</b> But surely they cannot fight against plain facts. 
+So it may be that, without denying what is written, they will maintain that they 
+are still waiting for these things to happen, and that the Word of God is yet to 
+come, for that is a theme on which they are always harping most brazenly, in 
+spite of all the evidence against them. But they shall be refuted on this 
+supreme point more clearly than on any, and that not by ourselves but by the 
+most wise Daniel, for he signifies the actual date of the Savior's coming as 
+well as His Divine sojourn in our midst. "Seventy weeks," he 
+says, 
+"are cut short upon thy people and upon the holy city, 
+to make a complete end of sin and for sins to be sealed up and iniquities 
+blotted out, and to make reconciliation for iniquity and to seal vision and 
+prophet, and to anoint a Holy One of holies. And thou shalt know and 
+understand from the going forth of the Word to answer,<note n="54" id="vii-p10.1">"Answer" is LXX misreading for Hebrew "restore."</note> 
+and to build Jerusalem, until Christ the Prince."<note n="55" id="vii-p10.2"><scripRef passage="Daniel 9:24,25" id="vii-p10.3" parsed="|Dan|9|24|9|25" osisRef="Bible:Dan.9.24-Dan.9.25">Daniel ix. 24, 25</scripRef></note> 
+In regard to the other prophecies, they may possibly be able to 
+find excuses for deferring their reference to a future time, but what can they 
+say to this one? How can they face it at all? Not only does it expressly mention 
+the Anointed One, that is the Christ, it even declares that He Who is to be 
+anointed is not man only, but the Holy One of holies! And it says that Jerusalem 
+is to stand till His coming, and that after it prophet and vision shall cease in 
+Israel! David was anointed of old, and Solomon, and Hezekiah; but then Jerusalem 
+and the place stood, and prophets were prophesying, Gad and Asaph and Nathan, 
+and later Isaiah and Hosea and Amos and others. Moreover, those men who were 
+anointed were called holy certainly, but none of them was called the Holy of 
+holies. Nor is it any use for the Jews to take refuge in the Captivity, and say 
+that Jerusalem did not exist then, for what about the prophets? It is a fact 
+that at the outset of the Exile Daniel and Jeremiah were there, and Ezekiel and 
+Haggai and Zechariah also prophesied.</p>
+<p id="vii-p11"><b>(40)</b> So the Jews are indulging in fiction, and 
+transferring present time to future. When did prophet and vision cease from 
+Israel? Was it not when Christ came, the Holy One of holies? It is, in fact, a 
+sign and notable proof of the coming of the Word that Jerusalem no longer 
+stands, neither is prophet raised up nor vision revealed among them. And it is 
+natural that it should be so, for when He that was signified had come, what need 
+was there any longer of any to signify Him? And when the Truth had come, what 
+further need was there of the shadow? On His account only they prophesied 
+continually, until such time as Essential Righteousness has come, Who was made 
+the Ransom for the sins of all. For the same reason Jerusalem stood until the 
+same time, in order that there men might premeditate the types before the Truth 
+was known. So, of course, once the Holy One of holies had come, both vision and 
+prophecy were sealed. And the kingdom of Jerusalem ceased at the same time, 
+because kings were to be anointed among them only until the Holy of holies had 
+been anointed. Moses also prophesies that the kingdom of the Jews shall stand 
+until His time, saying, 
+"A ruler shall not fail from Judah nor a prince from 
+his loins, until the things laid up for him shall come and the Expectation of 
+the nations Himself."<note n="56" id="vii-p11.1"><scripRef passage="Genesis 49:10" id="vii-p11.2" parsed="|Gen|49|10|0|0" osisRef="Bible:Gen.49.10">Gen.  xlix. 10</scripRef></note>  
+And that is why the Savior Himself was always proclaiming 
+"The law and the prophets prophesied until John."<note n="57" id="vii-p11.3"><scripRef passage="Matthew 11:13" id="vii-p11.4" parsed="|Matt|11|13|0|0" osisRef="Bible:Matt.11.13">Matt. xi. 13</scripRef></note> 
+So if there is still king or prophet or vision among the <i>Jews</i>, they 
+do well to deny that Christ is come; but if there is neither king nor vision, 
+and since that time all prophecy has been sealed and city and temple taken, how 
+can they be so irreligious, how can they so flaunt the facts, as to deny Christ 
+Who has brought it all about? Again, they see the heathen forsaking idols and 
+setting their hopes through Christ on the God of Israel; why do they yet deny 
+Christ Who after the flesh was born of the root of Jesse and reigns 
+henceforward? Of course, if the heathen were worshipping some other god, and not 
+confessing the God of Abraham and Isaac and Jacob and Moses, then they would do 
+well to argue that God had not come. But if the heathen are honoring the same 
+God Who gave the law to Moses and the promises to Abraham—the God Whose word 
+too the Jews dishonored, why do they not recognize or rather why do they 
+deliberately refuse to see that the Lord of Whom the Scriptures prophesied has 
+shone forth to the world and appeared to it in a bodily form? Scripture declares 
+it repeatedly. "The Lord God has appeared to 
+us,"<note n="58" id="vii-p11.5"><scripRef passage="Psalm 118:27" id="vii-p11.6" parsed="|Ps|118|27|0|0" osisRef="Bible:Ps.118.27">Psalm  cxviii. 27</scripRef></note> 
+and again, "He sent forth His Word and healed 
+them."<note n="59" id="vii-p11.7"><scripRef passage="Psalm 107:20" id="vii-p11.8" parsed="|Ps|107|20|0|0" osisRef="Bible:Ps.107.20">Psalm  cvii. 20</scripRef></note> 
+And again, "It was no ambassador, no angel who saved us, but 
+the Lord Himself."<note n="60" id="vii-p11.9"><scripRef passage="Isaiah 63:9" id="vii-p11.10" parsed="|Isa|63|9|0|0" osisRef="Bible:Isa.63.9">Isaiah lxiii. 9</scripRef></note> 
+The Jews are afflicted like some demented person who sees the earth lit up by 
+the sun, but denies the sun that lights it up! What more is there for their 
+Expected One to do when he comes? To call the heathen? But they are called 
+already. To put an end to prophet and king and vision? But this too has already 
+happened. To expose the Goddenyingness of idols? It is already exposed and 
+condemned. Or to destroy death? It is already destroyed. What then has not come 
+to pass that the Christ must do? What is there left out or unfulfilled that the 
+Jews should disbelieve so light-heartedly? The plain fact is, as I say, that 
+there is no longer any king or prophet nor Jerusalem nor sacrifice nor vision 
+among them; yet the whole earth is filled with the knowledge of God, and the 
+Gentiles, forsaking atheism, are now taking refuge with the God of Abraham 
+through the Word, our Lord Jesus Christ.</p>
+<p id="vii-p12">Surely, then, it must be plain even to the most shameless that the Christ has 
+come, and that He has enlightened all men everywhere, and given them the true 
+and divine teaching about His Father.</p>
+<p id="vii-p13">Thus the Jews may be refuted by these and other arguments from the Divine 
+teaching.</p>
+</div1>
+
+<div1 type="chapter" title="Chapter 7. Refutation of the Gentiles" progress="70.15%" prev="vii" next="ix" id="viii">
+<h2 id="viii-p0.1">Chapter 7</h2>
+<p style="margin-left:-.25in; margin-bottom:24pt; text-align:center; font-size:large; font-weight:bold" id="viii-p1"><i>Refutation of the Gentiles</i></p>
+
+<p id="viii-p2"><b>(41)</b> We come now to the unbelief of the Gentiles; and 
+this is indeed a matter for complete astonishment, for they laugh at that which 
+is no fit subject for mockery, yet fail to see the shame and ridiculousness of 
+their own idols. But the arguments on our side do not lack weight, so we will 
+confute them too on reasonable grounds, chiefly from what we ourselves also see. 
+</p>
+<p id="viii-p3">First of all, what is there in our belief that is unfitting or ridiculous? Is 
+it only that we say that the Word has been manifested in a body? Well, if they 
+themselves really love the truth, they will agree with us that this involved no 
+unfittingness at all. If they deny that there is a Word of God at all, that will 
+be extraordinary, for then they will be ridiculing what they do not know. But 
+suppose they confess that there is a Word of God, that He is the Governor of all 
+things, that in Him the Father wrought the creation, that by His providence the 
+whole receives light and life and being, and that He is King over all, so that 
+He is known by means of the works of His providence, and through Him the Father. 
+Suppose they confess all this, what then? Are they not unknowingly turning the 
+ridicule against themselves? The Greek philosophers say that the universe is a 
+great body, and they say truly, for we perceive the universe and its parts with 
+our senses. But if the Word of God is in the universe, which is a body, and has 
+entered into it in its every part, what is there surprising or unfitting in our 
+saying that He has entered also into human nature? If it were unfitting for Him 
+to have embodied Himself at all, then it would be unfitting for Him to have 
+entered into the universe, and to be giving light and movement by His providence 
+to all things in it, because the universe, as we have seen, is itself a body. 
+But if it is right and fitting for Him to enter into the universe and to reveal 
+Himself through it, then, because humanity is part of the universe along with 
+the rest, it is no less fitting for Him to appear in a human body, and to 
+enlighten and to work through that. And surely if it were wrong for a part of 
+the universe to have been used to reveal His Divinity to men, it would be much 
+more wrong that He should be so revealed by the whole!</p>
+<p id="viii-p4"><b>(42)</b> Take a parallel case. A man's personality actuates 
+and quickens his whole body. If anyone said it was unsuitable for the man's 
+power to be in the toe, he would be thought silly, because, while granting that 
+a man penetrates and actuates the whole of his body, he denied his presence in 
+the part. Similarly, no one who admits the presence of the Word of God in the 
+universe as a whole should think it unsuitable for a single human body to be by 
+Him actuated and enlightened.</p>
+<p id="viii-p5">But is it, perhaps, because humanity is a thing created and brought into 
+being out of non-existence that they regard as unfitting the manifestation of 
+the Savior in our nature? If so, it is high time that they spurned Him from 
+creation too; for it, too, has been brought out of non-being into being by the 
+Word. But if, on the other hand, although creation is a thing that has been 
+made, it is not unsuitable for the Word to be present in it, then neither is it 
+unsuitable for Him to be in man. Man is a part of the creation, as I said 
+before; and the reasoning which applies to one applies to the other. All things 
+derive from the Word their light and movement and life, as the Gentile authors 
+themselves say, "In Him we live and move and have our 
+being."<note n="61" id="viii-p5.1">See <scripRef passage="Acts 17:28" id="viii-p5.2" parsed="|Acts|17|28|0|0" osisRef="Bible:Acts.17.28">Acts xvii. 28</scripRef></note> 
+Very well then. That being so, it is by no means unbecoming that the Word should 
+dwell in man. So if, as we say, the Word has used that in which He is as the 
+means of His self-manifestation, what is there ridiculous in that? He could not 
+have used it had He not been present in it; but we have already admitted that He 
+is present both in the whole and in the parts. What, then, is there incredible 
+in His manifesting Himself through that in which He is? By His own power He 
+enters completely into each and all, and orders them throughout ungrudgingly; 
+and, had He so willed, He could have revealed Himself and His Father by means of 
+sun or moon or sky or earth or fire or water. Had He done so, no one could 
+rightly have accused Him of acting unbecomingly, for He sustains in one whole 
+all things at once, being present and invisibly revealed not only in the whole, 
+but also in each particular part. This being so, and since, moreover, He has 
+willed to reveal Himself through men, who are part of the whole, there can be 
+nothing ridiculous in His using a human body to manifest the truth and knowledge 
+of the Father. Does not the mind of man pervade his entire being, and yet find 
+expression through one part only, namely the tongue? Does anybody say on that 
+account that Mind has degraded itself? Of course not. Very well, then, no more 
+is it degrading for the Word, Who pervades all things, to have appeared in a 
+human body. For, as I said before, if it were unfitting for Him thus to indwell 
+the part, it would be equally so for Him to exist within the whole.</p>
+<p id="viii-p6"><b>(43)</b> Some may then ask, why did He not manifest Himself 
+by means of other and nobler parts of creation, and use some nobler instrument, 
+such as sun or moon or stars or fire or air, instead of mere man? The answer is 
+this. The Lord did not come to make a display. He came to heal and to teach 
+suffering men. For one who wanted to make a display the thing would have been 
+just to appear and dazzle the beholders. But for Him Who came to heal and to 
+teach the way was not merely to dwell here, but to put Himself at the disposal 
+of those who needed Him, and to be manifested according as they could bear it, 
+not vitiating the value of the Divine appearing by exceeding their capacity to 
+receive it.</p>
+<p id="viii-p7">Moreover, nothing in creation had erred from the path of God's purpose for 
+it, save only man. Sun, moon, heaven, stars, water, air, none of these had 
+swerved from their order, but, knowing the Word as their Maker and their King, 
+remained as they were made. Men alone having rejected what is good, have 
+invented nothings instead of the truth, and have ascribed the honor due to God 
+and the knowledge concerning Him to demons and men in the form of stones. 
+Obviously the Divine goodness could not overlook so grave a matter as this. But 
+men could not recognize Him as ordering and ruling creation as a whole. So what 
+does He do? He takes to Himself for instrument a part of the whole, namely a 
+human body, and enters into that. Thus He ensured that men should recognize Him 
+in the part who could not do so in the whole, and that those who could not lift 
+their eyes to His unseen power might recognize and behold Him in the likeness of 
+themselves. For, being men, they would naturally learn to know His Father more 
+quickly and directly by means of a body that corresponded to their own and by 
+the Divine works done through it; for by comparing His works with their own they 
+would judge His to be not human but Divine. And if, as they say, it were 
+unsuitable for the Word to reveal Himself through bodily acts, it would be 
+equally so for Him to do so through the works of the universe. His being in 
+creation does not mean that He shares its nature; on the contrary, all created 
+things partake of His power. Similarly, though He used the body as His 
+instrument, He shared nothing of its defect,<note n="62" id="viii-p7.1">Literally, "He shared nothing of the things of the body."</note> 
+but rather sanctified it by His indwelling. Does not even Plato, 
+of whom the Greeks think so much, say that the Author of the Universe, seeing it 
+storm-tossed and in danger of sinking into the state of dissolution, takes his 
+seat at the helm of the Life-force of the universe, and comes to the rescue and 
+puts everything right? What, then, is there incredible in our saying that, 
+mankind having gone astray, the Word descended upon it and was manifest as man, 
+so that by His intrinsic goodness and His steersmanship He might save it from 
+the storm?</p>
+<p id="viii-p8"><b>(44)</b> It may be, however, that, though shamed into 
+agreeing that this objection is void, the Greeks will want to raise another. 
+They will say that, if God wanted to instruct and save mankind, He might have 
+done so, not by His Word's assumption of a body, but, even as He at first 
+created them, by the mere signification of His will. The reasonable reply to 
+that is that the circumstances in the two cases are quite different. In the 
+beginning, nothing as yet existed at all; all that was needed, therefore, in 
+order to bring all things into being, was that His will to do so should be 
+signified. But once man was in existence, and things that were, not things that 
+were not, demanded to be healed, it followed as a matter of course that the 
+Healer and Savior should align Himself with those things that existed already, 
+in order to heal the existing evil. For that reason, therefore, He was made man, 
+and used the body as His human instrument. If this were not the fitting way, and 
+He willed to use an instrument at all, how otherwise was the Word to come? And 
+whence could He take His instrument, save from among those already in existence 
+and needing His Godhead through One like themselves? It was not things 
+non-existent that needed salvation, for which a bare creative word might have 
+sufficed, but man—man already in existence and already in process of corruption 
+and ruin. It was natural and right, therefore, for the Word to use a human 
+instrument and by that means unfold Himself to all.</p>
+<p id="viii-p9">You must know, moreover, that the corruption which had set in was not 
+external to the body but established within it. The need, therefore, was that 
+life should cleave to it in corruption's place, so that, just as death was 
+brought into being in the body, life also might be engendered in it. If death 
+had been exterior to the body, life might fittingly have been the same. But if 
+death was within the body, woven into its very substance and dominating it as 
+though completely one with it, the need was for Life to be woven into it 
+instead, so that the body by thus enduing itself with life might cast corruption 
+off. Suppose the Word had come outside the body instead of in it, He would, of 
+course, have defeated death, because death is powerless against the Life. But 
+the corruption inherent in the body would have remained in it none the less. 
+Naturally, therefore, the Savior assumed a body for Himself, in order that the 
+body, being interwoven as it were with life, should no longer remain a mortal 
+thing, in thrall to death, but as endued with immortality and risen from death, 
+should thenceforth remain immortal. For once having put on corruption, it could 
+not rise, unless it put on life instead; and besides this, death of its very 
+nature could not appear otherwise than in a body. Therefore He put on a body, so 
+that in the body He might find death and blot it out. And, indeed, how could the 
+Lord have been proved to be the Life at all, had He not endued with life that 
+which was subject to death? Take an illustration. Stubble is a substance 
+naturally destructible by fire; and it still remains stubble, fearing the menace 
+of fire which has the natural property of consuming it, even if fire is kept 
+away from it, so that it is not actually burnt. But suppose that, instead of 
+merely keeping the fire from it somebody soaks the stubble with a quantity of 
+asbestos, the substance which is said to be the antidote to fire. Then the 
+stubble no longer fears the fire, because it has put on that which fire cannot 
+touch, and therefore it is safe. It is just the same with regard to the body and 
+death. Had death been kept from it by a mere command, it would still have 
+remained mortal and corruptible, according to its nature. To prevent this, it 
+put on the incorporeal Word of God, and therefore fears neither death nor 
+corruption any more, for it is clad with Life as with a garment and in it 
+corruption is clean done away.</p>
+<p id="viii-p10"><b>(45)</b> The Word of God thus acted consistently in 
+assuming a body and using a human instrument to vitalize the body. He was 
+consistent in working through man to reveal Himself everywhere, as well as 
+through the other parts of His creation, so that nothing was left void of His 
+Divinity and knowledge. For I take up now the point I made before, namely that 
+the Savior did this in order that He might fill all things everywhere with the 
+knowledge of Himself, just as they are already filled with His presence, even as 
+the Divine Scripture says, 
+"The whole universe was filled with the knowledge of 
+the Lord."<note n="63" id="viii-p10.1"><scripRef passage="Isaiah 11:9" id="viii-p10.2" parsed="|Isa|11|9|0|0" osisRef="Bible:Isa.11.9">Isaiah xi. 9</scripRef></note> 
+If a man looks up to heaven he sees there His ordering; but if he 
+cannot look so high as heaven, but only so far as men, through His works he sees 
+His power, incomparable with human might, and learns from them that He alone 
+among men is God the Word. Or, if a man has gone astray among demons and is in 
+fear of them, he may see this Man drive them out and judge therefrom that He is 
+indeed their Master. Again, if a man has been immersed in the element of water 
+and thinks that it is God—as indeed the Egyptians do worship water—he may see 
+its very nature changed by Him and learn that the Lord is Creator of all. And if 
+a man has gone down even to Hades, and stands awestruck before the heroes who 
+have descended thither, regarding them as gods, still he may see the fact of 
+Christ's resurrection and His victory over death, and reason from it that, of 
+all these, He alone is very Lord and God.</p>
+<p id="viii-p11">For the Lord touched all parts of creation, and freed and undeceived them all 
+from every deceit. As St. Paul says, 
+"Having put off from Himself the principalities and the 
+powers, He triumphed on the cross,"<note n="64" id="viii-p11.1"><scripRef passage="Colossians 2:15" id="viii-p11.2" parsed="|Col|2|15|0|0" osisRef="Bible:Col.2.15">Col. ii. 15</scripRef></note> 
+
+so that no one could possibly be any longer deceived, but 
+everywhere might find the very Word of God. For thus man, enclosed on every side 
+by the works of creation and everywhere—in heaven, in Hades, in men and on the 
+earth, beholding the unfolded Godhead of the Word, is no longer deceived 
+concerning God, but worships Christ alone, and through Him rightly knows the 
+Father.</p>
+<p id="viii-p12">On these grounds, then, of reason and of principle, we will fairly silence 
+the Gentiles in their turn. But if they think these arguments insufficient to 
+confute them, we will go on in the next chapter to prove our point from facts.</p>
+</div1>
+
+<div1 type="chapter" title="Chapter 8. Refutation of the Gentiles—Continued" progress="81.06%" prev="viii" next="x" id="ix">
+<h2 id="ix-p0.1">Chapter 8</h2>
+<p style="margin-left:-.25in; margin-bottom:24pt; text-align:center; font-size:large; font-weight:bold" id="ix-p1"><i>Refutation of the Gentiles—continued</i></p>
+
+<p id="ix-p2"><b>(46)</b> When did people begin to abandon the worship of 
+idols, unless it were since the very Word of God came among men? When have 
+oracles ceased and become void of meaning, among the Greeks and everywhere, 
+except since the Savior has revealed Himself on earth? When did those whom the 
+poets call gods and heroes begin to be adjudged as mere mortals, except when the 
+Lord took the spoils of death and preserved incorruptible the body He had taken, 
+raising it from among the dead? Or when did the deceitfulness and madness of 
+demons fall under contempt, save when the Word, the Power of God, the Master of 
+all these as well, condescended on account of the weakness of mankind and 
+appeared on earth? When did the practice and theory of magic begin to be spurned 
+under foot, if not at the manifestation of the Divine Word to men? In a word, 
+when did the wisdom of the Greeks become foolish, save when the true Wisdom of 
+God revealed Himself on earth? In old times the whole world and every place in 
+it was led astray by the worship of idols, and men thought the idols were the 
+only gods that were. But now all over the world men are forsaking the fear of 
+idols and taking refuge with Christ; and by worshipping Him as God they come 
+through Him to know the Father also, Whom formerly they did not know. The 
+amazing thing, moreover, is this. The objects of worship formerly were varied 
+and countless; each place had its own idol and the so-called god of one place 
+could not pass over to another in order to persuade the people there to worship 
+him, but was barely reverenced even by his own. Indeed no! Nobody worshipped his 
+neighbor's god, but every man had his own idol and thought that it was lord of 
+all. But now Christ alone is worshipped, as One and the Same among all peoples 
+everywhere; and what the feebleness of idols could not do, namely, convince even 
+those dwelling close at hand, He has effected. He has persuaded not only those 
+close at hand, but literally the entire world to worship one and the same Lord 
+and through Him the Father.</p>
+<p id="ix-p3"><b>(47)</b> Again, in former times every place was full of the 
+fraud of the oracles, and the utterances of those at Delphi and Dordona and in 
+Boeotia and Lycia and Libya and Egypt and those of the Kabiri and the Pythoness 
+were considered marvelous by the minds of men. But now, since Christ has been 
+proclaimed everywhere, their madness too has ceased, and there is no one left 
+among them to give oracles at all. Then, too, demons used to deceive men's minds 
+by taking up their abode in springs or rivers or trees or stones and imposing 
+upon simple people by their frauds. But now, since the Divine appearing of the 
+Word, all this fantasy has ceased, for by the sign of the cross, if a man will 
+but use it, he drives out their deceits. Again, people used to regard as gods 
+those who are mentioned in the poets—Zeus and Kronos and Apollo and the 
+heroes, and in worshipping them they went astray. But now that the Savior has 
+appeared among men, those others have been exposed as mortal men, and Christ 
+alone is recognized as true God, Word of God, God Himself. And what is one to 
+say about the magic that they think so marvelous? Before the sojourn of the 
+Word, it was strong and active among Egyptians and Chaldeans and Indians and 
+filled all who saw it with terror and astonishment. But by the coming of the 
+Truth and the manifestation of the Word it too has been confuted and entirely 
+destroyed. As to Greek wisdom, however, and the philosophers' noisy talk, I 
+really think no one requires argument from us; for the amazing fact is patent to 
+all that, for all that they had written so much, the Greeks failed to convince 
+even a few from their own neighborhood in regard to immortality and the virtuous 
+ordering of life. Christ alone, using common speech and through the agency of 
+men not clever with their tongues, has convinced whole assemblies of people all 
+the world over to despise death, and to take heed to the things that do not die, 
+to look past the things of time and gaze on things eternal, to think nothing of 
+earthly glory and to aspire only to immortality.</p>
+<p id="ix-p4"><b>(48)</b> These things which we have said are no mere words: 
+they are attested by actual experience. Anyone who 
+likes may see the proof of glory in the virgins of Christ, and in the young 
+men who practice chastity as part of their religion, and in the assurance of 
+immortality in so great and glad a company<note n="65" id="ix-p4.1">Literally, "so great a chorus . . .". "choros" being properly a band of dancers and singers.</note> 
+of martyrs. Anyone, too, may put what we have said to the proof of 
+experience in another way. In the very presence of the fraud of demons and the 
+imposture of the oracles and the wonders of magic, let him use the sign of the 
+cross which they all mock at, and but speak the Name of Christ, and he shall see 
+how through Him demons are routed, oracles cease, and all magic and witchcraft 
+is confounded.</p>
+<p id="ix-p5">Who, then, is this Christ and how great is He, Who by His Name and presence 
+overshadows and confounds all things on every side, Who alone is strong against 
+all and has filled the whole world with His teaching? Let the Greeks tell us, 
+who mock at Him without stint or shame. If He is a man, how is it that one man 
+has proved stronger than all those whom they themselves regard as gods, and by 
+His own power has shown them to be nothing? If they call Him a magician, how is 
+it that by a magician all magic is destroyed, instead of being rendered strong? 
+Had He conquered certain magicians or proved Himself superior to one of them 
+only, they might reasonably think that He excelled the rest only by His greater 
+skill. But the fact is that His cross has vanquished all magic entirely and has 
+conquered the very name of it. Obviously, therefore, the Savior is no magician, 
+for the very demons whom the magicians invoke flee from Him as from their 
+Master. Who is He, then? Let the Greeks tell us, whose only serious pursuit is 
+mockery! Perhaps they will say that He, too, is a demon, and that is why He 
+prevailed. But even so the laugh is still on our side. for we can confute them 
+by the same proofs as before. How could He be a demon, Who drives demons out? If 
+it were only certain ones that He drove out, then they might reasonably think 
+that He prevailed against them through the power of their Chief, as the Jews, 
+wishing to insult Him, actually said. But since the fact is, here again, that at 
+the mere naming of His Name all madness of the demons is rooted out and put to 
+flight, obviously the Greeks are wrong here, too, and our Lord and Savior Christ 
+is not, as they maintain, some demonic power.</p>
+<p id="ix-p6">If, then, the Savior is neither a mere man nor a magician, nor one of the 
+demons, but has by His Godhead confounded and overshadowed the opinions of the 
+poets and the delusion of the demons and the wisdom of the Greeks, it must be 
+manifest and will be owned by all that He is in truth Son of God, Existent Word 
+and Wisdom and Power of the Father. This is the reason why His works are no mere 
+human works, but, both intrinsically and by comparison with those of men, are 
+recognized as being superhuman and truly the works of God.</p>
+<p id="ix-p7"><b>(49)</b> What man that ever was, for instance, formed a 
+body for himself from a virgin only? Or what man ever healed so many diseases as 
+the common Lord of all? Who restored that which was lacking in man's nature or 
+made one blind from birth to see? Aesculapius was deified by the Greeks because 
+he practiced the art of healing and discovered herbs as remedies for bodily 
+diseases, not, of course, forming them himself out of the earth, but finding 
+them out by the study of nature. But what is that in comparison with what the 
+Savior did when, instead of just healing a wound, He both fashioned essential 
+being and restored to health the thing that He had formed? Hercules, too, is 
+worshipped as a god by the Greeks because he fought against other men and 
+destroyed wild animals by craft. But what is that to what the Word did, in 
+driving away from men diseases and demons and even death itself? Dionysus is 
+worshipped among them, because he taught men drunkenness; yet they ridicule the 
+true Savior and Lord of all, Who taught men temperance.</p>
+<p id="ix-p8">That, however, is enough on this point. What will they say to the other 
+marvels of His Godhead? At what man's death was the sun darkened and the earth 
+shaken? Why, even to this day men are dying, and they did so also before that 
+time. When did any such marvels happen in their case? Now shall we pass over the 
+deeds done in His earthly body and mention those after His resurrection? Has any 
+man's teaching, in any place or at any time, ever prevailed everywhere as one 
+and the same, from one end of the earth to the other, so that his worship has 
+fairly flown through every land? Again, if, as they say, Christ is man only and 
+not God the Word, why do not the gods of the Greeks prevent His entering their 
+domains? Or why, on the other hand, does the Word Himself dwelling in our midst 
+make an end of their worship by His teaching and put their fraud to shame?</p>
+<p id="ix-p9"><b>(50)</b> Many before Him have been kings and tyrants of the 
+earth, history tells also of many among the Chaldeans and Egyptians and Indians 
+who were wise men and magicians. But which of those, I do not say after his 
+death, but while yet in this life, was ever able so far to prevail as to fill 
+the whole world with his teaching and retrieve so great a multitude from the 
+craven fear of idols, as our Savior has won over from idols to Himself? The 
+Greek philosophers have compiled many works with persuasiveness and much skill 
+in words; but what fruit have they to show for this such as has the cross of 
+Christ? Their wise thoughts were persuasive enough until they died; yet even in 
+their life-time their seeming influence was counterbalanced by their rivalry 
+with one another, for they were a jealous company and declaimed against each 
+other. But the Word of God, by strangest paradox, teaching in meaner language, 
+has put the choicest sophists in the shade, and by confounding their teachings 
+and drawing all men to Himself He has filled His own assemblies. Moreover, and 
+this is the marvelous thing by going down as Man to death He has confounded all 
+the sounding utterances of the wise men about the idols. For whose death ever 
+drove out demons, or whose death did ever demons fear, save that of Christ? For 
+where the Savior is named, there every demon is driven out. Again, who has ever 
+so rid men of their natural passions that fornicators become chaste and 
+murderers no longer wield the sword and those who formerly were craven cowards 
+boldly play the man? In a word, what persuaded the barbarians and heathen folk 
+in every place to drop their madness and give heed to peace, save the faith of 
+Christ and the sign of the cross? What other things have given men such certain 
+faith in immortality as have the cross of Christ and the resurrection of His 
+body? The Greeks told all sorts of false tales, but they could never pretend 
+that their idols rose again from death: indeed it never entered their heads that 
+a body could exist again after death at all. And one would be particularly ready 
+to listen to them on this point, because by these opinions they have exposed the 
+weakness of their own idolatry, at the same time yielding to Christ the 
+possibility of bodily resurrection, so that by that means He might be recognized 
+by all as Son of God.</p>
+<p id="ix-p10"><b>(51)</b> Again, who among men, either after his death or 
+while yet living, taught about virginity and did not account this virtue 
+impossible for human beings? But Christ our Savior and King of all has so 
+prevailed with His teaching on this subject that even children not yet of lawful 
+age promise that virginity which transcends the law. And who among men has ever 
+been able to penetrate even to Scythians and Ethiopians, or Parthians or 
+Armenians or those who are said to live beyond Hyrcania, or even the Egyptians 
+and Chaldeans, people who give heed to magic and are more than naturally 
+enslaved by the fear of demons and savage in their habits, and to preach at all 
+about virtue and self-control and against the worshipping of idols, as has the 
+Lord of all, the Power of God, our Lord Jesus Christ? Yet He not only preached 
+through His own disciples, but also wrought so persuasively on men's 
+understanding that, laying aside their savage habits and forsaking the worship 
+of their ancestral gods, they learnt to know Him and through Him to worship the 
+Father. While they were yet idolaters, the Greeks and Barbarians were always at 
+war with each other, and were even cruel to their own kith and kin. Nobody could 
+travel by land or sea at all unless he was armed with swords, because of their 
+irreconcilable quarrels with each other. Indeed, the whole course of their life 
+was carried on with the weapons, and the sword with them replaced the staff and 
+was the mainstay of all aid. All this time, as I said before, they were serving 
+idols and offering sacrifices to demons, and for all the superstitious awe that 
+accompanied this idol worship, nothing could wean them from that warlike spirit. 
+But, strange to relate, since they came over to the school of Christ, as men 
+moved with real compunction they have laid aside their murderous cruelty and are 
+war-minded no more. On the contrary, all is peace among them and nothing remains 
+save desire for friendship.</p>
+<p id="ix-p11"><b>(52)</b> Who, then, is He Who has done these things and has 
+united in peace those who hated each other, save the beloved Son of the Father, 
+the common Savior of all, Jesus Christ, Who by His own love underwent all things 
+for our salvation? Even from the beginning, moreover, this peace that He was to 
+administer was foretold, for Scripture says, 
+"They shall beat their swords into ploughshares and 
+their spears into sickles, and nation shall not take sword against nation, 
+neither shall they learn any more to wage war."<note n="66" id="ix-p11.1"><scripRef passage="Isaiah 2:4" id="ix-p11.2" parsed="|Isa|2|4|0|0" osisRef="Bible:Isa.2.4">Isaiah ii. 4</scripRef></note> 
+
+Nor is this by any means incredible.</p>
+<p id="ix-p12">The barbarians of the present day are naturally savage in their habits, and 
+as long as they sacrifice to their idols they rage furiously against each other 
+and cannot bear to be a single hour without weapons. But when they hear the 
+teaching of Christ, forthwith they turn from fighting to farming, and instead of 
+arming themselves with swords extend their hands in prayer. In a word, instead 
+of fighting each other, they take up arms against the devil and the demons, and 
+overcome them by their selfcommand and integrity of soul. These facts are proof 
+of the Godhead of the Savior, for He has taught men what they could never learn 
+among the idols. It is also no small exposure of the weakness and nothingness of 
+demons and idols, for it was because they knew their own weakness that the 
+demons were always setting men to fight each other, fearing lest, if they ceased 
+from mutual strife, they would turn to attack the demons themselves. For in 
+truth the disciples of Christ, instead of fighting each other, stand arrayed 
+against demons by their habits and virtuous actions, and chase them away and 
+mock at their captain the devil. Even in youth they are chaste, they endure in 
+times of testing and persevere in toils. When they are insulted, they are 
+patient, when robbed they make light of it, and, marvelous to relate, they make 
+light even of death itself, and become martyrs of Christ.</p>
+<p id="ix-p13"><b>(53)</b> And here is another proof of the Godhead of the 
+Savior, which is indeed utterly amazing. What mere man or magician or tyrant or 
+king was ever able by himself to do so much? Did anyone ever fight against the 
+whole system of idol-worship and the whole host of demons and all magic and all 
+the wisdom of the Greeks, at a time when all of these were strong and 
+flourishing and taking everybody in, as did our Lord, the very Word of God? Yet 
+He is even now invisibly exposing every man's error, and single-handed is 
+carrying off all men from them all, so that those who used to worship idols now 
+tread them under foot, reputed magicians burn their books and the wise prefer to 
+all studies the interpretation of the gospels. They are deserting those whom 
+formerly they worshipped, they worship and confess as Christ and God Him Whom 
+they used to ridicule as crucified. Their so-called gods are routed by the sign 
+of the cross, and the crucified Savior is proclaimed in all the world as God and 
+Son of God. Moreover, the gods worshipped among the Greeks are now falling into 
+disrepute among them on account of the disgraceful things they did, for those 
+who receive the teaching of Christ are more chaste in life than they. If these, 
+and the like of them, are human works, let anyone who will show us similar ones 
+done by men in former time, and so convince us. But if they are shown to be, and 
+are the works not of men but of God, why are the unbelievers so irreligious as 
+not to recognize the Master Who did them? They are afflicted as a man would be 
+who failed to recognize God the Artificer through the works of creation. For 
+surely if they had recognized His Godhead through His power over the universe, 
+they would recognize also that the bodily works of Christ are not human, but are 
+those of the Savior of all, the Word of God. And had they recognized this, as 
+Paul says, "They would not have crucified the Lord of 
+glory."<note n="67" id="ix-p13.1"><scripRef passage="Corinthians 2:8" id="ix-p13.2">Cor. ii. 8</scripRef></note></p>
+<p id="ix-p14"><b>(54)</b> As, then, he who desires to see God Who by nature 
+is invisible and not to be beheld, may yet perceive and know Him through His 
+works, so too let him who does not see Christ with his understanding at least 
+consider Him in His bodily works and test whether they be of man or God. If they 
+be of man, then let him scoff; but if they be of God, let him not mock at things 
+which are no fit subject for scorn, but rather let him recognize the fact and 
+marvel that things divine have been revealed to us by such humble means, that 
+through death deathlessness has been made known to us, and through the 
+Incarnation of the Word the Mind whence all things proceed has been declared, 
+and its Agent and Ordainer, the Word of God Himself. He, indeed, assumed 
+humanity that we might become God. He manifested Himself by means of a body in 
+order that we might perceive the Mind of the unseen Father. He endured shame 
+from men that we might inherit immortality. He Himself was unhurt by this, for 
+He is impassable and incorruptible; but by His own impassability He kept and 
+healed the suffering men on whose account He thus endured. In short, such and so 
+many are the Savior's achievements that follow from His Incarnation, that to try 
+to number them is like gazing at the open sea and trying to count the waves. One 
+cannot see all the waves with one's eyes, for when one tries to do so those that 
+are following on baffle one's senses. Even so, when one wants to take in all the 
+achievements of Christ in the body, one cannot do so, even by reckoning them up, 
+for the things that transcend one's thought are always more than those one 
+thinks that one has grasped.</p>
+<p id="ix-p15">As we cannot speak adequately about even a part of His work, therefore, it 
+will be better for us not to speak about it as a whole. So we will mention but 
+one thing more, and then leave the whole for you to marvel at. For, indeed, 
+everything about it is marvelous, and wherever a man turns his gaze he sees the 
+Godhead of the Word and is smitten with awe.</p>
+<p id="ix-p16"><b>(55)</b> The substance of what we have said so far may be 
+summarized as follows. Since the Savior came to dwell among us, not only does 
+idolatry no longer increase, but it is getting less and gradually ceasing to be. 
+Similarly, not only does the wisdom of the Greeks no longer make any progress, 
+but that which used to be is disappearing. And demons, so far from continuing to 
+impose on people by their deceits and oracle-givings and sorceries, are routed 
+by the sign of the cross if they so much as try. On the other hand, while 
+idolatry and everything else that opposes the faith of Christ is daily dwindling 
+and weakening and falling, see, the Savior's teaching is increasing everywhere! 
+Worship, then, the Savior "Who is above all" and mighty, even 
+God the Word, and condemn those who are being defeated and made to disappear by 
+Him. When the sun has come, darkness prevails no longer; any of it that may be 
+left anywhere is driven away. So also, now that the Divine epiphany of the Word 
+of God has taken place, the darkness of idols prevails no more, and all parts of 
+the world in every direction are enlightened by His teaching. Similarly, if a 
+king be reigning somewhere, but stays in his own house and does not let himself 
+be seen, it often happens that some insubordinate fellows, taking advantage of 
+his retirement, will have themselves proclaimed in his stead; and each of them, 
+being invested with the semblance of kingship, misleads the simple who, because 
+they cannot enter the palace and see the real king, are led astray by just 
+hearing a king named. When the real king emerges, however, and appears to view, 
+things stand differently. The insubordinate impostors are shown up by his 
+presence, and men, seeing the real king, forsake those who previously misled 
+them. In the same way the demons used formerly to impose on men, investing 
+themselves with the honor due to God. But since the Word of God has been 
+manifested in a body, and has made known to us His own Father, the fraud of the 
+demons is stopped and made to disappear; and men, turning their eyes to the true 
+God, Word of the Father, forsake the idols and come to know the true God.</p>
+<p id="ix-p17">Now this is proof that Christ is God, the Word and Power of God. For whereas 
+human things cease and the fact of Christ remains, it is clear to all that the 
+things which cease are temporary, but that He Who remains is God and very Son of 
+God, the sole-begotten Word.</p>
+</div1>
+
+<div1 type="chapter" title="Chapter 9. Conclusion" progress="97.67%" prev="ix" next="xi" id="x">
+<h2 id="x-p0.1">Chapter 9</h2>
+<p style="margin-left:-.25in; margin-bottom:24pt; text-align:center; font-size:large; font-weight:bold" id="x-p1"><i>Conclusion</i></p>
+
+<p id="x-p2"><b>(56)</b> Here, then, Macarius, is our offering to you who 
+love Christ, a brief statement of the faith of Christ and of the manifestation 
+of His Godhead to us. This will give you a beginning, and you must go on to 
+prove its truth by the study of the Scriptures. They were written and inspired 
+by God; and we, who have learned from inspired teachers who read the Scriptures 
+and became martyrs for the Godhead of Christ, make further contribution to your 
+eagerness to learn. From the Scriptures you will learn also of His second 
+manifestation to us, glorious and divine indeed, when He shall come not in 
+lowliness but in His proper glory, no longer in humiliation but in majesty, no 
+longer to suffer but to bestow on us all the fruit of His cross—the 
+resurrection and incorruptibility. No longer will He then be judged, but rather 
+will Himself be Judge, judging each and all according to their deeds done in the 
+body, whether good or ill. Then for the good is laid up the heavenly kingdom, 
+but for those that practice evil outer darkness and the eternal fire. So also 
+the Lord Himself says, 
+"I say unto you, hereafter ye shall see the Son of Man 
+seated on the right hand of power, coming on the clouds of heaven in the glory 
+of the Father."<note n="68" id="x-p2.1"><scripRef passage="Matthew 26:64" id="x-p2.2" parsed="|Matt|26|64|0|0" osisRef="Bible:Matt.26.64">Matt.xxvi. 64</scripRef></note> 
+
+For that Day we have one of His own sayings to prepare us, 
+"Get ready and watch, for ye know not the hour in which 
+He cometh"<note n="69" id="x-p2.3"><scripRef passage="Matthew 24:42" id="x-p2.4" parsed="|Matt|24|42|0|0" osisRef="Bible:Matt.24.42">Matt. xxiv. 42</scripRef></note> 
+And blessed Paul says, 
+"We must all stand before the judgment seat of Christ, 
+that each one may receive according as he practiced in the body, whether good 
+or ill."<note n="70" id="x-p2.5"><scripRef passage="2 Corinthians 5:10" id="x-p2.6" parsed="|2Cor|5|10|0|0" osisRef="Bible:2Cor.5.10">2 Cor.  v. 10</scripRef></note></p>
+<p id="x-p3"><b>(57)</b> But for the searching and right understanding of 
+the Scriptures there is need of a good life and a pure soul, and for Christian 
+virtue to guide the mind to grasp, so far as human nature can, the truth 
+concerning God the Word. One cannot possibly understand the teaching of the 
+saints unless one has a pure mind and is trying to imitate their life. Anyone 
+who wants to look at sunlight naturally wipes his eye clear first, in order to 
+make, at any rate, some approximation to the purity of that on which he looks; 
+and a person wishing to see a city or country goes to the place in order to do 
+so. Similarly, anyone who wishes to understand the mind of the sacred writers 
+must first cleanse his own life, and approach the saints by copying their deeds. 
+Thus united to them in the fellowship of life, he will both understand the 
+things revealed to them by God and, thenceforth escaping the peril that 
+threatens sinners in the judgment, will receive that which is laid up for the 
+saints in the kingdom of heaven. Of that reward it is written: 
+"Eye hath not seen nor ear heard, neither hath entered 
+into the heart of man the things that God has prepared"<note n="71" id="x-p3.1"><scripRef passage="1 Corinthians 2:9" id="x-p3.2" parsed="|1Cor|2|9|0|0" osisRef="Bible:1Cor.2.9">1 Cor. ii. 9</scripRef></note>  
+for them that live a godly life and love the God and Father in 
+Christ Jesus our Lord, through Whom and with Whom be to the Father Himself, with 
+the Son Himself, in the Holy Spirit, honor and might and glory to ages of ages. 
+Amen.</p>
+
+</div1>
+
+
+<div1 title="Indexes" prev="x" next="xi.i" id="xi">
+<h1 id="xi-p0.1">Indexes</h1>
+
+<div2 title="Index of Scripture References" prev="xi" next="toc" id="xi.i">
+  <h2 id="xi.i-p0.1">Index of Scripture References</h2>
+  <insertIndex type="scripRef" id="xi.i-p0.2" />
+
+
+
+<div class="Index">
+<p class="bbook">Genesis</p>
+ <p class="bref">
+ <a class="TOC" href="?scrBook=Gen&amp;scrCh=1&amp;scrV=1#ii-p7.2">1:1</a>  
+ <a class="TOC" href="?scrBook=Gen&amp;scrCh=2&amp;scrV=6#ii-p7.7">2:16</a>  
+ <a class="TOC" href="?scrBook=Gen&amp;scrCh=49&amp;scrV=10#vii-p11.2">49:10</a> </p>
+<p class="bbook">Numbers</p>
+ <p class="bref">
+ <a class="TOC" href="?scrBook=Num&amp;scrCh=24&amp;scrV=5#vii-p3.6">24:5-7</a>  
+ <a class="TOC" href="?scrBook=Num&amp;scrCh=24&amp;scrV=17#vii-p3.4">24:17</a> </p>
+<p class="bbook">Deuteronomy</p>
+ <p class="bref">
+ <a class="TOC" href="?scrBook=Deut&amp;scrCh=28&amp;scrV=66#vii-p5.2">28:66</a> </p>
+<p class="bbook">Psalms</p>
+ <p class="bref">
+ <a class="TOC" href="?scrBook=Ps&amp;scrCh=22&amp;scrV=16#vii-p5.6">22:16-18</a>  
+ <a class="TOC" href="?scrBook=Ps&amp;scrCh=24&amp;scrV=7#v-p12.16">24:7</a>  
+ <a class="TOC" href="?scrBook=Ps&amp;scrCh=82&amp;scrV=6#ii-p8.4">82:6</a>  
+ <a class="TOC" href="?scrBook=Ps&amp;scrCh=107&amp;scrV=20#vii-p11.8">107:20</a>  
+ <a class="TOC" href="?scrBook=Ps&amp;scrCh=118&amp;scrV=27#vii-p11.6">118:27</a> </p>
+<p class="bbook">Isaiah</p>
+ <p class="bref">
+ <a class="TOC" href="?scrBook=Isa&amp;scrCh=2&amp;scrV=4#ix-p11.2">2:4</a>  
+ <a class="TOC" href="?scrBook=Isa&amp;scrCh=7&amp;scrV=14#vii-p3.2">7:14</a>  
+ <a class="TOC" href="?scrBook=Isa&amp;scrCh=8&amp;scrV=4#vii-p3.8">8:4</a>  
+ <a class="TOC" href="?scrBook=Isa&amp;scrCh=11&amp;scrV=9#viii-p10.2">11:9</a>  
+ <a class="TOC" href="?scrBook=Isa&amp;scrCh=11&amp;scrV=10#vii-p5.8">11:10</a>  
+ <a class="TOC" href="?scrBook=Isa&amp;scrCh=19&amp;scrV=1#vii-p3.10">19:1</a>  
+ <a class="TOC" href="?scrBook=Isa&amp;scrCh=35&amp;scrV=3#vii-p9.4">35:3-6</a>  
+ <a class="TOC" href="?scrBook=Isa&amp;scrCh=53&amp;scrV=3#vii-p4.2">53:3-5</a>  
+ <a class="TOC" href="?scrBook=Isa&amp;scrCh=53&amp;scrV=6#vii-p4.4">53:6-8</a>  
+ <a class="TOC" href="?scrBook=Isa&amp;scrCh=53&amp;scrV=8#vii-p4.6">53:8-10</a>  
+ <a class="TOC" href="?scrBook=Isa&amp;scrCh=63&amp;scrV=9#vii-p11.10">63:9</a>  
+ <a class="TOC" href="?scrBook=Isa&amp;scrCh=65&amp;scrV=1#vii-p9.2">65:1-2</a> </p>
+<p class="bbook">Jeremiah</p>
+ <p class="bref">
+ <a class="TOC" href="?scrBook=Jer&amp;scrCh=11&amp;scrV=19#vii-p5.4">11:19</a> </p>
+<p class="bbook">Daniel</p>
+ <p class="bref">
+ <a class="TOC" href="?scrBook=Dan&amp;scrCh=9&amp;scrV=24#vii-p10.3">9:24-25</a> </p>
+<p class="bbook">Hosea</p>
+ <p class="bref">
+ <a class="TOC" href="?scrBook=Hos&amp;scrCh=11&amp;scrV=1#vii-p3.12">11:1</a> </p>
+<p class="bbook">Matthew</p>
+ <p class="bref">
+ <a class="TOC" href="?scrBook=Matt&amp;scrCh=11&amp;scrV=13#vii-p11.4">11:13</a>  
+ <a class="TOC" href="?scrBook=Matt&amp;scrCh=19&amp;scrV=4#ii-p6.2">19:4-6</a>  
+ <a class="TOC" href="?scrBook=Matt&amp;scrCh=24&amp;scrV=42#x-p2.4">24:42</a>  
+ <a class="TOC" href="?scrBook=Matt&amp;scrCh=26&amp;scrV=64#x-p2.2">26:64</a> </p>
+<p class="bbook">Mark</p>
+ <p class="bref">
+ <a class="TOC" href="?scrBook=Mark&amp;scrCh=5&amp;scrV=7#vi-p10.3">5:7</a> </p>
+<p class="bbook">Luke</p>
+ <p class="bref">
+ <a class="TOC" href="?scrBook=Luke&amp;scrCh=4&amp;scrV=34#vi-p10.2">4:34</a>  
+ <a class="TOC" href="?scrBook=Luke&amp;scrCh=10&amp;scrV=18#v-p12.14">10:18</a>  
+ <a class="TOC" href="?scrBook=Luke&amp;scrCh=19&amp;scrV=10#iv-p9.2">19:10</a>  
+ <a class="TOC" href="?scrBook=Luke&amp;scrCh=19&amp;scrV=10#iv-p11.4">19:10</a> </p>
+<p class="bbook">John</p>
+ <p class="bref">
+ <a class="TOC" href="?scrBook=John&amp;scrCh=1&amp;scrV=3#ii-p6.4">1:3</a>  
+ <a class="TOC" href="?scrBook=John&amp;scrCh=3&amp;scrV=3#iv-p9.4">3:3</a>  
+ <a class="TOC" href="?scrBook=John&amp;scrCh=9&amp;scrV=32#vii-p9.6">9:32-33</a>  
+ <a class="TOC" href="?scrBook=John&amp;scrCh=10&amp;scrV=37#iv-p15.2">10:37-38</a>  
+ <a class="TOC" href="?scrBook=John&amp;scrCh=12&amp;scrV=32#v-p12.8">12:32</a> </p>
+<p class="bbook">Acts</p>
+ <p class="bref">
+ <a class="TOC" href="?scrBook=Acts&amp;scrCh=17&amp;scrV=28#viii-p5.2">17:28</a> </p>
+<p class="bbook">Romans</p>
+ <p class="bref">
+ <a class="TOC" href="?scrBook=Rom&amp;scrCh=1&amp;scrV=25#iv-p3.2">1:25</a>  
+ <a class="TOC" href="?scrBook=Rom&amp;scrCh=1&amp;scrV=26#ii-p9.4">1:26</a> </p>
+<p class="bbook">1 Corinthians</p>
+ <p class="bref">
+ <a class="TOC" href="?scrBook=1Cor&amp;scrCh=1&amp;scrV=21#iv-p11.2">1:21</a>  
+ <a class="TOC" href="?scrBook=1Cor&amp;scrCh=2&amp;scrV=9#x-p3.2">2:9</a>  
+ <a class="TOC" href="?scrBook=1Cor&amp;scrCh=15&amp;scrV=21#iii-p6.8">15:21</a>  
+ <a class="TOC" href="?scrBook=1Cor&amp;scrCh=15&amp;scrV=53#v-p6.2">15:53</a>  
+ <a class="TOC" href="?scrBook=1Cor&amp;scrCh=15&amp;scrV=55#vi-p4.2">15:55</a> </p>
+<p class="bbook">2 Corinthians</p>
+ <p class="bref">
+ <a class="TOC" href="?scrBook=2Cor&amp;scrCh=5&amp;scrV=10#x-p2.6">5:10</a>  
+ <a class="TOC" href="?scrBook=2Cor&amp;scrCh=5&amp;scrV=14#iii-p6.2">5:14</a> </p>
+<p class="bbook">Galatians</p>
+ <p class="bref">
+ <a class="TOC" href="?scrBook=Gal&amp;scrCh=3&amp;scrV=13#v-p12.2">3:13</a>  
+ <a class="TOC" href="?scrBook=Gal&amp;scrCh=3&amp;scrV=13#v-p12.4">3:13</a> </p>
+<p class="bbook">Ephesians</p>
+ <p class="bref">
+ <a class="TOC" href="?scrBook=Eph&amp;scrCh=2&amp;scrV=2#v-p12.10">2:2</a>  
+ <a class="TOC" href="?scrBook=Eph&amp;scrCh=2&amp;scrV=14#v-p12.6">2:14</a>  
+ <a class="TOC" href="?scrBook=Eph&amp;scrCh=3&amp;scrV=17#iv-p12.2">3:17</a> </p>
+<p class="bbook">Colossians</p>
+ <p class="bref">
+ <a class="TOC" href="?scrBook=Col&amp;scrCh=2&amp;scrV=15#viii-p11.2">2:15</a> </p>
+<p class="bbook">1 Timothy</p>
+ <p class="bref">
+ <a class="TOC" href="?scrBook=1Tim&amp;scrCh=6&amp;scrV=15#iii-p6.10">6:15</a> </p>
+<p class="bbook">Hebrews</p>
+ <p class="bref">
+ <a class="TOC" href="?scrBook=Heb&amp;scrCh=2&amp;scrV=9#iii-p6.4">2:9</a>  
+ <a class="TOC" href="?scrBook=Heb&amp;scrCh=2&amp;scrV=14#iii-p6.6">2:14</a>  
+ <a class="TOC" href="?scrBook=Heb&amp;scrCh=2&amp;scrV=14#v-p5.2">2:14</a>  
+ <a class="TOC" href="?scrBook=Heb&amp;scrCh=4&amp;scrV=12#vi-p8.2">4:12</a>  
+ <a class="TOC" href="?scrBook=Heb&amp;scrCh=10&amp;scrV=20#v-p12.12">10:20</a>  
+ <a class="TOC" href="?scrBook=Heb&amp;scrCh=11&amp;scrV=3#ii-p7.5">11:3</a> </p>
+<p class="bbook">Wisdom of Solomon</p>
+ <p class="bref">
+ <a class="TOC" href="?scrBook=Wis&amp;scrCh=2&amp;scrV=23#ii-p9.2">2:23</a>  
+ <a class="TOC" href="?scrBook=Wis&amp;scrCh=6&amp;scrV=18#ii-p8.2">6:18</a> </p>
+</div>
+
+
+
+
+</div2>
+</div1>
+
+
+
+
+</ThML.body>
+</ThML>

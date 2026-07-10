@@ -1,0 +1,56 @@
+---
+document_code: BAPA_SA_DT
+title: "St. Agustinus - De Trinitate (On the Trinity)"
+category: "Bapa Gereja"
+priority: "Pendalaman"
+word_count: 189827
+paragraph_count: 846
+estimated_chunks: 380
+---
+
+# St. Agustinus — De Trinitate (On the Trinity)
+
+**Kode Dokumen**: `BAPA_SA_DT`
+**Kategori**: Bapa Gereja
+**Prioritas**: Pendalaman
+
+> **Deskripsi**: *De Trinitate* (Tentang Tritunggal) adalah mahakarya teologis St. Aurelius Agustinus (354–430 M), ditulis antara tahun 400–428 M. Karya ini terdiri dari 15 Buku: Buku I–VII membahas dasar Skriptural doktrin Tritunggal dan membantah keberatan-keberatan, sementara Buku VIII–XV mengeksplorasi gambar (imago) Tritunggal dalam jiwa manusia—khususnya dalam memori, pemahaman, dan kehendak. Diterjemahkan ke dalam bahasa Inggris dengan pendahuluan oleh William G. T. Shedd, D.D. Dokumen ini telah dibersihkan dan diformat untuk AI Knowledge Base.
+
+---
+
+## INTRODUCTORY ESSAY
+
+**BY WILLIAM G. T. SHEDD, D.D.**
+
+THE doctrine of the Divine Unity is a truth of natural religion; the
+doctrine of the Trinity is a truth of revealed religion. The various systems
+of natural theism present arguments for the Divine existence, unity, and
+attributes, but proceed no further. They do not assert and endeavor to
+demonstrate that the Supreme Being is three persons in one essence. It is
+because this doctrine is not discoverable by human reason, that the
+Christian church has been somewhat shy of attempts to construct it
+analytically; or even to defend it upon grounds of reason. The keen Dr.
+South expresses the common sentiment, when he remarks that "as he
+that denies this fundamental article of the Christian religion may lose his
+soul, so he that much strives to understand it may lose his wits." Yet all
+the truths of revelation, like those of natural religion, have in them the
+element of reason, and are capable of a rational defense. At the very least
+their self-consistence can be shown, and objections to them can be
+answered. And this is a rational process. For one of the surest
+characteristics of reason is, freedom from self contradiction, and
+consonance with acknowledged truths in other provinces of human
+inquiry and belief.
+It is a remarkable fact, that the earlier forms of Trinitarianism are among
+the most metaphysical and speculative of any in dogmatic history. The
+controversy with the Arian and the Semi-Arian, brought out a statement
+and defense of the truth, not only upon scriptural but ontological
+grounds. Such a powerful dialectician as Athanasius, while thoroughly
+and intensely scriptural—while starting from the text of scripture, and
+subjecting it to a rigorous exegesis—did not hesitate to pursue the Arian
+and Semi-Arian dialectics to its most recondite fallacy in its subtlest
+recesses. If any one doubts this, let him read the four Orations of
+Athanasius, and his defence of the Nicene Decrees. In some sections of
+Christendom, it has been contended that the doctrine of the Trinity
+should be received without any attempt at all to establish its rationality
+and intrinsic necessity. In this case, the tenets of eternal generation and
+procession have been regarded as going beyond the Scripture data, and if

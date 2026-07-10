@@ -1,0 +1,50 @@
+---
+document_code: BAPA_SI_AH
+title: "St. Ireneus - Adversus Haereses (Melawan Bid'ah)"
+category: "Bapa Gereja"
+priority: "Pendalaman"
+word_count: 232745
+paragraph_count: 977
+estimated_chunks: 465
+---
+
+# St. Ireneus - Adversus Haereses (Melawan Bid'ah)
+
+**Kode Dokumen**: `BAPA_SI_AH`
+**Kategori**: Bapa Gereja
+**Prioritas**: Pendalaman
+
+> **Deskripsi**: Adversus Haereses (Melawan Bid'ah) oleh St. Ireneus dari Lyon (k. 130–202 M), dalam terjemahan bahasa Inggris dari Ante-Nicene Fathers, diedit oleh Philip Schaff. Karya dalam 5 kitab ini mengekspos dan membantah ajaran sesat Gnostisisme, khususnya aliran Valentinian, sekaligus mempertahankan iman apostolik Katolik. Dokumen ini telah dibersihkan secara presisi untuk AI Knowledge Base.
+
+---
+
+### Irenæus
+## Introductory Note to Irenæus Against Heresies
+[a.d. 120—202.] This history introduces us to the Church in her Western outposts. We reach the
+banks of the Rhone, where for nearly a century Christian missions have flourished. Between
+Marseilles and Smyrna there seems to have been a brisk trade, and Polycarp had sent Pothinus into
+Celtic Gaul at an early date as its evangelist. He had fixed his see at Lyons, when Irenæus joined
+him as a presbyter, having been his fellow-pupil under Polycarp. There, under the "good Aurelius,"
+as he is miscalled (a.d. 177), arose the terrible persecution which made "the martyrs of Lyons and
+Vienne" so memorable. It was during this persecution that Irenæus was sent to Rome with letters
+of remonstrance against the rising pestilence of heresy; and he was probably the author of the
+account of the sufferings of the martyrs which is appended to their testimony. But he had the
+mortification of finding the Montanist heresy patronized by Eleutherus the Bishop of Rome; and
+there he met an old friend from the school of Polycarp, who had embraced the Valentinian heresy.
+We cannot doubt that to this visit we owe the lifelong struggle of Irenæus against the heresies that
+now came in, like locusts, to devour the harvests of the Gospel. But let it be noted here, that, so far
+from being "the mother and mistress" of even the Western Churches, Rome herself is a mission of
+the Greeks; Southern Gaul is evangelized from Asia Minor, and Lyons checks the heretical
+tendencies of the Bishop at Rome. Ante-Nicene Christianity, and indeed the Church herself, appears
+in Greek costume which lasts through the synodical period; and Latin Christianity, when it begins
+to appear, is African, and not Roman. It is strange that those who have recorded this great historical
+fact have so little perceived its bearings upon Roman pretensions in the Middle Ages and modern
+times.
+Returning to Lyons, our author found that the venerable Pothinus had closed his holy career by
+a martyr's death; and naturally Irenæus became his successor. When the emissaries of heresy
+followed him, and began to disseminate their licentious practices and foolish doctrines by the aid
+of "silly women," the great work of his life began. He condescended to study these diseases of the
+human mind like a wise physician; and, sickening as was the process of classifying and describing
+them, he made this also his laborious task, that he might enable others to withstand and to overcome
+them. The works he has left us are monuments of his fidelity to Christ, and to the charges of St.
+Paul, St. Peter, and St. Jude, whose solemn warnings now proved to be prophecies. No marvel that
