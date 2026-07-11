@@ -68,3 +68,4 @@ temp_page.html
 supabase_remote_schema_dump.sql
 supabase_remote_schema_only.sql
 supabase_schema.sql
+/supabase/migrations/
