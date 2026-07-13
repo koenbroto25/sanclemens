@@ -11,7 +11,11 @@ from typing import Any
 
 # Tambahkan parent directory ke path untuk import _shared
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'rag'))
-from _shared import supabase, r2, BUCKET, PREVIEW_LENGTH
+from _shared import get_supabase, get_r2_client, R2_BUCKET, PREVIEW_LEN
+
+supabase = get_supabase()
+r2 = get_r2_client()
+BUCKET = R2_BUCKET
 
 # Konfigurasi tabel yang akan dimigrasi
 # (table_name, text_column, key_column, preview_column, r2_prefix)

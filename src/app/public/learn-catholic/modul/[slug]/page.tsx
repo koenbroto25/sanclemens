@@ -24,7 +24,7 @@ import { OpeningQuotes, ModuleBody } from '@/components/learn-catholic/ModuleSec
    Kalau nanti file .md dipindah ke dalam repo (disarankan — lihat
    catatan di bawah), cukup ganti MARKDOWN_DIR ini.
    ============================================================ */
-const MARKDOWN_DIR = path.join(process.cwd(), 'catholic source', 'modul katolisitas', 'final');
+const MARKDOWN_DIR = path.join(process.cwd(), 'data', 'catholic source', 'modul katolisitas', 'final');
 
 const MODUL_BASE = '/public/learn-catholic/modul';
 

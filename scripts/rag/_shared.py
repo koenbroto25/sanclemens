@@ -20,18 +20,29 @@ import time
 from pathlib import Path
 
 from dotenv import load_dotenv
+import psycopg2 # Import for CockroachDB
 from supabase import create_client
 import boto3
+from botocore.config import Config # Import for R2
 from google import genai as google_genai
 from google.genai import types as google_genai_types
 
 load_dotenv("D:/paroki_digital_stclemens/.env.local")
 
 # ---- Konfigurasi tabel target (via ENV, lihat docstring di atas) ----
-SOURCE_TABLE = os.environ["PIPELINE_SOURCE_TABLE"]
-TARGET_TABLE = os.environ["PIPELINE_TARGET_TABLE"]
-R2_FOLDER = os.environ["PIPELINE_R2_FOLDER"]
-EMBEDDING_COLUMN = os.environ["PIPELINE_EMBEDDING_COL"]
+SOURCE_TABLE = os.environ.get("PIPELINE_SOURCE_TABLE")
+TARGET_TABLE = os.environ.get("PIPELINE_TARGET_TABLE")
+R2_FOLDER = os.environ.get("PIPELINE_R2_FOLDER")
+EMBEDDING_COLUMN = os.environ.get("PIPELINE_EMBEDDING_COL")
+
+# Guard anti-bloat — field non-whitelist di baris tabel chunk tidak boleh lebih panjang ini
+ALLOWED_LONG_FIELDS = {EMBEDDING_COLUMN}
+MAX_METADATA_FIELD_LENGTH = 500
+
+# Jadwal retry — SAMA untuk semua tahap, per §16.5 rag_ai_r2_final.md.
+# Retry berlaku PER TAHAP (retry_count reset tiap kali pipeline_stage naik).
+RETRY_SCHEDULE_MINUTES = {1: 1, 2: 5, 3: 30}
+MAX_RETRY_BEFORE_PERMANENT_FAIL = 4
 
 RAW_DATA_DIR = Path("D:/paroki_digital_stclemens/data")
 CACHE_DIR = RAW_DATA_DIR / "rag_chunks_cache"
@@ -65,9 +76,18 @@ def poll_until_done(fetch_batch_fn, idle_limit_seconds=300, poll_interval=10, la
             print(f"[{label}] menunggu tahap sebelumnya... ({idle_elapsed}s idle)")
 
 # ---- Supabase ----
-def get_supabase():
+def get_supabase_client():
     return create_client(os.environ["NEXT_PUBLIC_SUPABASE_URL"], os.environ["SUPABASE_SERVICE_ROLE_KEY"])
 
+# ---- CockroachDB ----
+def get_cockroach_db_connection():
+    return psycopg2.connect(
+        host=os.environ.get('COCKROACHDB_HOST'), port=26257,
+        dbname=os.environ.get('COCKROACHDB_DBNAME', 'defaultdb'),
+        user=os.environ.get('COCKROACHDB_USER'),
+        password=os.environ.get('COCKROACHDB_PASSWORD', ''),
+        sslmode='verify-full'
+    )
 
 # ---- Cloudflare R2 (boto3, S3-compatible) ----
 def get_r2_client():
@@ -76,6 +96,7 @@ def get_r2_client():
         endpoint_url=f"https://{os.environ['R2_ACCOUNT_ID']}.r2.cloudflarestorage.com",
         aws_access_key_id=os.environ["R2_ACCESS_KEY_ID"],
         aws_secret_access_key=os.environ["R2_SECRET_ACCESS_KEY"],
+        config=Config(signature_version="s3v4")
     )
 
 
@@ -88,7 +109,7 @@ _GEMINI_KEYS = [v for k, v in os.environ.items() if k.startswith("GOOGLE_API_KEY
 _key_cursor = {"i": 0}
 
 
-def embed_text(text: str) -> list[float]:
+async def embed_text(text: str) -> list[float]:
     """Round-robin antar API key supaya tidak kena rate limit satu key saja."""
     last_err = None
     for attempt in range(len(_GEMINI_KEYS)):

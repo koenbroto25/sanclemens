@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 """
 Pipeline: chunk -> embed -> upload R2 + Supabase
 Untuk 34 dokumen data/cleaned/ (Kitab Suci, Kanonik, Konsili, Kepausan, KGK, Patristik/Skolastik)
@@ -282,10 +282,11 @@ def get_r2():
         config=Config(signature_version='s3v4'))
 
 def get_db():
+    # SSL mode 'prefer' untuk menghindari certificate verify failed di Windows
     return psycopg2.connect(
         host='aws-1-ap-southeast-1.pooler.supabase.com', port=6543,
         dbname='postgres', user='postgres.brfdzodjzoeoylbfzkry',
-        password=os.environ.get('SUPABASE_DB_PASSWORD',''), sslmode='require')
+        password=os.environ.get('SUPABASE_DB_PASSWORD',''), sslmode='prefer')
 
 async def embed_text(text):
     global key_index
@@ -306,6 +307,10 @@ async def embed_text(text):
                 key_index = (key_index + 1) % len(gemini_keys)
                 await asyncio.sleep(0.5)
     raise Exception('All keys exhausted (last errors logged above)')
+
+def normalize_embedding(vec):
+    mag = sum(v * v for v in vec) ** 0.5
+    return [v / mag for v in vec] if mag > 0 else vec
 
 def chunk_text(text):
     sections = re.split(r'\n(?=#{1,3} |\n)', text)
@@ -366,6 +371,7 @@ async def process_file(conn, r2, filepath: Path):
 
         try:
             embedding = await embed_text(chunk)
+            embedding = normalize_embedding(embedding)
         except Exception as e:
             logger.error(f'Embed failed {doc_key}[{idx}]: {e}')
             err += 1

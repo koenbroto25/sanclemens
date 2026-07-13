@@ -27,10 +27,11 @@ def get_r2():
         config=Config(signature_version='s3v4'))
 
 def get_db():
+    # SSL mode 'prefer' untuk menghindari certificate verify failed di Windows
     return psycopg2.connect(
         host='aws-1-ap-southeast-1.pooler.supabase.com', port=6543,
         dbname='postgres', user='postgres.brfdzodjzoeoylbfzkry',
-        password=os.environ.get('SUPABASE_DB_PASSWORD',''), sslmode='require')
+        password=os.environ.get('SUPABASE_DB_PASSWORD',''), sslmode='prefer')
 
 async def embed_text(text):
     global key_index
@@ -50,6 +51,10 @@ async def embed_text(text):
                 key_index = (key_index + 1) % len(gemini_keys)
                 await asyncio.sleep(0.5)
     raise Exception('All keys exhausted')
+
+def normalize_embedding(vec):
+    mag = sum(v * v for v in vec) ** 0.5
+    return [v / mag for v in vec] if mag > 0 else vec
 
 def already_uploaded(conn, idx):
     with conn.cursor() as cur:
@@ -97,6 +102,7 @@ async def main():
             continue
         try:
             embedding = await embed_text(text[:1500])
+            embedding = normalize_embedding(embedding)
         except Exception as e:
             logger.error(f'Embed failed saint {idx}: {e}')
             total_err += 1

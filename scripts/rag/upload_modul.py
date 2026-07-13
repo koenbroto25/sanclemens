@@ -24,7 +24,7 @@ R2_BUCKET = os.environ.get('R2_BUCKET_NAME', 'paroki-klemens-rag-content')
 PREVIEW_LEN = 150
 CHUNK_SIZE = 800
 CHUNK_OVERLAP = 100
-MODUL_DIR = Path(__file__).resolve().parents[2] / 'catholic source' / 'modul katolisitas' / 'final'
+MODUL_DIR = Path(__file__).resolve().parents[2] / 'data' / 'modul katolisitas'
 
 MODUL_META = {
     'modul_0_rev':    {'title':'Modul 0 - Pintu Masuk','pillar':'pilar_00_pengantar'},
@@ -61,10 +61,11 @@ def get_r2():
         config=Config(signature_version='s3v4'))
 
 def get_db():
+    # SSL mode 'prefer' untuk menghindari certificate verify failed di Windows
     return psycopg2.connect(
         host='aws-1-ap-southeast-1.pooler.supabase.com', port=6543,
         dbname='postgres', user='postgres.brfdzodjzoeoylbfzkry',
-        password=os.environ.get('SUPABASE_DB_PASSWORD',''), sslmode='require')
+        password=os.environ.get('SUPABASE_DB_PASSWORD',''), sslmode='prefer')
 
 async def embed_text(text):
     global key_index
@@ -84,6 +85,10 @@ async def embed_text(text):
                 key_index = (key_index + 1) % len(gemini_keys)
                 await asyncio.sleep(0.5)
     raise Exception('All keys exhausted')
+
+def normalize_embedding(vec):
+    mag = sum(v * v for v in vec) ** 0.5
+    return [v / mag for v in vec] if mag > 0 else vec
 
 def chunk_text(text):
     sections = re.split(r'\n(?=#{1,3} )', text)
@@ -134,6 +139,7 @@ async def main():
             preview = chunk[:PREVIEW_LEN].rstrip() + '...' if len(chunk) > PREVIEW_LEN else chunk
             try:
                 embedding = await embed_text(chunk)
+                embedding = normalize_embedding(embedding)
             except Exception as e:
                 logger.error(f'Embed failed {doc_key}[{idx}]: {e}')
                 total_err += 1

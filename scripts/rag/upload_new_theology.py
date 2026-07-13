@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 """
 Pipeline: chunk -> embed -> upload R2 + Supabase
 Untuk dokumen cleaned/ dan jesuit/ yang belum diproses
@@ -8,21 +8,20 @@ Usage:
     python upload_new_theology.py small    # dokumen kecil saja (<200KB)
     python upload_new_theology.py large    # dokumen besar saja (>=200KB)
 """
-import os, uuid, re, sys, logging, boto3
-from botocore.config import Config
+import os, uuid, re, sys, logging
 from pathlib import Path
-from dotenv import load_dotenv
-import psycopg2
-import google.genai as genai
-from google.genai import types
 import asyncio
+
+# Tambahkan parent directory ke path untuk import _shared
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+from rag._shared import get_cockroach_db_connection, get_r2_client, R2_BUCKET, PREVIEW_LEN, embed_text, TARGET_TABLE
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s %(message)s')
 logger = logging.getLogger(__name__)
-load_dotenv(Path(__file__).resolve().parents[2] / '.env.local')
+# load_dotenv(Path(__file__).resolve().parents[2] / '.env.local') # .env.local already loaded by _shared
 
-R2_BUCKET    = os.environ.get('R2_BUCKET_NAME', 'paroki-klemens-rag-content')
-PREVIEW_LEN  = 150
+# R2_BUCKET    = os.environ.get('R2_BUCKET_NAME', 'paroki-klemens-rag-content') # Imported from _shared
+# PREVIEW_LEN  = 150 # Imported from _shared
 CHUNK_SIZE   = 800
 CHUNK_OVERLAP = 100
 
@@ -134,41 +133,12 @@ DOC_META = {
     },
 }
 
-gemini_keys = [os.environ.get(f'GOOGLE_API_KEY_{i}') for i in range(1, 151) if os.environ.get(f'GOOGLE_API_KEY_{i}')]
-key_index = 0
+# get_r2 and get_db are now imported from _shared.py
+# embed_text is also imported from _shared.py (round-robin logic handled there)
 
-def get_r2():
-    return boto3.session.Session().client('s3',
-        endpoint_url=f"https://{os.environ.get('R2_ACCOUNT_ID')}.r2.cloudflarestorage.com",
-        region_name='auto', aws_access_key_id=os.environ.get('R2_ACCESS_KEY_ID'),
-        aws_secret_access_key=os.environ.get('R2_SECRET_ACCESS_KEY'),
-        config=Config(signature_version='s3v4'))
-
-def get_db():
-    return psycopg2.connect(
-        host='aws-1-ap-southeast-1.pooler.supabase.com', port=6543,
-        dbname='postgres', user='postgres.brfdzodjzoeoylbfzkry',
-        password=os.environ.get('SUPABASE_DB_PASSWORD',''), sslmode='require')
-
-async def embed_text(text):
-    global key_index
-    for _ in range(len(gemini_keys)):
-        key = gemini_keys[key_index]
-        try:
-            client = genai.Client(api_key=key, http_options={'api_version':'v1beta'})
-            result = await client.aio.models.embed_content(
-                model='models/gemini-embedding-2', contents=text,
-                config=types.EmbedContentConfig(output_dimensionality=768))
-            return result.embeddings[0].values
-        except Exception as e:
-            if '429' in str(e) or 'RESOURCE_EXHAUSTED' in str(e):
-                key_index = (key_index + 1) % len(gemini_keys)
-                await asyncio.sleep(1)
-            else:
-                logger.error(f'  Embed error (key {key_index}): {type(e).__name__}: {e!r}')
-                key_index = (key_index + 1) % len(gemini_keys)
-                await asyncio.sleep(0.5)
-    raise Exception('All keys exhausted (last errors logged above)')
+def normalize_embedding(vec):
+    mag = sum(v * v for v in vec) ** 0.5
+    return [v / mag for v in vec] if mag > 0 else vec
 
 def chunk_text(text):
     sections = re.split(r'\n(?=#{1,3} |\n)', text)
@@ -228,6 +198,7 @@ async def process_file(conn, r2, filepath: Path):
 
         try:
             embedding = await embed_text(chunk)
+            embedding = normalize_embedding(embedding)
         except Exception as e:
             logger.error(f'Embed failed {doc_key}[{idx}]: {e}')
             err += 1
@@ -300,8 +271,9 @@ async def main():
     for f in files:
         logger.info(f'  {f.name} ({f.stat().st_size//1024}KB)')
 
-    conn = get_db()
-    r2   = get_r2()
+    # Use CockroachDB connection
+    conn = get_cockroach_db_connection()
+    r2   = get_r2_client()
     total_up = total_err = 0
 
     for filepath in files:

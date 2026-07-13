@@ -121,7 +121,7 @@ export default function PublicLayout({
   return (
     <>
       <SpiritualGatewayModal />
-      <AboutUsSlide />
+      {/* AboutUsSlide dinonaktifkan */}
 
       <div className="liturgi-accent-bar" suppressHydrationWarning></div>
 
