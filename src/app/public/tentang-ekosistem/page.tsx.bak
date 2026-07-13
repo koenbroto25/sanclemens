@@ -107,105 +107,68 @@ const FeatureIcons: Record<string, React.ReactElement> = {
 };
 
 /* ============================================================
-   FEATURE DATA — direstrukturisasi jadi 2 tingkat:
-   1) flagshipFeatures: 2 fitur paling unik, disorot besar duluan
-      supaya ada satu momen "wah" yang nempel di kepala.
-   2) gridFeatures: 8 fitur sisanya, dipadatkan jadi headline
-      bermomen + satu kalimat + tag ringkas. Paragraf asli tetap
-      utuh, disimpan di `detail`, ditampilkan lewat "Selengkapnya".
+   FEATURE CARDS DATA
    ============================================================ */
-interface FeatureCard {
-  icon: string;
-  tag: string;
-  headline: string;
-  hook: string;
-  detail: string;
-  chips: string[];
-}
-
-const flagshipFeatures: FeatureCard[] = [
+const features = [
   {
-    icon: 'heart',
-    tag: 'Klemen Companion',
-    headline: 'Saat Tengah Malam Kamu Butuh Didengar',
-    hook: 'Sahabat rohani digital yang selalu ada — menemani doa, membimbing discernment, tanpa pernah menghakimi.',
-    detail: 'Di tengah perjalanan iman Anda, tak jarang kita butuh telinga yang mendengarkan. Klemen Companion hadir sebagai sahabat rohani digital Anda, siap menemani dalam doa, membimbing dalam discernment hidup, atau sekadar mendengarkan keluh kesah Anda, dengan privasi End-to-End Encryption yang terjamin. Ia adalah teman setia yang selalu ada, tanpa menghakimi, untuk menuntun Anda menemukan damai sejahtera.',
-    chips: ['🔒 End-to-End Encrypted', '🙏 Bimbingan Discernment', '💬 Tanpa Menghakimi'],
+    group: 'A. PENDAMPINGAN IMAN UNTUK HIDUP SEHARI-HARI',
+    items: [
+      {
+        icon: 'heart',
+        title: 'Sahabat Rohani Pribadi (Klemen Companion)',
+        desc: 'Di tengah perjalanan iman Anda, tak jarang kita butuh telinga yang mendengarkan. Klemen Companion hadir sebagai sahabat rohani digital Anda, siap menemani dalam doa, membimbing dalam discernment hidup, atau sekadar mendengarkan keluh kesah Anda, dengan privasi End-to-End Encryption yang terjamin. Ia adalah teman setia yang selalu ada, tanpa menghakimi, untuk menuntun Anda menemukan damai sejahtera.',
+      },
+      {
+        icon: 'book',
+        title: 'Belajar Iman yang Menyenangkan (Learn Catholic)',
+        desc: 'Ingin mendalami ajaran Gereja? Temukan modul pembelajaran interaktif yang terstruktur, langsung dari sumber-sumber resmi seperti Katekismus dan Konsili Vatikan II. Belajar kapan saja, di mana saja, dengan bimbingan AI yang ramah, dan lacak kemajuan Anda dalam pemahaman iman.',
+      },
+      {
+        icon: 'envelope',
+        title: 'Surat Pastoral Penuh Rahasia',
+        desc: 'Terima pesan dan bimbingan langsung dari Pastor Paroki melalui surat pastoral yang terenkripsi sepenuhnya. Komunikasi pribadi dan rahasia yang hanya bisa diakses oleh Anda dan Pastor, menjaga kerahasiaan isi hati Anda.',
+      },
+    ],
   },
   {
-    icon: 'sos',
-    tag: 'Tiga Pintu Kasih',
-    headline: 'Saat Musibah Datang Tanpa Peringatan',
-    hook: 'Satu ketukan menghubungkanmu ke Paroki — bantuan darurat yang cepat, terpercaya, dan menjaga martabatmu.',
-    detail: 'Ketika musibah tak terduga menghampiri atau kebutuhan mendesak muncul, Paroki Anda siap sedia. Melalui "Pintu SOS" untuk keadaan darurat dan "Pintu Kasih" untuk bantuan terencana, kami hadir memberikan uluran tangan dengan cepat dan terpercaya, yang menjaga martabat Anda.',
-    chips: ['🚨 Respons Cepat', '🤝 Terverifikasi Lingkungan', '🕊️ Menjaga Martabat'],
-  },
-];
-
-const gridFeatures: FeatureCard[] = [
-  {
-    icon: 'book',
-    tag: 'Learn Catholic',
-    headline: 'Saat Ingin Mengerti Imanmu Lebih Dalam',
-    hook: '21 modul interaktif langsung dari Katekismus & Konsili Vatikan II, dipandu AI yang ramah.',
-    detail: 'Ingin mendalami ajaran Gereja? Temukan modul pembelajaran interaktif yang terstruktur, langsung dari sumber-sumber resmi seperti Katekismus dan Konsili Vatikan II. Belajar kapan saja, di mana saja, dengan bimbingan AI yang ramah, dan lacak kemajuan Anda dalam pemahaman iman.',
-    chips: ['📖 Sumber Resmi Gereja', '📈 Lacak Progresmu'],
-  },
-  {
-    icon: 'envelope',
-    tag: 'Surat Pastoral',
-    headline: 'Saat Ingin Bicara ke Romo Tanpa Canggung',
-    hook: 'Surat pribadi terenkripsi penuh, langsung ke Pastor Paroki — hanya kalian berdua yang tahu.',
-    detail: 'Terima pesan dan bimbingan langsung dari Pastor Paroki melalui surat pastoral yang terenkripsi sepenuhnya. Komunikasi pribadi dan rahasia yang hanya bisa diakses oleh Anda dan Pastor, menjaga kerahasiaan isi hati Anda.',
-    chips: ['🔐 Rahasia Penuh'],
-  },
-  {
-    icon: 'briefcase',
-    tag: 'Klemen Kerja',
-    headline: 'Saat Butuh Kerja atau Ingin Membantu Sesama',
-    hook: 'Jaringan kerja dan bantuan antar umat — cari peluang, atau tawarkan tanganmu untuk menolong.',
-    detail: 'Temukan peluang pekerjaan baru atau tawarkan keahlian Anda di antara sesama umat. Klemen Kerja menghubungkan Anda dengan jaringan solidaritas ekonomi paroki. Apakah Anda mencari nafkah atau ingin membantu sesama, platform ini memudahkan Anda beraksi nyata, dengan perhatian khusus bagi yang paling membutuhkan.',
-    chips: ['💼 Jejaring Umat', '🤲 Solidaritas Ekonomi'],
-  },
-  {
-    icon: 'gift',
-    tag: 'Tiga Pintu Kasih — Donasi',
-    headline: 'Saat Ingin Berbagi Tanpa Ingin Dikenal',
-    hook: 'Donasi anonim, transparan, diaudit ketat — kebaikanmu sampai tanpa jejak nama.',
-    detail: 'Salurkan kebaikan hati Anda melalui donasi sukarela yang transparan dan sepenuhnya anonim. Dana Anda masuk ke rekening khusus donasi dan dana kasih, dikelola dengan audit ketat, serta disalurkan kepada yang membutuhkan dengan prinsip "Invisible Grace", menjaga privasi dan martabat semua pihak.',
-    chips: ['🕶️ Sepenuhnya Anonim', '📊 Diaudit Ketat'],
-  },
-  {
-    icon: 'users',
-    tag: 'Kartu Keluarga Digital',
-    headline: 'Saat Ingin Merasa Jadi Bagian Keluarga Besar',
-    hook: 'Kartu Keluarga Katolik digital, terhubung dengan lingkungan dan komunitas parokimu.',
-    detail: 'Dapatkan Kartu Keluarga Katolik Digital Anda dan perkuat tali persaudaraan dengan sesama umat. Sistem kami membantu Anda terhubung dengan keluarga dan komunitas lingkungan paroki Anda. Semua data keluarga dikelola dengan aman, mudah diakses, dan membantu Anda merasa menjadi bagian tak terpisahkan dari keluarga besar Paroki Santo Klemens.',
-    chips: ['👨‍👩‍👧‍👦 Data Keluarga Aman', '🏘️ Terhubung Lingkungan'],
-  },
-  {
-    icon: 'sun',
-    tag: 'Morning Check',
-    headline: 'Saat Orang Tua Tinggal Sendiri di Rumah',
-    hook: 'Cek harian otomatis untuk lansia — kalau tak ada respons, jalur darurat langsung aktif.',
-    detail: 'Bentuk kepedulian nyata Paroki untuk umat lansia yang terkasih. Sistem Morning Check memastikan keselamatan dan kesejahteraan harian para lansia, dengan notifikasi pengingat dan jalur eskalasi darurat jika dibutuhkan. Memberikan ketenangan bagi keluarga dan pengurus lingkungan.',
-    chips: ['☀️ Pengingat Harian', '🆘 Eskalasi Otomatis'],
-  },
-  {
-    icon: 'shield',
-    tag: 'Whistle-Blower',
-    headline: 'Saat Ada yang Salah dan Kamu Ragu Bicara',
-    hook: 'Laporkan pelanggaran secara anonim, langsung ke Pastor Paroki, tanpa perantara.',
-    detail: 'Mewujudkan lingkungan paroki yang bersih dan penuh integritas. Laporkan dugaan pelanggaran atau masalah serius secara anonim dan aman, langsung kepada Pastor Paroki, tanpa perantara. Identitas Anda terlindungi sepenuhnya.',
-    chips: ['🕵️ Anonim Sepenuhnya'],
-  },
-  {
-    icon: 'settings',
-    tag: 'Manajemen Terpadu',
-    headline: 'Untuk Pengurus: Semua Pelayanan dalam Satu Layar',
-    hook: 'Jadwal misa, kegiatan, warta, hingga keuangan — terkelola rapi dan transparan.',
-    detail: 'Bagi para pengurus gereja dan lingkungan, ekosistem ini menyediakan alat manajemen terintegrasi yang canggih. Dari pengelolaan jadwal misa, kegiatan, warta paroki, verifikasi umat, hingga pelaporan keuangan, semuanya terdigitalisasi untuk efisiensi dan transparansi pelayanan pastoral.',
-    chips: ['🗂️ Semua Terintegrasi', '📊 Transparan'],
+    group: 'B. SOLIDARITAS KOMUNITAS & KEMUDAHAN HIDUP BERSAMA',
+    items: [
+      {
+        icon: 'sos',
+        title: 'Bantuan Cepat di Saat Genting (Tiga Pintu Kasih)',
+        desc: 'Ketika musibah tak terduga menghampiri atau kebutuhan mendesak muncul, Paroki Anda siap sedia. Melalui "Pintu SOS" untuk keadaan darurat dan "Pintu Kasih" untuk bantuan terencana, kami hadir memberikan uluran tangan dengan cepat dan terpercaya, yang menjaga martabat Anda.',
+      },
+      {
+        icon: 'briefcase',
+        title: 'Jejaring Solidaritas untuk Pekerjaan & Bantuan (Klemen Kerja)',
+        desc: 'Temukan peluang pekerjaan baru atau tawarkan keahlian Anda di antara sesama umat. Klemen Kerja menghubungkan Anda dengan jaringan solidaritas ekonomi paroki. Apakah Anda mencari nafkah atau ingin membantu sesama, platform ini memudahkan Anda beraksi nyata, dengan perhatian khusus bagi yang paling membutuhkan.',
+      },
+      {
+        icon: 'gift',
+        title: 'Donasi Penuh Rahmat (Tiga Pintu Kasih Ã¢â‚¬â€œ Donasi)',
+        desc: 'Salurkan kebaikan hati Anda melalui donasi sukarela yang transparan dan sepenuhnya anonim. Dana Anda masuk ke rekening khusus donasi dan dana kasih, dikelola dengan audit ketat, serta disalurkan kepada yang membutuhkan dengan prinsip "Invisible Grace", menjaga privasi dan martabat semua pihak.',
+      },
+      {
+        icon: 'users',
+        title: 'Kartu Keluarga Katolik Digital & Jejaring Komunitas',
+        desc: 'Dapatkan Kartu Keluarga Katolik Digital Anda dan perkuat tali persaudaraan dengan sesama umat. Sistem kami membantu Anda terhubung dengan keluarga dan komunitas lingkungan paroki Anda. Semua data keluarga dikelola dengan aman, mudah diakses, dan membantu Anda merasa menjadi bagian tak terpisahkan dari keluarga besar Paroki Santo Klemens.',
+      },
+      {
+        icon: 'sun',
+        title: 'Perhatian untuk Lansia Kita (Morning Check)',
+        desc: 'Bentuk kepedulian nyata Paroki untuk umat lansia yang terkasih. Sistem Morning Check memastikan keselamatan dan kesejahteraan harian para lansia, dengan notifikasi pengingat dan jalur eskalasi darurat jika dibutuhkan. Memberikan ketenangan bagi keluarga dan pengurus lingkungan.',
+      },
+      {
+        icon: 'shield',
+        title: 'Lingkungan Paroki yang Bersih & Berintegritas (Whistle-Blower)',
+        desc: 'Mewujudkan lingkungan paroki yang bersih dan penuh integritas. Laporkan dugaan pelanggaran atau masalah serius secara anonim dan aman, langsung kepada Pastor Paroki, tanpa perantara. Identitas Anda terlindungi sepenuhnya.',
+      },
+      {
+        icon: 'settings',
+        title: 'Manajemen Terpadu untuk Pelayan Gereja',
+        desc: 'Bagi para pengurus gereja dan lingkungan, ekosistem ini menyediakan alat manajemen terintegrasi yang canggih. Dari pengelolaan jadwal misa, kegiatan, warta paroki, verifikasi umat, hingga pelaporan keuangan, semuanya terdigitalisasi untuk efisiensi dan transparansi pelayanan pastoral.',
+      },
+    ],
   },
 ];
 
@@ -257,11 +220,6 @@ const trustCards = [
 export default function TentangEkosistemPage() {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [liturgicalInfo, setLiturgicalInfo] = useState<LiturgicalInfo | null>(null);
-  const [expandedCards, setExpandedCards] = useState<Record<string, boolean>>({});
-
-  const toggleCard = (tag: string) => {
-    setExpandedCards((prev) => ({ ...prev, [tag]: !prev[tag] }));
-  };
 
   // Fetch liturgical theme
   useEffect(() => {
@@ -299,7 +257,7 @@ export default function TentangEkosistemPage() {
             entry.target.classList.add('visible');
             // Stagger child cards
             const cards = entry.target.querySelectorAll<HTMLElement>(
-              '.feature-flagship-card, .feature-card, .step-card, .trust-card'
+              '.feature-card, .step-card, .trust-card'
             );
             cards.forEach((card, i) => {
               card.style.transitionDelay = `${i * 80}ms`;
@@ -318,14 +276,14 @@ export default function TentangEkosistemPage() {
 
   return (
     <>
-      {/* Liturgical accent bar — rendered by layout but kept here for safety */}
+      {/* Liturgical accent bar Ã¢â‚¬â€ rendered by layout but kept here for safety */}
       <div className="liturgi-accent-bar" suppressHydrationWarning></div>
 
       {/* ============================================================ */}
       {/* PAGE STYLES                                                   */}
       {/* ============================================================ */}
       <style dangerouslySetInnerHTML={{ __html: `
-        /* ── REVEAL ANIMATION ── */
+        /* Ã¢â€â‚¬Ã¢â€â‚¬ REVEAL ANIMATION Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
         .reveal {
           opacity: 0;
           transform: translateY(24px);
@@ -348,7 +306,7 @@ export default function TentangEkosistemPage() {
           }
         }
 
-        /* ── HERO SECTION ── */
+        /* Ã¢â€â‚¬Ã¢â€â‚¬ HERO SECTION Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
         .hero-ekosistem {
           position: relative;
           overflow: hidden;
@@ -462,7 +420,7 @@ export default function TentangEkosistemPage() {
           flex-wrap: wrap;
         }
 
-        /* ── ORNAMENT DIVIDER ── */
+        /* Ã¢â€â‚¬Ã¢â€â‚¬ ORNAMENT DIVIDER Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
         .ornament-divider {
           display: flex;
           align-items: center;
@@ -486,7 +444,7 @@ export default function TentangEkosistemPage() {
           flex-shrink: 0;
         }
 
-        /* ── SECTION BASE ── */
+        /* Ã¢â€â‚¬Ã¢â€â‚¬ SECTION BASE Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
         .te-section {
           padding: 5rem 1.5rem;
         }
@@ -496,108 +454,41 @@ export default function TentangEkosistemPage() {
           text-align: center;
         }
 
-        /* -- SECTION 2 -- MANFAAT -- */
+        /* Ã¢â€â‚¬Ã¢â€â‚¬ SECTION 2 Ã¢â‚¬â€ MANFAAT Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
         .section-manfaat {
           background: var(--color-cream, #f5f0e8);
         }
-
-        /* -- flagship spotlight (2 fitur paling unik) -- */
-        .feature-flagship-grid {
-          display: grid;
-          grid-template-columns: 1fr;
-          gap: 1.25rem;
-          text-align: left;
-          margin-bottom: 2.5rem;
-        }
-        @media (min-width: 800px) {
-          .feature-flagship-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-        .feature-flagship-card {
-          position: relative;
-          background: linear-gradient(155deg, #fff, var(--color-parchment, #f8f1e2));
-          border: 1px solid rgba(200,169,110,0.35);
-          border-radius: 6px 28px 6px 28px;
-          padding: 2rem 1.75rem;
-          box-shadow: var(--shadow-warm-lg, 0 10px 40px rgba(58,42,24,0.14));
-          overflow: hidden;
-        }
-        .feature-flagship-icon {
-          width: 2.8rem;
-          height: 2.8rem;
-          color: var(--color-gold-deep, #a87a2c);
-          margin-bottom: 1rem;
-        }
-        .feature-flagship-tag {
-          display: inline-block;
-          font-family: var(--font-body, 'Inter', sans-serif);
-          font-size: 0.68rem;
-          font-weight: 700;
-          letter-spacing: 0.12em;
-          text-transform: uppercase;
-          color: var(--color-gold-deep, #a87a2c);
-          background: rgba(200,169,110,0.12);
-          border-radius: 3px;
-          padding: 0.25em 0.7em;
-          margin-bottom: 0.9rem;
-        }
-        .feature-flagship-card h3 {
-          font-family: var(--font-heading, 'Cormorant Garamond', serif);
-          font-size: 1.5rem;
-          font-weight: 700;
-          color: var(--color-primary, #1a0e05);
-          line-height: 1.25;
-          margin-bottom: 0.7rem;
-        }
-        .feature-flagship-card .hook {
-          font-family: var(--font-body, 'Inter', sans-serif);
-          font-size: 0.96rem;
-          color: var(--color-text-dark, #3d2b1f);
-          line-height: 1.65;
-          margin-bottom: 1.1rem;
-        }
-
-        /* -- tag chip, dipakai di kartu flagship & grid -- */
-        .feature-chips {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 0.5rem;
-        }
-        .feature-chip {
+        .feature-group-label {
           font-family: var(--font-body, 'Inter', sans-serif);
           font-size: 0.72rem;
-          font-weight: 600;
-          color: var(--color-gold-deep, #a87a2c);
-          background: rgba(200,169,110,0.1);
-          border: 1px solid rgba(200,169,110,0.22);
-          border-radius: 999px;
-          padding: 0.3em 0.75em;
-          white-space: nowrap;
+          font-weight: 700;
+          letter-spacing: 0.14em;
+          text-transform: uppercase;
+          color: var(--color-gold, #c8a96e);
+          margin: 3rem 0 1.2rem;
+          text-align: left;
         }
-
-        /* -- grid fitur lain: padat, momen-led -- */
         .feature-grid {
           display: grid;
           grid-template-columns: 1fr;
-          gap: 1.1rem;
+          gap: 1.25rem;
           text-align: left;
         }
         @media (min-width: 640px) {
           .feature-grid { grid-template-columns: repeat(2, 1fr); }
         }
-        @media (min-width: 1000px) {
-          .feature-grid { grid-template-columns: repeat(4, 1fr); }
+        @media (min-width: 900px) {
+          .feature-grid { grid-template-columns: repeat(3, 1fr); }
         }
         .feature-card {
           position: relative;
           background: #fff;
           border-radius: 2px 20px 2px 20px;
-          padding: 1.5rem 1.35rem 1.35rem;
+          padding: 1.75rem 1.5rem 1.5rem;
           box-shadow: var(--shadow-card, 0 2px 16px rgba(26,14,5,0.08));
           border-bottom: 2px solid var(--color-gold, #c8a96e);
           transition: transform 0.25s ease, box-shadow 0.25s ease;
           overflow: hidden;
-          display: flex;
-          flex-direction: column;
         }
         .feature-card:hover {
           transform: translateY(-3px);
@@ -608,68 +499,25 @@ export default function TentangEkosistemPage() {
           outline-offset: 2px;
         }
         .feature-icon {
-          width: 2rem;
-          height: 2rem;
+          width: 2.4rem;
+          height: 2.4rem;
           color: var(--color-gold, #c8a96e);
-          margin-bottom: 0.85rem;
-        }
-        .feature-card .feature-tag {
-          font-family: var(--font-body, 'Inter', sans-serif);
-          font-size: 0.65rem;
-          font-weight: 700;
-          letter-spacing: 0.1em;
-          text-transform: uppercase;
-          color: var(--color-stone, #8b7355);
-          margin-bottom: 0.4rem;
+          margin-bottom: 1rem;
         }
         .feature-card h3 {
           font-family: var(--font-heading, 'Cormorant Garamond', serif);
-          font-size: 1.05rem;
+          font-size: 1.18rem;
           font-weight: 700;
           color: var(--color-primary, #1a0e05);
-          margin-bottom: 0.5rem;
+          margin-bottom: 0.6rem;
           line-height: 1.3;
         }
-        .feature-card .hook {
+        .feature-card p {
           font-family: var(--font-body, 'Inter', sans-serif);
-          font-size: 0.85rem;
-          color: var(--color-text-dark, #3d2b1f);
-          line-height: 1.6;
-          margin: 0 0 0.9rem;
-        }
-        .feature-card .feature-chips {
-          margin-bottom: 0.75rem;
-        }
-        .feature-detail {
-          font-family: var(--font-body, 'Inter', sans-serif);
-          font-size: 0.83rem;
+          font-size: 0.88rem;
           color: var(--color-text-dark, #3d2b1f);
           line-height: 1.7;
-          margin: 0 0 0.9rem;
-          padding-top: 0.9rem;
-          border-top: 1px dashed rgba(200,169,110,0.3);
-        }
-        .feature-expand-btn {
-          margin-top: auto;
-          align-self: flex-start;
-          font-family: var(--font-body, 'Inter', sans-serif);
-          font-size: 0.78rem;
-          font-weight: 700;
-          color: var(--color-gold-deep, #a87a2c);
-          background: none;
-          border: none;
-          padding: 0;
-          cursor: pointer;
-          display: inline-flex;
-          align-items: center;
-          gap: 0.3rem;
-        }
-        .feature-expand-btn:hover {
-          text-decoration: underline;
-        }
-        .feature-expand-btn:focus-visible {
-          outline: 2px solid var(--color-gold, #c8a96e);
-          outline-offset: 2px;
+          margin: 0;
         }
         .gold-trace {
           position: absolute;
@@ -684,7 +532,7 @@ export default function TentangEkosistemPage() {
           width: 100%;
         }
 
-        /* ── SECTION 3 — CARA BERGABUNG ── */
+        /* Ã¢â€â‚¬Ã¢â€â‚¬ SECTION 3 Ã¢â‚¬â€ CARA BERGABUNG Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
         .section-bergabung {
           background: var(--color-primary, #1a0e05);
           position: relative;
@@ -763,7 +611,7 @@ export default function TentangEkosistemPage() {
           margin: 0;
         }
 
-        /* ── SECTION 3b — FONDASI KEPERCAYAAN ── */
+        /* Ã¢â€â‚¬Ã¢â€â‚¬ SECTION 3b Ã¢â‚¬â€ FONDASI KEPERCAYAAN Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
         .section-trust {
           background: var(--color-cream, #f5f0e8);
         }
@@ -805,7 +653,7 @@ export default function TentangEkosistemPage() {
           margin: 0;
         }
 
-        /* ── SECTION 4 — CTA FINAL ── */
+        /* Ã¢â€â‚¬Ã¢â€â‚¬ SECTION 4 Ã¢â‚¬â€ CTA FINAL Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
         .section-cta-final {
           background: var(--color-primary, #1a0e05);
           position: relative;
@@ -881,7 +729,7 @@ export default function TentangEkosistemPage() {
           margin-top: 1rem;
         }
 
-        /* ── SCROLL TO TOP ── */
+        /* Ã¢â€â‚¬Ã¢â€â‚¬ SCROLL TO TOP Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
         .scroll-top-btn {
           position: fixed;
           bottom: 2rem;
@@ -919,7 +767,7 @@ export default function TentangEkosistemPage() {
           height: 20px;
         }
 
-        /* ── SECTION TITLE OVERRIDES FOR DARK SECTIONS ── */
+        /* Ã¢â€â‚¬Ã¢â€â‚¬ SECTION TITLE OVERRIDES FOR DARK SECTIONS Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
         .on-dark .section-title,
         .on-dark .section-eyebrow,
         .on-dark .section-subtitle {
@@ -937,7 +785,7 @@ export default function TentangEkosistemPage() {
           color: rgba(245,240,232,0.68);
         }
 
-        /* ── SHARED SECTION EYEBROW ── */
+        /* Ã¢â€â‚¬Ã¢â€â‚¬ SHARED SECTION EYEBROW Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
         .section-eyebrow {
           display: inline-block;
           font-family: var(--font-body, 'Inter', sans-serif);
@@ -970,7 +818,7 @@ export default function TentangEkosistemPage() {
           opacity: 0.78;
         }
 
-        /* ── BUTTON OVERRIDES ── */
+        /* Ã¢â€â‚¬Ã¢â€â‚¬ BUTTON OVERRIDES Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
         .btn-hero-primary {
           display: inline-flex;
           align-items: center;
@@ -1022,7 +870,7 @@ export default function TentangEkosistemPage() {
       ` }} />
 
       {/* ============================================================ */}
-      {/* SECTION 1 — HERO                                             */}
+      {/* SECTION 1 Ã¢â‚¬â€ HERO                                             */}
       {/* ============================================================ */}
       <section className="hero-ekosistem reveal" id="atas" aria-label="Pengenalan Ekosistem Digital Paroki">
         <div className="hero-bg" aria-hidden="true">
@@ -1057,14 +905,14 @@ export default function TentangEkosistemPage() {
       </section>
 
       {/* ============================================================ */}
-      {/* SECTION 2 — MANFAAT                                          */}
+      {/* SECTION 2 Ã¢â‚¬â€ MANFAAT                                          */}
       {/* ============================================================ */}
       <section className="te-section section-manfaat reveal" id="manfaat" aria-label="Manfaat Ekosistem">
         <div className="te-section-inner">
           <p className="section-eyebrow">Manfaat Nyata</p>
-          <h2 className="section-title">Satu Aplikasi, Untuk Setiap Momen Hidupmu</h2>
+          <h2 className="section-title">Mengapa Anda Wajib Terlibat?</h2>
           <p className="section-subtitle">
-            Dari yang paling personal hingga yang paling mendesak — kenali dulu dua yang paling sering dicari umat
+            Manfaat nyata untuk setiap umat, dalam spiritualitas, komunitas, dan kehidupan sehari-hari
           </p>
           <div className="ornament-divider" aria-hidden="true">
             <span className="line"></span>
@@ -1072,61 +920,28 @@ export default function TentangEkosistemPage() {
             <span className="line"></span>
           </div>
 
-          {/* -- flagship spotlight -- */}
-          <div className="feature-flagship-grid">
-            {flagshipFeatures.map((item) => (
-              <article className="feature-flagship-card" key={item.tag}>
-                <div className="feature-flagship-icon" aria-hidden="true">
-                  {FeatureIcons[item.icon]}
-                </div>
-                <span className="feature-flagship-tag">{item.tag}</span>
-                <h3>{item.headline}</h3>
-                <p className="hook">{item.hook}</p>
-                <div className="feature-chips">
-                  {item.chips.map((chip) => (
-                    <span className="feature-chip" key={chip}>{chip}</span>
-                  ))}
-                </div>
-              </article>
-            ))}
-          </div>
-
-          {/* -- grid fitur lainnya, padat & bisa diperluas -- */}
-          <div className="feature-grid">
-            {gridFeatures.map((item) => {
-              const isExpanded = !!expandedCards[item.tag];
-              return (
-                <article className="feature-card" key={item.tag}>
-                  <div className="feature-icon" aria-hidden="true">
-                    {FeatureIcons[item.icon]}
-                  </div>
-                  <p className="feature-tag">{item.tag}</p>
-                  <h3>{item.headline}</h3>
-                  <p className="hook">{item.hook}</p>
-                  <div className="feature-chips">
-                    {item.chips.map((chip) => (
-                      <span className="feature-chip" key={chip}>{chip}</span>
-                    ))}
-                  </div>
-                  {isExpanded && <p className="feature-detail">{item.detail}</p>}
-                  <button
-                    type="button"
-                    className="feature-expand-btn"
-                    onClick={() => toggleCard(item.tag)}
-                    aria-expanded={isExpanded}
-                  >
-                    {isExpanded ? '— Ringkas' : 'Selengkapnya ↓'}
-                  </button>
-                  <div className="gold-trace" aria-hidden="true"></div>
-                </article>
-              );
-            })}
-          </div>
+          {features.map((group) => (
+            <div key={group.group}>
+              <p className="feature-group-label">{group.group}</p>
+              <div className="feature-grid">
+                {group.items.map((item) => (
+                  <article className="feature-card" key={item.title}>
+                    <div className="feature-icon" aria-hidden="true">
+                      {FeatureIcons[item.icon]}
+                    </div>
+                    <h3>{item.title}</h3>
+                    <p>{item.desc}</p>
+                    <div className="gold-trace" aria-hidden="true"></div>
+                  </article>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* ============================================================ */}
-      {/* SECTION 3 — CARA BERGABUNG                                   */}
+      {/* SECTION 3 Ã¢â‚¬â€ CARA BERGABUNG                                   */}
       {/* ============================================================ */}
       <section className="te-section section-bergabung reveal on-dark" id="bergabung" aria-label="Cara Bergabung">
         <div className="stained-glass-overlay" aria-hidden="true"></div>
@@ -1155,7 +970,7 @@ export default function TentangEkosistemPage() {
       </section>
 
       {/* ============================================================ */}
-      {/* SECTION 3b — FONDASI KEPERCAYAAN                             */}
+      {/* SECTION 3b Ã¢â‚¬â€ FONDASI KEPERCAYAAN                             */}
       {/* ============================================================ */}
       <section className="te-section section-trust reveal" id="kepercayaan" aria-label="Fondasi Kepercayaan">
         <div className="te-section-inner">
@@ -1182,7 +997,7 @@ export default function TentangEkosistemPage() {
       </section>
 
       {/* ============================================================ */}
-      {/* SECTION 4 — CTA FINAL                                        */}
+      {/* SECTION 4 Ã¢â‚¬â€ CTA FINAL                                        */}
       {/* ============================================================ */}
       <section className="te-section section-cta-final reveal" id="daftar" aria-label="Ajakan Bergabung">
         <div className="bg-pulse" aria-hidden="true"></div>
@@ -1210,7 +1025,7 @@ export default function TentangEkosistemPage() {
             </Link>
           </div>
           <p className="cta-small-note">
-            Gratis · Aman · Data Anda milik Anda · Dilindungi UU PDP No. 27/2022
+            Gratis Ã‚Â· Aman Ã‚Â· Data Anda milik Anda Ã‚Â· Dilindungi UU PDP No. 27/2022
           </p>
         </div>
       </section>
