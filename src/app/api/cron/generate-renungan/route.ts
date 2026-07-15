@@ -2,7 +2,16 @@ import { NextResponse } from 'next/server';
 import { POST as generateRenunganPost } from '@/app/api/renungan/generate/route';
 import { supabaseServer } from '@/lib/supabase/server';
 
-// Initialize Supabase client for sending notifications
+// Jadwal resmi persona (RENUNGAN_HARIAN_SISTEM_LENGKAP §"Jadwal Mingguan"):
+// Minggu, Senin, Rabu, Jumat -> Bruder Ignas (4x/minggu)
+// Sabtu -> Pater Anton (1x/minggu)
+// Selasa, Kamis -> hari hening, tidak ada yang di-generate
+const HARI_IGNAS = new Set([0, 1, 3, 5]); // Minggu, Senin, Rabu, Jumat
+const HARI_ANTON = new Set([6]);          // Sabtu
+
+function formatTanggal(d: Date): string {
+  return d.toISOString().split('T')[0];
+}
 
 // Placeholder for WhatsApp sending function
 async function sendWhatsAppNotification(phoneNumber: string, message: string): Promise<boolean> {
@@ -37,43 +46,70 @@ export async function POST(request: Request) {
   }
 
   try {
-    console.log('Cron job for renungan generation triggered.');
+    console.log('Cron job for renungan batch generation triggered.');
 
-    // Simulate calling the internal /api/renungan/generate API
-    // We construct a mock Request object for this purpose.
-    const mockRequest = new Request(new URL('/api/renungan/generate', request.url), {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${process.env.CRON_SECRET}`, // Authenticate internal call
-      },
-      // No body needed for this generate API
-    });
+    // Batch untuk minggu depan: H+7 sampai H+13 (7 hari), sesuai jadwal
+    // resmi Bagian "Jadwal Generate & Kurasi" -- 4 Ignas + 1 Anton = 5 renungan
+    const hasil: any[] = [];
+    const gagal: any[] = [];
+    const today = new Date();
 
-    const generateResponse = await generateRenunganPost(mockRequest);
-    const generateResult = await generateResponse.json();
+    for (let offset = 7; offset <= 13; offset++) {
+      const targetDate = new Date(today);
+      targetDate.setDate(today.getDate() + offset);
+      const tanggalStr = formatTanggal(targetDate);
+      const hariKe = targetDate.getDay();
 
-    if (!generateResponse.ok) {
-      console.error('Renungan generation failed:', generateResult.details || generateResult.error);
-      return NextResponse.json({
-        message: 'Renungan generation failed',
-        details: generateResult.details || generateResult.error
-      }, { status: 500 });
+      let mode: 'ignas' | 'anton' | null = null;
+      if (HARI_IGNAS.has(hariKe)) mode = 'ignas';
+      else if (HARI_ANTON.has(hariKe)) mode = 'anton';
+
+      if (!mode) {
+        // Hari hening (Selasa/Kamis) -- tidak ada yang perlu digenerate
+        continue;
+      }
+
+      const mockRequest = new Request(new URL('/api/renungan/generate', request.url), {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${process.env.CRON_SECRET}`,
+        },
+        body: JSON.stringify({ tanggal: tanggalStr, mode }),
+      });
+
+      try {
+        const generateResponse = await generateRenunganPost(mockRequest);
+        const generateResult = await generateResponse.json();
+
+        if (!generateResponse.ok) {
+          console.error(`Renungan generation failed for ${tanggalStr} (${mode}):`, generateResult.error || generateResult.details);
+          gagal.push({ tanggal: tanggalStr, mode, error: generateResult.error || generateResult.details });
+        } else {
+          console.log(`Renungan generation result for ${tanggalStr} (${mode}):`, generateResult);
+          hasil.push({ tanggal: tanggalStr, mode, ...generateResult });
+        }
+      } catch (err: any) {
+        console.error(`Unhandled error generating ${tanggalStr} (${mode}):`, err);
+        gagal.push({ tanggal: tanggalStr, mode, error: err.message });
+      }
     }
 
-    console.log('Renungan generation successful:', generateResult);
+    const generatedDates = hasil.map((h) => h.tanggal);
 
     // --- Send WhatsApp Notification to Pastor ---
     // You would fetch the Pastor's phone number from your database here.
     // For now, using a placeholder.
     const pastorPhoneNumber = process.env.PASTOR_PHONE_NUMBER || '+6281234567890'; // Placeholder
-    // CATATAN (diperbaiki 15 Juli 2026): teks asli di sini sempat mojibake
-    // parah (beberapa lapis salah-decode), tidak bisa direparasi otomatis
-    // dengan pasti. Diganti teks bersih di bawah -- SILAKAN SESUAIKAN kalau
-    // Anda ingat redaksi/emoji aslinya berbeda.
-    const whatsappMessage = `Renungan Harian Paroki
-Batch renungan minggu depan (${generateResult.generated_dates[0]} s/d ${generateResult.generated_dates[generateResult.generated_dates.length - 1]}) sudah siap dikurasi.
+    const whatsappMessage = generatedDates.length > 0
+      ? `Renungan Harian Paroki
+Batch renungan minggu depan (${generatedDates[0]} s/d ${generatedDates[generatedDates.length - 1]}) sudah siap dikurasi.
+Total: ${hasil.length} renungan berhasil diproses${gagal.length > 0 ? `, ${gagal.length} gagal (cek log)` : ''}.
 Silakan cek Dashboard Pastor untuk review dan persetujuan.
+--------------------
+Paroki Santo Klemens Sepinggan`
+      : `Renungan Harian Paroki
+Batch minggu depan TIDAK ada yang berhasil digenerate. Mohon cek log server.
 --------------------
 Paroki Santo Klemens Sepinggan`;
 
@@ -85,10 +121,12 @@ Paroki Santo Klemens Sepinggan`;
     }
 
     return NextResponse.json({
-      message: 'Cron job executed successfully.',
-      generation_status: generateResult,
+      message: 'Cron job executed.',
+      generated_dates: generatedDates,
+      berhasil: hasil,
+      gagal,
       whatsapp_notification_sent: waSent,
-    }, { status: 200 });
+    }, { status: gagal.length > 0 && hasil.length === 0 ? 500 : 200 });
 
   } catch (error: any) {
     console.error('Unhandled error in cron generate-renungan:', error);
