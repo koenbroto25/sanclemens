@@ -194,8 +194,8 @@ ${liturgi.bacaan_list.length > 0
 }
 
 KUTIPAN RELEVAN DARI DATABASE SUMBER AJARAN
-(Diambil via search_rag_chunks() ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â RAG v6, domain: theology)
-Gunakan yang paling relevan. Referensikan dengan [Nama Dokumen, ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â§nomor jika ada]
+(Diambil via search_rag_chunks() ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â RAG v6, domain: theology)
+Gunakan yang paling relevan. Referensikan dengan [Nama Dokumen, ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â§nomor jika ada]
 ${konteksTeologis || '[Tidak ada kutipan relevan yang ditemukan. Gunakan pengetahuan teologi Katolik umum. JANGAN mengarang kutipan spesifik dalam tanda petik.]'}
 
 INSTRUKSI AKHIR
@@ -215,12 +215,16 @@ Tulis renungan sesuai system prompt. Output HANYA format JSON. Tidak ada teks di
           systemInstruction: systemPrompt,
           contents: [{ role: 'user', parts: [{ text: userPrompt }] }],
           generationConfig: {
-            maxOutputTokens: 4096,
+            maxOutputTokens: 8192,
             temperature: 0.8,
             topP: 0.9,
           }
         });
 
+        const finishReason = result.response.candidates?.[0]?.finishReason;
+        if (finishReason === 'MAX_TOKENS') {
+          throw new Error(`Output Gemini terpotong (finishReason=MAX_TOKENS) -- maxOutputTokens perlu dinaikkan lagi`);
+        }
         const rawOutput = result.response.text();
         const cleaned = rawOutput.replace(/^```json\s*/i, '').replace(/```\s*$/i, '').trim();
         renunganData = JSON.parse(cleaned);
