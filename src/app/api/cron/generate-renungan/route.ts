@@ -45,7 +45,7 @@ export async function POST(request: Request) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${process.env.SUPABASE_SERVICE_ROLE_KEY}`, // Authenticate internal call
+        'Authorization': `Bearer ${process.env.CRON_SECRET}`, // Authenticate internal call
       },
       // No body needed for this generate API
     });
