@@ -1,11 +1,11 @@
-name: Sync Renungan RAG & Generate Batch
+﻿name: Sync Renungan RAG & Generate Batch
 
 on:
   schedule:
     # pipeline_renungan.py -- setiap hari jam 02:00 WITA = 18:00 UTC hari
     # sebelumnya (WITA = UTC+8)
     - cron: "0 18 * * *"
-    # trigger /api/cron/generate-batch -- Minggu jam 10:00 WITA = 02:00 UTC
+    # trigger /api/cron/generate-renungan -- Minggu jam 10:00 WITA = 02:00 UTC
     # (samakan dengan jadwal di vercel.json)
     - cron: "0 2 * * 0"
   workflow_dispatch:
@@ -18,7 +18,7 @@ on:
         type: choice
         options:
           - sync-renungan
-          - generate-batch
+          - generate-renungan
           - both
         default: both
 
@@ -61,18 +61,18 @@ jobs:
           R2_BUCKET_NAME: ${{ secrets.R2_BUCKET_NAME }}
         run: python pipeline_renungan.py
 
-  generate-batch:
+  generate-renungan:
     # Jalan kalau: (a) trigger dari cron jam 02:00 UTC Minggu, atau
-    # (b) manual dispatch dengan job=generate-batch / both
+    # (b) manual dispatch dengan job=generate-renungan / both
     if: >
       (github.event_name == 'schedule' && github.event.schedule == '0 2 * * 0') ||
       (github.event_name == 'workflow_dispatch' &&
-        (github.event.inputs.job == 'generate-batch' || github.event.inputs.job == 'both'))
+        (github.event.inputs.job == 'generate-renungan' || github.event.inputs.job == 'both'))
     runs-on: ubuntu-latest
     steps:
-      - name: Trigger route generate-batch
+      - name: Trigger route generate-renungan
         run: |
-          curl -sf -X POST "${{ secrets.APP_URL }}/api/cron/generate-batch" \
+          curl -sf -X POST "${{ secrets.APP_URL }}/api/cron/generate-renungan" \
             -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
             -o response.json \
             -w "HTTP status: %{http_code}\n"
