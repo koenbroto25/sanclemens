@@ -1,6 +1,7 @@
 export const dynamic = 'force-dynamic'
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
+import { cookies } from 'next/headers';
 
 export async function GET(request: NextRequest) {
   try {
@@ -20,7 +21,15 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ error: 'Gagal memuat profil' }, { status: 500 });
     }
 
-    return NextResponse.json({ profile });
+    const { data: umatData } = await supabase
+      .from('umat_staging')
+      .select('nama, nama_baptis, jenis_kelamin, tempat_tanggal_lahir, tanggal_lahir, umur, alamat, hubungan_keluarga, status_perkawinan, pendidikan_terakhir, pekerjaan, keterampilan, kondisi_tubuh, medical_history, economic_details, sakramen_records')
+      .eq('nama', profile?.full_name)
+      .order('created_at', { ascending: false })
+      .limit(1)
+      .maybeSingle();
+
+    return NextResponse.json({ profile, umat_staging: umatData || null });
   } catch (error) {
     console.error('Profile data error:', error);
     return NextResponse.json({ error: 'Terjadi kesalahan server' }, { status: 500 });

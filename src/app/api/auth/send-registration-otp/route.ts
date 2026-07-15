@@ -37,7 +37,7 @@ export async function POST(request: NextRequest) {
     const oneHourAgo = new Date(now - 60 * 60 * 1000).toISOString();
     const { count: hourlyOtpCount, error: countError } = await supabase
       .from('auth_otps')
-      .select('id', { count: 'exact' })
+      .select('phone', { count: 'exact' })
       .eq('phone', cleaned)
       .gt('created_at', oneHourAgo);
 
@@ -102,7 +102,14 @@ export async function POST(request: NextRequest) {
     let notificationDetail = '';
 
     try {
-      const response = await fetch(`${request.url.split('/api/')[0]}/api/notifications/send`, {
+      const notificationUrl = `${request.url.split('/api/')[0]}/api/notifications/send`;
+      console.log('[send-registration-otp] Calling notification service:', {
+        url: notificationUrl,
+        phone: cleaned,
+        type: 'otp',
+      });
+
+      const response = await fetch(notificationUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -111,13 +118,21 @@ export async function POST(request: NextRequest) {
       });
 
       const responseData = await response.json().catch(() => ({}));
+      console.log('[send-registration-otp] Notification service response:', {
+        status: response.status,
+        statusText: response.statusText,
+        body: responseData,
+        phone: cleaned,
+      });
 
       if (!response.ok) {
         notificationStatus = 'failed';
         notificationDetail = responseData.error || `HTTP ${response.status}`;
-        console.error('Failed to send registration OTP via notification service:', {
+        console.error('[send-registration-otp] Failed to send registration OTP:', {
           status: response.status,
+          statusText: response.statusText,
           error: responseData.error,
+          fullResponse: responseData,
           phone: cleaned,
           otp,
         });
@@ -127,12 +142,13 @@ export async function POST(request: NextRequest) {
       }
 
       notificationStatus = 'sent';
-      console.log('Registration OTP sent successfully:', { phone: cleaned, otp });
+      console.log('[send-registration-otp] Registration OTP sent successfully:', { phone: cleaned, otp });
     } catch (notificationError) {
       notificationStatus = 'error';
       notificationDetail = notificationError instanceof Error ? notificationError.message : 'Unknown network error';
-      console.error('Network error calling notification service for registration OTP:', {
+      console.error('[send-registration-otp] Network error calling notification service:', {
         error: notificationDetail,
+        stack: notificationError instanceof Error ? notificationError.stack : undefined,
         phone: cleaned,
         otp,
       });

@@ -1,86 +1,146 @@
-# RAG Pipeline — Revisi Full (Juli 2026)
+# Scripts RAG v6.5 — CockroachDB Edition
 
-## Persiapan (sekali saja)
+Direktori ini berisi semua pipeline Python untuk sistem RAG Paroki Santo Klemens. Seluruh skrip ini ditulis untuk CockroachDB + Cloudflare R2 (Supabase hanya untuk tabel aplikasi non-RAG).
 
-1. Copy folder `scripts/rag/` ke `D:\paroki_digital_stclemens\scripts\rag\`
-2. Install dependency (kalau belum ada):
-```powershell
-cd D:\paroki_digital_stclemens
-pip install supabase boto3 google-generativeai python-dotenv
-```
-3. Pastikan constraint unique ada di `ai_ingest_queue` (dibutuhkan `00_enqueue_batch.py`).
-   Jalankan sekali di Supabase SQL:
-```sql
-ALTER TABLE public.ai_ingest_queue
-  ADD CONSTRAINT ai_ingest_queue_source_unique UNIQUE (source_table, source_id);
-```
+---
 
-## Preset 1 — Re-ingest Teologi (theological_chunks)
+## Daftar Pipeline
 
-```powershell
-cd D:\paroki_digital_stclemens\scripts\rag
+| File | Fungsi | Target DB |
+|------|--------|-----------|
+| `pipeline_corpus_teologi.py` | Ingest corpus Katolik + Ignatian → `theological_chunks` + `ai_knowledge_base` | CockroachDB |
+| `approve_corpus_teologi.py` | Approve corpus Teologi (Ahli Teologi) — pindah `needs_review` → `approved` | CockroachDB |
+| `pipeline_renungan.py` | Sinkronisasi renungan published → `daily_reflections` + `ai_knowledge_base` | CockroachDB |
+| `.env.example` | Template environment variables untuk seluruh pipeline | — |
 
-$env:PIPELINE_SOURCE_TABLE = "theological_raw_chunk"
-$env:PIPELINE_TARGET_TABLE = "theological_chunks"
-$env:PIPELINE_R2_FOLDER    = "theological"
-$env:PIPELINE_EMBEDDING_COL = "content_embedding"
+---
 
-python 00a_chunk_theological_sources.py   # chunking raw source -> manifest + cache lokal
-python 00_enqueue_batch.py                # daftarkan ke ai_ingest_queue
-python 01_generate_embedding.py           # generate embedding (paling lama, banyak API call)
-python 02_upload_r2.py                    # upload teks ke R2
-python 03_insert_chunk.py                 # insert ke theological_chunks
-python 04_insert_ai_knowledge_base.py     # daftarkan ke ai_knowledge_base (needs_review)
-python 05_verify_and_approve.py           # sampling + approve massal
-```
+## Prasyarat
 
-## Preset 2 — Ingest Santo/Santa (saints_chunks, folder R2 tetap "theological")
+1. **Python** 3.10+
+2. **Dependencies**:
+   ```bash
+   pip install google-generativeai psycopg2-binary boto3 python-dotenv tiktoken
+   ```
+3. **Cloudflare R2 bucket** sudah dibuat (`paroki-klemens-rag-content`)
+4. **CockroachDB cluster** aktif dan skema RAG sudah terpasang (Lampiran A `rencana_migrasi_rag_cockroachdb_final.md`)
+5. **Env variables** terisi (lihat `.env.example`)
 
-```powershell
-$env:PIPELINE_SOURCE_TABLE = "saints_manual_import"
-$env:PIPELINE_TARGET_TABLE = "saints_chunks"
-$env:PIPELINE_R2_FOLDER    = "theological"
-$env:PIPELINE_EMBEDDING_COL = "embedding"   # BEDA nama kolom dari theological_chunks!
+---
 
-# 00a tidak perlu dijalankan (saints.json dibaca langsung oleh fetch_source_row)
-python 00_enqueue_batch.py
-python 01_generate_embedding.py
-python 02_upload_r2.py
-python 03_insert_chunk.py
-python 04_insert_ai_knowledge_base.py
-python 05_verify_and_approve.py
-```
+## Environment Variables
 
-**PENTING**: `saints.json` harus punya kolom `id` per baris (uuid unik) sebagai
-`source_id`. Kalau file mentahnya belum punya `id`, jalankan dulu skrip kecil
-untuk menambahkan uuid ke tiap baris sebelum lanjut (tanya saya kalau perlu).
+Salin `.env.example` menjadi `.env`, lalu isi dengan kredensial production.
 
-## Setelah kedua preset selesai — verifikasi ulang
+### Untuk Python Scripts (`scripts/rag/.env`)
 
-```sql
-SELECT 'theological_chunks' t, count(*) FROM public.theological_chunks
-UNION ALL SELECT 'saints_chunks', count(*) FROM public.saints_chunks
-UNION ALL SELECT 'ai_knowledge_base_approved', count(*) FROM public.ai_knowledge_base WHERE status='approved';
+```env
+SUPABASE_URL=
+SUPABASE_SERVICE_ROLE_KEY=
 
-SELECT pg_size_pretty(pg_total_relation_size('public.theological_chunks'));
+COCKROACHDB_HOST=...
+COCKROACHDB_PORT=26257
+COCKROACHDB_DBNAME=defaultdb
+COCKROACHDB_USER=...
+COCKROACHDB_PASSWORD=...
+
+GEMINI_API_KEY=... # fallback single key
+GOOGLE_API_KEY_1=... # rotating pool
+GOOGLE_API_KEY_2=...
+R2_ACCOUNT_ID=...
+R2_ACCESS_KEY_ID=...
+R2_SECRET_ACCESS_KEY=...
+R2_BUCKET_NAME=paroki-klemens-rag-content
 ```
 
-## Prayers (TIDAK lewat pipeline chunk — langsung ke prayers_collection)
+### Untuk Next.js (`.env.local` root project)
 
-Sesuai `rag_data_governance_master.md` §5 (pohon keputusan): `prayers_collection`
-< 1000 baris, exact-lookup, TIDAK di-offload ke R2/embedding chunk. Perlu script
-terpisah sederhana (insert langsung + 1 embedding per baris, tanpa R2). Saya
-buatkan kalau Anda konfirmasi field mapping `prayers.json` (nama kolom di JSON
-vs kolom `prayers_collection`).
+```env
+NEXT_PUBLIC_SUPABASE_URL=...
+NEXT_PUBLIC_SUPABASE_ANON_KEY=...
+SUPABASE_SERVICE_ROLE_KEY=...
 
-## Kalau ada tahap gagal di tengah jalan
+COCKROACHDB_HOST=...
+COCKROACHDB_PORT=26257
+COCKROACHDB_DBNAME=defaultdb
+COCKROACHDB_USER=...
+COCKROACHDB_PASSWORD=...
 
-Semua tahap **idempotent** — aman dijalankan ulang, baris yang sudah lolos
-tahap tertentu (`pipeline_stage`) otomatis di-skip oleh filter `.eq("pipeline_stage", ...)`
-di tahap berikutnya. Cek dulu status macet di mana:
-```sql
-SELECT pipeline_stage, failed_stage, count(*), array_agg(last_error) FILTER (WHERE last_error IS NOT NULL)
-FROM public.ai_ingest_queue
-WHERE source_table = 'theological_raw_chunk'
-GROUP BY 1, 2;
+GEMINI_API_KEY=...
+GEMINI_MODEL=gemini-2.5-flash
+EMBEDDING_MODEL=models/gemini-embedding-2
+EMBEDDING_DIMENSIONALITY=768
+
+R2_ACCOUNT_ID=...
+R2_ACCESS_KEY_ID=...
+R2_SECRET_ACCESS_KEY=...
+R2_BUCKET_NAME=paroki-klemens-rag-content
+
+NEXT_PUBLIC_APP_URL=https://...
+CRON_SECRET=...
+TELEGRAM_BOT_TOKEN=...
+TELEGRAM_CHAT_ID=...
 ```
+
+---
+
+## Cara Menjalankan
+
+### 1. Ingest Corpus Teologis
+
+```bash
+cd scripts/rag
+python pipeline_corpus_teologi.py
+```
+
+- Membaca 28 dokumen Katolik + 12 dokumen Ignatian.
+- Output: chunk disimpan di `theological_chunks` (CockroachDB) + teks di R2.
+- Semua chunk masuk dengan `status = 'needs_review'`.
+
+### 2. Approval Ahli Teologi
+
+```bash
+# Lihat chunk yang menunggu
+python approve_corpus_teologi.py --list CCC
+
+# Setujui satu dokumen
+python approve_corpus_teologi.py --approve CCC <uuid-pastor>
+
+# Lihat statistik
+python approve_corpus_teologi.py --stats
+```
+
+### 3. Sinkronisasi Renungan ke RAG
+
+```bash
+# Mode normal: 48 jam terakhir
+python pipeline_renungan.py
+
+# Backfill semua renungan published
+python pipeline_renungan.py --backfill
+```
+
+---
+
+## Troubleshooting Cepat
+
+| Error | Solusi |
+|-------|--------|
+| `psycopg2.OperationalError: connection refused` | Cek `COCKROACHDB_HOST`, port 26257, dan SSL cert |
+| `GEMINI_API_KEY is missing` | Pastikan `GEMINI_API_KEY` atau `GOOGLE_API_KEY_1` terisi |
+| `R2 upload failed` | Cek `R2_ACCOUNT_ID`, `R2_ACCESS_KEY_ID`, dan bucket policy |
+| `Chunk tidak muncul di search_rag_chunks()` | Chunk masih `needs_review` — jalankan `approve_corpus_teologi.py` |
+| `Embedding dimension mismatch` | Pastikan model embedding `models/gemini-embedding-2` (768 dim) |
+| `Vector cast error` | Pastikan menggunakan `str(embedding)` + `::vector` di SQL (v6.5.1 fix) |
+
+---
+
+## Referensi Utama
+
+- Spesifikasi sistem: `RENUNGAN_HARIAN_SISTEM_LENGKAP_r3_v6_5_1.md`
+- Rencana migrasi: `rencana_migrasi_rag_cockroachdb_final.md`
+- Rencana implementasi: `renunganharian_plan.md`
+
+---
+
+**Last updated**: 14 Juli 2026

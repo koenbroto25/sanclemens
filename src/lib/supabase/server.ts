@@ -1,25 +1,34 @@
 import { createClient as createSupabaseClient } from '@supabase/supabase-js';
+import { createServerClient } from '@supabase/ssr';
+import { cookies } from 'next/headers';
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseServiceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+const supabaseServiceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
 
-if (!supabaseUrl) {
-  console.error('Missing NEXT_PUBLIC_SUPABASE_URL environment variable');
-  // return null or throw a different kind of error that Next.js won't turn into HTML
-  // For debugging, we'll proceed, but API calls will likely fail.
-}
-if (!supabaseServiceRoleKey) {
-  console.error('Missing SUPABASE_SERVICE_ROLE_KEY environment variable');
-  // For debugging, we'll proceed, but API calls will likely fail.
-}
-
-// Create a Supabase client for server-side operations (e.g., bypassing RLS with service role key)
-export const supabaseServer = createSupabaseClient(supabaseUrl || '', supabaseServiceRoleKey || '', {
-  auth: {
-    persistSession: false, // Server-side client, no session persistence needed
-  },
+// Service role client - bypasses RLS, no session (for admin/API use)
+export const supabaseServer = createSupabaseClient(supabaseUrl, supabaseServiceRoleKey, {
+  auth: { persistSession: false },
 });
-// Alias for compatibility with API routes that import createClient
-export function createClient(): typeof supabaseServer {
+
+// SSR client - reads cookies, respects RLS (for page components)
+export function createClient() {
+  const cookieStore = cookies();
+  return createServerClient(supabaseUrl, supabaseAnonKey, {
+    cookies: {
+      getAll() { return cookieStore.getAll(); },
+      setAll(cookiesToSet) {
+        try {
+          cookiesToSet.forEach(({ name, value, options }) =>
+            cookieStore.set(name, value, options)
+          );
+        } catch {}
+      },
+    },
+  });
+}
+
+// Service role client alias for API routes that need to bypass RLS
+export function createServiceClient() {
   return supabaseServer;
 }

@@ -81,10 +81,10 @@ export default function AdminParokiDashboard() {
           <h2 className="text-lg font-medium text-text-primary mb-4">Akses Cepat</h2>
           <div className="space-y-2">
             <a href="/data-gakin" className="block p-3 rounded-lg bg-bg hover:bg-primary/5 transition-colors text-sm text-text-primary">
-              Ã°Å¸â€œÅ  Data GAKIN
+              ðÅ¸â€œÅ  Data GAKIN
             </a>
             <a href="/dashboard/admin" className="block p-3 rounded-lg bg-bg hover:bg-primary/5 transition-colors text-sm text-text-primary">
-              Ã°Å¸â€Â§ Pengaturan Admin
+              ðÅ¸â€Â§ Pengaturan Admin
             </a>
           </div>
         </div>

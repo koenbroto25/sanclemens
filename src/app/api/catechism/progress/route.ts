@@ -21,7 +21,7 @@ export async function GET() {
       return NextResponse.json({ error: error.message }, { status: 500 });
     }
 
-    // Build a map of module_id Ã¢â€ â€™ progress
+    // Build a map of module_id ââ€ â€™ progress
     const progressMap: Record<string, any> = {};
     if (progress) {
       progress.forEach(p => { progressMap[p.module_id] = p; });

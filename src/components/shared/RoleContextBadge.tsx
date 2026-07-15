@@ -21,7 +21,7 @@ const contextConfig: Record<HomepageContext, {
     label: "Pasar Kasih",
     className: "bg-[var(--color-pintu3-primary)]/15 text-[var(--color-pintu3-primary)] border-[var(--color-pintu3-accent)]/30",
   },
-  "gate-hub": {
+  "user/dashboard": {
     label: "Gate Hub",
     className: "bg-gray-100 text-gray-700 border-gray-300",
   },

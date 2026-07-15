@@ -1,14 +1,17 @@
-export const dynamic = 'force-dynamic'
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@/lib/supabase/server';
+import { createServerClient } from '@supabase/ssr';
+import { createServiceClient } from '@/lib/supabase/server';
 import { cookies } from 'next/headers';
+export const dynamic = 'force-dynamic';
 
 export async function POST(request: NextRequest) {
   try {
-    const { phone, username, password } = await request.json();
+    const body = await request.json();
+    const { phone, username, password } = body;
+    console.log('[LOGIN] Request body:', { phone: phone ? '***' + phone.slice(-4) : null, username, hasPassword: !!password });
 
     if (!password) {
-      return NextResponse.json({ error: 'Kata sandi harus diisi' }, { status: 400 });
+      console.log('[LOGIN] Error: no password'); return NextResponse.json({ error: 'Kata sandi harus diisi' }, { status: 400 });
     }
 
     // Determine login method: phone OR username_wd
@@ -33,10 +36,26 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Nomor WhatsApp atau username harus diisi' }, { status: 400 });
     }
 
-    const supabase = createClient();
+    const cookieStoreInit = cookies();
+    const supabase = createServerClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+      {
+        cookies: {
+          getAll() { return cookieStoreInit.getAll(); },
+          setAll(cookiesToSet) {
+            cookiesToSet.forEach(({ name, value, options }) => cookieStoreInit.set(name, value, options));
+          },
+        },
+      }
+    );
 
+    // Use service role for profile lookup (bypasses RLS)
+    const serviceClient = createServiceClient();
     // Find user profile
-    const { data: profile } = await supabase
+    const queryValue = queryField === 'phone' ? loginIdentifier.replace('wa+', '').replace('@paroki.local', '') : username;
+    console.log('[LOGIN] Querying profiles:', { queryField, queryValue });
+    const { data: profile } = await serviceClient
       .from('profiles')
       .select('id, role, access_layer, status, lingkungan_slug, full_name, phone, username_wd, is_wali_digital, wali_digital_id')
       .eq(queryField, queryField === 'phone' ? loginIdentifier.replace('wa+', '').replace('@paroki.local', '') : username)
@@ -72,42 +91,43 @@ export async function POST(request: NextRequest) {
 
     if (signInError || !signInData?.session) {
       console.error('Login failed:', signInError);
-      return NextResponse.json({ error: 'Kata sandi salah' }, { status: 401 });
+      console.log('[LOGIN] Error: wrong password'); return NextResponse.json({ error: 'Kata sandi salah' }, { status: 401 });
     }
 
-    // Set cookies
-    const cookieStore = cookies();
-    cookieStore.set('sb-access-token', signInData.session.access_token, {
-      path: '/',
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'lax',
-      maxAge: 60 * 60 * 24 * 7,
+    // Set auth cookies directly in response for middleware compatibility
+    const projectRef = process.env.NEXT_PUBLIC_SUPABASE_URL!.split('.')[0].split('//')[1];
+    const authCookieName = `sb-${projectRef}-auth-token`;
+    const sessionPayload = JSON.stringify({
+      access_token: signInData.session.access_token,
+      refresh_token: signInData.session.refresh_token,
+      expires_in: signInData.session.expires_in,
+      expires_at: signInData.session.expires_at,
+      token_type: signInData.session.token_type,
+      user: signInData.session.user,
     });
 
-    cookieStore.set('sb-refresh-token', signInData.session.refresh_token, {
-      path: '/',
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'lax',
-      maxAge: 60 * 60 * 24 * 30,
-    });
-
-    // Determine redirect based on role and wali_digital status
-    let redirect = '/gate-hub';
-    
-    // Wali digital gets special dashboard
-    if (profile.role === 'umat' && profile.is_wali_digital) {
-      redirect = '/dashboard/wali-digital';
-    } else if (profile.role === 'super_admin') {
-      redirect = '/admin-dashboard';
+    // Determine redirect based on role
+    let redirect = '/user/dashboard';
+    if (profile.role === 'super_admin') {
+      redirect = '/super-admin/dashboard';
     } else if (profile.role === 'pastor') {
-      redirect = '/pastor-dashboard';
-    } else if (profile.role === 'ketua_lingkungan' || profile.role === 'bendahara_lingkungan') {
-      redirect = '/dashboard/lingkungan';
+      redirect = '/admin/pastor/dashboard';
+    } else if (['ketua_lingkungan', 'sekretaris_lingkungan', 'bendahara_lingkungan'].includes(profile.role)) {
+      redirect = profile.lingkungan_slug ? `/admin/lingkungan/${profile.lingkungan_slug}/dashboard` : '/user/dashboard';
+    } else if (['bendahara_dpp', 'admin_paroki'].includes(profile.role)) {
+      redirect = '/admin/paroki/dashboard';
+    } else if (profile.role === 'umat' && profile.is_wali_digital) {
+      redirect = '/dashboard/wali-digital';
+    } else if (profile.role === 'seller') {
+      redirect = '/marketplace/seller/dashboard';
+    } else if (profile.role === 'ojek_solidaritas') {
+      redirect = '/marketplace/ojek-solidaritas/dashboard';
+    } else if (profile.role === 'buyer') {
+      redirect = '/marketplace';
     }
 
-    return NextResponse.json({
+    console.log('[LOGIN] Success, redirect:', redirect);
+    const response = NextResponse.json({
       success: true,
       message: 'Login berhasil',
       user: {
@@ -123,7 +143,15 @@ export async function POST(request: NextRequest) {
       },
       redirect,
     });
-  } catch (error) {
+    response.cookies.set(authCookieName, sessionPayload, {
+      path: '/',
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'lax',
+      maxAge: 60 * 60 * 24 * 7,
+    });
+    return response;
+    } catch (error) {
     console.error('Login error:', error);
     return NextResponse.json({ error: 'Terjadi kesalahan server' }, { status: 500 });
   }

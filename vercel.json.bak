@@ -1,0 +1,12 @@
+{
+  "crons": [
+    {
+      "path": "/api/cron/generate-batch",
+      "schedule": "0 13 * * 0"
+    },
+    {
+      "path": "/api/cron/sync-renungan-rag",
+      "schedule": "0 19 * * *"
+    }
+  ]
+}

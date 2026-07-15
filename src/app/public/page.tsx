@@ -232,7 +232,7 @@ export default function HomePage() {
     fetchStatistik();
   }, [fetchPublicContent, fetchDailyLiturgi, fetchLiturgicalTheme, fetchStatistik]);
 
-  /** Misa Berikutnya Ã¢â‚¬â€ derived purely from data, no DOM writes. */
+  /** Misa Berikutnya ââ‚¬â€ derived purely from data, no DOM writes. */
   const nextMass = (() => {
     if (!publicJadwalMisa) return null;
 
@@ -260,7 +260,7 @@ export default function HomePage() {
     return null;
   })();
 
-  /** Jadwal Misa Ã¢â‚¬â€ Minggu Ini, grouped by day, today first highlighted. */
+  /** Jadwal Misa ââ‚¬â€ Minggu Ini, grouped by day, today first highlighted. */
   const mingguIniCards = (() => {
     if (!publicJadwalMisa) return [];
     const todayIndex = new Date().getDay(); // 0 = Sunday
@@ -281,7 +281,7 @@ export default function HomePage() {
     <>
       {/* Note: Header/footer/navbar/bot-fab/scroll-top/accent-bar/modals are handled by layout.tsx */}
 
-      {/* ============ HERO (Ãƒâ€šÃ‚Â§8.1) ============ */}
+      {/* ============ HERO (Áƒâ€šÁ‚Â§8.1) ============ */}
       <section className="hero" id="beranda">
         <div className="hero-bg">
           <img src="/gereja-santo-clemens.jpg" alt="Gereja Santo Klemens Sepinggan" />
@@ -332,7 +332,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ============ JADWAL MISA (Ãƒâ€šÃ‚Â§8.2) ============ */}
+      {/* ============ JADWAL MISA (Áƒâ€šÁ‚Â§8.2) ============ */}
       {loadingContent ? (
         <section className="section-misa reveal" id="jadwal-misa">
           <div className="section-inner text-center py-12">
@@ -441,7 +441,7 @@ export default function HomePage() {
             </div>
           </section>
 
-          {/* ============ WARTA PAROKI (Ãƒâ€šÃ‚Â§8.3) ============ */}
+          {/* ============ WARTA PAROKI (Áƒâ€šÁ‚Â§8.3) ============ */}
           <section className="section-pengumuman reveal" id="pengumuman">
             <div className="stained-glass-mesh" aria-hidden="true"></div>
             <div className="section-inner">
@@ -487,7 +487,7 @@ export default function HomePage() {
         </>
       )}
 
-      {/* ============ BACAAN/LITURGI HARI INI (Ãƒâ€šÃ‚Â§8.5) ============ */}
+      {/* ============ BACAAN/LITURGI HARI INI (Áƒâ€šÁ‚Â§8.5) ============ */}
       <section className="section-liturgi reveal" id="liturgi">
         <div className="liturgi-container">
           <div className="liturgi-header">
@@ -561,7 +561,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ============ KEGIATAN PAROKI (Ãƒâ€šÃ‚Â§8.4) ============ */}
+      {/* ============ KEGIATAN PAROKI (Áƒâ€šÁ‚Â§8.4) ============ */}
       <section className="section-kegiatan reveal" id="kegiatan">
         <div className="kegiatan-container">
           <p className="section-eyebrow">Agenda Paroki</p>
@@ -606,7 +606,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ============ IKLAN UMUM / DYNAMIC AD SYSTEM (Ãƒâ€šÃ‚Â§8.6) ============ */}
+      {/* ============ IKLAN UMUM / DYNAMIC AD SYSTEM (Áƒâ€šÁ‚Â§8.6) ============ */}
       <section className="section-ads reveal" id="iklan">
         <div className="ads-eyebrow-row">
           <span className="label">Dipersembahkan oleh</span>
@@ -616,7 +616,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ============ SEKILAS PROFIL PAROKI (Ãƒâ€šÃ‚Â§8.10 teaser) ============ */}
+      {/* ============ SEKILAS PROFIL PAROKI (Áƒâ€šÁ‚Â§8.10 teaser) ============ */}
       <section className="section-misa reveal" id="profil-paroki">
         <div className="section-inner">
           <p className="section-eyebrow">Tentang Kami</p>
@@ -648,7 +648,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ============ DATA UMAT DALAM ANGKA (Ãƒâ€šÃ‚Â§8.8) ============ */}
+      {/* ============ DATA UMAT DALAM ANGKA (Áƒâ€šÁ‚Â§8.8) ============ */}
       <section className="section-statistik reveal" id="statistik">
         <p className="section-eyebrow">Statistik Anonim</p>
         <h2 className="section-title">Paroki Santo Klemens dalam Angka</h2>
@@ -667,7 +667,7 @@ export default function HomePage() {
         <p className="statistik-note">Data bersifat agregat dan anonim &mdash; tidak menampilkan identitas umat individual.</p>
       </section>
 
-      {/* ============ BOT 1 FAB & CHAT WIDGET (Ãƒâ€šÃ‚Â§9.1) ============ */}
+      {/* ============ BOT 1 FAB & CHAT WIDGET (Áƒâ€šÁ‚Â§9.1) ============ */}
       <div
         className="bot-fab"
         aria-label="Tanya Bot Paroki"

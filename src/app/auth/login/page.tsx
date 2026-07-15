@@ -71,11 +71,7 @@ export default function LoginPage() {
       if (!res.ok) {
         throw new Error(json.error || 'Login gagal');
       }
-      if (json.redirect) {
-        router.push(json.redirect);
-      } else {
-        router.push('/gate-hub');
-      }
+      window.location.href = json.redirect || '/user/dashboard';
     } catch (err: any) {
       setError(err.message);
     } finally {

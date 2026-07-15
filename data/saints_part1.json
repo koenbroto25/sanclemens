@@ -816,7 +816,7 @@
         "saint_name":  "Honoratus, Uskup dan Pengaku Iman",
         "type":  "Santo",
         "feast_day":  "16/1",
-        "biography":  "Honoratus dari Arles lahir sekitar tahun 350 dari keluarga bangsawan Romawi-Galia yang kafir. Ia bertobat menjadi Kristen pada masa mudanya bersama saudaranya Venantius, dan keduanya melakukan perjalanan ke Yunani dan Mesir untuk mempelajari kehidupan para Bapa Gurun. Sekembalinya, sekitar tahun 410, ia mendirikan biara terkenal di Pulau LÃ©rins, lepas pantai selatan Prancis, yang segera berkembang menjadi salah satu pusat monastik dan pendidikan teologi paling berpengaruh di Galia, melahirkan banyak Uskup terkemuka. Pada tahun 426, ia diangkat menjadi Uskup Agung Arles. Ia dikenal karena kerendahan hatinya, kefasihannya berkhotbah, dan kepeduliannya terhadap orang miskin. Ia wafat pada tahun 429.",
+        "biography":  "Honoratus dari Arles lahir sekitar tahun 350 dari keluarga bangsawan Romawi-Galia yang kafir. Ia bertobat menjadi Kristen pada masa mudanya bersama saudaranya Venantius, dan keduanya melakukan perjalanan ke Yunani dan Mesir untuk mempelajari kehidupan para Bapa Gurun. Sekembalinya, sekitar tahun 410, ia mendirikan biara terkenal di Pulau Lérins, lepas pantai selatan Prancis, yang segera berkembang menjadi salah satu pusat monastik dan pendidikan teologi paling berpengaruh di Galia, melahirkan banyak Uskup terkemuka. Pada tahun 426, ia diangkat menjadi Uskup Agung Arles. Ia dikenal karena kerendahan hatinya, kefasihannya berkhotbah, dan kepeduliannya terhadap orang miskin. Ia wafat pada tahun 429.",
         "patronage":  [
                           "Pembuat roti/tukang roti (boulanger)",
                           "petani gandum"
@@ -1407,7 +1407,7 @@
         "visual_attributes":  [
                                   "Jubah Cistersien putih",
                                   "tongkat Abbas",
-                                  "model biara CÃ®teaux"
+                                  "model biara Cîteaux"
                               ],
         "noID":  65,
         "access_level_min":  0,
@@ -1794,7 +1794,7 @@
         "biography":  "Yoana lahir pada tahun 1556.  Beliau adalah janda dan ibu dari empat orang anak.  Sepeninggal suaminya ia menjalani cara hidup membiara.  Tetapi karena difitnah ia terpaksa keluar lagi dari biara itu.  Akhirnya ia mendirikan sebuah kongregasi suster yang mengabdikan diri di bidang pendidikan anak-anak puteri.  Ia meninggal dunia pada tahun 1640.",
         "patronage":  [
                           "Pendidikan anak perempuan",
-                          "Ordo CompaÃ±Ã­a de MarÃ­a (Notre Dame)"
+                          "Ordo Compañía de María (Notre Dame)"
                       ],
         "visual_attributes":  [
                                   "Jubah biarawati",
@@ -3323,7 +3323,7 @@
         "feast_day":  "6/3",
         "biography":  "Fridolin adalah seorang biarawan dan misionaris di Prancis, Jerman Selatan dan Swiss. la meninggal dunia pada tahun 540.",
         "patronage":  [
-                          "Glarus dan SÃ¤ckingen (Swiss)"
+                          "Glarus dan Säckingen (Swiss)"
                       ],
         "visual_attributes":  [
                                   "Jubah biarawan",
@@ -4147,13 +4147,13 @@
         "feast_day":  "26/3",
         "biography":  "Ludgerus lahir pada tahun 742. Cita-cita imamatnya tercapai ketika ia ditahbiskan menjadi imam dan kemudian menjadi uskup pertama di Muenster, Jerman. Sebagai uskup ia berusaha keras mempertobatkan orang-orang Jerman yang masih kafir dan meletakkan dasar yang kokoh bagi perkembangan iman umat di seluruh keuskupannya. la meninggal dunia pada tahun 809 tatkala sedang dalam perjalanan apostolis mengelilingi wilayah keuskupannya.",
         "patronage":  [
-                          "MÃ¼nster",
+                          "Münster",
                           "Jerman"
                       ],
         "visual_attributes":  [
                                   "Jubah Uskup",
                                   "tongkat gembala",
-                                  "latar MÃ¼nster/Frisia"
+                                  "latar Münster/Frisia"
                               ],
         "noID":  195,
         "access_level_min":  0,
@@ -5082,7 +5082,7 @@
                       ],
         "visual_attributes":  [
                                   "Gua Massabielle",
-                                  "kerudung putih biarawati SÅ“urs de la CharitÃ©",
+                                  "kerudung putih biarawati SÅ“urs de la Charité",
                                   "rosario"
                               ],
         "noID":  239,

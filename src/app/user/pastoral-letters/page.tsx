@@ -1,5 +1,5 @@
 'use client'
-// Halaman Surat Pastoral ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â Inbox Umat (Portal 1)
+// Halaman Surat Pastoral ÁƒÆ’Á‚Â¢ÁƒÂ¢ââ‚¬Å¡Á‚Â¬ÁƒÂ¢ââ€šÂ¬Á‚Â Inbox Umat (Portal 1)
 // Desain: Portal 1 palette (--primary: #1e3a5f, --accent: #c9a227)
 // Typography: Cormorant Garamond (heading), Inter (body)
 import { useState, useEffect } from "react"
@@ -41,14 +41,14 @@ export default function SuratPastoralPage() {
 
     return (
         <div className="min-h-screen bg-[#f8f5f0]">
-            {/* Header Portal 1 ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â Sakral */}
+            {/* Header Portal 1 ÁƒÆ’Á‚Â¢ÁƒÂ¢ââ‚¬Å¡Á‚Â¬ÁƒÂ¢ââ€šÂ¬Á‚Â Sakral */}
             <header className="bg-[#1e3a5f] text-white px-6 py-4 shadow-md">
                 <div className="max-w-4xl mx-auto">
                     <p className="text-sm text-[#c9a227] font-medium mb-1">
-                        Portal 1 ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â Paroki
+                        Portal 1 ÁƒÆ’Á‚Â¢ÁƒÂ¢ââ‚¬Å¡Á‚Â¬ÁƒÂ¢ââ€šÂ¬Á‚Â Paroki
                     </p>
                     <h1 className="text-2xl font-bold" style={{ fontFamily: "Cormorant Garamond, serif" }}>
-                        ÃƒÆ’Ã‚Â¢Ãƒâ€¦Ã¢â‚¬Å“ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â°ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¸Ãƒâ€šÃ‚Â Surat Pastoral
+                        ÁƒÆ’Á‚Â¢Áƒâ€¦ââ‚¬Å“ÁƒÂ¢ââ€šÂ¬Á‚°ÁƒÆ’Á‚Â¯Áƒâ€šÁ‚Â¸Áƒâ€šÁ‚Â Surat Pastoral
                     </h1>
                 </div>
             </header>
@@ -58,7 +58,7 @@ export default function SuratPastoralPage() {
                 <div className="mb-6 flex items-center gap-2 bg-green-50 border border-green-200 rounded-lg px-4 py-3">
                     <Lock className="w-5 h-5 text-green-700" />
                     <span className="text-sm text-green-800 font-medium">
-                        ÃƒÆ’Ã‚Â°Ãƒâ€¦Ã‚Â¸ÃƒÂ¢Ã¢â€šÂ¬Ã‚ÂÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ Enkripsi E2E Aktif ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â Isi surat hanya bisa dibaca oleh Anda & Pastor
+                        ÁƒÆ’Á‚°Áƒâ€¦Á‚Â¸ÁƒÂ¢ââ€šÂ¬Á‚ÂÁƒÂ¢ââ€šÂ¬ââ€žÂ¢ Enkripsi E2E Aktif ÁƒÆ’Á‚Â¢ÁƒÂ¢ââ‚¬Å¡Á‚Â¬ÁƒÂ¢ââ€šÂ¬Á‚Â Isi surat hanya bisa dibaca oleh Anda & Pastor
                     </span>
                 </div>
 
@@ -66,7 +66,7 @@ export default function SuratPastoralPage() {
                 <div className="bg-white rounded-xl shadow-sm border border-[#e8e0d5] overflow-hidden">
                     <div className="px-6 py-4 border-b border-[#e8e0d5] bg-[#fdf6e3]">
                         <h2 className="text-lg font-semibold text-[#2a1a0e]" style={{ fontFamily: "Cormorant Garamond, serif" }}>
-                            ÃƒÆ’Ã‚Â°Ãƒâ€¦Ã‚Â¸ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œÃƒâ€šÃ‚Â¬ Surat Masuk
+                            ÁƒÆ’Á‚°Áƒâ€¦Á‚Â¸ÁƒÂ¢ââ€šÂ¬Á…â€œÁƒâ€šÁ‚Â¬ Surat Masuk
                         </h2>
                     </div>
 
@@ -120,7 +120,7 @@ export default function SuratPastoralPage() {
                                     onClick={() => setSelectedLetter(null)}
                                     className="text-gray-400 hover:text-gray-600"
                                 >
-                                    ÃƒÆ’Ã‚Â¢Ãƒâ€¦Ã¢â‚¬Å“ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢
+                                    ÁƒÆ’Á‚Â¢Áƒâ€¦ââ‚¬Å“ÁƒÂ¢ââ€šÂ¬Á‚Â¢
                                 </button>
                             </div>
                             <div className="px-6 py-4">
@@ -129,12 +129,12 @@ export default function SuratPastoralPage() {
                                 </p>
                                 <div className="bg-[#fdf6e3] rounded-lg p-6 text-[#2a1a0e] leading-relaxed">
                                     <p className="text-center text-[#6b5e50] italic">
-                                        [Isi surat akan ditampilkan di sini ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â dienkripsi dengan AES-256-GCM]
+                                        [Isi surat akan ditampilkan di sini ÁƒÆ’Á‚Â¢ÁƒÂ¢ââ‚¬Å¡Á‚Â¬ÁƒÂ¢ââ€šÂ¬Á‚Â dienkripsi dengan AES-256-GCM]
                                     </p>
                                 </div>
                                 <div className="mt-4 flex items-center gap-2 text-xs text-green-700">
                                     <Eye className="w-4 h-4" />
-                                    <span>ÃƒÆ’Ã‚Â°Ãƒâ€¦Ã‚Â¸ÃƒÂ¢Ã¢â€šÂ¬Ã‚ÂÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ Konten ini dienkripsi end-to-end. Hanya Anda yang bisa membacanya.</span>
+                                    <span>ÁƒÆ’Á‚°Áƒâ€¦Á‚Â¸ÁƒÂ¢ââ€šÂ¬Á‚ÂÁƒÂ¢ââ€šÂ¬ââ€žÂ¢ Konten ini dienkripsi end-to-end. Hanya Anda yang bisa membacanya.</span>
                                 </div>
                             </div>
                         </div>

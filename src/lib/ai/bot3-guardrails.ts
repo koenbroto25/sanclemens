@@ -3,7 +3,7 @@
  * Implements:
  * 1. Restricted charity_social access (search_charity_services only, p_limit 2-3)
  * 2. Anti-prompt injection detection
- * 3. Redirection logic for "cari kerja/usaha" Ã¢â€ â€™ Bot 7
+ * 3. Redirection logic for "cari kerja/usaha" ââ€ â€™ Bot 7
  * 4. Emergency protocol with SOS pre-check
  */
 

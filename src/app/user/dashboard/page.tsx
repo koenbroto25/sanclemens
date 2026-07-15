@@ -1,107 +1,126 @@
-'use client';
 import Link from 'next/link';
+import { createClient, createServiceClient } from '@/lib/supabase/server';
+import { redirect } from 'next/navigation';
 
-export default function UserDashboardPage() {
+export default async function UserDashboardPage() {
+  const supabase = createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) redirect('/auth/login');
+
+  // Use service client to bypass RLS for profile lookup
+  const serviceClient = createServiceClient();
+  const { data: profile } = await serviceClient
+    .from('profiles')
+    .select('full_name, access_layer, lingkungan_slug, status, role, phone')
+    .eq('id', user.id)
+    .single();
+
+  if (!profile) redirect('/auth/login');
+  if (profile.status !== 'active') redirect('/auth/waiting-room');
+
+  const displayName = profile.full_name || 'Umat';
+  const accessLayer = profile.access_layer || 2;
+
+  // Check pending approval status
+  const hasPendingSeller = profile.role === 'seller' && profile.seller_status === 'pending_approval';
+  const hasPendingOjek = profile.role === 'ojek_solidaritas' && profile.ojek_status === 'pending_approval';
+
   return (
-    <div className="dashboard-container">
-      {/* Hero */}
-      <div className="dashboard-hero">
-        <div className="hero-card">
-          <h1>Selamat Datang, Budi Santoso</h1>
-          <p>Dashboard Umat Aktif (Layer 2) — Paroki Santo Klemens Sepinggan. Kelola data keluarga, akses surat pastoral, dan pantau kegiatan lingkungan Anda.</p>
-          <div className="hero-actions">
-            <Link href="/pastoral-letters" className="btn-primary">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="16" height="16"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+    <div className="min-h-screen p-6" style={{ background: 'linear-gradient(to bottom, var(--color-parchment, #f8f1e2), var(--color-cream, #f5f0e8))' }}>
+      <div className="max-w-4xl mx-auto">
+        <div className="rounded-2xl border border-[rgba(200,169,110,0.15)] p-6 mb-6" style={{ background: 'rgba(255,255,255,0.85)' }}>
+          <h1 className="text-2xl font-semibold mb-1">Selamat Datang, {displayName}</h1>
+          <p className="text-sm text-[var(--color-stone,#8b7355)]">
+            Dashboard Umat Aktif (Layer {accessLayer}) — Paroki Santo Klemens Sepinggan
+          </p>
+          {profile.lingkungan_slug && (
+            <p className="text-sm mt-1">Lingkungan: <span className="font-semibold uppercase">{profile.lingkungan_slug}</span></p>
+          )}
+          <div className="flex gap-3 mt-4">
+            <Link href="/user/pastoral-letters" className="px-4 py-2 rounded-lg text-sm font-medium" style={{ background: 'linear-gradient(135deg, #dfc493, #c8a96e)', color: '#1a0e05' }}>
               Surat Pastoral
             </Link>
-            <Link href="/klemen-kerja" className="btn-secondary">Klemen Kerja</Link>
+            <Link href="/user/klemen-kerja" className="px-4 py-2 rounded-lg text-sm font-medium border border-[rgba(200,169,110,0.3)]">
+              Klemen Kerja
+            </Link>
           </div>
         </div>
-        <div className="stats-card">
-          <h2>Ringkasan Akun</h2>
-          <div className="stat-grid">
-            <div className="stat-item"><div className="stat-value">2</div><div className="stat-label">Anggota Keluarga</div></div>
-            <div className="stat-item"><div className="stat-value">1</div><div className="stat-label">Lingkungan Aktif</div></div>
-            <div className="stat-item"><div className="stat-value">3</div><div className="stat-label">Surat Pastoral</div></div>
-            <div className="stat-item"><div className="stat-value">Layer 2</div><div className="stat-label">Level Akses</div></div>
-          </div>
-        </div>
-      </div>
 
-      {/* Quick Access */}
-      <div className="quick-access-grid">
-        <Link href="/pastoral-letters" className="quick-access-card">
-          <div className="quick-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg></div>
-          <div className="quick-card-title">Surat Pastoral</div>
-          <div className="quick-card-desc">Baca surat pastoral dari Pastor Paroki</div>
-          <span className="role-badge">Layer 2+</span>
-        </Link>
-        <Link href="/whistleblower" className="quick-access-card">
-          <div className="quick-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-          <div className="quick-card-title">Whistleblower</div>
-          <div className="quick-card-desc">Laporkan pelanggaran dengan aman dan rahasia</div>
-          <span className="role-badge">Layer 2+</span>
-        </Link>
-        <Link href="/klemen-kerja" className="quick-access-card">
-          <div className="quick-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 2L2 7v15h20V7L12 2z"/><path d="M2 7l10 5 10-5M2 12l10 5 10-5M2 17l10 5 10-5"/></svg></div>
-          <div className="quick-card-title">Klemen Kerja</div>
-          <div className="quick-card-desc">Temukan pekerjaan dan peluang bisnis umat</div>
-          <span className="role-badge marketplace">Layer 2+</span>
-        </Link>
-        <Link href="/data-gakin" className="quick-access-card">
-          <div className="quick-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M3 3h18v18H3V3z"/><path d="M3 9h18M3 15h18"/></svg></div>
-          <div className="quick-card-title">GAKIN</div>
-          <div className="quick-card-desc">Cek status bantuan dan ajukan permohonan</div>
-          <span className="role-badge">Layer 2+</span>
-        </Link>
-      </div>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+          {[
+            { value: `Layer ${accessLayer}`, label: 'Level Akses' },
+            { value: profile.status === 'active' ? 'Aktif ✓' : 'Pending', label: 'Status Akun' },
+            { value: profile.lingkungan_slug?.toUpperCase() || '-', label: 'Lingkungan' },
+          ].map((stat, i) => (
+            <div key={i} className="rounded-xl border border-[rgba(200,169,110,0.15)] p-4 text-center" style={{ background: 'rgba(255,255,255,0.85)' }}>
+              <div className="text-xl font-bold text-[var(--color-gold-deep,#c8a96e)]">{stat.value}</div>
+              <div className="text-xs text-[var(--color-stone,#8b7355)] mt-1">{stat.label}</div>
+            </div>
+          ))}
+        </div>
 
-      {/* Sections */}
-      <div className="dashboard-section">
-        <div className="section-header">
-          <h2>Kegiatan Terkini</h2>
-          <Link href="/kegiatan">Lihat Semua</Link>
-        </div>
-        <div className="cards-grid">
-          <div className="dashboard-card">
-            <h3>Penerimaan Sakramen Krisma</h3>
-            <p>Minggu, 8 Juni 2026 · 09:00 WIB · Gereja Utama</p>
-            <div className="card-footer"><span>Ibadah</span><span className="status-pill active">Terdaftar</span></div>
+        {hasPendingSeller && (
+          <div className="rounded-xl border border-yellow-300 bg-yellow-50 p-4 mb-4">
+            <div className="font-semibold text-yellow-800">⏳ Menunggu Approval Seller</div>
+            <div className="text-sm text-yellow-600 mt-1">
+              Pendaftaran Anda sedang dalam proses verifikasi oleh admin. Estimasi: 1-2 hari kerja.
+            </div>
           </div>
-          <div className="dashboard-card">
-            <h3>Rapat Dewan Paroki</h3>
-            <p>Minggu, 14 Juni 2026 · 10:00 WIB · Aula Paroki</p>
-            <div className="card-footer"><span>Sosial</span><span className="status-pill pending">Open</span></div>
-          </div>
-          <div className="dashboard-card">
-            <h3>Retret Anak Komuni Pertama</h3>
-            <p>Minggu, 21 Juni 2026 · 08:00 WIB · Gua Maria</p>
-            <div className="card-footer"><span>Pendidikan</span><span className="status-pill pending">Open</span></div>
-          </div>
-        </div>
-      </div>
+        )}
 
-      <div className="dashboard-section">
-        <div className="section-header">
-          <h2>Status Lingkungan</h2>
-          <Link href="/lingkungan">Kelola</Link>
+        {hasPendingOjek && (
+          <div className="rounded-xl border border-yellow-300 bg-yellow-50 p-4 mb-4">
+            <div className="font-semibold text-yellow-800">⏳ Menunggu Approval Ojek</div>
+            <div className="text-sm text-yellow-600 mt-1">
+              Pendaftaran Anda sedang dalam proses verifikasi oleh admin. Estimasi: 1-2 hari kerja.
+            </div>
+          </div>
+        )}
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+          {/* Marketplace Section */}
+          <div className="rounded-xl border border-[rgba(200,169,110,0.15)] p-5" style={{ background: 'rgba(255,255,255,0.7)' }}>
+            <div className="font-semibold mb-2">🛒 Pasar Kasih</div>
+            <div className="text-sm text-[var(--color-stone,#8b7355)] mb-3">
+              Jelajahi produk dan jasa dari umat
+            </div>
+            <div className="flex gap-2">
+              <Link href="/marketplace" className="px-3 py-1.5 rounded-lg text-xs font-medium" style={{ background: 'linear-gradient(135deg, #dfc493, #c8a96e)', color: '#1a0e05' }}>
+                Browse Marketplace
+              </Link>
+              {profile.role !== 'seller' && !hasPendingSeller && (
+                <Link href="/marketplace/seller/register" className="px-3 py-1.5 rounded-lg text-xs font-medium border border-[rgba(200,169,110,0.3)]">
+                  Jadi Seller
+                </Link>
+              )}
+            </div>
+          </div>
+
+          {/* Upcoming Events Section */}
+          <div className="rounded-xl border border-[rgba(200,169,110,0.15)] p-5" style={{ background: 'rgba(255,255,255,0.7)' }}>
+            <div className="font-semibold mb-2">📅 Kegiatan Mendatang</div>
+            <div className="text-sm text-[var(--color-stone,#8b7355)]">
+              <p className="mb-1">• Misa Sabtu, 19 Juli 2026, 07:00</p>
+              <p className="mb-1">• Rapat Lingkungan, 22 Juli 2026</p>
+              <p>• Senam Ibu Minggu, 20 Juli 2026</p>
+            </div>
+          </div>
         </div>
-        <div className="cards-grid">
-          <div className="dashboard-card">
-            <h3>Lingkungan St. Andreas</h3>
-            <p>Ketua Lingkungan: Bpk. Andreas S.</p>
-            <div className="card-footer"><span>Wilayah I</span><span className="status-pill active">Aktif</span></div>
-          </div>
-          <div className="dashboard-card">
-            <h3>Data Keluarga</h3>
-            <p>2 anggota keluarga terdaftar</p>
-            <div className="card-footer"><span>Family</span><span className="status-pill active">Lengkap</span></div>
-          </div>
-          <div className="dashboard-card">
-            <h3>Verifikasi Akun</h3>
-            <p>Status: Verified (Layer 2)</p>
-            <div className="card-footer"><span>Account</span><span className="status-pill active">Verified</span></div>
-          </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {[
+            { href: '/user/pastoral-letters', title: 'Surat Pastoral', desc: 'Baca surat pastoral dari Pastor Paroki' },
+            { href: '/user/family', title: 'Data Keluarga', desc: 'Kelola data anggota keluarga' },
+            { href: '/user/digital-vault', title: 'Digital Vault', desc: 'Simpan dan akses dokumen digital' },
+            { href: '/user/data-gakin', title: 'GAKIN', desc: 'Cek status bantuan dan ajukan permohonan' },
+            { href: '/user/klemen-kerja', title: 'Klemen Kerja', desc: 'Temukan pekerjaan dan peluang bisnis' },
+            { href: '/user/settings', title: 'Pengaturan', desc: 'Kelola akun dan preferensi' },
+          ].map((item, i) => (
+            <Link key={i} href={item.href} className="rounded-xl border border-[rgba(200,169,110,0.15)] p-5 hover:bg-white/60 transition-all" style={{ background: 'rgba(255,255,255,0.7)' }}>
+              <div className="font-semibold mb-1">{item.title}</div>
+              <div className="text-sm text-[var(--color-stone,#8b7355)]">{item.desc}</div>
+            </Link>
+          ))}
         </div>
       </div>
     </div>

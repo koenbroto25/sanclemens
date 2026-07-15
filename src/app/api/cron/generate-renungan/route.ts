@@ -67,10 +67,10 @@ export async function POST(request: Request) {
     // You would fetch the Pastor's phone number from your database here.
     // For now, using a placeholder.
     const pastorPhoneNumber = process.env.PASTOR_PHONE_NUMBER || '+6281234567890'; // Placeholder
-    const whatsappMessage = `ÃƒÆ’Ã‚Â°Ãƒâ€¦Ã‚Â¸ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢Ãƒâ€¦Ã‚Â ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¸Ãƒâ€šÃ‚Â Renungan Harian Paroki
+    const whatsappMessage = `ÁƒÆ’Á‚°Áƒâ€¦Á‚Â¸ÁƒÂ¢ââ€šÂ¬Á‚Â¢Áƒâ€¦Á‚Â ÁƒÆ’Á‚Â¯Áƒâ€šÁ‚Â¸Áƒâ€šÁ‚Â Renungan Harian Paroki
 Batch renungan minggu depan (${generateResult.generated_dates[0]} s/d ${generateResult.generated_dates[generateResult.generated_dates.length - 1]}) sudah siap dikurasi.
 Silakan cek Dashboard Pastor untuk review dan persetujuan.
-ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚ÂÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚ÂÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬
+ÁƒÆ’Á‚Â¢ÁƒÂ¢ââ€šÂ¬Á‚ÂÁƒÂ¢ââ‚¬Å¡Á‚Â¬ÁƒÆ’Á‚Â¢ÁƒÂ¢ââ€šÂ¬Á‚ÂÁƒÂ¢ââ‚¬Å¡Á‚Â¬
 Paroki Santo Klemens Sepinggan`;
 
     const waSent = await sendWhatsAppNotification(pastorPhoneNumber, whatsappMessage);

@@ -35,9 +35,11 @@ export async function updateSession(request: NextRequest) {
     return supabaseResponse;
   }
 
+  console.log('[MIDDLEWARE] cookies:', request.cookies.getAll().map(c => c.name));
   const {
-    data: { user },
+    data: { user }, error: authError
   } = await supabase.auth.getUser();
+  console.log('[MIDDLEWARE] updateSession user:', user?.id, 'error:', authError?.message, 'path:', request.nextUrl.pathname);
 
   if (!user &&
     !request.nextUrl.pathname.startsWith('/login') &&

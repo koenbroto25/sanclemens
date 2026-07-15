@@ -1,13 +1,8 @@
-{
-  "$schema": "https://openapi.vercel.sh/vercel.json",
-  "framework": "nextjs",
-  "installCommand": "pnpm install",
-  "buildCommand": "pnpm build",
-  "outputDirectory": ".next",
-  "regions": ["sin1"],
-  "git": {
-    "deploymentEnabled": {
-      "master": false
+﻿{
+  "crons": [
+    {
+      "path": "/api/cron/generate-batch",
+      "schedule": "0 2 * * 0"
     }
-  }
+  ]
 }

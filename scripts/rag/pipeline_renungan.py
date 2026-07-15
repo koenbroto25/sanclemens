@@ -1,0 +1,250 @@
+﻿"""
+pipeline_renungan.py — RAG v6.5 (CockroachDB)
+Mensinkronkan renungan yang sudah published ke daily_reflections (CockroachDB)
+agar tersedia untuk Bot 3 / Bot 8 untuk prayer_recommendation_query.
+
+Target tabel: public.daily_reflections + public.ai_knowledge_base
+Sumber: public.renungan_harian WHERE status = 'published'
+"""
+
+import os, sys, uuid, math, json
+from datetime import datetime, timedelta, timezone
+from itertools import cycle
+import psycopg2
+import google.generativeai as genai
+import boto3
+from botocore.config import Config
+from supabase import create_client
+from dotenv import load_dotenv
+
+load_dotenv(r"D:\paroki_digital_stclemens\.env.local")
+
+# ========== KONFIGURASI ==========
+EMBEDDING_MODEL = "models/gemini-embedding-2"
+EMBEDDING_DIM = 768
+
+BOT_ACCESS_RENUNGAN_JADI = ["bot_3", "bot_8"]
+ACCESS_LEVEL_MIN = 0
+
+# ========== KONEKSI DATABASE ==========
+# Supabase: baca renungan_harian (tabel aplikasi, TETAP di Supabase)
+supabase = create_client(
+    os.environ["NEXT_PUBLIC_SUPABASE_URL"],
+    os.environ["SUPABASE_SERVICE_ROLE_KEY"],
+)
+
+# CockroachDB: tulis daily_reflections + ai_knowledge_base
+def get_db_cockroach():
+    return psycopg2.connect(
+        host=os.environ.get('COCKROACHDB_HOST'),
+        port=os.environ.get('COCKROACHDB_PORT', 26257),
+        dbname=os.environ.get('COCKROACHDB_DBNAME', 'defaultdb'),
+        user=os.environ.get('COCKROACHDB_USER'),
+        password=os.environ.get('COCKROACHDB_PASSWORD', ''),
+        sslmode='verify-full'
+    )
+
+db_conn = get_db_cockroach()
+
+# ========== R2 CLIENT ==========
+r2 = boto3.client(
+    "s3",
+    endpoint_url=f"https://{os.environ['R2_ACCOUNT_ID']}.r2.cloudflarestorage.com",
+    aws_access_key_id=os.environ["R2_ACCESS_KEY_ID"],
+    aws_secret_access_key=os.environ["R2_SECRET_ACCESS_KEY"],
+    config=Config(signature_version="s3v4"),
+)
+R2_BUCKET = os.environ["R2_BUCKET_NAME"]
+
+# ========== GEMINI SETUP ==========
+def load_api_keys():
+    keys, i = [], 1
+    while True:
+        k = os.getenv(f"GOOGLE_API_KEY_{i}")
+        if not k:
+            break
+        keys.append(k)
+        i += 1
+    if not keys:
+        single = os.getenv("GEMINI_API_KEY")
+        if single:
+            keys.append(single)
+    if not keys:
+        raise ValueError("Tidak ada GOOGLE_API_KEY_N atau GEMINI_API_KEY di .env")
+    return keys
+
+key_pool = cycle(load_api_keys())
+
+# ========== HELPER FUNCTIONS ==========
+def normalize_embedding(vec):
+    """Normalisasi embedding ke unit vector"""
+    magnitude = math.sqrt(sum(x * x for x in vec))
+    if magnitude == 0:
+        return vec
+    return [x / magnitude for x in vec]
+
+def embed(text):
+    """Generate embedding untuk teks"""
+    genai.configure(api_key=next(key_pool))
+    result = genai.embed_content(
+        model=EMBEDDING_MODEL,
+        content=text,
+        output_dimensionality=EMBEDDING_DIM
+    )
+    return normalize_embedding(result["embedding"])
+
+def upload_ke_r2(r2_key, teks):
+    """Upload teks ke R2, return preview 150 karakter"""
+    r2.put_object(
+        Bucket=R2_BUCKET,
+        Key=r2_key,
+        Body=teks.encode("utf-8"),
+        ContentType="text/plain; charset=utf-8"
+    )
+    return teks[:150].strip()
+
+def teks_untuk_rag(renungan):
+    """
+    Gabungkan field renungan menjadi satu teks untuk di-embed.
+    Memakai ringkasan + kutipan unggulan + teks lengkap agar retrieval tetap relevan.
+    """
+    bagian = [
+        f"Tema: {renungan['tema_renungan']}",
+        f"Bacaan: {renungan['bacaan_utama']}",
+        renungan.get("ringkasan_150_kata", ""),
+        renungan.get("teks_lengkap", "")
+    ]
+    return "\n\n".join(b for b in bagian if b)
+
+# ========== SYNCHRONISASI ==========
+def sudah_tersinkron(reflection_date, persona):
+    """
+    Cek apakah renungan sudah tersinkron di daily_reflections.
+    Pakai UNIQUE(reflection_date, persona) constraint.
+    """
+    cur = db_conn.cursor()
+    cur.execute(
+        "SELECT id FROM daily_reflections WHERE reflection_date = %s AND persona = %s",
+        (reflection_date, persona)
+    )
+    ada = cur.fetchone() is not None
+    cur.close()
+    return ada
+
+def sync_satu_renungan(renungan):
+    """Sinkronisasi satu renungan ke daily_reflections"""
+    if sudah_tersinkron(renungan["tanggal"], renungan["mode_persona"]):
+        print(f"  â­  Skip (sudah tersinkron): {renungan['tanggal']} - {renungan['mode_persona']}")
+        return
+    
+    teks = teks_untuk_rag(renungan)
+    embedding = embed(teks)
+    reflection_id = str(uuid.uuid4())
+    
+    # Upload ke R2 dengan path by-date
+    yyyy_mm = renungan["tanggal"][:7]  # 'YYYY-MM' dari 'YYYY-MM-DD'
+    r2_key = f"renungan/{yyyy_mm}/{renungan['tanggal']}-{renungan['mode_persona']}.txt"
+    preview = upload_ke_r2(r2_key, teks)
+    
+    cur = db_conn.cursor()
+    
+    # Insert ke daily_reflections (kolom liturgi asli, bukan kolom generik)
+    cur.execute("""
+        INSERT INTO daily_reflections
+            (id, reflection_date, persona, liturgical_color, content_r2_key,
+             content_preview, content_embedding, source_bacaan, status)
+        VALUES (%s, %s, %s, %s, %s, %s, %s::vector, %s, %s)
+    """, (
+        reflection_id,
+        renungan["tanggal"],
+        renungan["mode_persona"],
+        renungan.get("warna_liturgi"),
+        r2_key,
+        preview,
+        str(embedding),
+        json.dumps({
+            "bacaan_1": renungan.get("bacaan_1"),
+            "injil": renungan.get("bacaan_injil") or renungan.get("bacaan_utama")
+        }),
+        "published"
+    ))
+    
+    # Insert pointer ke ai_knowledge_base (untuk pencarian retrospektif Bot 8)
+    cur.execute("""
+        INSERT INTO ai_knowledge_base
+            (id, document_code, chunk_index, content_type, qa_pair_id,
+             chunk_table_ref, chunk_id, domain, bot_access, access_level_min,
+             question_type_classification, source_reference, nama_dokumen,
+             chunk_quality_score, status, expires_at)
+        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+    """, (
+        str(uuid.uuid4()),
+        f"RENUNGAN_{renungan['id']}",
+        0,
+        "rag_chunk",
+        None,
+        "daily_reflections",
+        reflection_id,
+        "renungan_harian",
+        BOT_ACCESS_RENUNGAN_JADI,
+        ACCESS_LEVEL_MIN,
+        "prayer_recommendation_query",
+        f"Renungan {renungan['mode_persona']} — {renungan['tanggal']}",
+        renungan.get("tema_renungan", ""),
+        4,
+        "approved",
+        None
+    ))
+    
+    db_conn.commit()
+    cur.close()
+    print(f"  [OK] Sinkronisasi: {renungan['tanggal']} - {renungan['mode_persona']}")
+
+def jalankan(backfill=False):
+    """
+    Jalankan sinkronisasi.
+    
+    Args:
+        backfill: Jika True, sinkronisasi semua renungan published.
+                  Jika False, hanya renungan published 48 jam terakhir.
+    """
+    query = supabase.table("renungan_harian").select("*").eq("status", "published")
+    
+    if not backfill:
+        # Mode normal: hanya 48 jam terakhir (dipicu setelah approve di panel kurasi)
+        batas_waktu = (datetime.now(timezone.utc) - timedelta(hours=48)).isoformat()
+        query = query.gte("waktu_kurasi", batas_waktu)
+    
+    renungan_list = query.execute().data or []
+    
+    if not renungan_list:
+        print("Tidak ada renungan yang perlu disinkronkan.")
+        return
+    
+    ok, gagal = 0, 0
+    for r in renungan_list:
+        try:
+            sync_satu_renungan(r)
+            ok += 1
+        except Exception as e:
+            print(f"[GAGAL] renungan {r['id']}: {e}")
+            gagal += 1
+    
+    print(f"\n{'='*60}")
+    print(f"Sinkronisasi selesai — {ok} berhasil, {gagal} gagal, total {len(renungan_list)}")
+    print(f"{'='*60}")
+
+# ========== MAIN ==========
+if __name__ == "__main__":
+    backfill = "--backfill" in sys.argv
+    
+    mode = "BACKFILL (semua renungan published)" if backfill else "NORMAL (48 jam terakhir)"
+    print("=" * 60)
+    print(f"pipeline_renungan.py — RAG v6.5")
+    print(f"Mode: {mode}")
+    print(f"Target: daily_reflections + ai_knowledge_base (CockroachDB)")
+    print("=" * 60)
+    
+    jalankan(backfill=backfill)
+
+

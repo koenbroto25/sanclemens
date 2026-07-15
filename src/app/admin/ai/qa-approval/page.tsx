@@ -150,7 +150,7 @@ export default function QAApprovalPage() {
                         {qa.question_variations[0]}
                       </div>
                       <div className="text-xs text-gray-500 mt-1">
-                        {qa.domain} Ã¢â‚¬Â¢ {new Date(qa.created_at).toLocaleDateString('id-ID')}
+                        {qa.domain} ââ‚¬Â¢ {new Date(qa.created_at).toLocaleDateString('id-ID')}
                       </div>
                     </div>
                   ))
@@ -251,7 +251,7 @@ export default function QAApprovalPage() {
               </div>
             ) : (
               <div className="bg-white rounded-lg shadow p-12 text-center text-gray-500">
-                <div className="text-6xl mb-4">Ã°Å¸â€œâ€¹</div>
+                <div className="text-6xl mb-4">ðÅ¸â€œâ€¹</div>
                 <p>Pilih Q&A dari daftar untuk review</p>
               </div>
             )}

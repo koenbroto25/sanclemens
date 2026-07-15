@@ -42,11 +42,12 @@ export async function POST(request: NextRequest) {
 
     const { store_name, description, category } = await request.json();
 
-    // Update profile to become seller
+    // Update profile to become seller (with approval system)
     const { data: profile, error } = await supabase
       .from('profiles')
       .update({
         role: 'seller',
+        seller_status: 'pending_approval',
         store_name,
         store_description: description,
         store_category: category,
@@ -64,7 +65,8 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({
       success: true,
-      message: 'Berhasil mendaftar sebagai seller',
+      message: 'Pendaftaran seller sedang menunggu persetujuan admin',
+      status: 'pending_approval',
       data: profile,
     });
   } catch (error) {

@@ -13,12 +13,8 @@ const cockroachdbPool = new Pool({
   user: process.env.COCKROACHDB_USER,
   password: process.env.COCKROACHDB_PASSWORD,
   ssl: {
-    // This is for local development with insecure clusters or self-signed certs.
-    // In production, you would typically use `rejectUnauthorized: true`
-    // and provide the CA certificate.
-    rejectUnauthorized: false,
-    // You might also specify a root certificate here:
-    // ca: fs.readFileSync('/path/to/certs/ca.crt').toString(),
+    rejectUnauthorized: true,
+    ca: process.env.COCKROACHDB_CA_CERT ? Buffer.from(process.env.COCKROACHDB_CA_CERT, 'base64') : undefined,
   },
 });
 

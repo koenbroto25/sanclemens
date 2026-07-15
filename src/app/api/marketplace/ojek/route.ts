@@ -45,10 +45,10 @@ export async function POST(request: NextRequest) {
           .from('profiles')
           .update({
             role: 'ojek_solidaritas',
+            ojek_status: 'pending_approval',
             ojek_vehicle_type: vehicle_type,
             ojek_vehicle_plate: vehicle_plate,
             ojek_max_capacity: max_capacity,
-            ojek_status: 'available',
             ojek_rating: 0,
             total_deliveries: 0,
           })
@@ -63,7 +63,8 @@ export async function POST(request: NextRequest) {
 
         return NextResponse.json({
           success: true,
-          message: 'Berhasil mendaftar sebagai Ojek Solidaritas',
+          message: 'Pendaftaran ojek sedang menunggu persetujuan admin',
+          status: 'pending_approval',
           data: profile,
         });
       }

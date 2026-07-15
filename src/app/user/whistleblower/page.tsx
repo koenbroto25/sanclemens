@@ -1,15 +1,15 @@
 'use client'
-// Halaman Whistle-Blower ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â Laporan Pelanggaran Anonim
+// Halaman Whistle-Blower ÁƒÆ’Á‚Â¢ÁƒÂ¢ââ‚¬Å¡Á‚Â¬ÁƒÂ¢ââ€šÂ¬Á‚Â Laporan Pelanggaran Anonim
 // Desain: Portal 1 palette (--primary: #1e3a5f, --accent: #c9a227)
 import { useState } from "react"
 import { createClient } from '@/lib/supabase/client';
 import { Shield, Lock, FileText, Send } from "lucide-react"
 
 const KATEGORI_OPTIONS = [
-    { value: "keuangan", label: "ÃƒÆ’Ã‚Â°Ãƒâ€¦Ã‚Â¸ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢Ãƒâ€šÃ‚Â° Keuangan (penyimpangan dana)" },
-    { value: "penyalahgunaan", label: "ÃƒÆ’Ã‚Â¢Ãƒâ€¦Ã‚Â¡ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¸Ãƒâ€šÃ‚Â Penyalahgunaan wewenang" },
-    { value: "pelanggaran_kode_etik", label: "ÃƒÆ’Ã‚Â°Ãƒâ€¦Ã‚Â¸ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¹ Pelanggaran kode etik" },
-    { value: "lainnya", label: "ÃƒÆ’Ã‚Â°Ãƒâ€¦Ã‚Â¸ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œÃƒâ€šÃ‚Â Lainnya" },
+    { value: "keuangan", label: "ÁƒÆ’Á‚°Áƒâ€¦Á‚Â¸ÁƒÂ¢ââ€šÂ¬ââ€žÂ¢Áƒâ€šÁ‚° Keuangan (penyimpangan dana)" },
+    { value: "penyalahgunaan", label: "ÁƒÆ’Á‚Â¢Áƒâ€¦Á‚¡ÁƒÂ¢ââ€šÂ¬ââ‚¬Å“ÁƒÆ’Á‚Â¯Áƒâ€šÁ‚Â¸Áƒâ€šÁ‚Â Penyalahgunaan wewenang" },
+    { value: "pelanggaran_kode_etik", label: "ÁƒÆ’Á‚°Áƒâ€¦Á‚Â¸ÁƒÂ¢ââ€šÂ¬Á…â€œÁƒÂ¢ââ€šÂ¬Á‚Â¹ Pelanggaran kode etik" },
+    { value: "lainnya", label: "ÁƒÆ’Á‚°Áƒâ€¦Á‚Â¸ÁƒÂ¢ââ€šÂ¬Á…â€œÁƒâ€šÁ‚Â Lainnya" },
 ]
 
 export default function WhistleblowerPage() {
@@ -53,9 +53,9 @@ export default function WhistleblowerPage() {
             <div className="min-h-screen bg-[#f8f5f0]">
                 <header className="bg-[#1e3a5f] text-white px-6 py-4 shadow-md">
                     <div className="max-w-2xl mx-auto">
-                        <p className="text-sm text-[#c9a227] font-medium mb-1">Portal 1 ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â Paroki</p>
+                        <p className="text-sm text-[#c9a227] font-medium mb-1">Portal 1 ÁƒÆ’Á‚Â¢ÁƒÂ¢ââ‚¬Å¡Á‚Â¬ÁƒÂ¢ââ€šÂ¬Á‚Â Paroki</p>
                         <h1 className="text-2xl font-bold" style={{ fontFamily: "Cormorant Garamond, serif" }}>
-                            ÃƒÆ’Ã‚Â°Ãƒâ€¦Ã‚Â¸ÃƒÂ¢Ã¢â€šÂ¬Ã‚ÂÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ Whistle-Blower
+                            ÁƒÆ’Á‚°Áƒâ€¦Á‚Â¸ÁƒÂ¢ââ€šÂ¬Á‚ÂÁƒÂ¢ââ€šÂ¬ââ€žÂ¢ Whistle-Blower
                         </h1>
                     </div>
                 </header>
@@ -86,12 +86,12 @@ export default function WhistleblowerPage() {
 
     return (
         <div className="min-h-screen bg-[#f8f5f0]">
-            {/* Header Portal 1 ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â Sakral */}
+            {/* Header Portal 1 ÁƒÆ’Á‚Â¢ÁƒÂ¢ââ‚¬Å¡Á‚Â¬ÁƒÂ¢ââ€šÂ¬Á‚Â Sakral */}
             <header className="bg-[#1e3a5f] text-white px-6 py-4 shadow-md">
                 <div className="max-w-2xl mx-auto">
-                    <p className="text-sm text-[#c9a227] font-medium mb-1">Portal 1 ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â Paroki</p>
+                    <p className="text-sm text-[#c9a227] font-medium mb-1">Portal 1 ÁƒÆ’Á‚Â¢ÁƒÂ¢ââ‚¬Å¡Á‚Â¬ÁƒÂ¢ââ€šÂ¬Á‚Â Paroki</p>
                     <h1 className="text-2xl font-bold" style={{ fontFamily: "Cormorant Garamond, serif" }}>
-                        ÃƒÆ’Ã‚Â°Ãƒâ€¦Ã‚Â¸ÃƒÂ¢Ã¢â€šÂ¬Ã‚ÂÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ Whistle-Blower
+                        ÁƒÆ’Á‚°Áƒâ€¦Á‚Â¸ÁƒÂ¢ââ€šÂ¬Á‚ÂÁƒÂ¢ââ€šÂ¬ââ€žÂ¢ Whistle-Blower
                     </h1>
                 </div>
             </header>
@@ -101,7 +101,7 @@ export default function WhistleblowerPage() {
                 <div className="mb-6 bg-green-50 border border-green-200 rounded-lg px-4 py-3 flex items-center gap-3">
                     <Shield className="w-5 h-5 text-green-700 flex-shrink-0" />
                     <div className="text-sm text-green-800">
-                        <p className="font-medium">ÃƒÆ’Ã‚Â°Ãƒâ€¦Ã‚Â¸ÃƒÂ¢Ã¢â€šÂ¬Ã‚ÂºÃƒâ€šÃ‚Â¡ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¸Ãƒâ€šÃ‚Â LAPORAN INI DIJAMIN ANONIM</p>
+                        <p className="font-medium">ÁƒÆ’Á‚°Áƒâ€¦Á‚Â¸ÁƒÂ¢ââ€šÂ¬Á‚ÂºÁƒâ€šÁ‚¡ÁƒÆ’Á‚Â¯Áƒâ€šÁ‚Â¸Áƒâ€šÁ‚Â LAPORAN INI DIJAMIN ANONIM</p>
                         <p>Identitas Anda TIDAK akan dicatat. IP, device info, dan user agent tidak disimpan.</p>
                     </div>
                 </div>
@@ -143,7 +143,7 @@ export default function WhistleblowerPage() {
                     {/* Error */}
                     {error && (
                         <div className="px-6 py-2">
-                            <p className="text-sm text-red-600 bg-red-50 rounded-lg px-4 py-2">ÃƒÆ’Ã‚Â¢Ãƒâ€¦Ã‚Â¡Ãƒâ€šÃ‚Â ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¸Ãƒâ€šÃ‚Â {error}</p>
+                            <p className="text-sm text-red-600 bg-red-50 rounded-lg px-4 py-2">ÁƒÆ’Á‚Â¢Áƒâ€¦Á‚¡Áƒâ€šÁ‚Â ÁƒÆ’Á‚Â¯Áƒâ€šÁ‚Â¸Áƒâ€šÁ‚Â {error}</p>
                         </div>
                     )}
 
@@ -161,7 +161,7 @@ export default function WhistleblowerPage() {
                             className="w-full bg-[#1e3a5f] hover:bg-[#162d4a] text-white font-medium py-3 rounded-lg flex items-center justify-center gap-2 transition-colors disabled:opacity-50"
                         >
                             <Lock className="w-4 h-4" />
-                            {submitting ? "Mengirim..." : "ÃƒÆ’Ã‚Â°Ãƒâ€¦Ã‚Â¸ÃƒÂ¢Ã¢â€šÂ¬Ã‚ÂÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ Kirim Laporan Anonim"}
+                            {submitting ? "Mengirim..." : "ÁƒÆ’Á‚°Áƒâ€¦Á‚Â¸ÁƒÂ¢ââ€šÂ¬Á‚ÂÁƒÂ¢ââ€šÂ¬ââ€žÂ¢ Kirim Laporan Anonim"}
                         </button>
                     </div>
                 </form>
@@ -169,7 +169,7 @@ export default function WhistleblowerPage() {
                 {/* Info */}
                 <div className="mt-6 bg-blue-50 border border-blue-200 rounded-lg px-4 py-3">
                     <p className="text-sm text-blue-800">
-                        ÃƒÆ’Ã‚Â°Ãƒâ€¦Ã‚Â¸ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢Ãƒâ€šÃ‚Â¡ Laporan akan dikirim langsung ke Pastor Paroki tanpa melewati pengurus lain.
+                        ÁƒÆ’Á‚°Áƒâ€¦Á‚Â¸ÁƒÂ¢ââ€šÂ¬ââ€žÂ¢Áƒâ€šÁ‚¡ Laporan akan dikirim langsung ke Pastor Paroki tanpa melewati pengurus lain.
                         Anda bisa melacak status laporan menggunakan kode anonim yang akan diberikan.
                     </p>
                 </div>

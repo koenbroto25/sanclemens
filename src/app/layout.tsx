@@ -8,7 +8,7 @@ import { SuperAdminProvider } from '@/lib/super-admin-context';
 
 export const metadata: Metadata = {
   title: 'Paroki Santo Klemens Sepinggan',
-  description: 'Gereja Santo Martinus Â· Lanud Balikpapan Â· Keuskupan Agung Samarinda',
+  description: 'Gereja Santo Martinus · Lanud Balikpapan · Keuskupan Agung Samarinda',
   keywords: [
     'Paroki Santo Klemens',
     'Gereja Katolik',

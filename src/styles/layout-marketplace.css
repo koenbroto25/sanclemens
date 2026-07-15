@@ -1,0 +1,309 @@
+/* Marketplace Layout - Layer 2 Seller & Ojek Dashboards */
+/* Source: src/app/marketplace/seller/dashboard/page.tsx */
+
+/* Seller Dashboard */
+.seller-dashboard-container {
+  min-height: 100vh;
+  padding: 1.5rem;
+  background: linear-gradient(to bottom, var(--color-parchment, #f8f1e2), var(--color-cream, #f5f0e8));
+}
+
+.seller-dashboard-wrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* Store Info Card */
+.seller-store-card {
+  border-radius: 1rem;
+  border: 1px solid rgba(200, 169, 110, 0.15);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.seller-store-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: var(--color-text, #1a0e05);
+}
+
+.seller-store-meta {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--color-stone, #8b7355);
+}
+
+.seller-store-rating {
+  font-weight: 600;
+  color: var(--color-gold-deep, #c8a96e);
+}
+
+/* Stats Cards */
+.seller-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .seller-stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.seller-stat-card {
+  border-radius: 0.75rem;
+  border: 1px solid rgba(200, 169, 110, 0.15);
+  padding: 1rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.seller-stat-value {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--color-gold-deep, #c8a96e);
+}
+
+.seller-stat-label {
+  font-size: 0.75rem;
+  color: var(--color-stone, #8b7355);
+  margin-top: 0.25rem;
+}
+
+/* Quick Actions */
+.seller-actions {
+  border-radius: 1rem;
+  border: 1px solid rgba(200, 169, 110, 0.15);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.seller-actions-title {
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--color-text, #1a0e05);
+}
+
+.seller-actions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .seller-actions-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.seller-action-card {
+  border-radius: 0.5rem;
+  border: 1px solid rgba(200, 169, 110, 0.2);
+  padding: 0.75rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.5);
+  transition: all 0.2s;
+  text-decoration: none;
+  color: inherit;
+}
+
+.seller-action-card:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.seller-action-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.seller-action-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-text, #1a0e05);
+}
+
+/* Orders List */
+.seller-orders-section {
+  border-radius: 1rem;
+  border: 1px solid rgba(200, 169, 110, 0.15);
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.seller-orders-title {
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--color-text, #1a0e05);
+}
+
+.seller-order-item {
+  border-radius: 0.5rem;
+  border: 1px solid rgba(200, 169, 110, 0.1);
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.seller-order-info {
+  flex: 1;
+}
+
+.seller-order-id {
+  font-weight: 500;
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+
+.seller-order-meta {
+  font-size: 0.75rem;
+  color: var(--color-stone, #8b7355);
+  margin-top: 0.25rem;
+}
+
+.seller-order-link {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-gold-deep, #c8a96e);
+  text-decoration: none;
+}
+
+/* Ojek Dashboard */
+.ojek-dashboard-container {
+  min-height: 100vh;
+  padding: 1.5rem;
+  background: linear-gradient(to bottom, var(--color-parchment, #f8f1e2), var(--color-cream, #f5f0e8));
+}
+
+.ojek-dashboard-wrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* Ojek Status Card */
+.ojek-status-card {
+  border-radius: 1rem;
+  border: 1px solid rgba(200, 169, 110, 0.15);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.ojek-status-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--color-text, #1a0e05);
+}
+
+.ojek-status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border: 1px solid;
+  margin-top: 0.5rem;
+}
+
+.ojek-status-available {
+  background-color: #dcfce7;
+  color: #166534;
+  border-color: #86efac;
+}
+
+.ojek-status-busy {
+  background-color: #fef3c7;
+  color: #92400e;
+  border-color: #fcd34d;
+}
+
+.ojek-status-offline {
+  background-color: #f3f4f6;
+  color: #374151;
+  border-color: #d1d5db;
+}
+
+.ojek-vehicle-info {
+  font-size: 0.875rem;
+  color: var(--color-stone, #8b7355);
+  margin-top: 0.5rem;
+}
+
+.ojek-vehicle-info strong {
+  color: var(--color-text, #1a0e05);
+}
+
+.ojek-stats-row {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--color-stone, #8b7355);
+}
+
+.ojek-stats-row strong {
+  color: var(--color-gold-deep, #c8a96e);
+}
+
+/* Action Buttons */
+.ojek-actions {
+  margin-top: 1rem;
+}
+
+.ojek-action-btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1px solid rgba(200, 169, 110, 0.3);
+  color: var(--color-text, #1a0e05);
+  text-decoration: none;
+}
+
+/* Available Orders */
+.ojek-order-item {
+  border-radius: 0.5rem;
+  border: 1px solid rgba(200, 169, 110, 0.1);
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ojek-order-info {
+  flex: 1;
+}
+
+.ojek-order-id {
+  font-weight: 500;
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+
+.ojek-order-meta {
+  font-size: 0.75rem;
+  color: var(--color-stone, #8b7355);
+  margin-top: 0.25rem;
+}
+
+.ojek-accept-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: linear-gradient(135deg, #dfc493, #c8a96e);
+  color: #1a0e05;
+  border: none;
+  cursor: pointer;
+}

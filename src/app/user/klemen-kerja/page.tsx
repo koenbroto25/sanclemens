@@ -233,7 +233,7 @@ export default function KlemenKerjaDashboard() {
             </Badge>
             {isGakin && (
                 <Badge variant="secondary" className="bg-amber-100 text-amber-800">
-                    ÃƒÂ¢Ã‚Â­Ã‚Â GAKIN Aktif
+                    ÁƒÂ¢Á‚Â­Á‚Â GAKIN Aktif
                 </Badge>
             )}
           </div>
@@ -261,7 +261,7 @@ export default function KlemenKerjaDashboard() {
             <h3 className="text-lg font-semibold mb-2">Kebutuhan Anda</h3>
             <div className="flex flex-wrap gap-2 mb-4">
               {profile.umat_needs?.[0]?.need_type_array.map((need, index) => (
-                <Badge key={index} variant="secondary">{need} {profile.umat_needs?.[0]?.urgency === 'critical' ? 'ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â´' : ''}</Badge>
+                <Badge key={index} variant="secondary">{need} {profile.umat_needs?.[0]?.urgency === 'critical' ? 'Áƒ°Á…Â¸ââ‚¬ÂÁ‚Â´' : ''}</Badge>
               ))}
             </div>
             <div className="flex flex-col gap-2">

@@ -1,11 +1,11 @@
 import { create } from "zustand"
 import { persist } from "zustand/middleware"
 
-export type HomepageContext = "paroki" | "lingkungan" | "marketplace" | "gate-hub"
+export type HomepageContext = "paroki" | "lingkungan" | "marketplace" | "user/dashboard"
 
 interface UserData {
   id: string
-  phone: string              // WhatsApp login — ganti dari email (v4.0)
+  phone: string              // WhatsApp login â€” ganti dari email (v4.0)
   nama_lengkap: string
   nama_baptis?: string
   access_layer: number

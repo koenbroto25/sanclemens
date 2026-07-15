@@ -1,6 +1,7 @@
 export const dynamic = 'force-dynamic'
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@/lib/supabase/server';
+import { createServiceClient } from '@/lib/supabase/server';
+import { createServerClient } from '@supabase/ssr';
 import { cookies } from 'next/headers';
 
 export async function POST(request: NextRequest) {
@@ -19,7 +20,7 @@ export async function POST(request: NextRequest) {
       cleaned = '62' + cleaned;
     }
 
-    const supabase = createClient();
+    const supabase = createServiceClient();
 
     // Find valid OTP
     const { data: otpRecords } = await supabase
@@ -63,32 +64,112 @@ export async function POST(request: NextRequest) {
 
     let userId: string;
 
+    // If OTP has registration metadata, create auth user first, then profile
+    const registrationMeta = validRecord.metadata as { fullName?: string; password?: string; baptismDate?: string; noKkGereja?: string; familyId?: string } | undefined;
+
     if (!profile) {
-      // For login flow without pre-registration, create minimal active profile
-      const { data: newProfile, error: profileError } = await supabase
-        .from('profiles')
-        .insert({
+      if (registrationMeta) {
+        // Registration flow: create or reuse auth user, then profile with its id
+        const loginEmail = `wa+${cleaned}@paroki.local`;
+        const internalPassword = `${cleaned}-${process.env.SUPABASE_SERVICE_ROLE_KEY?.slice(0, 16)}`;
+        const passwordToUse = registrationMeta.password || internalPassword;
+
+        // Cek apakah auth user sudah ada
+        const { data: existingAuthList } = await supabase.auth.admin.listUsers();
+        const existingAuthUser = existingAuthList?.users?.find((u) => u.email === loginEmail || u.phone === cleaned);
+
+        let authData;
+        if (existingAuthUser) {
+          // Reuse dan update password
+          const { error: updateError } = await supabase.auth.admin.updateUserById(existingAuthUser.id, {
+            password: passwordToUse,
+            email_confirm: true,
+            user_metadata: { phone: cleaned },
+          });
+          if (updateError) {
+            console.error('Failed to update existing auth user password:', updateError);
+          }
+          authData = { user: existingAuthUser };
+        } else {
+          const { data: created, error: authError } = await supabase.auth.admin.createUser({
+            phone: cleaned,
+            email: loginEmail,
+            password: passwordToUse,
+            email_confirm: true,
+            user_metadata: { phone: cleaned },
+          });
+          if (authError || !created?.user) {
+            console.error('Failed to create auth user during registration:', authError);
+            return NextResponse.json({ error: 'Gagal membuat akun otentikasi' }, { status: 500 });
+          }
+          authData = created;
+        }
+
+        const { data: newProfile, error: profileError } = await supabase
+          .from('profiles')
+          .insert({
+            id: authData.user.id,
+            phone: cleaned,
+            full_name: registrationMeta.fullName || `Umat ${cleaned.slice(-4)}`,
+            role: 'umat',
+            access_layer: 2,
+            status: 'active',
+          })
+          .select('id')
+          .single();
+
+        if (profileError || !newProfile) {
+          console.error('Failed to create profile during registration:', profileError);
+          // Rollback auth user
+          await supabase.auth.admin.deleteUser(authData.user.id);
+          return NextResponse.json({ error: 'Gagal membuat akun' }, { status: 500 });
+        }
+
+        userId = newProfile.id;
+      } else {
+        // Login flow without pre-registration: create minimal profile
+        const loginEmail = `wa+${cleaned}@paroki.local`;
+        const internalPassword = `${cleaned}-${process.env.SUPABASE_SERVICE_ROLE_KEY?.slice(0, 16)}`;
+
+        const { data: authData, error: authError } = await supabase.auth.admin.createUser({
           phone: cleaned,
-          full_name: `Umat ${cleaned.slice(-4)}`,
-          role: 'umat_aktif',
-          access_layer: 2,
-          status: 'active',
-        })
-        .select('id')
-        .single();
+          email: loginEmail,
+          password: internalPassword,
+          email_confirm: true,
+          user_metadata: { phone: cleaned },
+        });
 
-      if (profileError || !newProfile) {
-        console.error('Failed to create profile:', profileError);
-        return NextResponse.json({ error: 'Gagal membuat akun' }, { status: 500 });
+        if (authError || !authData?.user) {
+          console.error('Failed to create auth user:', authError);
+          return NextResponse.json({ error: 'Gagal membuat akun otentikasi' }, { status: 500 });
+        }
+
+        const { data: newProfile, error: profileError } = await supabase
+          .from('profiles')
+          .insert({
+            id: authData.user.id,
+            phone: cleaned,
+            full_name: `Umat ${cleaned.slice(-4)}`,
+            role: 'umat',
+            access_layer: 2,
+            status: 'active',
+          })
+          .select('id')
+          .single();
+
+        if (profileError || !newProfile) {
+          console.error('Failed to create profile:', profileError);
+          await supabase.auth.admin.deleteUser(authData.user.id);
+          return NextResponse.json({ error: 'Gagal membuat akun' }, { status: 500 });
+        }
+
+        userId = newProfile.id;
       }
-
-      userId = newProfile.id;
     } else {
       userId = profile.id;
     }
 
-    // If this OTP was issued for a registration payload, finalize profile if still pending
-    const registrationMeta = validRecord.metadata as { fullName?: string; password?: string; baptismDate?: string; noKkGereja?: string; familyId?: string } | undefined;
+    // Finalize profile if registration metadata exists and status is pending
     if (registrationMeta && profile && profile.status === 'pending') {
       const updatePayload: any = {
         status: 'active',
@@ -142,36 +223,44 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    // Generate a deterministic-but-secret password for this OTP-authenticated session
-    const internalPassword = `${cleaned}-${process.env.SUPABASE_SERVICE_ROLE_KEY?.slice(0, 16)}`;
+    // Tentukan password dan loginEmail
     const loginEmail = `wa+${cleaned}@paroki.local`;
+    const defaultInternalPassword = `${cleaned}-${process.env.SUPABASE_SERVICE_ROLE_KEY?.slice(0, 16)}`;
 
-    // Create or update Supabase auth user with the internal password
-    const { data: existingAuthList } = await supabase.auth.admin.listUsers();
-    const existingAuthUser = existingAuthList?.users?.find((u) => u.email === loginEmail);
+    // Jika registration flow, gunakan password yang sama dengan yang disimpan di metadata (atau fallback ke internal)
+    // Jika login biasa, gunakan internalPassword
+    const passwordToUse = registrationMeta ? (registrationMeta.password || defaultInternalPassword) : defaultInternalPassword;
 
-    if (existingAuthUser) {
-      await supabase.auth.admin.updateUserById(existingAuthUser.id, {
-        password: internalPassword,
-      });
-    } else {
-      const { error: authError } = await supabase.auth.admin.createUser({
-        phone: cleaned,
-        email: loginEmail,
-        password: internalPassword,
-        email_confirm: true,
-        user_metadata: { phone: cleaned },
-      });
-      if (authError) {
-        console.error('Failed to create auth user:', authError);
-        return NextResponse.json({ error: 'Gagal membuat akun otentikasi' }, { status: 500 });
+    // Jika profile baru saja dibuat (registration flow), auth user sudah dibuat di atas dengan passwordToUse.
+    // Tapi untuk flow login biasa (existing profile), auth user mungkin belum ada.
+    if (!registrationMeta) {
+      const internalPassword = defaultInternalPassword;
+      const { data: existingAuthList } = await supabase.auth.admin.listUsers();
+      const existingAuthUser = existingAuthList?.users?.find((u) => u.email === loginEmail);
+
+      if (existingAuthUser) {
+        await supabase.auth.admin.updateUserById(existingAuthUser.id, {
+          password: internalPassword,
+        });
+      } else {
+        const { error: authError } = await supabase.auth.admin.createUser({
+          phone: cleaned,
+          email: loginEmail,
+          password: internalPassword,
+          email_confirm: true,
+          user_metadata: { phone: cleaned },
+        });
+        if (authError) {
+          console.error('Failed to create auth user:', authError);
+          return NextResponse.json({ error: 'Gagal membuat akun otentikasi' }, { status: 500 });
+        }
       }
     }
 
     // Sign in to create a real session
     const { data: signInData, error: signInError } = await supabase.auth.signInWithPassword({
       email: loginEmail,
-      password: internalPassword,
+      password: passwordToUse,
     });
 
     if (signInError || !signInData?.session) {
@@ -182,21 +271,22 @@ export async function POST(request: NextRequest) {
     const sessionData = signInData;
 
     // Set cookie
-    const cookieStore = cookies();
-    cookieStore.set('sb-access-token', sessionData.session.access_token, {
-      path: '/',
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'lax',
-      maxAge: 60 * 60 * 24 * 7,
+    // Set SSR-compatible session cookies
+    const projectRef2 = process.env.NEXT_PUBLIC_SUPABASE_URL!.split('.')[0].split('//')[1];
+    const authCookieName = `sb-${projectRef2}-auth-token`;
+    const sessionPayload = JSON.stringify({
+      access_token: sessionData.session.access_token,
+      refresh_token: sessionData.session.refresh_token,
+      expires_in: sessionData.session.expires_in,
+      expires_at: sessionData.session.expires_at,
+      token_type: sessionData.session.token_type,
+      user: sessionData.session.user,
     });
 
-    cookieStore.set('sb-refresh-token', sessionData.session.refresh_token, {
-      path: '/',
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'lax',
-      maxAge: 60 * 60 * 24 * 30,
+    console.log('[verify-otp] Session created and cookies set:', {
+      userId: sessionData.user.id,
+      email: sessionData.user.email,
+      isProduction,
     });
 
     // Fetch fresh profile data
@@ -206,10 +296,20 @@ export async function POST(request: NextRequest) {
       .eq('id', userId)
       .single();
 
-    return NextResponse.json({
+    const response = NextResponse.json({
       success: true,
       user: freshProfile || profile,
     });
+    response.cookies.set(authCookieName, sessionPayload, {
+      path: '/',
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'lax',
+      maxAge: 60 * 60 * 24 * 7,
+    });
+    response.cookies.delete('sb-access-token');
+    response.cookies.delete('sb-refresh-token');
+    return response;
   } catch (error) {
     console.error('Verify OTP error:', error);
     return NextResponse.json({ error: 'Terjadi kesalahan server' }, { status: 500 });

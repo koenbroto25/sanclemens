@@ -8,7 +8,7 @@ import { ChurchIcon, UsersIcon, ShoppingBagIcon } from 'lucide-react';
 import { Button } from '@paroki/ui/base/button'; // Assuming Button component is available from @paroki/ui
 
 interface HomepageSwitcherProps {
-  currentHomepage: 'paroki' | 'lingkungan' | 'marketplace' | 'gate-hub';
+  currentHomepage: 'paroki' | 'lingkungan' | 'marketplace' | 'user/dashboard';
   userLayer: number;
   lingkunganSlug?: string;
 }
@@ -50,7 +50,7 @@ export function HomepageSwitcher({ currentHomepage, userLayer, lingkunganSlug }:
 
   const handleSwitch = (portalId: string, url: string, isDisabled: boolean = false) => {
     if (isDisabled) return;
-    setHomepageContext(portalId as any); // Type assertion, as 'gate-hub' is not in the store's HomepageContext type
+    setHomepageContext(portalId as any); // Type assertion, as 'user/dashboard' is not in the store's HomepageContext type
     document.cookie = `homepage-context=${portalId}; path=/; httpOnly=true`; // Ensure httpOnly=true
     router.push(url);
   };

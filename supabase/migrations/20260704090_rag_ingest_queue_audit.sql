@@ -1,12 +1,12 @@
 -- Migration: RAG Ingest Queue & Audit Infrastructure
 -- Created: 04 July 2026
 -- Purpose: Create ai_ingest_queue for pipeline staging and r2_audit_cursor for orphan detection
--- Reference: rag_ai_r2_72.md Ã‚Â§9.3, Ã‚Â§16.2, Ã‚Â§16.4-16.5; section5_new.md Ã‚Â§5.0a-5.0b
+-- Reference: rag_ai_r2_72.md Á‚Â§9.3, Á‚Â§16.2, Á‚Â§16.4-16.5; section5_new.md Á‚Â§5.0a-5.0b
 
 SET search_path = public, extensions;
 
 -- ============================================================
--- 1. ai_ingest_queue Ã¢â‚¬â€ Pipeline staging & antrian kerja
+-- 1. ai_ingest_queue ââ‚¬â€ Pipeline staging & antrian kerja
 -- ============================================================
 CREATE TABLE IF NOT EXISTS public.ai_ingest_queue (
     id                  UUID DEFAULT gen_random_uuid() NOT NULL PRIMARY KEY,
@@ -39,10 +39,10 @@ ALTER TABLE public.ai_ingest_queue ADD COLUMN IF NOT EXISTS staged_preview TEXT;
 ALTER TABLE public.ai_ingest_queue ADD COLUMN IF NOT EXISTS processed_at TIMESTAMPTZ;
 ALTER TABLE public.ai_ingest_queue ADD COLUMN IF NOT EXISTS updated_at TIMESTAMPTZ DEFAULT NOW();
 
-COMMENT ON TABLE public.ai_ingest_queue IS 'Antrian serah-terima antar tahap pipeline ingest (Tahap 0-5) Ã¢â‚¬â€ lihat section5_new.md Ã‚Â§5.0b';
+COMMENT ON TABLE public.ai_ingest_queue IS 'Antrian serah-terima antar tahap pipeline ingest (Tahap 0-5) ââ‚¬â€ lihat section5_new.md Á‚Â§5.0b';
 COMMENT ON COLUMN public.ai_ingest_queue.source_table IS 'Nama tabel sumber (mis. saints_manual_import, warta_paroki, dll)';
-COMMENT ON COLUMN public.ai_ingest_queue.source_id IS 'ID baris di tabel sumber Ã¢â‚¬â€ untuk idempotency';
-COMMENT ON COLUMN public.ai_ingest_queue.pipeline_stage IS 'queued Ã¢â€ â€™ embedding_done Ã¢â€ â€™ r2_done Ã¢â€ â€™ chunk_done Ã¢â€ â€™ akb_done Ã¢â€ â€™ verified_approved';
+COMMENT ON COLUMN public.ai_ingest_queue.source_id IS 'ID baris di tabel sumber ââ‚¬â€ untuk idempotency';
+COMMENT ON COLUMN public.ai_ingest_queue.pipeline_stage IS 'queued ââ€ â€™ embedding_done ââ€ â€™ r2_done ââ€ â€™ chunk_done ââ€ â€™ akb_done ââ€ â€™ verified_approved';
 COMMENT ON COLUMN public.ai_ingest_queue.status IS 'pending|processing|done|failed';
 COMMENT ON COLUMN public.ai_ingest_queue.staged_embedding IS 'Hasil embedding dari Tahap 1, staging sementara sebelum Tahap 3';
 
@@ -55,7 +55,7 @@ CREATE INDEX IF NOT EXISTS idx_ai_ingest_queue_source
     ON public.ai_ingest_queue (source_table, source_id);
 
 -- ============================================================
--- 2. r2_audit_cursor Ã¢â‚¬â€ Tracking posisi audit orphan R2
+-- 2. r2_audit_cursor ââ‚¬â€ Tracking posisi audit orphan R2
 -- ============================================================
 CREATE TABLE IF NOT EXISTS public.r2_audit_cursor (
     source_table    TEXT PRIMARY KEY,
@@ -63,10 +63,10 @@ CREATE TABLE IF NOT EXISTS public.r2_audit_cursor (
     updated_at      TIMESTAMPTZ DEFAULT NOW()
 );
 
-COMMENT ON TABLE public.r2_audit_cursor IS 'Cursor posisi terakhir audit orphan R2 per tabel Ã¢â‚¬â€ menjamin coverage penuh bergilir';
+COMMENT ON TABLE public.r2_audit_cursor IS 'Cursor posisi terakhir audit orphan R2 per tabel ââ‚¬â€ menjamin coverage penuh bergilir';
 
 -- ============================================================
--- 3. Generic Trigger Function Ã¢â‚¬â€ Auto-enqueue for Postgres tables
+-- 3. Generic Trigger Function ââ‚¬â€ Auto-enqueue for Postgres tables
 -- ============================================================
 -- Untuk tabel-tabel yang terdaftar di pipeline (warta_paroki, kegiatan_paroki, dll),
 -- trigger ini otomatis memasukkan baris baru/update ke ai_ingest_queue.
@@ -115,7 +115,7 @@ BEGIN
 END
 $$;
 
-COMMENT ON CONSTRAINT ai_ingest_queue_source_unique ON public.ai_ingest_queue IS 'Mencegah duplikasi baris antrian untuk source yang sama Ã¢â‚¬â€ idempotency Ã‚Â§16.4';
+COMMENT ON CONSTRAINT ai_ingest_queue_source_unique ON public.ai_ingest_queue IS 'Mencegah duplikasi baris antrian untuk source yang sama ââ‚¬â€ idempotency Á‚Â§16.4';
 
 -- ============================================================
 -- 4. Maintenance: Cleanup old queue entries
@@ -137,4 +137,4 @@ BEGIN
 END;
 $$;
 
-COMMENT ON FUNCTION cleanup_old_ingest_queue IS 'Hapus item antrian yang sudah selesai >7 hari Ã¢â‚¬â€ panggil via cron bulanan';
+COMMENT ON FUNCTION cleanup_old_ingest_queue IS 'Hapus item antrian yang sudah selesai >7 hari ââ‚¬â€ panggil via cron bulanan';
