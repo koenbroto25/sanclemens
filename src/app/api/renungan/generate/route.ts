@@ -68,11 +68,12 @@ async function retrieveRenunganContext(tema: string, mode: 'ignas' | 'anton'): P
     const embeddingModel = genai.getGenerativeModel({ model: 'models/gemini-embedding-2' });
     const embeddingResult = await embeddingModel.embedContent(tema);
     const queryEmbedding = embeddingResult.embedding.values;
+    const queryEmbeddingStr = `[${queryEmbedding.join(',')}]`; // format vector CockroachDB: string "[...]", bukan array JS
 
     // Panggil search_rag_chunks() di CockroachDB
     const { rows } = await cockroach.query(
-      `SELECT * FROM search_rag_chunks($1, $2, $3, $4, $5)`,
-      [queryEmbedding, 'theology', BOT_ACCESS_CALLER, SERVICE_ACCESS_LEVEL, 15]
+      `SELECT * FROM search_rag_chunks($1::vector, $2, $3, $4, $5)`,
+      [queryEmbeddingStr, 'theology', BOT_ACCESS_CALLER, SERVICE_ACCESS_LEVEL, 15]
     );
 
     // Filter similarity minimum
@@ -191,8 +192,8 @@ ${liturgi.bacaan_list.length > 0
 }
 
 KUTIPAN RELEVAN DARI DATABASE SUMBER AJARAN
-(Diambil via search_rag_chunks() Ã¢â‚¬â€ RAG v6, domain: theology)
-Gunakan yang paling relevan. Referensikan dengan [Nama Dokumen, Ã‚Â§nomor jika ada]
+(Diambil via search_rag_chunks() ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â RAG v6, domain: theology)
+Gunakan yang paling relevan. Referensikan dengan [Nama Dokumen, Ãƒâ€šÃ‚Â§nomor jika ada]
 ${konteksTeologis || '[Tidak ada kutipan relevan yang ditemukan. Gunakan pengetahuan teologi Katolik umum. JANGAN mengarang kutipan spesifik dalam tanda petik.]'}
 
 INSTRUKSI AKHIR
