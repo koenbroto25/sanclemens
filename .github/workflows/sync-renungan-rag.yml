@@ -77,3 +77,4 @@ jobs:
             -o response.json \
             -w "HTTP status: %{http_code}\n"
           cat response.json
+
