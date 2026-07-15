@@ -67,10 +67,14 @@ export async function POST(request: Request) {
     // You would fetch the Pastor's phone number from your database here.
     // For now, using a placeholder.
     const pastorPhoneNumber = process.env.PASTOR_PHONE_NUMBER || '+6281234567890'; // Placeholder
-    const whatsappMessage = `ÁƒÆ’Á‚°Áƒâ€¦Á‚Â¸ÁƒÂ¢ââ€šÂ¬Á‚Â¢Áƒâ€¦Á‚Â ÁƒÆ’Á‚Â¯Áƒâ€šÁ‚Â¸Áƒâ€šÁ‚Â Renungan Harian Paroki
+    // CATATAN (diperbaiki 15 Juli 2026): teks asli di sini sempat mojibake
+    // parah (beberapa lapis salah-decode), tidak bisa direparasi otomatis
+    // dengan pasti. Diganti teks bersih di bawah -- SILAKAN SESUAIKAN kalau
+    // Anda ingat redaksi/emoji aslinya berbeda.
+    const whatsappMessage = `Renungan Harian Paroki
 Batch renungan minggu depan (${generateResult.generated_dates[0]} s/d ${generateResult.generated_dates[generateResult.generated_dates.length - 1]}) sudah siap dikurasi.
 Silakan cek Dashboard Pastor untuk review dan persetujuan.
-ÁƒÆ’Á‚Â¢ÁƒÂ¢ââ€šÂ¬Á‚ÂÁƒÂ¢ââ‚¬Å¡Á‚Â¬ÁƒÆ’Á‚Â¢ÁƒÂ¢ââ€šÂ¬Á‚ÂÁƒÂ¢ââ‚¬Å¡Á‚Â¬
+--------------------
 Paroki Santo Klemens Sepinggan`;
 
     const waSent = await sendWhatsAppNotification(pastorPhoneNumber, whatsappMessage);
