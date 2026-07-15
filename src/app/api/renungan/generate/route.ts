@@ -191,8 +191,8 @@ ${liturgi.bacaan_list.length > 0
 }
 
 KUTIPAN RELEVAN DARI DATABASE SUMBER AJARAN
-(Diambil via search_rag_chunks() — RAG v6, domain: theology)
-Gunakan yang paling relevan. Referensikan dengan [Nama Dokumen, §nomor jika ada]
+(Diambil via search_rag_chunks() Ã¢â‚¬â€ RAG v6, domain: theology)
+Gunakan yang paling relevan. Referensikan dengan [Nama Dokumen, Ã‚Â§nomor jika ada]
 ${konteksTeologis || '[Tidak ada kutipan relevan yang ditemukan. Gunakan pengetahuan teologi Katolik umum. JANGAN mengarang kutipan spesifik dalam tanda petik.]'}
 
 INSTRUKSI AKHIR
@@ -238,8 +238,8 @@ Tulis renungan sesuai system prompt. Output HANYA format JSON. Tidak ada teks di
       
       skor = await validasiSkorTeologi({
         mode_persona: mode,
-        warna_liturgi: liturgi.warna_liturgi,
-        tingkat_perayaan: liturgi.tingkat_perayaan,
+        warna_liturgi: liturgi.warna_liturgi ?? 'hijau', // fallback: Hijau = Masa Biasa, warna paling umum kalau data source kosong
+        tingkat_perayaan: liturgi.tingkat_perayaan ?? 'biasa', // fallback: Hari Biasa kalau data source kosong
         teks_renungan: teksUntukValidasi
       }, geminiModel);
 
@@ -279,8 +279,8 @@ Tulis renungan sesuai system prompt. Output HANYA format JSON. Tidak ada teks di
       tanggal: tanggalStr,
       mode_persona: mode,
       perayaan: liturgi.perayaan,
-      tingkat_perayaan: liturgi.tingkat_perayaan,
-      warna_liturgi: liturgi.warna_liturgi,
+      tingkat_perayaan: liturgi.tingkat_perayaan ?? 'biasa', // fallback: Hari Biasa kalau data source kosong
+      warna_liturgi: liturgi.warna_liturgi ?? 'hijau', // fallback: Hijau = Masa Biasa, warna paling umum kalau data source kosong
       musim_liturgi: liturgi.musim_liturgi,
       tema_renungan: metadata.tema_renungan,
       bacaan_utama: metadata.bacaan_utama,
