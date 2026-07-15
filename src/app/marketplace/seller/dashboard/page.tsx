@@ -12,7 +12,7 @@ export default async function SellerDashboardPage() {
   const serviceClient = createServiceClient();
   const { data: profile } = await serviceClient
     .from('profiles')
-    .select('full_name, role, status, store_name, store_category, seller_rating, total_sales')
+    .select('full_name, role, status, store_name, store_category, seller_rating, total_sales, seller_status, seller_rejection_reason')
     .eq('id', user.id)
     .single();
 
@@ -105,19 +105,19 @@ export default async function SellerDashboardPage() {
           <div className="font-semibold mb-4">Aksi Cepat</div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             <Link href="/marketplace/seller/products/add" className="rounded-lg border border-[rgba(200,169,110,0.2)] p-3 text-center hover:bg-white/60 transition-all">
-              <div className="text-2xl mb-1">➕</div>
+              <div className="text-2xl mb-1">âž•</div>
               <div className="text-xs font-medium">Tambah Produk</div>
             </Link>
             <Link href="/marketplace/seller/orders" className="rounded-lg border border-[rgba(200,169,110,0.2)] p-3 text-center hover:bg-white/60 transition-all">
-              <div className="text-2xl mb-1">📦</div>
+              <div className="text-2xl mb-1">ðŸ“¦</div>
               <div className="text-xs font-medium">Lihat Pesanan</div>
             </Link>
             <Link href="/marketplace/seller/products" className="rounded-lg border border-[rgba(200,169,110,0.2)] p-3 text-center hover:bg-white/60 transition-all">
-              <div className="text-2xl mb-1">📋</div>
+              <div className="text-2xl mb-1">ðŸ“‹</div>
               <div className="text-xs font-medium">Daftar Produk</div>
             </Link>
             <Link href="/marketplace/seller/settings" className="rounded-lg border border-[rgba(200,169,110,0.2)] p-3 text-center hover:bg-white/60 transition-all">
-              <div className="text-2xl mb-1">⚙️</div>
+              <div className="text-2xl mb-1">âš™ï¸</div>
               <div className="text-xs font-medium">Pengaturan Toko</div>
             </Link>
           </div>

@@ -100,12 +100,12 @@ export default function RenunganMonitoringPage() {
     if (renungan) {
       const stats = {
         total: renungan.length,
-        menunggu: renungan.filter(r => r.status_kurasi === 'menunggu').length,
-        disetujui: renungan.filter(r => r.status_kurasi === 'disetujui').length,
-        revisi: renungan.filter(r => r.status_kurasi === 'revisi').length,
-        ditolak: renungan.filter(r => r.status_kurasi === 'ditolak' || r.status === 'rejected').length,
+        menunggu: renungan.filter((r: any) => r.status_kurasi === 'menunggu').length,
+        disetujui: renungan.filter((r: any) => r.status_kurasi === 'disetujui').length,
+        revisi: renungan.filter((r: any) => r.status_kurasi === 'revisi').length,
+        ditolak: renungan.filter((r: any) => r.status_kurasi === 'ditolak' || r.status === 'rejected').length,
         avg_skor: renungan.length > 0
-          ? Math.round(renungan.reduce((acc, r) => acc + (r.skor_total || 0), 0) / renungan.length)
+          ? Math.round(renungan.reduce((acc: number, r: any) => acc + (r.skor_total || 0), 0) / renungan.length)
           : 0,
       };
       setStats(stats);
@@ -146,7 +146,7 @@ export default function RenunganMonitoringPage() {
             Monitoring Renungan Harian
           </h1>
           <p className="text-gray-600">
-            Dashboard Super Admin — Monitoring batch renungan harian
+            Dashboard Super Admin â€” Monitoring batch renungan harian
           </p>
         </div>
 
@@ -187,10 +187,10 @@ export default function RenunganMonitoringPage() {
                 <div className="flex justify-between items-start">
                   <div>
                     <div className="font-medium text-gray-900">
-                      {batch.tanggal_mulai} — {batch.tanggal_selesai}
+                      {batch.tanggal_mulai} â€” {batch.tanggal_selesai}
                     </div>
                     <div className="text-sm text-gray-500">
-                      {batch.jumlah_renungan} renungan • Deadline: {new Date(batch.deadline_kurasi).toLocaleDateString('id-ID')}
+                      {batch.jumlah_renungan} renungan â€¢ Deadline: {new Date(batch.deadline_kurasi).toLocaleDateString('id-ID')}
                     </div>
                   </div>
                   <span className={`px-3 py-1 rounded-full text-xs font-medium ${getStatusColor(batch.status_batch)}`}>

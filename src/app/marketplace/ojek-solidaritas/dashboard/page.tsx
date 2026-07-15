@@ -12,7 +12,7 @@ export default async function OjekDashboardPage() {
   const serviceClient = createServiceClient();
   const { data: profile } = await serviceClient
     .from('profiles')
-    .select('full_name, role, status, ojek_vehicle_type, ojek_vehicle_plate, ojek_max_capacity, ojek_status, ojek_rating, total_deliveries')
+    .select('full_name, role, status, ojek_vehicle_type, ojek_vehicle_plate, ojek_max_capacity, ojek_status, ojek_rating, total_deliveries, ojek_rejection_reason')
     .eq('id', user.id)
     .single();
 
@@ -73,11 +73,11 @@ export default async function OjekDashboardPage() {
   const getStatusLabel = (status: string) => {
     switch (status) {
       case 'available':
-        return '🟢 Tersedia';
+        return 'ðŸŸ¢ Tersedia';
       case 'busy':
-        return '🟡 Sibuk';
+        return 'ðŸŸ¡ Sibuk';
       case 'offline':
-        return '🔴 Offline';
+        return 'ðŸ”´ Offline';
       default:
         return status;
     }
@@ -90,9 +90,9 @@ export default async function OjekDashboardPage() {
         <div className="rounded-2xl border border-[rgba(200,169,110,0.15)] p-6 mb-6" style={{ background: 'rgba(255,255,255,0.85)' }}>
           <div className="flex justify-between items-start">
             <div>
-              <h1 className="text-2xl font-semibold mb-1">Ojek Solidaritas — {displayName}</h1>
+              <h1 className="text-2xl font-semibold mb-1">Ojek Solidaritas â€” {displayName}</h1>
               <p className="text-sm text-[var(--color-stone,#8b7355)]">
-                Kendaraan: <span className="font-semibold uppercase">{vehicleType}</span> — {vehiclePlate}
+                Kendaraan: <span className="font-semibold uppercase">{vehicleType}</span> â€” {vehiclePlate}
               </p>
               <p className="text-sm text-[var(--color-stone,#8b7355)]">
                 Kapasitas: <span className="font-semibold">{maxCapacity} kg</span>
@@ -133,19 +133,19 @@ export default async function OjekDashboardPage() {
           <div className="font-semibold mb-4">Aksi Cepat</div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             <Link href="/marketplace/ojek-solidaritas/orders" className="rounded-lg border border-[rgba(200,169,110,0.2)] p-3 text-center hover:bg-white/60 transition-all">
-              <div className="text-2xl mb-1">📦</div>
+              <div className="text-2xl mb-1">ðŸ“¦</div>
               <div className="text-xs font-medium">Lihat Pesanan</div>
             </Link>
             <Link href="/marketplace/ojek-solidaritas/history" className="rounded-lg border border-[rgba(200,169,110,0.2)] p-3 text-center hover:bg-white/60 transition-all">
-              <div className="text-2xl mb-1">📊</div>
+              <div className="text-2xl mb-1">ðŸ“Š</div>
               <div className="text-xs font-medium">Riwayat</div>
             </Link>
             <Link href="/marketplace/ojek-solidaritas/earnings" className="rounded-lg border border-[rgba(200,169,110,0.2)] p-3 text-center hover:bg-white/60 transition-all">
-              <div className="text-2xl mb-1">💰</div>
+              <div className="text-2xl mb-1">ðŸ’°</div>
               <div className="text-xs font-medium">Pendapatan</div>
             </Link>
             <Link href="/marketplace/ojek-solidaritas/settings" className="rounded-lg border border-[rgba(200,169,110,0.2)] p-3 text-center hover:bg-white/60 transition-all">
-              <div className="text-2xl mb-1">⚙️</div>
+              <div className="text-2xl mb-1">âš™ï¸</div>
               <div className="text-xs font-medium">Pengaturan</div>
             </Link>
           </div>
@@ -165,7 +165,7 @@ export default async function OjekDashboardPage() {
                   <div className="flex-1">
                     <div className="font-medium text-sm">Order #{order.id.slice(0, 8)}</div>
                     <div className="text-xs text-[var(--color-stone,#8b7355)] mt-1">
-                      Dari: {order.seller_name || 'Toko'} → Ke: {order.delivery_address || 'Alamat tujuan'}
+                      Dari: {order.seller_name || 'Toko'} â†’ Ke: {order.delivery_address || 'Alamat tujuan'}
                     </div>
                     <div className="text-xs text-[var(--color-stone,#8b7355)] mt-1">
                       Jarak: {order.distance || '~'} km | Reward: Rp {order.delivery_fee?.toLocaleString('id-ID') || 0}

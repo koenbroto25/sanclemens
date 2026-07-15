@@ -283,6 +283,7 @@ export async function POST(request: NextRequest) {
       user: sessionData.session.user,
     });
 
+    const isProduction = process.env.NODE_ENV === 'production';
     console.log('[verify-otp] Session created and cookies set:', {
       userId: sessionData.user.id,
       email: sessionData.user.email,

@@ -11,7 +11,7 @@ export default async function UserDashboardPage() {
   const serviceClient = createServiceClient();
   const { data: profile } = await serviceClient
     .from('profiles')
-    .select('full_name, access_layer, lingkungan_slug, status, role, phone')
+    .select('full_name, access_layer, lingkungan_slug, status, role, phone, seller_status, ojek_status')
     .eq('id', user.id)
     .single();
 
@@ -31,7 +31,7 @@ export default async function UserDashboardPage() {
         <div className="rounded-2xl border border-[rgba(200,169,110,0.15)] p-6 mb-6" style={{ background: 'rgba(255,255,255,0.85)' }}>
           <h1 className="text-2xl font-semibold mb-1">Selamat Datang, {displayName}</h1>
           <p className="text-sm text-[var(--color-stone,#8b7355)]">
-            Dashboard Umat Aktif (Layer {accessLayer}) — Paroki Santo Klemens Sepinggan
+            Dashboard Umat Aktif (Layer {accessLayer}) â€” Paroki Santo Klemens Sepinggan
           </p>
           {profile.lingkungan_slug && (
             <p className="text-sm mt-1">Lingkungan: <span className="font-semibold uppercase">{profile.lingkungan_slug}</span></p>
@@ -49,7 +49,7 @@ export default async function UserDashboardPage() {
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
           {[
             { value: `Layer ${accessLayer}`, label: 'Level Akses' },
-            { value: profile.status === 'active' ? 'Aktif ✓' : 'Pending', label: 'Status Akun' },
+            { value: profile.status === 'active' ? 'Aktif âœ“' : 'Pending', label: 'Status Akun' },
             { value: profile.lingkungan_slug?.toUpperCase() || '-', label: 'Lingkungan' },
           ].map((stat, i) => (
             <div key={i} className="rounded-xl border border-[rgba(200,169,110,0.15)] p-4 text-center" style={{ background: 'rgba(255,255,255,0.85)' }}>
@@ -61,7 +61,7 @@ export default async function UserDashboardPage() {
 
         {hasPendingSeller && (
           <div className="rounded-xl border border-yellow-300 bg-yellow-50 p-4 mb-4">
-            <div className="font-semibold text-yellow-800">⏳ Menunggu Approval Seller</div>
+            <div className="font-semibold text-yellow-800">â³ Menunggu Approval Seller</div>
             <div className="text-sm text-yellow-600 mt-1">
               Pendaftaran Anda sedang dalam proses verifikasi oleh admin. Estimasi: 1-2 hari kerja.
             </div>
@@ -70,7 +70,7 @@ export default async function UserDashboardPage() {
 
         {hasPendingOjek && (
           <div className="rounded-xl border border-yellow-300 bg-yellow-50 p-4 mb-4">
-            <div className="font-semibold text-yellow-800">⏳ Menunggu Approval Ojek</div>
+            <div className="font-semibold text-yellow-800">â³ Menunggu Approval Ojek</div>
             <div className="text-sm text-yellow-600 mt-1">
               Pendaftaran Anda sedang dalam proses verifikasi oleh admin. Estimasi: 1-2 hari kerja.
             </div>
@@ -80,7 +80,7 @@ export default async function UserDashboardPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
           {/* Marketplace Section */}
           <div className="rounded-xl border border-[rgba(200,169,110,0.15)] p-5" style={{ background: 'rgba(255,255,255,0.7)' }}>
-            <div className="font-semibold mb-2">🛒 Pasar Kasih</div>
+            <div className="font-semibold mb-2">ðŸ›’ Pasar Kasih</div>
             <div className="text-sm text-[var(--color-stone,#8b7355)] mb-3">
               Jelajahi produk dan jasa dari umat
             </div>
@@ -98,11 +98,11 @@ export default async function UserDashboardPage() {
 
           {/* Upcoming Events Section */}
           <div className="rounded-xl border border-[rgba(200,169,110,0.15)] p-5" style={{ background: 'rgba(255,255,255,0.7)' }}>
-            <div className="font-semibold mb-2">📅 Kegiatan Mendatang</div>
+            <div className="font-semibold mb-2">ðŸ“… Kegiatan Mendatang</div>
             <div className="text-sm text-[var(--color-stone,#8b7355)]">
-              <p className="mb-1">• Misa Sabtu, 19 Juli 2026, 07:00</p>
-              <p className="mb-1">• Rapat Lingkungan, 22 Juli 2026</p>
-              <p>• Senam Ibu Minggu, 20 Juli 2026</p>
+              <p className="mb-1">â€¢ Misa Sabtu, 19 Juli 2026, 07:00</p>
+              <p className="mb-1">â€¢ Rapat Lingkungan, 22 Juli 2026</p>
+              <p>â€¢ Senam Ibu Minggu, 20 Juli 2026</p>
             </div>
           </div>
         </div>

@@ -62,7 +62,7 @@ export async function POST(request: NextRequest) {
       .eq('id', order_id)
       .single();
 
-    if (existing && existing[checkField]) {
+    if (existing && (existing as any)[checkField]) {
       return NextResponse.json({ error: 'Anda sudah memberi rating untuk order ini' }, { status: 400 });
     }
 
