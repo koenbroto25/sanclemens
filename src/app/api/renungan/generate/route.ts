@@ -168,6 +168,11 @@ export async function POST(request: Request) {
     
     // Ambil kutipan relevan dari CockroachDB via RAG
     const kutipanRelevan = await retrieveRenunganContext(tema_retrieval, mode);
+    console.log(`[RAG DEBUG] tema_retrieval: "${tema_retrieval}"`);
+    console.log(`[RAG DEBUG] jumlah kutipan ditemukan: ${kutipanRelevan.length}`);
+    kutipanRelevan.forEach((k: any, i: number) => {
+      console.log(`[RAG DEBUG] #${i + 1} similarity=${(k.similarity_score * 100).toFixed(1)}% source="${k.source_reference}" content_preview="${(k.content || '').slice(0, 150)}..."`);
+    });
 
     // Format kutipan untuk LLM
     const konteksTeologis = kutipanRelevan
@@ -195,7 +200,7 @@ ${liturgi.bacaan_list.length > 0
 
 KUTIPAN RELEVAN DARI DATABASE SUMBER AJARAN
 (Diambil via search_rag_chunks())
-Gunakan yang paling relevan. Referensikan dengan [Nama Dokumen, ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â§nomor jika ada]
+Gunakan yang paling relevan. Referensikan dengan [Nama Dokumen, ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â§nomor jika ada]
 ${konteksTeologis || '[Tidak ada kutipan relevan yang ditemukan. Gunakan pengetahuan teologi Katolik umum. JANGAN mengarang kutipan spesifik dalam tanda petik.]'}
 
 INSTRUKSI AKHIR
