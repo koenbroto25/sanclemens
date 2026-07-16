@@ -164,7 +164,7 @@ export async function POST(request: Request) {
 
     // Ambil data liturgi
     const liturgi = await getLiturgiHarian(targetDate);
-    const tema_retrieval = `${liturgi.perayaan} ${liturgi.bacaan_list.slice(0, 3).join(' ')}`;
+    const tema_retrieval = `${liturgi.perayaan} ${liturgi.bacaan_list.slice(0, 3).map(b => b.reference).join(' ')}`;
     
     // Ambil kutipan relevan dari CockroachDB via RAG
     const kutipanRelevan = await retrieveRenunganContext(tema_retrieval, mode);
@@ -189,13 +189,13 @@ Hari Minggu      : ${liturgi.is_minggu ? 'Ya' : 'Tidak'}
 
 BACAAN LITURGI:
 ${liturgi.bacaan_list.length > 0
-  ? liturgi.bacaan_list.join('\n')
+  ? liturgi.bacaan_list.map(b => b.reference + (b.text ? ': ' + b.text : '')).join('\n')
   : '[Referensi bacaan tidak tersedia. Gunakan bacaan liturgi yang sesuai berdasarkan kalender liturgi Romawi.]'
 }
 
 KUTIPAN RELEVAN DARI DATABASE SUMBER AJARAN
-(Diambil via search_rag_chunks() ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â RAG v6, domain: theology)
-Gunakan yang paling relevan. Referensikan dengan [Nama Dokumen, ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â§nomor jika ada]
+(Diambil via search_rag_chunks())
+Gunakan yang paling relevan. Referensikan dengan [Nama Dokumen, ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â§nomor jika ada]
 ${konteksTeologis || '[Tidak ada kutipan relevan yang ditemukan. Gunakan pengetahuan teologi Katolik umum. JANGAN mengarang kutipan spesifik dalam tanda petik.]'}
 
 INSTRUKSI AKHIR
