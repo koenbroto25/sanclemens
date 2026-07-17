@@ -27,8 +27,31 @@ const supabase = createClient(
 );
 
 // ========== GEMINI SETUP ==========
-const genai = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
-const geminiModel = genai.getGenerativeModel({ model: process.env.GEMINI_MODEL || 'gemini-2.5-flash' });
+function loadGeminiApiKeys(): string[] {
+  const keys: string[] = [];
+  let i = 1;
+  while (true) {
+    const k = process.env[`GOOGLE_API_KEY_${i}`];
+    if (!k) break;
+    keys.push(k);
+    i++;
+  }
+  if (keys.length === 0 && process.env.GEMINI_API_KEY) {
+    keys.push(process.env.GEMINI_API_KEY);
+  }
+  if (keys.length === 0) {
+    throw new Error('Tidak ada GOOGLE_API_KEY_N atau GEMINI_API_KEY di environment');
+  }
+  return keys;
+}
+const GEMINI_KEYS = loadGeminiApiKeys();
+let geminiKeyIndex = 0;
+function nextGenAI(): GoogleGenerativeAI {
+  const key = GEMINI_KEYS[geminiKeyIndex % GEMINI_KEYS.length];
+  geminiKeyIndex++;
+  return new GoogleGenerativeAI(key);
+}
+// geminiModel sekarang dibuat ulang tiap attempt di dalam loop retry (lihat di bawah) -- lihat rotasi key
 
 // ========== R2 CLIENT ==========
 const r2Client = new S3Client({
@@ -65,7 +88,7 @@ async function fetchFromR2(r2Key: string): Promise<string | null> {
 async function retrieveRenunganContext(tema: string, mode: 'ignas' | 'anton'): Promise<any[]> {
   try {
     // Generate embedding untuk query
-    const embeddingModel = genai.getGenerativeModel({ model: 'models/gemini-embedding-2' });
+    const embeddingModel = nextGenAI().getGenerativeModel({ model: 'models/gemini-embedding-2' });
     const embeddingResult = await embeddingModel.embedContent({ content: { role: 'user', parts: [{ text: tema }] }, outputDimensionality: 768 } as any);
     const rawEmbedding = embeddingResult.embedding.values;
     const magnitude = Math.sqrt(rawEmbedding.reduce((sum: number, x: number) => sum + x * x, 0));
@@ -200,7 +223,7 @@ ${liturgi.bacaan_list.length > 0
 
 KUTIPAN RELEVAN DARI DATABASE SUMBER AJARAN
 (Diambil via search_rag_chunks())
-Gunakan yang paling relevan. Referensikan dengan [Nama Dokumen, ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â§nomor jika ada]
+Gunakan yang paling relevan. Referensikan dengan [Nama Dokumen, ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¦ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â§nomor jika ada]
 ${konteksTeologis || '[Tidak ada kutipan relevan yang ditemukan. Gunakan pengetahuan teologi Katolik umum. JANGAN mengarang kutipan spesifik dalam tanda petik.]'}
 
 INSTRUKSI AKHIR
@@ -215,6 +238,7 @@ Tulis renungan sesuai system prompt. Output HANYA format JSON. Tidak ada teks di
 
     while (attempt < MAX_ATTEMPT && !berhasil) {
       attempt++;
+      const geminiModel = nextGenAI().getGenerativeModel({ model: process.env.GEMINI_MODEL || 'gemini-2.5-flash' });
       try {
         const result = await geminiModel.generateContent({
           systemInstruction: systemPrompt,
