@@ -1,0 +1,374 @@
+{
+  "Genesis": [
+    "OK",
+    50,
+    50,
+    ""
+  ],
+  "Exodus": [
+    "OK",
+    40,
+    40,
+    ""
+  ],
+  "Leviticus": [
+    "OK",
+    27,
+    27,
+    ""
+  ],
+  "Numbers": [
+    "OK",
+    36,
+    36,
+    ""
+  ],
+  "Deuteronomy": [
+    "OK",
+    34,
+    34,
+    ""
+  ],
+  "Joshua": [
+    "OK",
+    24,
+    24,
+    ""
+  ],
+  "Judges": [
+    "OK",
+    21,
+    21,
+    ""
+  ],
+  "Ruth": [
+    "OK",
+    4,
+    4,
+    ""
+  ],
+  "1Samuel": [
+    "OK",
+    31,
+    31,
+    ""
+  ],
+  "2Samuel": [
+    "OK",
+    24,
+    24,
+    ""
+  ],
+  "1Kings": [
+    "OK",
+    22,
+    22,
+    ""
+  ],
+  "2Kings": [
+    "OK",
+    25,
+    25,
+    ""
+  ],
+  "1Chronicles": [
+    "OK",
+    29,
+    29,
+    ""
+  ],
+  "2Chronicles": [
+    "OK",
+    36,
+    36,
+    ""
+  ],
+  "Ezra": [
+    "OK",
+    10,
+    10,
+    ""
+  ],
+  "Nehemiah": [
+    "OK",
+    13,
+    13,
+    ""
+  ],
+  "Tobit": [
+    "OK",
+    14,
+    14,
+    ""
+  ],
+  "Judith": [
+    "OK",
+    16,
+    16,
+    ""
+  ],
+  "Esther": [
+    "OK*",
+    10,
+    10,
+    "Tambahan Ester pakai skema huruf A-F terpisah (tradisi Vulgata), bukan pasal bernomor"
+  ],
+  "1Maccabees": [
+    "OK",
+    16,
+    16,
+    ""
+  ],
+  "2Maccabees": [
+    "OK",
+    15,
+    15,
+    ""
+  ],
+  "Job": [
+    "OK",
+    42,
+    42,
+    ""
+  ],
+  "Psalms": [
+    "OK",
+    150,
+    150,
+    ""
+  ],
+  "Proverbs": [
+    "OK",
+    31,
+    31,
+    ""
+  ],
+  "Ecclesiastes": [
+    "OK",
+    12,
+    12,
+    ""
+  ],
+  "SongofSongs": [
+    "OK",
+    8,
+    8,
+    ""
+  ],
+  "Wisdom": [
+    "OK",
+    19,
+    19,
+    ""
+  ],
+  "Sirach": [
+    "OK",
+    51,
+    51,
+    ""
+  ],
+  "Isaiah": [
+    "OK",
+    66,
+    66,
+    ""
+  ],
+  "Jeremiah": [
+    "OK",
+    52,
+    52,
+    ""
+  ],
+  "Lamentations": [
+    "OK",
+    5,
+    5,
+    ""
+  ],
+  "Baruch": [
+    "OK",
+    6,
+    6,
+    ""
+  ],
+  "Ezekiel": [
+    "OK",
+    48,
+    48,
+    ""
+  ],
+  "Daniel": [
+    "OK*",
+    12,
+    14,
+    "12 pasal di PL utama + Tambahan Daniel (13-14) di section Deuterokanonika terpisah = 14 total, cocok NABRE"
+  ],
+  "Hosea": [
+    "OK",
+    14,
+    14,
+    ""
+  ],
+  "Joel": [
+    "DIFF*",
+    3,
+    4,
+    "Beda skema penomoran (Ibrani vs Vulgata/LXX) - isi sama, Yl 2:28-32 Ibrani = Yl pasal 3 tersendiri di NABRE"
+  ],
+  "Amos": [
+    "OK",
+    9,
+    9,
+    ""
+  ],
+  "Obadiah": [
+    "OK",
+    1,
+    1,
+    "Terverifikasi manual: kitab 1 pasal, deteksi awal salah tangkap nomor ayat"
+  ],
+  "Jonah": [
+    "OK",
+    4,
+    4,
+    ""
+  ],
+  "Micah": [
+    "OK",
+    7,
+    7,
+    ""
+  ],
+  "Nahum": [
+    "OK",
+    3,
+    3,
+    ""
+  ],
+  "Habakkuk": [
+    "OK",
+    3,
+    3,
+    ""
+  ],
+  "Zephaniah": [
+    "OK",
+    3,
+    3,
+    ""
+  ],
+  "Haggai": [
+    "OK",
+    2,
+    2,
+    ""
+  ],
+  "Zechariah": [
+    "OK",
+    14,
+    14,
+    ""
+  ],
+  "Malachi": [
+    "DIFF*",
+    4,
+    3,
+    "Beda skema penomoran (Ibrani vs Vulgata) - isi sama, Mal 3:19-24 Ibrani/TB = bagian akhir Mal 3 di NABRE"
+  ],
+  "Matthew": [
+    "OK",
+    28,
+    28,
+    ""
+  ],
+  "Mark": [
+    "OK",
+    16,
+    16,
+    ""
+  ],
+  "Luke": [
+    "OK",
+    24,
+    24,
+    ""
+  ],
+  "John": [
+    "OK",
+    21,
+    21,
+    ""
+  ],
+  "Acts": [
+    "OK",
+    28,
+    28,
+    ""
+  ],
+  "Romans": [
+    "OK",
+    16,
+    16,
+    ""
+  ],
+  "Galatians": [
+    "OK",
+    6,
+    6,
+    ""
+  ],
+  "Ephesians": [
+    "OK",
+    6,
+    6,
+    ""
+  ],
+  "Philippians": [
+    "OK",
+    4,
+    4,
+    ""
+  ],
+  "Colossians": [
+    "OK",
+    4,
+    4,
+    ""
+  ],
+  "Titus": [
+    "OK",
+    3,
+    3,
+    ""
+  ],
+  "Philemon": [
+    "OK",
+    1,
+    1,
+    ""
+  ],
+  "Hebrews": [
+    "OK",
+    13,
+    13,
+    ""
+  ],
+  "James": [
+    "OK",
+    5,
+    5,
+    ""
+  ],
+  "Jude": [
+    "OK",
+    1,
+    1,
+    ""
+  ],
+  "Revelation": [
+    "OK",
+    22,
+    22,
+    ""
+  ]
+}

@@ -114,7 +114,7 @@ export default function PersonalDataVerificationStep() {
               <input type="text" value={r.value} onChange={(e) => setVal(r.key, e.target.value)}
                 className="w-full px-3 py-2 rounded-lg border text-sm" style={{ fontFamily: FONTS.body, borderColor: 'rgba(200,169,110,0.3)', background: '#fff', color: 'var(--color-text-dark, #1a0e05)' }} />
             ) : (
-              <p className="text-xs" style={{ fontFamily: FONTS.body, color: 'var(--color-stone, #8b7355)' }}>{r.value || '—'}</p>
+              <p className="text-xs" style={{ fontFamily: FONTS.body, color: "var(--color-stone, #8b7355)" }}>{r.value || "-"}</p>
             )}
             <div className="flex gap-3 mt-2">
               {r.editing ? (

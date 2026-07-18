@@ -1,8 +1,8 @@
-export const dynamic = 'force-dynamic'
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@/lib/supabase/server';
+import { createServiceClient } from '@/lib/supabase/server';
 
 export async function POST(request: NextRequest) {
+  console.log('[check-kk] Route handler called');
   try {
     // Accept both nomor_kk (API) and nomor_kk_gereja (frontend payload)
     const body = await request.json();
@@ -11,7 +11,7 @@ export async function POST(request: NextRequest) {
 
     // If no KK provided, search by name instead
     if (!nomor_kk) {
-      const supabase = createClient();
+      const supabase = createServiceClient();
       
       // Search by name with fuzzy matching using pg_trgm
       const { data: byName, error: nameError } = await supabase
@@ -56,7 +56,7 @@ export async function POST(request: NextRequest) {
       });
     }
 
-    const supabase = createClient();
+    const supabase = createServiceClient();
 
     // Cari keluarga + anggota di umat_staging
     const { data: keluarga, error: keluargaError } = await supabase

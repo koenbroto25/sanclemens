@@ -311,7 +311,9 @@ export default function KlemenKerjaDashboard() {
                   <p className="text-sm">Estimasi Gaji: {job.job_details.budget}</p>
                 </CardContent>
                 <CardFooter>
-                  <Button variant="outline">Lihat Detail & Lamar</Button> {/* TODO: Link to job detail page */}
+                  <Link href={`/user/klemen-kerja/${job.lowongan_id}`}>
+                    <Button variant="outline">Lihat Detail & Lamar</Button>
+                  </Link>
                 </CardFooter>
               </Card>
             ))
@@ -341,7 +343,38 @@ export default function KlemenKerjaDashboard() {
                   <p className="text-sm italic">{assistance.anonymity_note}</p>
                 </CardContent>
                 <CardFooter>
-                  <Button variant="outline">Terima Bantuan</Button> {/* TODO: Implement acceptance flow */}
+                  <Button variant="outline" onClick={async () => {
+                    try {
+                      const supabase = createClient();
+                      const { data: { user } } = await supabase.auth.getUser();
+                      if (!user) {
+                        alert('Silakan login untuk menerima bantuan');
+                        return;
+                      }
+                      const { error } = await supabase
+                        .from('assistance_acceptances')
+                        .insert({
+                          match_id: assistance.match_id,
+                          recipient_id: user.id,
+                          donor_id: assistance.donor_id,
+                          status: 'accepted',
+                        });
+                      if (error) {
+                        if (error.code === '23505') {
+                          alert('Anda sudah menerima bantuan ini');
+                        } else {
+                          throw error;
+                        }
+                      } else {
+                        alert('Permintaan bantuan berhasil dikirim! Donatur akan menghubungi Anda.');
+                      }
+                    } catch (err) {
+                      console.error('Error accepting assistance:', err);
+                      alert('Gagal menerima bantuan. Silakan coba lagi.');
+                    }
+                  }}>
+                    Terima Bantuan
+                  </Button>
                 </CardFooter>
               </Card>
             ))

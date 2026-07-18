@@ -2,6 +2,7 @@
  * AI Knowledge Retriever for CockroachDB
  * Replaces Supabase RPC calls with direct CockroachDB queries
  * Supports RLS via access_layer parameter
+ * Fase G1: mendukung pencarian bilingual (ID + EN) dan confidence gate
  */
 
 import { Pool, QueryResultRow } from 'pg';
@@ -61,6 +62,8 @@ export interface RetrievalResult {
 
 /**
  * Search direct QAs in CockroachDB
+ * (Tetap satu bahasa -- isi qa_pairs adalah kurasi staf paroki, mayoritas Bahasa Indonesia,
+ * beda dengan theological_chunks yang bersumber dari dokumen campuran ID/EN)
  */
 export async function searchDirectQA(
   embedding: number[],
@@ -99,7 +102,8 @@ export async function searchDirectQA(
 }
 
 /**
- * Search RAG chunks in CockroachDB
+ * Search RAG chunks in CockroachDB (satu bahasa saja -- dipakai internal oleh
+ * searchRAGChunksBilingual di bawah)
  */
 export async function searchRAGChunks(
   embedding: number[],
@@ -142,17 +146,58 @@ export async function searchRAGChunks(
 }
 
 /**
+ * Pencarian RAG BILINGUAL -- jalankan dengan embedding ID dan EN (kalau ada),
+ * gabungkan hasil dan dedup berdasarkan chunk_id (ambil skor tertinggi kalau
+ * chunk yang sama muncul dari kedua pencarian).
+ *
+ * Mengatasi kasus: ~26 dari 46 dokumen teologi berbahasa Inggris (Patristik,
+ * Skolastik, Jesuit) -- pertanyaan Indonesia perlu jalur pencarian tambahan
+ * lewat versi Inggris untuk hasil yang lebih presisi.
+ */
+async function searchRAGChunksBilingual(
+  embeddingId: number[],
+  embeddingEn: number[] | null,
+  domain: string,
+  botId: string,
+  maxAccessLevel: number,
+  limit: number
+): Promise<RAGChunkResult[]> {
+  const calls = [searchRAGChunks(embeddingId, domain, botId, maxAccessLevel, limit)];
+  if (embeddingEn) {
+    calls.push(searchRAGChunks(embeddingEn, domain, botId, maxAccessLevel, limit));
+  }
+
+  const resultsArrays = await Promise.all(calls);
+
+  const merged = new Map<string, RAGChunkResult>();
+  for (const results of resultsArrays) {
+    for (const r of results) {
+      const existing = merged.get(r.chunk_id);
+      if (!existing || r.similarity_score > existing.similarity_score) {
+        merged.set(r.chunk_id, r);
+      }
+    }
+  }
+
+  return Array.from(merged.values())
+    .sort((a, b) => b.similarity_score - a.similarity_score)
+    .slice(0, limit);
+}
+
+/**
  * Retrieve knowledge from CockroachDB
  */
 export async function retrieveKnowledge(
   context: {
     query: string;
     embedding: number[] | null;
+    embeddingEn: number[] | null;
     domain: string;
     botId: string;
     user_access_level: number;
+    minConfidenceThreshold: number;
   }): Promise<RetrievalResult> {
-  const { embedding, domain, botId, user_access_level } = context;
+  const { embedding, embeddingEn, domain, botId, user_access_level, minConfidenceThreshold } = context;
 
   if (!embedding) {
     return {
@@ -192,9 +237,10 @@ export async function retrieveKnowledge(
     };
   }
 
-  // P2: Search RAG chunks
-  const ragChunks = await searchRAGChunks(
+  // P2: Search RAG chunks -- BILINGUAL (ID + EN), gabung + dedup
+  const ragChunks = await searchRAGChunksBilingual(
     embedding,
+    embeddingEn,
     domain,
     botId,
     user_access_level,
@@ -202,6 +248,19 @@ export async function retrieveKnowledge(
   );
 
   if (ragChunks.length > 0) {
+    const topScore = ragChunks[0].similarity_score;
+
+    // Confidence gate -- SEBELUM ini, jalur RAG selalu lolos ke LLM apa pun
+    // confidence-nya (penyebab kasus "confidence 0.155" tanpa saringan di backtest).
+    // Sesuai qna_hub_r2.md Prinsip #3: di bawah ambang, LLM TIDAK dipanggil.
+    if (topScore < minConfidenceThreshold) {
+      return {
+        retrieval_path: 'fallback',
+        sources: [],
+        confidence: topScore
+      };
+    }
+
     return {
       retrieval_path: 'rag',
       sources: ragChunks.map(chunk => ({
@@ -216,7 +275,7 @@ export async function retrieveKnowledge(
         chunkQualityScore: chunk.chunk_quality_score,
         questionTypeClassification: chunk.question_type_classification
       })),
-      confidence: ragChunks[0].similarity_score
+      confidence: topScore
     };
   }
 

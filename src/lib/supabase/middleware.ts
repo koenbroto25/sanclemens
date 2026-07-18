@@ -53,5 +53,6 @@ export async function updateSession(request: NextRequest) {
     return NextResponse.redirect(url);
   }
 
+  console.log('[updateSession] returning status:', supabaseResponse.status, 'for path:', request.nextUrl.pathname);
   return supabaseResponse;
 }

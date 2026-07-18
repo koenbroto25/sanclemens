@@ -482,4 +482,19 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   .light-particles { display: none; }
   * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
 }
+
+/* === Saints Section (§8.6) === */
+.section-saints { background: var(--color-parchment); padding: 5rem 2rem; }
+.saints-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; max-width: 1200px; margin: 0 auto; }
+.saint-card { background: #fff; border-radius: var(--radius-card-xl); padding: 1.75rem; box-shadow: var(--shadow-card); border: 1px solid rgba(200,169,110,0.08); transition: var(--transition-smooth); }
+.saint-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-warm); }
+.saint-header { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem; }
+.saint-type { font-family: var(--font-body); font-weight: 600; font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; padding: 0.3rem 0.8rem; border-radius: 20px; display: inline-block; }
+.saint-type.santo { background: rgba(200,169,110,0.12); color: var(--color-gold-deep); }
+.saint-type.santa { background: rgba(200,120,140,0.12); color: #8b5a6b; }
+.saint-type.beato, .saint-type.beata { background: rgba(74,140,92,0.12); color: var(--color-success); }
+.saint-type.orang kudus { background: rgba(139,115,85,0.12); color: var(--color-stone-dark); }
+.saint-name { font-family: var(--font-heading); font-weight: 600; font-size: 1.4rem; color: var(--color-text-dark); margin-bottom: 0.75rem; line-height: 1.3; }
+.saint-content { font-family: var(--font-body); font-size: 0.88rem; color: var(--color-stone-dark); line-height: 1.8; }
+.saint-content p { margin: 0; }
 }

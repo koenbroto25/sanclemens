@@ -186,11 +186,13 @@ export async function POST(request: NextRequest) {
       try {
         const { data: stagingMembers } = await supabase
           .from('umat_staging')
-          .select('id, nama, jenis_kelamin, tempat_tanggal_lahir, tanggal_lahir, umur, alamat, hubungan_keluarga, status_perkawinan, pendidikan_terakhir, pekerjaan, keterampilan, kondisi_tubuh, medical_history, economic_details, sakramen_records')
+          .select('id, nama, jenis_kelamin, tempat_tanggal_lahir, tanggal_lahir, umur, alamat, hubungan_keluarga, status_perkawinan, pendidikan_terakhir, pekerjaan, keterampilan, kondisi_tubuh, no_baptis, nama_baptis, gereja_baptis, kota_gereja_baptis, wali_baptis, tanggal_baptis, sakramen_komuni_pertama, tanggal_komuni_pertama, gereja_komuni_pertama, kota_gereja_komuni_pertama, sakramen_penguatan, tanggal_penguatan, gereja_penguatan, kota_gereja_penguatan, wali_penguatan, cara_menikah, tanggal_menikah, gereja_menikah, kota_gereja_menikah, sakramen_perkawinan, tanggal_perkawinan, gereja_perkawinan, kota_gereja_perkawinan, nama_pasangan, no_stasi, paroki, kota_paroki, no_lingkungan, nama_lingkungan, nama_kk, no_kk, wilayah, lingkungan, agama, nik, golongan_darah, suku, status_hubungan_keluarga, kota_kab, kecamatan, kelurahan, status_rumah, phone, nomer_hp_telepon, email, profesi, status_ekonomi, status_aktivitas_sosial, tgl_meninggal, tempat_meninggal, penyebab_meninggal, keterangan_tambahan, kota_domisili, alamat_domisili, tgl_pindah, asal_paroki, tujuan_paroki, no_surat_pindah, ket_lain, sumber_data_id, sumber_url, update_terakhir')
           .eq('keluarga_id', registrationMeta.familyId);
 
         if (stagingMembers && stagingMembers.length > 0) {
           const matchedStaging = stagingMembers.find(s => s.nama.toLowerCase() === (registrationMeta.fullName || '').toLowerCase()) || stagingMembers[0];
+          
+          // 1. Update profiles dengan data terverifikasi
           const profileEnrichment: any = {
             jenis_kelamin: matchedStaging.jenis_kelamin || undefined,
             tempat_lahir: matchedStaging.tempat_tanggal_lahir?.split(',')[0]?.trim() || undefined,
@@ -201,21 +203,151 @@ export async function POST(request: NextRequest) {
             pekerjaan: matchedStaging.pekerjaan || undefined,
             keterampilan: matchedStaging.keterampilan || undefined,
             kondisi_tubuh: matchedStaging.kondisi_tubuh || undefined,
-            medical_history: matchedStaging.medical_history || undefined,
+            is_personal_data_verified: true,
+            updated_by_text: 'Verifikasi registrasi umat',
           };
           const { error: enrichError } = await supabase.from('profiles').update(profileEnrichment).eq('id', userId);
           if (enrichError) console.error('Failed to enrich profile:', enrichError);
 
-          if (matchedStaging.economic_details) {
-            await supabase.from('umat_details').upsert({ user_id: userId, economic_details: matchedStaging.economic_details }, { onConflict: 'user_id' });
+          // 2. Insert/Update ke umat (arsip lengkap data terverifikasi)
+          const umatData: any = {
+            staging_id: matchedStaging.id,
+            profile_id: userId,
+            nama: matchedStaging.nama,
+            paroki: matchedStaging.paroki,
+            wilayah: matchedStaging.wilayah,
+            lingkungan: matchedStaging.lingkungan,
+            nama_baptis: matchedStaging.nama_baptis,
+            agama: matchedStaging.agama,
+            no_baptis: matchedStaging.no_baptis,
+            nik: matchedStaging.nik,
+            no_kartu_keluarga: matchedStaging.no_kk, // umat_staging hanya punya 1 kolom no_kk (lihat reg_process.md Bagian 17.2 Bug #5)
+            no_kk: matchedStaging.no_kk,
+            nama_kk: matchedStaging.nama_kk,
+            tempat_lahir: matchedStaging.tempat_tanggal_lahir?.split(',')[0]?.trim(),
+            tanggal_lahir: matchedStaging.tanggal_lahir,
+            jenis_kelamin: matchedStaging.jenis_kelamin,
+            golongan_darah: matchedStaging.golongan_darah,
+            suku: matchedStaging.suku,
+            hubungan_keluarga: matchedStaging.hubungan_keluarga,
+            status_hubungan_keluarga: matchedStaging.status_hubungan_keluarga,
+            status_perkawinan: matchedStaging.status_perkawinan,
+            tanggal_menikah: matchedStaging.tanggal_menikah,
+            alamat: matchedStaging.alamat,
+            kota_kab: matchedStaging.kota_kab,
+            kecamatan: matchedStaging.kecamatan,
+            kelurahan: matchedStaging.kelurahan,
+            status_rumah: matchedStaging.status_rumah,
+            handphone_telepon: matchedStaging.phone,
+            nomer_hp_telepon: matchedStaging.nomer_hp_telepon,
+            email: matchedStaging.email,
+            pendidikan_terakhir: matchedStaging.pendidikan_terakhir,
+            pekerjaan: matchedStaging.pekerjaan,
+            profesi: matchedStaging.profesi,
+            keterampilan: matchedStaging.keterampilan,
+            kondisi_tubuh: matchedStaging.kondisi_tubuh,
+            status_ekonomi: matchedStaging.status_ekonomi,
+            status_aktivitas_sosial: matchedStaging.status_aktivitas_sosial,
+            tanggal_baptis: matchedStaging.tanggal_baptis,
+            gereja_baptis: matchedStaging.gereja_baptis,
+            kota_gereja_baptis: matchedStaging.kota_gereja_baptis,
+            wali_baptis: matchedStaging.wali_baptis,
+            sakramen_komuni_pertama: matchedStaging.sakramen_komuni_pertama,
+            tanggal_komuni_pertama: matchedStaging.tanggal_komuni_pertama,
+            gereja_komuni_pertama: matchedStaging.gereja_komuni_pertama,
+            kota_gereja_komuni_pertama: matchedStaging.kota_gereja_komuni_pertama,
+            sakramen_penguatan: matchedStaging.sakramen_penguatan,
+            tanggal_penguatan: matchedStaging.tanggal_penguatan,
+            gereja_penguatan: matchedStaging.gereja_penguatan,
+            kota_gereja_penguatan: matchedStaging.kota_gereja_penguatan,
+            wali_penguatan: matchedStaging.wali_penguatan,
+            cara_menikah: matchedStaging.cara_menikah,
+            gereja_menikah: matchedStaging.gereja_menikah,
+            kota_gereja_menikah: matchedStaging.kota_gereja_menikah,
+            sakramen_perkawinan: matchedStaging.sakramen_perkawinan,
+            tanggal_perkawinan: matchedStaging.tanggal_perkawinan,
+            gereja_perkawinan: matchedStaging.gereja_perkawinan,
+            kota_gereja_perkawinan: matchedStaging.kota_gereja_perkawinan,
+            nama_pasangan: matchedStaging.nama_pasangan,
+            no_stasi: matchedStaging.no_stasi,
+            kota_paroki: matchedStaging.kota_paroki,
+            no_lingkungan: matchedStaging.no_lingkungan,
+            nama_lingkungan: matchedStaging.nama_lingkungan,
+            tgl_meninggal: matchedStaging.tgl_meninggal,
+            tempat_meninggal: matchedStaging.tempat_meninggal,
+            penyebab_meninggal: matchedStaging.penyebab_meninggal,
+            keterangan_tambahan: matchedStaging.keterangan_tambahan,
+            kota_domisili: matchedStaging.kota_domisili,
+            alamat_domisili: matchedStaging.alamat_domisili,
+            tgl_pindah: matchedStaging.tgl_pindah,
+            asal_paroki: matchedStaging.asal_paroki,
+            tujuan_paroki: matchedStaging.tujuan_paroki,
+            no_surat_pindah: matchedStaging.no_surat_pindah,
+            ket_lain: matchedStaging.ket_lain,
+            sumber_data_id: matchedStaging.sumber_data_id,
+            sumber_url: matchedStaging.sumber_url,
+            is_confirmed_by_user: true,
+            confirmed_at: new Date().toISOString(),
+            verified_by: userId,
+            verified_at: new Date().toISOString(),
+            update_terakhir: matchedStaging.update_terakhir || new Date().toISOString(),
+          };
+          
+          const { data: newUmat, error: umatError } = await supabase
+            .from('umat')
+            .upsert(umatData, { onConflict: 'staging_id' })
+            .select('id')
+            .maybeSingle();
+          
+          if (umatError) {
+            console.error('Failed to insert/update umat:', umatError);
+          } else if (newUmat && !profileEnrichment.umat_id) {
+            // Update profiles.umat_id jika belum ada
+            await supabase.from('profiles').update({ umat_id: newUmat.id }).eq('id', userId);
           }
-          if (matchedStaging.sakramen_records && Array.isArray(matchedStaging.sakramen_records)) {
-            for (const sakramen of matchedStaging.sakramen_records) {
-              await supabase.from('sakramen_records').insert({ user_id: userId, ...sakramen });
-            }
-          }
+
+          // 3. Insert ke sakramen_records â€” DIHAPUS (Bug #6, reg_process.md Bagian 17.2):
+          // matchedStaging.sakramen_records tidak pernah ada di skema umat_staging (dead code, tidak pernah tereksekusi).
+          // Data sakramen harus dikumpulkan dari step registrasi terpisah, bukan dari staging Dukcapil.
+
+          // 4. Insert/Update anggota_keluarga dengan mapping hubungan yang benar
           if (registrationMeta.familyId) {
-            await supabase.from('anggota_keluarga').upsert({ keluarga_id: registrationMeta.familyId, profile_id: userId, hubungan: matchedStaging.hubungan_keluarga || 'anggota' }, { onConflict: 'keluarga_id,profile_id' });
+            // Cek apakah ada suami masih hidup di keluarga ini
+            const { data: existingMembers } = await supabase
+              .from('anggota_keluarga')
+              .select('hubungan_keluarga')
+              .eq('keluarga_id', registrationMeta.familyId)
+              .eq('hubungan_keluarga', 'suami');
+            
+            const hasSpouse = existingMembers && existingMembers.length > 0;
+            const hubunganMapping: any = {
+              'kepala': hasSpouse ? 'suami' : 'istri',
+              'istri': 'istri',
+              'anak': 'anak',
+              'anggota': 'famili_lain',
+            };
+            const mappedHubungan = hubunganMapping[matchedStaging.hubungan_keluarga] || 'famili_lain';
+            
+            await supabase.from('anggota_keluarga').upsert({ 
+              keluarga_id: registrationMeta.familyId, 
+              profile_id: userId, 
+              hubungan_keluarga: mappedHubungan,
+              updated_by_text: 'Verifikasi registrasi umat',
+            }, { onConflict: 'keluarga_id,profile_id' });
+          }
+
+          // 5. Update umat_staging status menjadi 'registered' (arsip)
+          if (matchedStaging.id) {
+            await supabase
+              .from('umat_staging')
+              .update({ 
+                status: 'registered', 
+                registered_profile_id: userId,
+                verified_by: userId,
+                verified_at: new Date().toISOString(),
+                updated_by_text: 'Verifikasi registrasi umat',
+              })
+              .eq('id', matchedStaging.id);
           }
         }
       } catch (enrichError) {
@@ -283,11 +415,10 @@ export async function POST(request: NextRequest) {
       user: sessionData.session.user,
     });
 
-    const isProduction = process.env.NODE_ENV === 'production';
     console.log('[verify-otp] Session created and cookies set:', {
       userId: sessionData.user.id,
       email: sessionData.user.email,
-      isProduction,
+      isProduction: process.env.NODE_ENV === 'production',
     });
 
     // Fetch fresh profile data

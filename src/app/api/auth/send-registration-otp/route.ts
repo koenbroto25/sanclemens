@@ -1,6 +1,6 @@
 export const dynamic = 'force-dynamic'
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@/lib/supabase/server';
+import { createServiceClient } from '@/lib/supabase/server';
 // Simple in-memory rate limiter (per server instance)
 const rateLimitMap = new Map<string, number>();
 
@@ -31,7 +31,7 @@ export async function POST(request: NextRequest) {
       }, { status: 429 });
     }
 
-    const supabase = createClient();
+    const supabase = createServiceClient();
 
     // Hourly rate limit: 3 OTPs per phone per hour
     const oneHourAgo = new Date(now - 60 * 60 * 1000).toISOString();

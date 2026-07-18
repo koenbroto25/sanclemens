@@ -1,0 +1,230 @@
+======================================================================
+RINGKASAN AUDIT CHUNKING — C:\hasil_audit
+Jumlah file diproses: 12
+======================================================================
+
+======================================================================
+TABEL RINGKAS SEMUA DOKUMEN
+======================================================================
+  FALLBACK_PARAGRAPH           |     47 chunks | Apophthegmata Patrum.txt
+  BRACKET_PARAGRAPH            |    211 chunks | Autobiography of St Ignatius.txt
+  NUMBERED_PARAGRAPH           |     68 chunks | Constitutions of the Society of Jesus.md
+  FALLBACK_PARAGRAPH           |     21 chunks | Formula of the Institute 1540 1550.md
+  NUMBERED_PARAGRAPH           |      6 chunks | GC32 Decree 2 Jesuits Today.txt
+  NUMBERED_PARAGRAPH           |     24 chunks | GC34 Decree 1 United with Christ.txt
+  NUMBERED_PARAGRAPH           |     47 chunks | GC35 Decree 2 Fire that Kindles.txt
+  FALLBACK_PARAGRAPH           |     14 chunks | GC36 Decrees.txt
+  CHAPTER_HEADING              |    528 chunks | Imitation of Christ Thomas a Kempis.txt
+  FALLBACK_PARAGRAPH           |    820 chunks | Selected Letters of St Ignatius.txt
+  FALLBACK_PARAGRAPH           |     87 chunks | Spiritual Diary of St Ignatius.txt
+  NUMBERED_PARAGRAPH           |    235 chunks | Spiritual Exercises Ignatius Loyola (Mullan trans).txt
+
+TOTAL CHUNK SELURUH KORPUS: 2108
+
+======================================================================
+DETAIL PER DOKUMEN + CONTOH CHUNK
+======================================================================
+
+======================================================================
+FILE   : Apophthegmata Patrum.txt
+POLA   : FALLBACK_PARAGRAPH
+CHUNKS : 47
+PANJANG: min=528 max=797 avg=712
+
+--- 3 contoh chunk pertama ---
+
+[ref: Apophthegmata Patrum #1] [prefix: Apophthegmata Patrum — bagian 1] [pola_chunk: FALLBACK_PARAGRAPH]
+  ﻿The Anonymous Sayings of the Desert Fathers A Select Edition and Complete English Translation by John Wortley Note on the Translation Some Greek words now current in English have been presented in their English form, e.g. accidie, higoumen. Where th...
+
+[ref: Apophthegmata Patrum #2] [prefix: Apophthegmata Patrum — bagian 2] [pola_chunk: FALLBACK_PARAGRAPH]
+  d (e.g. logismos, -oi and hêsychia) the meaning of which the reader must construe from its context. The Old English word "worldling" has been resurrected to translate kosmikos, a person not a monk, which would otherwise require a significant periphra...
+
+[ref: Apophthegmata Patrum #3] [prefix: Apophthegmata Patrum — bagian 3] [pola_chunk: FALLBACK_PARAGRAPH]
+  hich the so-called "Sayings of the Desert Fathers" (Apophthegmata Patrum, AP) have come down to us. The first form is known as the "Alphabetic" collection (APalph) because its roughly a thousand items are arranged in more or less alphabetical order b...
+
+======================================================================
+FILE   : Autobiography of St Ignatius.txt
+POLA   : BRACKET_PARAGRAPH
+CHUNKS : 211
+PANJANG: min=172 max=798 avg=598
+
+--- 3 contoh chunk pertama ---
+
+[ref: Autobiography of St Ignatius §1] [prefix: Autobiography of St Ignatius — Paragraf [1]] [pola_chunk: BRACKET_PARAGRAPH]
+  Myself and other Fathers had heard from our Father Ignatius that he had asked God to grant him three boons before he died. The first, that the Institute of the Society be confirmed by the Apostolic See. The second, likewise for the Spiritual Exercise...
+
+[ref: Autobiography of St Ignatius §2.1] [prefix: Autobiography of St Ignatius — Paragraf [2]] [pola_chunk: BRACKET_PARAGRAPH]
+  As I was mindful of this, and saw that he had obtained them all, I was afraid lest he be called away from us to a better life. Since I knew also that the holy Fathers, founders of monastic institutes, had a tradition of leaving to their posterity, by...
+
+[ref: Autobiography of St Ignatius §2.2] [prefix: Autobiography of St Ignatius — Paragraf [2]] [pola_chunk: BRACKET_PARAGRAPH]
+  he was frequently wont. Full of respect I ask: "What was it, Father?" He changed the conversation. Judging this to be an appropriate occasion, I request and beg the Father to tell us how God guided him from the beginning of his conversion, so that hi...
+
+======================================================================
+FILE   : Constitutions of the Society of Jesus.md
+POLA   : NUMBERED_PARAGRAPH
+CHUNKS : 68
+PANJANG: min=98 max=800 avg=597
+
+--- 3 contoh chunk pertama ---
+
+[ref: Constitutions of the Society of Jesus §1] [prefix: Constitutions of the Society of Jesus — Paragraf 1] [pola_chunk: NUMBERED_PARAGRAPH]
+  General Congregation 33 mandated that when our own law was being brought into conformity with the requirements of the new universal law of the Church regarding religious institutes (namely, the 1983 Code of Canon Law for the Latin Church and the 1993...
+
+[ref: Constitutions of the Society of Jesus §2] [prefix: Constitutions of the Society of Jesus — Paragraf 2] [pola_chunk: NUMBERED_PARAGRAPH]
+  Such a true and substantial renovation of its own law, required by the decree Perfectae Caritatis of Vatican Council II, and regulated by the moto proprio Ecclesiae Sanctae of Paul VI, the Society, for its part, had actually completed by means of Gen...
+
+[ref: Constitutions of the Society of Jesus §3.1] [prefix: Constitutions of the Society of Jesus — Paragraf 3] [pola_chunk: NUMBERED_PARAGRAPH]
+  After lengthy deliberation on the part of the Superior General with his consultors about the way for the Society to accomplish this revision most effectively, the following conclusions emerged:  a. First of all, it seemed good to make every effort to...
+
+======================================================================
+FILE   : Formula of the Institute 1540 1550.md
+POLA   : FALLBACK_PARAGRAPH
+CHUNKS : 21
+PANJANG: min=99 max=763 avg=501
+
+--- 3 contoh chunk pertama ---
+
+[ref: Formula of the Institute 1540 1550 #1] [prefix: Formula of the Institute 1540 1550 — bagian 1] [pola_chunk: FALLBACK_PARAGRAPH]
+  The following text is the "Formula of the Institute" composed by St. Ignatius and his first companions in 1539 as a kind of charter or mission statement for the new Society of Jesus. It was inserted with minor revisions into the 1540 bull *Regimini m...
+
+[ref: Formula of the Institute 1540 1550 #2] [prefix: Formula of the Institute 1540 1550 — bagian 2] [pola_chunk: FALLBACK_PARAGRAPH]
+  Whoever wishes to serve as a soldier of God beneath the banner of the cross in our Society, which we desire to be designated by the name of Jesus, and to serve the Lord alone and his vicar on earth, should keep in mind that once he has made a solemn ...
+
+[ref: Formula of the Institute 1540 1550 #3] [prefix: Formula of the Institute 1540 1550 — bagian 3] [pola_chunk: FALLBACK_PARAGRAPH]
+  s of charity, and specifically by the education of children and unlettered persons in Christianity. He should further take care to keep always before his eyes first God, and the nature of this Institute which is his pathway to God; and let him strive...
+
+======================================================================
+FILE   : GC32 Decree 2 Jesuits Today.txt
+POLA   : NUMBERED_PARAGRAPH
+CHUNKS : 6
+PANJANG: min=203 max=604 avg=391
+
+--- 3 contoh chunk pertama ---
+
+[ref: GC32 Decree 2 Jesuits Today §1] [prefix: GC32 Decree 2 Jesuits Today — Paragraf 1] [pola_chunk: NUMBERED_PARAGRAPH]
+  What is it to be a Jesuit? It is to know that one is a sinner, yet called to be a companion of Jesus as Ignatius was: Ignatius, who begged the Blessed Virgin to "place him with her Son," and who then saw the Father himself ask Jesus, carrying his Cro...
+
+[ref: GC32 Decree 2 Jesuits Today §2] [prefix: GC32 Decree 2 Jesuits Today — Paragraf 2] [pola_chunk: NUMBERED_PARAGRAPH]
+  What is it to be a companion of Jesus today? It is to engage, under the standard of the Cross, in the crucial struggle of our time: the struggle for faith and that struggle for justice which it includes.
+
+[ref: GC32 Decree 2 Jesuits Today §3] [prefix: GC32 Decree 2 Jesuits Today — Paragraf 3] [pola_chunk: NUMBERED_PARAGRAPH]
+  The Society of Jesus, gathered together in its 32nd General Congregation, considering the end for which it was founded, namely, the greater glory of God and the service of men, acknowledging with repentance its own failures in keeping faith and uphol...
+
+======================================================================
+FILE   : GC34 Decree 1 United with Christ.txt
+POLA   : NUMBERED_PARAGRAPH
+CHUNKS : 24
+PANJANG: min=131 max=794 avg=540
+
+--- 3 contoh chunk pertama ---
+
+[ref: GC34 Decree 1 United with Christ §1] [prefix: GC34 Decree 1 United with Christ — Paragraf 1] [pola_chunk: NUMBERED_PARAGRAPH]
+  The Work of General Congregation 34 The major work of GC 34 has been the revision of our law and the orientation of our mission for today. The first project had two goals: to provide an annotated text of the Constitutions capable of influencing the p...
+
+[ref: GC34 Decree 1 United with Christ §2] [prefix: GC34 Decree 1 United with Christ — Paragraf 2] [pola_chunk: NUMBERED_PARAGRAPH]
+  Focus Areas of the Congregation While focusing on these two tasks, this general congregation also treated a number of important areas of Jesuit life and mission which are included as decrees or recommendations. Other important areas of Jesuit life—sp...
+
+[ref: GC34 Decree 1 United with Christ §3.1] [prefix: GC34 Decree 1 United with Christ — Paragraf 3] [pola_chunk: NUMBERED_PARAGRAPH]
+  Servants of Christ's Mission In its work, GC 34 stands in continuity with the spirit and emphases of GCs 31, 32, and 33. Like these congregations, GC 34 asks the Society to sustain both its spiritual and community renewal and its efforts to meet the ...
+
+======================================================================
+FILE   : GC35 Decree 2 Fire that Kindles.txt
+POLA   : NUMBERED_PARAGRAPH
+CHUNKS : 47
+PANJANG: min=164 max=791 avg=587
+
+--- 3 contoh chunk pertama ---
+
+[ref: GC35 Decree 2 Fire that Kindles §1.1] [prefix: GC35 Decree 2 Fire that Kindles — Paragraf 1] [pola_chunk: NUMBERED_PARAGRAPH]
+  The Society of Jesus has carried a flame for nearly five hundred years through innumerable social and cultural circumstances that have challenged it intensely to keep that flame alive and burning.  Things are no different today. In a world that overw...
+
+[ref: GC35 Decree 2 Fire that Kindles §1.2] [prefix: GC35 Decree 2 Fire that Kindles — Paragraf 1] [pola_chunk: NUMBERED_PARAGRAPH]
+  of the whole body, because of the continued goodness of God, who has never allowed the fire to die. Our attempt here is to present it anew as a living narrative that, when brought into contact with the life-stories of people today, can give them mean...
+
+[ref: GC35 Decree 2 Fire that Kindles §2.1] [prefix: GC35 Decree 2 Fire that Kindles — Paragraf 2] [pola_chunk: NUMBERED_PARAGRAPH]
+  The continued narrative of the Society has provided, over the centuries, the ground for numerous experiences of unity-in-multiplicity. We Jesuits are frequently surprised that, despite our differences in culture and context, we find ourselves remarka...
+
+======================================================================
+FILE   : GC36 Decrees.txt
+POLA   : FALLBACK_PARAGRAPH
+CHUNKS : 14
+PANJANG: min=255 max=794 avg=676
+
+--- 3 contoh chunk pertama ---
+
+[ref: GC36 Decrees #1] [prefix: GC36 Decrees — bagian 1] [pola_chunk: FALLBACK_PARAGRAPH]
+  ﻿GC 36: Rowing into the Deep 36th General Congregation Documents General Curia, Rome, 2017 Table of Contents * Letter of Promulgation of the Decrees *    1. Historical Introduction *    2. DECREES    * 2.1. Decree 1. Companions in a Mission of Reconc...
+
+[ref: GC36 Decrees #2] [prefix: GC36 Decrees — bagian 2] [pola_chunk: FALLBACK_PARAGRAPH]
+  3.5. Revision of Complementary Norm 396 *    4. COMPLEMENTARY DOCUMENTATION    * 4.1. Pope Francis. Address to the 36th General Congregation of the Society of Jesus    * 4.2. Pope Francis. Dialogue with the Jesuits gathered in the 36th General Congre...
+
+[ref: GC36 Decrees #3] [prefix: GC36 Decrees — bagian 3] [pola_chunk: FALLBACK_PARAGRAPH]
+  icipants Letter of Promulgation To the Whole Society, Dear Brothers in Christ, The Peace of Christ! The promulgation of the Decrees of the 36th General Congregation is an important step in the process of discernment of our life and mission as compani...
+
+======================================================================
+FILE   : Imitation of Christ Thomas a Kempis.txt
+POLA   : CHAPTER_HEADING
+CHUNKS : 528
+PANJANG: min=98 max=800 avg=675
+
+--- 3 contoh chunk pertama ---
+
+[ref: Imitation of Christ Thomas a Kempis, Chapter 1.1] [prefix: Imitation of Christ Thomas a Kempis — Chapter 1] [pola_chunk: CHAPTER_HEADING]
+  ### Imitating Christ And Despising All Vanities On Earth  HE WHO follows Me, walks not in darkness," says the Lord. By these words of Christ we are advised to imitate His life and habits, if we wish to be truly enlightened and free from all blindness...
+
+[ref: Imitation of Christ Thomas a Kempis, Chapter 1.2] [prefix: Imitation of Christ Thomas a Kempis — Chapter 1] [pola_chunk: CHAPTER_HEADING]
+  od does it do to speak learnedly about the Trinity if, lacking humility, you displease the Trinity? Indeed it is not learning that makes a man holy and just, but a virtuous life makes him pleasing to God. I would rather feel contrition than know how ...
+
+[ref: Imitation of Christ Thomas a Kempis, Chapter 1.3] [prefix: Imitation of Christ Thomas a Kempis — Chapter 1] [pola_chunk: CHAPTER_HEADING]
+  k and trust in riches that perish. It is vanity also to court honor and to be puffed up with pride. It is vanity to follow the lusts of the body and to desire things for which severe punishment later must come. It is vanity to wish for long life and ...
+
+======================================================================
+FILE   : Selected Letters of St Ignatius.txt
+POLA   : FALLBACK_PARAGRAPH
+CHUNKS : 820
+PANJANG: min=50 max=800 avg=450
+
+--- 3 contoh chunk pertama ---
+
+[ref: Selected Letters of St Ignatius #1] [prefix: Selected Letters of St Ignatius — bagian 1] [pola_chunk: FALLBACK_PARAGRAPH]
+  # INTRODUCTION TO THE SELECTED LETTERS OF ST. IGNATIU S OF LOYOLA
+
+[ref: Selected Letters of St Ignatius #2] [prefix: Selected Letters of St Ignatius — bagian 2] [pola_chunk: FALLBACK_PARAGRAPH]
+  Much of Saint Ignatius Loyola's spiritual teaching is found in his letters, and these have always been regarded by Jesuits as an important source of their spirituality. Among Ignatius' many letters, those written to his fellow Jesuits have always had...
+
+[ref: Selected Letters of St Ignatius #3] [prefix: Selected Letters of St Ignatius — bagian 3] [pola_chunk: FALLBACK_PARAGRAPH]
+  This present collection contains fifty letters and instructions written to Jesuits. The reader will find included the ever-famous letters on perfection, obedience, and experiencing the effects of poverty. In fact, these are more than letters, they ar...
+
+======================================================================
+FILE   : Spiritual Diary of St Ignatius.txt
+POLA   : FALLBACK_PARAGRAPH
+CHUNKS : 87
+PANJANG: min=63 max=800 avg=604
+
+--- 3 contoh chunk pertama ---
+
+[ref: Spiritual Diary of St Ignatius #1] [prefix: Spiritual Diary of St Ignatius — bagian 1] [pola_chunk: FALLBACK_PARAGRAPH]
+  THE SPIRITUAL DIARY OF St Ignatius Loyola is unique among his voluminous works as being one of the very few that survive in their original hand-written form, and that were written solely by the saint himself without the assistance of his secretary. O...
+
+[ref: Spiritual Diary of St Ignatius #2] [prefix: Spiritual Diary of St Ignatius — bagian 2] [pola_chunk: FALLBACK_PARAGRAPH]
+  work of a man devoted to God, living an intense interior life, divinely endowed with special gifts. It is not quite so easy to believe that they were written by the man who founded the Society of Jesus, at a time when he was extraordinarily active, b...
+
+[ref: Spiritual Diary of St Ignatius #3] [prefix: Spiritual Diary of St Ignatius — bagian 3] [pola_chunk: FALLBACK_PARAGRAPH]
+  ent of the young society (the first papal approbation had been granted only five years previously). Further, although the impression conveyed by the Diary is that the writer is a man subject to more than the ordinary psychological tensions; a person ...
+
+======================================================================
+FILE   : Spiritual Exercises Ignatius Loyola (Mullan trans).txt
+POLA   : NUMBERED_PARAGRAPH
+CHUNKS : 235
+PANJANG: min=99 max=800 avg=639
+
+--- 3 contoh chunk pertama ---
+
+[ref: Spiritual Exercises Ignatius Loyola (Mullan trans) §1] [prefix: Spiritual Exercises Ignatius Loyola (Mullan trans) — Paragraf 1] [pola_chunk: NUMBERED_PARAGRAPH]
+  No change whatever is made in the wording. The proper corrections, however, of the two unimportant slips in quotation have been indicated in italics. It may be remarked in passing that the text of Holy Scripture is not seldom given in the Spiritual E...
+
+[ref: Spiritual Exercises Ignatius Loyola (Mullan trans) §2] [prefix: Spiritual Exercises Ignatius Loyola (Mullan trans) — Paragraf 2] [pola_chunk: NUMBERED_PARAGRAPH]
+  The head lines and the rubrics have been kept as they stand in the Manuscript. Where they were wanting, they have been supplied in italics.
+
+[ref: Spiritual Exercises Ignatius Loyola (Mullan trans) §4] [prefix: Spiritual Exercises Ignatius Loyola (Mullan trans) — Paragraf 4] [pola_chunk: NUMBERED_PARAGRAPH]
+  Wherever italics are used, the words in this character belong to the translator and not to St. Ignatius.

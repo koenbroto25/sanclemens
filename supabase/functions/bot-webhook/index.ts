@@ -68,16 +68,66 @@ serve(async (req) => {
 
     console.log(`[BOT-WEBHOOK] Conversation ${conversationId} updated.`);
 
+    let botResponseText = `Anda bertanya: "${messageText}". Ini adalah respons bot placeholder. Implementasi penuh akan memproses pertanyaan Anda lebih lanjut.`;
+    let isHandoffTriggered = false;
+
     // --- FULL IMPLEMENTATION CONTINUATION ---
     // 2. Forward message to 'packages/bot-engine' for intent processing
     //    const botEngine = new BotEngine(); // Assuming BotEngine is an imported class
-    //    const botResponse = await botEngine.processMessage(messageText, conversation?.bot_type);
+    //    const botResponseFromEngine = await botEngine.processMessage(messageText, conversation?.bot_type);
+    //    if (botResponseFromEngine?.handoff_required) {
+    //      isHandoffTriggered = true;
+    //      botResponseText = `Baik, saya mengerti. Saya akan menghubungkan Anda dengan tim dukungan manusia kami. Mereka akan segera menghubungi Anda.`;
+    //      // Logic to notify human agent about handoff
+    //    } else {
+    //      botResponseText = botResponseFromEngine?.text || botResponseText;
+    //    }
 
-    // 3. Send responses back to the user through the appropriate platform
-    //    Based on `platform` and `botResponse`
+    // Simulate handoff logic: if user asks for "human" or "agent"
+    if (messageText.toLowerCase().includes('human') || messageText.toLowerCase().includes('agent')) {
+      isHandoffTriggered = true;
+      botResponseText = `Baik, saya mengerti. Saya akan menghubungkan Anda dengan tim dukungan manusia kami. Mereka akan segera menghubungi Anda.`;
+    }
 
-    // Placeholder bot response
-    const botResponseText = `Anda bertanya: "${messageText}". Ini adalah respons bot placeholder. Implementasi penuh akan memproses pertanyaan Anda lebih lanjut.`;
+    // Send bot's response back to the user through the appropriate platform (e.g., WhatsApp via /api/notifications/send)
+    // This is the implementation for "3. Send responses back to the user"
+    try {
+      const notificationPayload = {
+        recipient_ids: [userId], // Assuming userId is a phone number or can be used to fetch one
+        type: isHandoffTriggered ? 'bot_handoff' : 'bot_response',
+        message: `
+*Pesan dari Bot Paroki Santo Klemens*
+
+Assalamualaikum Umat,
+
+${botResponseText}
+
+_Jesus is Lord._
+Paroki Santo Klemens Sepinggan
+        `.trim(),
+        data: {
+          conversation_id: conversationId,
+          user_id: userId,
+          message_type: isHandoffTriggered ? 'handoff_initiated' : 'bot_reply',
+          original_message: messageText,
+        }
+      };
+
+      const notificationRes = await fetch(`${Deno.env.get('NEXT_PUBLIC_BASE_URL') || 'http://localhost:3000'}/api/notifications/send`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(notificationPayload),
+      });
+
+      if (!notificationRes.ok) {
+        console.error(`[BOT-WEBHOOK] Failed to send bot response notification to ${userId}:`, await notificationRes.text());
+      } else {
+        console.log(`[BOT-WEBHOOK] Bot response notification sent successfully to: ${userId}`);
+      }
+    } catch (notificationError) {
+      console.error('[BOT-WEBHOOK] Error sending bot response notification:', notificationError);
+    }
+
     const updatedMessagesWithBot = [...(conversation?.messages || []), { role: 'bot', content: botResponseText, timestamp: new Date().toISOString() }];
 
     // Update conversation with bot's response
@@ -91,7 +141,7 @@ serve(async (req) => {
       JSON.stringify({
         function: "bot-webhook",
         status: "success",
-        message: "Bot webhook processed and conversation logged. Full bot engine integration pending.",
+        message: isHandoffTriggered ? "Bot webhook processed, handoff initiated, and response sent." : "Bot webhook processed, response sent, and conversation logged. Full bot engine integration pending.",
         botResponse: botResponseText,
       }),
       {

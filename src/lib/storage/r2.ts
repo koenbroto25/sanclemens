@@ -1,4 +1,4 @@
-import { S3Client } from "@aws-sdk/client-s3"
+import { S3Client, PutObjectCommand, DeleteObjectCommand } from "@aws-sdk/client-s3"
 import sharp from "sharp"
 
 // Initialize R2 client
@@ -23,23 +23,54 @@ export async function uploadToR2(
 
   if (compress && contentType.startsWith("image/")) {
     try {
+      // Convert to WebP for better compression (60-80% smaller than JPEG)
       finalBuffer = await sharp(fileBuffer)
         .resize({ width: 1200, withoutEnlargement: true }) // Max width 1200px
-        .jpeg({ quality: 80 })
+        .webp({ quality: 80, effort: 4 })
         .toBuffer()
-      finalContentType = "image/jpeg"
+      finalContentType = "image/webp"
     } catch (error) {
       console.warn("Image compression failed, uploading original. Error:", error)
     }
   }
 
-  // TODO: Implement S3Client.send(new PutObjectCommand(...))
-  // For now, return a dummy URL
-  console.log(`[R2] Uploading ${key} to ${bucketName} with content type ${finalContentType}`)
-  return `https://your-r2-domain.com/${bucketName}/${key}`
+  try {
+    const command = new PutObjectCommand({
+      Bucket: bucketName,
+      Key: key,
+      Body: finalBuffer,
+      ContentType: finalContentType,
+      // Ensure public read access (adjust ACL based on bucket policy)
+      ACL: "public-read",
+    })
+
+    await r2.send(command)
+    
+    // Construct public URL
+    const r2PublicUrl = process.env.R2_PUBLIC_URL
+    const publicUrl = r2PublicUrl 
+      ? `${r2PublicUrl}/${key}`
+      : `https://${bucketName}.${process.env.R2_ACCOUNT_ID}.r2.cloudflarestorage.com/${key}`
+    
+    console.log(`[R2] Successfully uploaded ${key} to ${bucketName}`)
+    return publicUrl
+  } catch (error) {
+    console.error(`[R2] Upload failed for ${key}:`, error)
+    throw new Error(`Failed to upload file to R2: ${error instanceof Error ? error.message : 'Unknown error'}`)
+  }
 }
 
 export async function deleteFromR2(bucketName: string, key: string): Promise<void> {
-  // TODO: Implement S3Client.send(new DeleteObjectCommand(...))
-  console.log(`[R2] Deleting ${key} from ${bucketName}`)
+  try {
+    const command = new DeleteObjectCommand({
+      Bucket: bucketName,
+      Key: key,
+    })
+
+    await r2.send(command)
+    console.log(`[R2] Successfully deleted ${key} from ${bucketName}`)
+  } catch (error) {
+    console.error(`[R2] Delete failed for ${key}:`, error)
+    throw new Error(`Failed to delete file from R2: ${error instanceof Error ? error.message : 'Unknown error'}`)
+  }
 }

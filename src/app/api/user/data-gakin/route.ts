@@ -26,20 +26,20 @@ export async function GET(request: NextRequest) {
     // Build query based on access layer
     // Layer 9 (Pastor), Layer 8 (Wakil DPP), Layer 7 (Komsos) - can view all
     // Layer 4 (KL) - can view their lingkungan only
-    let query = supabase.from('data_gakin').select('*, families(*), gakin_approvals(*)');
+    let query = supabase.from('data_gakin').select('*, keluarga(*), gakin_approvals(*)');
     
     if (profile.access_layer >= 8) {
       // Pastor, Wakil DPP, Komsos - can see all
       query = query.order('created_at', { ascending: false });
     } else if (profile.access_layer === 4) {
       // KL - can see their lingkungan only
-      const { data: families } = await supabase
-        .from('families')
+      const { data: keluargaData } = await supabase
+        .from('keluarga')
         .select('id')
         .eq('lingkungan_id', profile.lingkungan_id);
       
-      const familyIds = families?.map(f => f.id) || [];
-      query = query.in('family_id', familyIds);
+      const keluargaIds = keluargaData?.map(k => k.id) || [];
+      query = query.in('keluarga_id', keluargaIds); // Use keluarga_id as per migration
     } else {
       return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
     }
@@ -83,13 +83,13 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Akses ditolak. Hanya Ketua Lingkungan yang dapat mengajukan data GAKIN.' }, { status: 403 });
     }
 
-    const { family_id, penghasilan_per_bulan, jumlah_tanggungan, kondisi_rumah, catatan_seksos, foto_kondisi } = await request.json();
+    const { keluarga_id, penghasilan_per_bulan, jumlah_tanggungan, kondisi_rumah, catatan_seksos, foto_kondisi } = await request.json();
 
     // Create GAKIN proposal
     const { data: gakin, error } = await supabase
       .from('data_gakin')
       .insert({
-        family_id,
+        keluarga_id, // Use keluarga_id as per migration
         penghasilan_per_bulan,
         jumlah_tanggungan,
         kondisi_rumah,

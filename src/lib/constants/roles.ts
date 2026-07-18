@@ -59,6 +59,13 @@ export const ROLES: RoleDefinition[] = [
     category: 'dpp',
     description: 'Alternative spelling for Wakil Ketua DPP.',
   },
+  {
+    value: 'bendahara_dpp',
+    label: 'Bendahara DPP',
+    access_layer: 8,
+    category: 'dpp',
+    description: 'DPP Treasurer. Financial oversight at DPP level, budget approval, major financial decisions.',
+  },
 
   // Layer 7: Koordinator Bidang
   {
@@ -97,13 +104,6 @@ export const ROLES: RoleDefinition[] = [
     access_layer: 6,
     category: 'dpp',
     description: 'Parish treasurer. Financial management, transaction approvals, budget oversight, RK-1/RK-3.',
-  },
-  {
-    value: 'admin_paroki',
-    label: 'Admin Paroki',
-    access_layer: 6,
-    category: 'admin',
-    description: 'Parish administrator. General administrative tasks, user management, document processing.',
   },
   {
     value: 'admin_marketplace',

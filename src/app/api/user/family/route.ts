@@ -11,27 +11,70 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    // Get user's family
+    // Get user's family by checking if user is the head
     const { data: family, error: familyError } = await supabase
-      .from('families')
-      .select('*, family_members(*)')
-      .eq('head_id', user.id)
+      .from('keluarga')
+      .select(`
+        *,
+        anggota_keluarga(
+          id,
+          hubungan_keluarga,
+          urutan_anak,
+          status_perkawinan_dalam_keluarga,
+          profiles(
+            id,
+            full_name,
+            nama_baptis,
+            phone,
+            email,
+            is_wali_digital,
+            username_wd
+          )
+        )
+      `)
+      .eq('kepala_keluarga_id', user.id)
       .single();
 
-    if (familyError && familyError.code !== 'PGRST116') {
-      return NextResponse.json({ error: 'Gagal mengambil data keluarga' }, { status: 500 });
+    if (familyError && familyError.code !== 'PGRST116') { // PGRST116 means no rows found
+      console.error('Error fetching family as head:', familyError);
+      return NextResponse.json({ error: 'Gagal mengambil data keluarga sebagai kepala keluarga' }, { status: 500 });
     }
 
-    // If user is not head, check if they're a member
+    // If user is not the head, check if they are a member of a family
     if (!family) {
-      const { data: membership } = await supabase
-        .from('family_members')
-        .select('family_id, families(*, family_members(*))')
-        .eq('user_id', user.id)
+      const { data: membership, error: membershipError } = await supabase
+        .from('anggota_keluarga')
+        .select(`
+          keluarga_id,
+          keluarga(
+            *,
+            anggota_keluarga(
+              id,
+              hubungan_keluarga,
+              urutan_anak,
+              status_perkawinan_dalam_keluarga,
+              profiles(
+                id,
+                full_name,
+                nama_baptis,
+                phone,
+                email,
+                is_wali_digital,
+                username_wd
+              )
+            )
+          )
+        `)
+        .eq('profile_id', user.id)
         .single();
 
+      if (membershipError && membershipError.code !== 'PGRST116') { // PGRST116 means no rows found
+        console.error('Error fetching family as member:', membershipError);
+        return NextResponse.json({ error: 'Gagal mengambil data keluarga sebagai anggota' }, { status: 500 });
+      }
+
       if (membership) {
-        return NextResponse.json({ success: true, family: membership.families });
+        return NextResponse.json({ success: true, family: membership.keluarga });
       }
     }
 
@@ -98,10 +141,11 @@ export async function POST(request: NextRequest) {
 
         // Add user to family
         const { error: memberError } = await supabase
-          .from('family_members')
+          .from('anggota_keluarga')
           .insert({
-            family_id: invite.family_id,
-            user_id: user.id,
+            keluarga_id: invite.family_id,
+            profile_id: user.id,
+            hubungan_keluarga: 'anggota'
           });
 
         if (memberError) {

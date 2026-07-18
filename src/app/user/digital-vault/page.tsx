@@ -8,6 +8,12 @@ interface DigitalDocument {
   document_id: string;
   document_type_code: string;
   document_name: string;
+  file_name?: string;
+  document_type?: string;
+  file_size?: number;
+  extracted_data?: Record<string, string>;
+  ocr_confidence?: number;
+  file_url?: string;
   status: 'issued' | 'draft' | 'pending_user_verification' | 'pending_official_approval' | 'revoked';
   pdf_url?: string;
   issued_at?: string;
@@ -17,7 +23,9 @@ interface DigitalDocument {
 
 export default function DigitalVaultPage() {
   const [documents, setDocuments] = useState<DigitalDocument[]>([]);
+  const [pendingDocuments, setPendingDocuments] = useState<DigitalDocument[]>([]);
   const [loading, setLoading] = useState(true);
+  const [ocrUploadStatus, setOcrUploadStatus] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
 
   useEffect(() => {
     fetchDocuments();
@@ -25,15 +33,40 @@ export default function DigitalVaultPage() {
 
   async function fetchDocuments() {
     try {
-      const res = await fetch('/api/documents');
-      const json = await res.json();
-      if (json.data) {
-        setDocuments(json.data.map((doc: any) => ({
-          ...doc,
-          document_name: getDocumentTypeName(doc.document_type_code),
-          icon: getDocumentIcon(doc.document_type_code)
-        })));
-      }
+      const supabase = (await import('@/lib/supabase/client')).createClient();
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user) return;
+
+      // Fetch issued documents
+      const { data: issuedDocs } = await supabase
+        .from('documents')
+        .select('*')
+        .eq('user_id', user.id)
+        .eq('status', 'issued')
+        .order('created_at', { ascending: false });
+
+      // Fetch pending user verification documents
+      const { data: pendingDocs } = await supabase
+        .from('documents')
+        .select('*')
+        .eq('user_id', user.id)
+        .eq('status', 'pending_user_verification')
+        .order('created_at', { ascending: false });
+
+      const issuedWithMeta = (issuedDocs || []).map((doc: Record<string, unknown>) => ({
+        ...doc,
+        document_name: getDocumentTypeName((doc.document_type_code as string) || ''),
+        icon: getDocumentIcon((doc.document_type_code as string) || '')
+      }));
+
+      const pendingWithMeta = (pendingDocs || []).map((doc: Record<string, unknown>) => ({
+        ...doc,
+        document_name: getDocumentTypeName((doc.document_type as string) || ''),
+        icon: getDocumentIcon((doc.document_type as string) || '')
+      }));
+
+      setDocuments(issuedWithMeta);
+      setPendingDocuments(pendingWithMeta);
     } catch (err) {
       console.error('Error fetching documents:', err);
     } finally {
@@ -43,6 +76,9 @@ export default function DigitalVaultPage() {
 
   function getDocumentTypeName(code: string): string {
     const names: Record<string, string> = {
+      'ktp': 'KTP Digital',
+      'kk': 'KK Katolik',
+      'sim': 'SIM',
       'KTPD': 'KTP Digital',
       'KK': 'KK Katolik',
       'BAPTIS': 'Sertifikat Baptis',
@@ -55,6 +91,9 @@ export default function DigitalVaultPage() {
 
   function getDocumentIcon(code: string): string {
     const icons: Record<string, string> = {
+      'ktp': '🆔',
+      'kk': '📋',
+      'sim': '🚗',
       'KTPD': '🆔',
       'KK': '📋',
       'BAPTIS': '💧',
@@ -65,15 +104,74 @@ export default function DigitalVaultPage() {
     return icons[code] || '📄';
   }
 
-  function getStatusLabel(status: string): { text: string; className: string } {
-    const map: Record<string, { text: string; className: string }> = {
-      'issued': { text: 'Diterbitkan', className: 'active' },
-      'draft': { text: 'Draft', className: 'pending' },
-      'pending_user_verification': { text: 'Menunggu Verifikasi', className: 'pending' },
-      'pending_official_approval': { text: 'Menunggu Approval', className: 'pending' },
-      'revoked': { text: 'Dicabut', className: 'inactive' },
-    };
-    return map[status] || { text: status, className: 'pending' };
+  async function handleOCRUpload(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    setOcrUploadStatus(null);
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('document_type', file.name.toLowerCase().includes('ktp') ? 'ktp' : 
+                              file.name.toLowerCase().includes('kk') ? 'kk' : 
+                              file.name.toLowerCase().includes('sim') ? 'sim' : 'ktp');
+
+    try {
+      const res = await fetch('/api/ocr/process-document', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        setOcrUploadStatus({
+          type: 'success',
+          message: `Dokumen berhasil diunggah. Data berhasil diekstrak dengan confidence: ${(data.confidence * 100).toFixed(1)}%. Silakan konfirmasi data di bawah.`
+        });
+        fetchDocuments(); // Refresh pending documents
+      } else {
+        setOcrUploadStatus({
+          type: 'error',
+          message: data.error || 'Gagal memproses dokumen'
+        });
+      }
+    } catch (err) {
+      console.error('OCR upload error:', err);
+      setOcrUploadStatus({
+        type: 'error',
+        message: 'Terjadi kesalahan saat mengunggah dokumen'
+      });
+    }
+
+    // Reset input
+    e.target.value = '';
+  }
+
+  async function confirmOCRData(docId: string) {
+    try {
+      const supabase = (await import('@/lib/supabase/client')).createClient();
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user) return;
+
+      // Update document status to pending_official_approval
+      const { error } = await supabase
+        .from('documents')
+        .update({ status: 'pending_official_approval' })
+        .eq('id', docId)
+        .eq('user_id', user.id);
+
+      if (error) {
+        console.error('Error confirming OCR data:', error);
+        alert('Gagal mengonfirmasi data');
+        return;
+      }
+
+      alert('Data berhasil dikonfirmasi dan sedang menunggu approval dari pihak paroki');
+      fetchDocuments();
+    } catch (err) {
+      console.error('Confirm OCR error:', err);
+      alert('Terjadi kesalahan');
+    }
   }
 
   async function handleDownload(docId: string) {
@@ -98,11 +196,9 @@ export default function DigitalVaultPage() {
   }
 
   function getDocumentIdFromDoc(doc: DigitalDocument): string {
-    // document_id format: KTPD-2026-00001
-    return doc.document_id;
+    return doc.document_id || doc.id;
   }
 
-  // Dokumen default yang harus ada (akan muncul meski belum ada di DB)
   const defaultDocTypes = [
     { code: 'KTPD', name: 'KTP Digital', icon: '🆔', desc: 'Kartu Tanda Penduduk Digital Paroki' },
     { code: 'KK', name: 'KK Katolik', icon: '📋', desc: 'Kartu Keluarga Katolik' },
@@ -136,11 +232,11 @@ export default function DigitalVaultPage() {
               <div className="stat-label">Diterbitkan</div>
             </div>
             <div className="stat-item">
-              <div className="stat-value">{documents.filter(d => d.status === 'pending_user_verification' || d.status === 'pending_official_approval').length}</div>
+              <div className="stat-value">{pendingDocuments.length}</div>
               <div className="stat-label">Menunggu</div>
             </div>
             <div className="stat-item">
-              <div className="stat-value">{documents.length}</div>
+              <div className="stat-value">{documents.length + pendingDocuments.length}</div>
               <div className="stat-label">Total</div>
             </div>
           </div>
@@ -168,7 +264,7 @@ export default function DigitalVaultPage() {
             {defaultDocTypes.map(docType => {
               const existingDoc = documents.find(d => d.document_type_code === docType.code);
               const status = existingDoc 
-                ? getStatusLabel(existingDoc.status)
+                ? { text: 'Diterbitkan', className: 'active' }
                 : { text: 'Belum Tersedia', className: 'pending' };
 
               return (
@@ -220,6 +316,91 @@ export default function DigitalVaultPage() {
         )}
       </div>
 
+      {/* Unggah Dokumen via OCR */}
+      <div className="dashboard-section">
+        <div className="section-header">
+          <h2>Unggah Dokumen Baru</h2>
+        </div>
+        <div className="dashboard-card">
+          <h3>Scan Dokumen dengan OCR</h3>
+          <p>Unggah foto dokumen identitas Anda (KTP, KK, SIM) untuk diekstrak secara otomatis menggunakan Google Cloud Vision API. Data yang diekstrak akan diverifikasi oleh Anda sebelum disimpan.</p>
+          <div style={{ marginTop: '16px', padding: '16px', border: '2px dashed #d1d5db', borderRadius: '12px', textAlign: 'center' }}>
+            <input
+              type="file"
+              id="ocr-upload"
+              accept="image/jpeg,image/png,image/webp"
+              style={{ display: 'none' }}
+              onChange={handleOCRUpload}
+            />
+            <label htmlFor="ocr-upload" style={{ cursor: 'pointer', display: 'block' }}>
+              <div style={{ fontSize: '2rem', marginBottom: '8px' }}>📸</div>
+              <p style={{ fontWeight: 600, color: '#374151', margin: '0 0 4px 0' }}>Klik untuk mengunggah foto dokumen</p>
+              <p style={{ fontSize: '0.85rem', color: '#6b7280', margin: 0 }}>Format: JPG, PNG, WebP (Maks 5MB)</p>
+            </label>
+            <p style={{ fontSize: '0.75rem', color: '#9ca3af', marginTop: '8px', marginBottom: 0 }}>Dokumen akan diproses dengan OCR dan disimpan di Cloudflare R2</p>
+          </div>
+          {ocrUploadStatus && (
+            <div style={{ marginTop: '12px', padding: '12px', borderRadius: '8px', background: ocrUploadStatus.type === 'success' ? '#d1fae5' : '#fee2e2', color: ocrUploadStatus.type === 'success' ? '#065f46' : '#991b1b', fontSize: '0.85rem' }}>
+              {ocrUploadStatus.message}
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Dokumen Menunggu Verifikasi */}
+      <div className="dashboard-section">
+        <div className="section-header">
+          <h2>Dokumen Menunggu Verifikasi</h2>
+        </div>
+        <div className="cards-grid">
+          {pendingDocuments.length === 0 ? (
+            <div className="dashboard-card" style={{ textAlign: 'center', padding: '2rem' }}>
+              <p style={{ color: '#6b7280', fontStyle: 'italic' }}>Tidak ada dokumen yang menunggu verifikasi</p>
+            </div>
+          ) : (
+            pendingDocuments.map(doc => (
+              <div key={doc.id} className="dashboard-card" style={{ border: '1px solid #fbbf24', background: '#fffbeb' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
+                  <span style={{ fontSize: '2rem' }}>📄</span>
+                  <div>
+                    <h3 style={{ margin: 0 }}>{doc.file_name}</h3>
+                    <p style={{ fontSize: '0.85rem', color: '#6b7280', margin: '4px 0 0 0' }}>
+                      Tipe: {doc.document_type} &middot; Ukuran: {((doc.file_size || 0) / 1024).toFixed(1)} KB
+                    </p>
+                  </div>
+                </div>
+
+                {doc.extracted_data && (
+                  <div style={{ background: '#fff', padding: '12px', borderRadius: '8px', marginBottom: '12px' }}>
+                    <p style={{ fontWeight: 600, fontSize: '0.85rem', margin: '0 0 8px 0', color: '#1f2937' }}>Data yang Diekstrak:</p>
+                    {Object.entries(doc.extracted_data).map(([key, value]) => (
+                      <div key={key} style={{ fontSize: '0.8rem', marginBottom: '4px', display: 'flex', gap: '8px' }}>
+                        <span style={{ fontWeight: 500, color: '#4b5563', textTransform: 'capitalize' }}>{key}:</span>
+                        <span style={{ color: '#1f2937' }}>{String(value)}</span>
+                      </div>
+                    ))}
+                    <p style={{ fontSize: '0.75rem', color: '#6b7280', marginTop: '8px', marginBottom: 0 }}>
+                      Tingkat kepercayaan OCR: {((doc.ocr_confidence || 0) * 100).toFixed(1)}%
+                    </p>
+                  </div>
+                )}
+
+                <div style={{ display: 'flex', gap: '8px' }}>
+                  {doc.file_url && (
+                    <a href={doc.file_url} target="_blank" rel="noopener noreferrer" className="btn-secondary" style={{ padding: '6px 12px', fontSize: '0.8rem', textDecoration: 'none', borderRadius: '6px', border: '1px solid #d1d5db' }}>
+                      Lihat Foto
+                    </a>
+                  )}
+                  <button onClick={() => confirmOCRData(doc.id)} className="btn-primary" style={{ padding: '6px 12px', fontSize: '0.8rem' }}>
+                    Konfirmasi Data
+                  </button>
+                </div>
+              </div>
+            ))
+          )}
+        </div>
+      </div>
+
       {/* Info Verifikasi */}
       <div className="dashboard-section">
         <div className="section-header">
@@ -240,7 +421,7 @@ export default function DigitalVaultPage() {
                 fontSize: '0.9rem'
               }}
             />
-            <Link href="/user/digital-vault/verifikasi" className="btn-primary" style={{ whiteSpace: 'nowrap' }}>
+            <Link href="/user/digital-vault/verifikasi" className="btn-primary" style={{ whiteSpace: 'nowrap', textDecoration: 'none', display: 'inline-block', textAlign: 'center' }}>
               Verifikasi
             </Link>
           </div>

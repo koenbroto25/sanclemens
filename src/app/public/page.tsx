@@ -56,11 +56,17 @@ interface BacaanLiturgi {
   teks: string;
 }
 
+interface ReadingDetail {
+  reference: string;
+  teks: string;
+}
+
 interface DailyLiturgi {
   bacaan_1: BacaanLiturgi;
   bacaan_injil: BacaanLiturgi;
   santo_santa_hari_ini?: { nama: string; keterangan: string }[];
   pesan_personal?: string;
+  readings_full?: ReadingDetail[];
 }
 
 type MisaTab = 'minggu-ini' | 'hari-besar' | 'khusus';
@@ -121,6 +127,7 @@ export default function HomePage() {
   const [dailyLiturgi, setDailyLiturgi] = useState<DailyLiturgi | null>(null);
   const [liturgicalInfo, setLiturgicalInfo] = useState<LiturgicalInfo | null>(null);
   const [statistikData, setStatistikData] = useState<Array<{ value: string; label: string }> | null>(null);
+  const [saintsToday, setSaintsToday] = useState<Array<{ nama: string; tipe: string; riwayat: string }> | null>(null);
 
   const toggleChat = () => setIsChatOpen((open) => !open);
   const closeChat = () => setIsChatOpen(false);
@@ -165,9 +172,20 @@ export default function HomePage() {
 
   const fetchDailyLiturgi = useCallback(async () => {
     try {
-      const res = await fetch('/api/liturgi/daily-info');
+      const res = await fetch('/api/liturgi/calendar');
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || 'Failed to fetch daily liturgy');
+      
+      // Fetch full readings text if readings exist
+      if (data.readings && data.readings.length > 0) {
+        const referencesParam = data.readings.join(';');
+        const detailRes = await fetch(`/api/liturgi/reading-detail?references=${encodeURIComponent(referencesParam)}`);
+        const detailData = await detailRes.json();
+        if (detailRes.ok && detailData.readings) {
+          data.readings_full = detailData.readings;
+        }
+      }
+      
       setDailyLiturgi(data);
     } catch (err) {
       console.error('Error fetching daily liturgy:', err);
@@ -195,6 +213,21 @@ export default function HomePage() {
     } catch (err) {
       console.error('Error fetching statistik:', err);
       setStatistikData(null);
+    }
+  }, []);
+
+  const fetchSaintsToday = useCallback(async () => {
+    try {
+      const res = await fetch('/api/liturgi/saints');
+      const data = await res.json();
+      if (res.ok && data.saints) {
+        setSaintsToday(data.saints);
+      } else {
+        setSaintsToday(null);
+      }
+    } catch (err) {
+      console.error('Error fetching saints:', err);
+      setSaintsToday(null);
     }
   }, []);
 
@@ -230,9 +263,10 @@ export default function HomePage() {
     fetchDailyLiturgi();
     fetchLiturgicalTheme();
     fetchStatistik();
-  }, [fetchPublicContent, fetchDailyLiturgi, fetchLiturgicalTheme, fetchStatistik]);
+    fetchSaintsToday();
+  }, [fetchPublicContent, fetchDailyLiturgi, fetchLiturgicalTheme, fetchStatistik, fetchSaintsToday]);
 
-  /** Misa Berikutnya ââ‚¬â€ derived purely from data, no DOM writes. */
+  /** Misa Berikutnya — derived purely from data, no DOM writes. */
   const nextMass = (() => {
     if (!publicJadwalMisa) return null;
 
@@ -260,7 +294,7 @@ export default function HomePage() {
     return null;
   })();
 
-  /** Jadwal Misa ââ‚¬â€ Minggu Ini, grouped by day, today first highlighted. */
+  /** Jadwal Misa — Minggu Ini, grouped by day, today first highlighted. */
   const mingguIniCards = (() => {
     if (!publicJadwalMisa) return [];
     const todayIndex = new Date().getDay(); // 0 = Sunday
@@ -281,7 +315,7 @@ export default function HomePage() {
     <>
       {/* Note: Header/footer/navbar/bot-fab/scroll-top/accent-bar/modals are handled by layout.tsx */}
 
-      {/* ============ HERO (Áƒâ€šÁ‚Â§8.1) ============ */}
+      {/* ============ HERO (§8.1) ============ */}
       <section className="hero" id="beranda">
         <div className="hero-bg">
           <img src="/gereja-santo-clemens.jpg" alt="Gereja Santo Klemens Sepinggan" />
@@ -332,7 +366,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ============ JADWAL MISA (Áƒâ€šÁ‚Â§8.2) ============ */}
+      {/* ============ JADWAL MISA (§8.2) ============ */}
       {loadingContent ? (
         <section className="section-misa reveal" id="jadwal-misa">
           <div className="section-inner text-center py-12">
@@ -441,7 +475,7 @@ export default function HomePage() {
             </div>
           </section>
 
-          {/* ============ WARTA PAROKI (Áƒâ€šÁ‚Â§8.3) ============ */}
+          {/* ============ WARTA PAROKI (§8.3) ============ */}
           <section className="section-pengumuman reveal" id="pengumuman">
             <div className="stained-glass-mesh" aria-hidden="true"></div>
             <div className="section-inner">
@@ -487,7 +521,7 @@ export default function HomePage() {
         </>
       )}
 
-      {/* ============ BACAAN/LITURGI HARI INI (Áƒâ€šÁ‚Â§8.5) ============ */}
+      {/* ============ BACAAN/LITURGI HARI INI (§8.5) ============ */}
       <section className="section-liturgi reveal" id="liturgi">
         <div className="liturgi-container">
           <div className="liturgi-header">
@@ -524,7 +558,37 @@ export default function HomePage() {
             <span className="line"></span>
           </div>
           <div className="liturgi-manuscript">
-            {dailyLiturgi && dailyLiturgi.bacaan_1 && dailyLiturgi.bacaan_injil ? (
+            {dailyLiturgi && dailyLiturgi.readings_full && dailyLiturgi.readings_full.length > 0 ? (
+              dailyLiturgi.readings_full.map((reading, index) => {
+                const isInjil = reading.reference.toLowerCase().includes('injil') || 
+                                 reading.reference.toLowerCase().includes('mat') ||
+                                 reading.reference.toLowerCase().includes('mrk') ||
+                                 reading.reference.toLowerCase().includes('luk') ||
+                                 reading.reference.toLowerCase().includes('yoh');
+                
+                return (
+                  <div key={index} className={`liturgi-reading ${isInjil ? 'injil' : ''}`}>
+                    <div className="reading-label">
+                      {index === 0 ? 'Bacaan Pertama' : isInjil ? 'Bacaan Injil' : `Bacaan ${index}`}
+                    </div>
+                    <div className="reading-source">{reading.reference}</div>
+                    <div className="reading-text">
+                      {isInjil && index > 0 ? (
+                        <>
+                          <span className="drop-cap">{reading.teks.charAt(0)}</span>
+                          {reading.teks.substring(1)}
+                        </>
+                      ) : (
+                        reading.teks
+                      )}
+                    </div>
+                    {isInjil && (
+                      <div className="respons-umat">Demikianlah Injil Tuhan. U: Terpujilah Kristus.</div>
+                    )}
+                  </div>
+                );
+              })
+            ) : dailyLiturgi && dailyLiturgi.bacaan_1 && dailyLiturgi.bacaan_injil ? (
               <>
                 <div className="liturgi-reading">
                   <div className="reading-label">Bacaan Pertama</div>
@@ -540,19 +604,6 @@ export default function HomePage() {
                   </div>
                   <div className="respons-umat">Demikianlah Injil Tuhan. U: Terpujilah Kristus.</div>
                 </div>
-                {dailyLiturgi.santo_santa_hari_ini && dailyLiturgi.santo_santa_hari_ini.length > 0 && (
-                  <div className="liturgi-reading" style={{ marginTop: '2rem' }}>
-                    <div className="reading-label">Santo/Santa Hari Ini</div>
-                    {dailyLiturgi.santo_santa_hari_ini.map((santo, idx) => (
-                      <div key={idx} className="reading-text" style={{ textIndent: 0 }}>{santo.nama}: {santo.keterangan}</div>
-                    ))}
-                    {dailyLiturgi.pesan_personal && (
-                      <div className="reading-text" style={{ textIndent: 0, marginTop: '1rem', fontStyle: 'italic', color: 'var(--color-stone)' }}>
-                        {dailyLiturgi.pesan_personal}
-                      </div>
-                    )}
-                  </div>
-                )}
               </>
             ) : (
               <div className="text-center py-8" style={{ color: 'var(--color-stone)' }}>Tidak dapat memuat bacaan liturgi hari ini.</div>
@@ -561,7 +612,41 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ============ KEGIATAN PAROKI (Áƒâ€šÁ‚Â§8.4) ============ */}
+      {/* ============ SANTO/SANTA HARI INI (§8.6) ============ */}
+      <section className="section-saints reveal" id="santo-hari-ini">
+        <div className="section-inner">
+          <p className="section-eyebrow">Orang Kudus</p>
+          <h2 className="section-title">Santo/Santa Hari Ini</h2>
+          <p className="section-subtitle">Mengenal orang kudus yang diperingati hari ini</p>
+          <div className="ornament-divider">
+            <span className="line"></span>
+            <span className="cross"><svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="1" width="2" height="12" rx="0.5" fill="#c8a96e" /><rect x="3" y="4" width="8" height="2" rx="0.5" fill="#c8a96e" /></svg></span>
+            <span className="line"></span>
+          </div>
+
+          {saintsToday && saintsToday.length > 0 ? (
+            <div className="saints-grid">
+              {saintsToday.map((saint, idx) => (
+                <div key={idx} className="saint-card">
+                  <div className="saint-header">
+                    <span className={`saint-type ${saint.tipe.toLowerCase()}`}>{saint.tipe}</span>
+                  </div>
+                  <div className="saint-name">{saint.nama}</div>
+                  <div className="saint-content">
+                    <p>{saint.riwayat}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-8" style={{ color: 'var(--color-stone)' }}>
+              <p>Tidak ada santo/santa yang diperingati hari ini.</p>
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* ============ KEGIATAN PAROKI (§8.4) ============ */}
       <section className="section-kegiatan reveal" id="kegiatan">
         <div className="kegiatan-container">
           <p className="section-eyebrow">Agenda Paroki</p>
@@ -606,7 +691,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ============ IKLAN UMUM / DYNAMIC AD SYSTEM (Áƒâ€šÁ‚Â§8.6) ============ */}
+      {/* ============ IKLAN UMUM / DYNAMIC AD SYSTEM (§8.6) ============ */}
       <section className="section-ads reveal" id="iklan">
         <div className="ads-eyebrow-row">
           <span className="label">Dipersembahkan oleh</span>
@@ -616,7 +701,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ============ SEKILAS PROFIL PAROKI (Áƒâ€šÁ‚Â§8.10 teaser) ============ */}
+      {/* ============ SEKILAS PROFIL PAROKI (§8.10 teaser) ============ */}
       <section className="section-misa reveal" id="profil-paroki">
         <div className="section-inner">
           <p className="section-eyebrow">Tentang Kami</p>
@@ -648,7 +733,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ============ DATA UMAT DALAM ANGKA (Áƒâ€šÁ‚Â§8.8) ============ */}
+      {/* ============ DATA UMAT DALAM ANGKA (§8.8) ============ */}
       <section className="section-statistik reveal" id="statistik">
         <p className="section-eyebrow">Statistik Anonim</p>
         <h2 className="section-title">Paroki Santo Klemens dalam Angka</h2>
@@ -667,7 +752,7 @@ export default function HomePage() {
         <p className="statistik-note">Data bersifat agregat dan anonim &mdash; tidak menampilkan identitas umat individual.</p>
       </section>
 
-      {/* ============ BOT 1 FAB & CHAT WIDGET (Áƒâ€šÁ‚Â§9.1) ============ */}
+      {/* ============ BOT 1 FAB & CHAT WIDGET (§9.1) ============ */}
       <div
         className="bot-fab"
         aria-label="Tanya Bot Paroki"

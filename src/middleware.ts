@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import { updateSession } from './lib/supabase/middleware';
+import { getRequiredLayerForPath, roleHasAccess, getAccessLayer } from '@/lib/middleware-helpers';
 
 export async function middleware(request: NextRequest) {
   // Bypass system for Super Admin debugging (only in development)
@@ -11,6 +12,7 @@ export async function middleware(request: NextRequest) {
 
   // First, update session to get user info
   const supabaseResponse = await updateSession(request);
+  console.log('[MIDDLEWARE MAIN] path:', request.nextUrl.pathname, 'method:', request.method, 'response status:', supabaseResponse.status);
 
   try {
     const supabase = createClient();
@@ -21,14 +23,52 @@ export async function middleware(request: NextRequest) {
     if (isSuperAdminBypass && bypassUserIdCookie) {
       // Log bypass usage
       await logBypassUsage('auth_bypass', bypassUserIdCookie, 'impersonate', request);
-      
-      // Continue with bypass session
       return supabaseResponse;
     }
 
     // Log bypass usage if enabled
     if (isSuperAdminBypass && user) {
       await logBypassUsage('auth_bypass', user.id, 'enable_bypass_mode', request);
+    }
+
+    // --- ROLE-BASED ACCESS CONTROL (RBAC) ---
+    if (user) {
+      // Get profile data for role/access layer
+      const { data: profile } = await supabase
+        .from('profiles')
+        .select('role, access_layer, status')
+        .eq('id', user.id)
+        .single();
+
+      if (profile) {
+        // Check if user status is active
+        if (profile.status !== 'active') {
+          // Allow access only to waiting-room, auth pages, and public routes
+          const path = request.nextUrl.pathname;
+          if (!path.startsWith('/auth/waiting-room') && !path.startsWith('/auth/login') && !path.startsWith('/auth/register') && !path.startsWith('/public') && !path.startsWith('/api/')) {
+            return NextResponse.redirect(new URL('/auth/waiting-room', request.url));
+          }
+        }
+
+        // Check access layer for protected routes
+        if (profile.status === 'active') {
+          const path = request.nextUrl.pathname;
+          const userAccessLayer = profile.access_layer || getAccessLayer(profile.role);
+          const requiredLayer = getRequiredLayerForPath(path);
+
+          if (requiredLayer > 0 && !roleHasAccess(userAccessLayer, requiredLayer)) {
+            return NextResponse.redirect(new URL('/unauthorized', request.url));
+          }
+        }
+      }
+    } else {
+      // User is not authenticated - check if route requires auth
+      const path = request.nextUrl.pathname;
+      const requiredLayer = getRequiredLayerForPath(path);
+
+      if (requiredLayer > 0) {
+        return NextResponse.redirect(new URL('/auth/login', request.url));
+      }
     }
 
     return supabaseResponse;
@@ -73,6 +113,6 @@ export const config = {
      * - api/super-admin/bypass (bypass API itself)
      * - public folder
      */
-    '/((?!_next/static|_next/image|api/super-admin/bypass|public|.*\.(?:png|jpg|jpeg|gif|svg|webp|ico|woff2|woff|ttf|eot)).*)',
+    '/((?!_next/static|_next/image|api/auth/.*|api/public/.*|api/liturgi/.*|api/health|api/bot/.*|api/renungan/.*|api/super-admin/bypass|public|.*\\.(?:png|jpg|jpeg|gif|svg|webp|ico|woff2|woff|ttf|eot)).*)',
   ],
 };

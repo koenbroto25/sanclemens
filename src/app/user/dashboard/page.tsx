@@ -1,13 +1,14 @@
 import Link from 'next/link';
 import { createClient, createServiceClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
+import '../../../styles/user.css';
+import '../../../styles/layout-user.css';
 
 export default async function UserDashboardPage() {
   const supabase = createClient();
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) redirect('/auth/login');
 
-  // Use service client to bypass RLS for profile lookup
   const serviceClient = createServiceClient();
   const { data: profile } = await serviceClient
     .from('profiles')
@@ -25,100 +26,160 @@ export default async function UserDashboardPage() {
   const hasPendingSeller = profile.role === 'seller' && profile.seller_status === 'pending_approval';
   const hasPendingOjek = profile.role === 'ojek_solidaritas' && profile.ojek_status === 'pending_approval';
 
+  // Check if user has unverified data in umat_staging
+  const { data: unverifiedStaging } = await serviceClient
+    .from('umat_staging')
+    .select('id')
+    .eq('phone', profile.phone)
+    .is('verified_at', null)
+    .limit(1);
+
+  const hasUnverifiedData = unverifiedStaging && unverifiedStaging.length > 0;
+
+  // Fetch upcoming events from API
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+  let upcomingEvents = [];
+  try {
+    const eventsRes = await fetch(`${baseUrl}/api/events/upcoming`, { next: { revalidate: 300 } });
+    if (eventsRes.ok) {
+      const eventsData = await eventsRes.json();
+      upcomingEvents = eventsData.data || [];
+    }
+  } catch (error) {
+    console.error('Failed to fetch upcoming events:', error);
+  }
+
   return (
-    <div className="min-h-screen p-6" style={{ background: 'linear-gradient(to bottom, var(--color-parchment, #f8f1e2), var(--color-cream, #f5f0e8))' }}>
-      <div className="max-w-4xl mx-auto">
-        <div className="rounded-2xl border border-[rgba(200,169,110,0.15)] p-6 mb-6" style={{ background: 'rgba(255,255,255,0.85)' }}>
-          <h1 className="text-2xl font-semibold mb-1">Selamat Datang, {displayName}</h1>
-          <p className="text-sm text-[var(--color-stone,#8b7355)]">
-            Dashboard Umat Aktif (Layer {accessLayer}) â€” Paroki Santo Klemens Sepinggan
+    <div className="user-dashboard-container">
+      <div className="user-dashboard-wrapper">
+        
+        {/* Contextual Banner for Data Verification */}
+        {hasUnverifiedData && (
+          <div className="verification-banner">
+            <div className="verification-banner-content">
+              <span className="verification-banner-icon">📋</span>
+              <div className="verification-banner-text">
+                <div className="verification-banner-title">Data Anda Perlu Dikonfirmasi</div>
+                <div className="verification-banner-desc">
+                  Kami memiliki data sensus yang perlu diverifikasi. Silakan konfirmasi data Anda.
+                </div>
+              </div>
+            </div>
+            <Link href="/user/data-completion" className="verification-banner-cta">
+              Verifikasi Sekarang
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="14" height="14">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </Link>
+          </div>
+        )}
+
+        {/* Welcome Card */}
+        <div className="user-welcome-card">
+          <h1 className="user-welcome-title">Selamat Datang, {displayName}</h1>
+          <p className="user-welcome-subtitle">
+            Dashboard Umat Aktif (Layer {accessLayer}) — Paroki Santo Klemens Sepinggan
           </p>
           {profile.lingkungan_slug && (
-            <p className="text-sm mt-1">Lingkungan: <span className="font-semibold uppercase">{profile.lingkungan_slug}</span></p>
+            <p className="user-lingkungan-badge">Lingkungan: <span>{profile.lingkungan_slug}</span></p>
           )}
-          <div className="flex gap-3 mt-4">
-            <Link href="/user/pastoral-letters" className="px-4 py-2 rounded-lg text-sm font-medium" style={{ background: 'linear-gradient(135deg, #dfc493, #c8a96e)', color: '#1a0e05' }}>
+          <div className="user-actions">
+            <Link href="/user/pastoral-letters" className="user-action-primary">
               Surat Pastoral
             </Link>
-            <Link href="/user/klemen-kerja" className="px-4 py-2 rounded-lg text-sm font-medium border border-[rgba(200,169,110,0.3)]">
+            <Link href="/user/companion" className="user-action-primary">
+              Pendamping Rohani
+            </Link>
+            <Link href="/user/klemen-kerja" className="user-action-secondary">
               Klemen Kerja
             </Link>
           </div>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+        {/* Stats Grid */}
+        <div className="user-stats-grid">
           {[
             { value: `Layer ${accessLayer}`, label: 'Level Akses' },
-            { value: profile.status === 'active' ? 'Aktif âœ“' : 'Pending', label: 'Status Akun' },
+            { value: profile.status === 'active' ? 'Aktif' : 'Pending', label: 'Status Akun' },
             { value: profile.lingkungan_slug?.toUpperCase() || '-', label: 'Lingkungan' },
           ].map((stat, i) => (
-            <div key={i} className="rounded-xl border border-[rgba(200,169,110,0.15)] p-4 text-center" style={{ background: 'rgba(255,255,255,0.85)' }}>
-              <div className="text-xl font-bold text-[var(--color-gold-deep,#c8a96e)]">{stat.value}</div>
-              <div className="text-xs text-[var(--color-stone,#8b7355)] mt-1">{stat.label}</div>
+            <div key={i} className="user-stat-card">
+              <div className="user-stat-value">{stat.value}</div>
+              <div className="user-stat-label">{stat.label}</div>
             </div>
           ))}
         </div>
 
+        {/* Pending approval banners */}
         {hasPendingSeller && (
-          <div className="rounded-xl border border-yellow-300 bg-yellow-50 p-4 mb-4">
-            <div className="font-semibold text-yellow-800">â³ Menunggu Approval Seller</div>
-            <div className="text-sm text-yellow-600 mt-1">
+          <div className="user-section-card" style={{ borderLeft: '4px solid var(--color-gold)' }}>
+            <div className="user-section-title">⏳ Menunggu Approval Seller</div>
+            <div className="user-section-content">
               Pendaftaran Anda sedang dalam proses verifikasi oleh admin. Estimasi: 1-2 hari kerja.
             </div>
           </div>
         )}
 
         {hasPendingOjek && (
-          <div className="rounded-xl border border-yellow-300 bg-yellow-50 p-4 mb-4">
-            <div className="font-semibold text-yellow-800">â³ Menunggu Approval Ojek</div>
-            <div className="text-sm text-yellow-600 mt-1">
+          <div className="user-section-card" style={{ borderLeft: '4px solid var(--color-gold)' }}>
+            <div className="user-section-title">⏳ Menunggu Approval Ojek</div>
+            <div className="user-section-content">
               Pendaftaran Anda sedang dalam proses verifikasi oleh admin. Estimasi: 1-2 hari kerja.
             </div>
           </div>
         )}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-          {/* Marketplace Section */}
-          <div className="rounded-xl border border-[rgba(200,169,110,0.15)] p-5" style={{ background: 'rgba(255,255,255,0.7)' }}>
-            <div className="font-semibold mb-2">ðŸ›’ Pasar Kasih</div>
-            <div className="text-sm text-[var(--color-stone,#8b7355)] mb-3">
+        {/* Marketplace & Events Section */}
+        <div className="user-quick-links-grid">
+          <div className="user-quick-link">
+            <div className="user-quick-link-title">🛒 Pasar Kasih</div>
+            <div className="user-quick-link-desc" style={{ marginBottom: '0.75rem' }}>
               Jelajahi produk dan jasa dari umat
             </div>
-            <div className="flex gap-2">
-              <Link href="/marketplace" className="px-3 py-1.5 rounded-lg text-xs font-medium" style={{ background: 'linear-gradient(135deg, #dfc493, #c8a96e)', color: '#1a0e05' }}>
+            <div className="user-actions">
+              <Link href="/marketplace" className="user-action-primary" style={{ fontSize: '0.75rem' }}>
                 Browse Marketplace
               </Link>
               {profile.role !== 'seller' && !hasPendingSeller && (
-                <Link href="/marketplace/seller/register" className="px-3 py-1.5 rounded-lg text-xs font-medium border border-[rgba(200,169,110,0.3)]">
+                <Link href="/marketplace/seller/register" className="user-action-secondary" style={{ fontSize: '0.75rem' }}>
                   Jadi Seller
                 </Link>
               )}
             </div>
           </div>
 
-          {/* Upcoming Events Section */}
-          <div className="rounded-xl border border-[rgba(200,169,110,0.15)] p-5" style={{ background: 'rgba(255,255,255,0.7)' }}>
-            <div className="font-semibold mb-2">ðŸ“… Kegiatan Mendatang</div>
-            <div className="text-sm text-[var(--color-stone,#8b7355)]">
-              <p className="mb-1">â€¢ Misa Sabtu, 19 Juli 2026, 07:00</p>
-              <p className="mb-1">â€¢ Rapat Lingkungan, 22 Juli 2026</p>
-              <p>â€¢ Senam Ibu Minggu, 20 Juli 2026</p>
+          <div className="user-quick-link">
+            <div className="user-quick-link-title">📅 Kegiatan Mendatang</div>
+            <div className="user-quick-link-desc">
+              {upcomingEvents.length > 0 ? (
+                upcomingEvents.map((event: any) => (
+                  <div key={event.id} style={{ marginBottom: '0.35rem', lineHeight: '1.5' }}>
+                    <strong>• {event.title}</strong>
+                    <br />
+                    <span>{new Date(event.datetime).toLocaleString('id-ID', { dateStyle: 'medium', timeStyle: 'short' })}</span>
+                    {event.location && event.location !== '-' && <span> — {event.location}</span>}
+                  </div>
+                ))
+              ) : (
+                <p>Belum ada kegiatan mendatang.</p>
+              )}
             </div>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {/* Quick Links Grid */}
+        <div className="user-quick-links-grid" style={{ marginTop: '1rem' }}>
           {[
             { href: '/user/pastoral-letters', title: 'Surat Pastoral', desc: 'Baca surat pastoral dari Pastor Paroki' },
             { href: '/user/family', title: 'Data Keluarga', desc: 'Kelola data anggota keluarga' },
             { href: '/user/digital-vault', title: 'Digital Vault', desc: 'Simpan dan akses dokumen digital' },
-            { href: '/user/data-gakin', title: 'GAKIN', desc: 'Cek status bantuan dan ajukan permohonan' },
+            { href: '/user/bantuan-sosial', title: 'Bantuan Sosial (GAKIN)', desc: 'Cek status bantuan dan ajukan permohonan' },
             { href: '/user/klemen-kerja', title: 'Klemen Kerja', desc: 'Temukan pekerjaan dan peluang bisnis' },
             { href: '/user/settings', title: 'Pengaturan', desc: 'Kelola akun dan preferensi' },
           ].map((item, i) => (
-            <Link key={i} href={item.href} className="rounded-xl border border-[rgba(200,169,110,0.15)] p-5 hover:bg-white/60 transition-all" style={{ background: 'rgba(255,255,255,0.7)' }}>
-              <div className="font-semibold mb-1">{item.title}</div>
-              <div className="text-sm text-[var(--color-stone,#8b7355)]">{item.desc}</div>
+            <Link key={i} href={item.href} className="user-quick-link">
+              <div className="user-quick-link-title">{item.title}</div>
+              <div className="user-quick-link-desc">{item.desc}</div>
             </Link>
           ))}
         </div>

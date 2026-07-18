@@ -1,6 +1,6 @@
 export const dynamic = 'force-dynamic'
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@/lib/supabase/server';
+import { createServiceClient } from '@/lib/supabase/server';
 
 export async function POST(request: NextRequest) {
   try {
@@ -10,7 +10,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'ID data profil dan tanggal lahir harus diisi' }, { status: 400 });
     }
 
-    const supabase = createClient();
+    const supabase = createServiceClient();
 
     // Fetch umat_staging record
     const { data: umatStaging, error: umatError } = await supabase

@@ -4,7 +4,7 @@ import { createClient } from '@/lib/supabase/server';
 import { getCurrentUserProfile } from '@/lib/auth/get-current-user';
 import { retrieveKnowledge } from '@/lib/ai/retriever-cockroachdb';
 import { generateQueryEmbedding } from '@/lib/ai/retriever';
-import { generateLLMResponse, buildPrompt } from '@/lib/ai/llm';
+import { analyzeIntent } from '@/lib/ai/orchestrator/step3-intent-analysis';
 
 // Types
 interface QARequest {
@@ -36,43 +36,21 @@ interface QAResponse {
   question_type?: string;
 }
 
-function classifyIntentSimple(message: string): {
-  domain: string;
-  question_type: string;
-  confidence: number;
-} {
-  const lower = message.toLowerCase();
-  
-  if (lower.match(/sakramen|ekaristi|eukarist|krisma|baptis|nikah|doa|rohani|iman|gospel|alkitab|katekismus|kgk|khk|paus|vatican|tuhan|allah|yesus|kristus|gereja|dosa|surga|roh kudus|maria|santo|santa|aquinas|teolog|dogma|ajaran katolik/i)) {
-    return { domain: 'theology', question_type: 'dogmatic_explanation', confidence: 0.8 };
-  }
-  
-  if (lower.match(/cari|jual|beli|usaha|tukang|bengkel|katering|lowongan|kerja|karier|skill|keahlian/i)) {
-    return { domain: 'business_work', question_type: 'business_search_query', confidence: 0.8 };
-  }
-  
-  if (lower.match(/jadwal|misa|gereja|alamat|warta|kegiatan|profil|kontak|jam|hari raya|liturgi/i)) {
-    return { domain: 'public_info', question_type: 'factual_parish_details', confidence: 0.8 };
-  }
-  
-  return { domain: 'public_info', question_type: 'general_query', confidence: 0.5 };
-}
-
 export async function POST(request: NextRequest) {
   try {
     const body: QARequest = await request.json();
     const { message, bot_id, user_context } = body;
-    
+
     if (!message || !bot_id) {
       return NextResponse.json(
         { error: 'Missing required fields: message, bot_id' },
         { status: 400 }
       );
     }
-    
+
     const user = await getCurrentUserProfile();
     const accessLayer = user?.access_layer ?? 0;
-    
+
     const supabase = createClient();
     const { data: botConfig, error: botConfigError } = await supabase
         .from('bot_configs')
@@ -87,9 +65,18 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       );
     }
-    
-    const { domain, question_type, confidence } = classifyIntentSimple(message);
-    
+
+    // STEP 3: Intent Analysis + Formalisasi Bilingual (menggantikan classifyIntentSimple)
+    const intentResult = await analyzeIntent(
+      message,
+      user_context?.chat_history ?? [],
+      user_context?.current_page ?? '',
+      bot_id
+    );
+    const domain = intentResult.domain_predicted;
+    const question_type = intentResult.question_type_classified;
+    const confidence = intentResult.routing_confidence;
+
     if (accessLayer < botConfig.access_level_min) {
       return NextResponse.json({
         answer: 'Maaf, Anda tidak memiliki akses untuk menggunakan bot ini.',
@@ -99,21 +86,30 @@ export async function POST(request: NextRequest) {
         question_type
       });
     }
-    
-    const queryEmbedding = await generateQueryEmbedding(message);
-    
+
+    // STEP 5: Embedding ganda -- ID asli + EN hasil formalisasi STEP 3, paralel
+    const [queryEmbedding, queryEmbeddingEn] = await Promise.all([
+      generateQueryEmbedding(message),
+      intentResult.formalized_query_en
+        ? generateQueryEmbedding(intentResult.formalized_query_en)
+        : Promise.resolve(null),
+    ]);
+
     let sources: Array<{ content: string; source_reference: string; score: number; is_approved_qa?: boolean; r2Key?: string }> = [];
     let retrievalPath: QAResponse['retrieval_path'] = 'llm_only';
-    
+    let retrievalConfidence = 0;
+
     if (queryEmbedding) {
-	const result = await retrieveKnowledge({
-		query: message,
-		embedding: queryEmbedding,
-		domain,
-		botId: bot_id,
-		user_access_level: accessLayer
-	});
-      
+      const result = await retrieveKnowledge({
+        query: message,
+        embedding: queryEmbedding,
+        embeddingEn: queryEmbeddingEn,
+        domain,
+        botId: bot_id,
+        user_access_level: accessLayer,
+        minConfidenceThreshold: botConfig.min_confidence_threshold ?? 0.70,
+      });
+
       sources = result.sources.map(s => ({
         content: s.contentPreview,
         source_reference: s.sourceReference,
@@ -122,13 +118,49 @@ export async function POST(request: NextRequest) {
         r2Key: s.r2Key
       }));
       retrievalPath = result.retrieval_path;
+      retrievalConfidence = result.confidence;
     }
 
-    // Fetch full-text from R2 for top K sources
+    // STEP 6 confidence gate: kalau confidence di bawah ambang, LLM TIDAK dipanggil
+    // sama sekali (qna_hub_r2.md Prinsip #3) -- pakai fallback_response_template langsung.
+    if (retrievalPath === 'fallback') {
+      const response: QAResponse = {
+        answer: botConfig.fallback_response_template,
+        source_references: [],
+        confidence: retrievalConfidence,
+        domain,
+        question_type,
+        retrieval_path: 'fallback',
+        is_approved_qa: false,
+        interaction_id: crypto.randomUUID()
+      };
+
+      if (user?.id) {
+        supabase.from('ai_interaction_logs').insert({
+          user_id: user.id,
+          bot_id,
+          query: message,
+          domain,
+          question_type,
+          sources_used: [],
+          confidence: retrievalConfidence,
+          retrieval_path: 'fallback',
+          bot_served: botConfig.bot_name || 'AI Assistant',
+          was_redirected: false,
+          was_refused: false,
+          injection_attempt: false,
+          created_at: new Date().toISOString()
+        }).then(({ error }) => { if (error) console.error('Failed to log interaction:', error); });
+      }
+
+      return NextResponse.json(response);
+    }
+
+    // STEP 7B: Fetch full-text from R2 for top K sources
     const TOP_K_FULLTEXT = 6;
     const topSources = sources.slice(0, TOP_K_FULLTEXT);
     const fullTexts: string[] = [];
-    
+
     for (const source of topSources) {
       if (source.r2Key) {
         try {
@@ -147,11 +179,11 @@ export async function POST(request: NextRequest) {
     const contextText = topSources
       .map((s, i) => `[${i + 1}] ${s.source_reference}: ${fullTexts[i]}`)
       .join('\n\n');
-    
+
     const sourceReferences = sources.map(s => s.source_reference);
-    
+
     const botName = botConfig.bot_name || 'AI Assistant';
-    
+
     const answerPrompt = `Kamu adalah ${botName}, asisten AI paroki. Jawab pertanyaan berikut berdasarkan konteks yang tersedia.
 
 Konteks:
@@ -160,16 +192,14 @@ ${contextText}
 Pertanyaan: ${message}
 
 Berikan jawaban yang akurat, ringkas, dan helpful dalam Bahasa Indonesia.`;
-    
+
     let answer: string;
-    let llmConfidence: number = 0;
-    
+
     if (contextText) {
       const geminiApiKey = process.env.GOOGLE_API_KEY_1;
       if (!geminiApiKey) {
         console.error('GOOGLE_API_KEY_1 is not set for LLM.');
         answer = 'Maaf, sistem AI sedang mengalami masalah konfigurasi. Mohon coba lagi nanti.';
-        llmConfidence = 0;
       } else {
         try {
           const llmResponse = await fetch(
@@ -189,25 +219,20 @@ Berikan jawaban yang akurat, ringkas, dan helpful dalam Bahasa Indonesia.`;
             const errorBody = await llmResponse.text();
             console.error(`LLM API error: ${llmResponse.status} - ${errorBody}`);
             answer = 'Maaf, saya tidak dapat menghasilkan jawaban saat ini. Terjadi masalah dengan layanan AI.';
-            llmConfidence = 0;
           } else {
             const llmData = await llmResponse.json();
             answer = llmData.candidates?.[0]?.content?.parts?.[0]?.text || 'Maaf, saya tidak dapat menghasilkan jawaban.';
-            llmConfidence = sources.length > 0 ? sources[0].score : 0;
           }
         } catch (llmError) {
           console.error('Error calling Gemini Flash LLM:', llmError);
           answer = 'Maaf, terjadi kesalahan saat memproses permintaan Anda.';
-          llmConfidence = 0;
         }
       }
     } else {
       answer = 'Maaf, saya tidak menemukan informasi yang relevan untuk pertanyaan Anda.';
-      llmConfidence = 0;
     }
-    
+
     if (user?.id) {
-      const supabase = createClient();
       supabase.from('ai_interaction_logs').insert({
         user_id: user.id,
         bot_id,
@@ -224,7 +249,7 @@ Berikan jawaban yang akurat, ringkas, dan helpful dalam Bahasa Indonesia.`;
         created_at: new Date().toISOString()
       }).then(({ error }) => { if (error) console.error('Failed to log interaction:', error); });
     }
-    
+
     const response: QAResponse = {
       answer,
       source_references: sourceReferences,
@@ -235,9 +260,9 @@ Berikan jawaban yang akurat, ringkas, dan helpful dalam Bahasa Indonesia.`;
       is_approved_qa: sources.length > 0 ? sources[0].is_approved_qa : false,
       interaction_id: crypto.randomUUID()
     };
-    
+
     return NextResponse.json(response);
-    
+
   } catch (error) {
     console.error('Error in /api/qa/ask-cockroachdb:', error);
     return NextResponse.json(

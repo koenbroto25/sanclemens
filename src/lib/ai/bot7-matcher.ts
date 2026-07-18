@@ -259,8 +259,25 @@ export async function searchUsahaUmat(
 ): Promise<any[]> {
   const { query, kategori, lokasi, user_id, user_access_level, limit = 20 } = params;
 
-  // Check if user is GAKIN
+  let currentUserLocation: { lat: number; lng: number } | null = null;
   const isGakin = user_id ? await isGakinUser(supabase, user_id) : false;
+
+  if (user_id) {
+    const { data: userProfileData, error: userProfileError } = await supabase
+      .from('profiles')
+      .select(`
+        latitude,
+        longitude
+      `)
+      .eq('id', user_id)
+      .single();
+
+    if (userProfileError) {
+      console.error('Error fetching user profile for business matching:', userProfileError);
+    } else if (userProfileData && userProfileData.latitude && userProfileData.longitude) {
+      currentUserLocation = { lat: userProfileData.latitude, lng: userProfileData.longitude };
+    }
+  }
 
   // Build query
   let queryBuilder = supabase
@@ -291,7 +308,7 @@ export async function searchUsahaUmat(
   const resultsWithScores = await Promise.all(
     data.map(async (usaha) => {
       const score = calculateBusinessMatchScore(
-        null, // userLocation - will be calculated from user profile
+        currentUserLocation,
         usaha.kategori,
         kategori || '',
         usaha.rating,
@@ -331,8 +348,32 @@ export async function searchLowonganKerja(
 ): Promise<any[]> {
   const { query, tipe, lokasi, user_id, user_access_level, limit = 20 } = params;
 
-  // Check if user is GAKIN
+  let currentUserSkills: string[] = [];
+  let currentUserLocation: { lat: number; lng: number } | null = null;
   const isGakin = user_id ? await isGakinUser(supabase, user_id) : false;
+
+  if (user_id) {
+    const { data: userProfileData, error: userProfileError } = await supabase
+      .from('profiles')
+      .select(`
+        latitude,
+        longitude,
+        tenaga_kerja(keahlian)
+      `)
+      .eq('id', user_id)
+      .single();
+
+    if (userProfileError) {
+      console.error('Error fetching user profile for job matching:', userProfileError);
+    } else if (userProfileData) {
+      if (userProfileData.tenaga_kerja?.[0]?.keahlian) {
+        currentUserSkills = userProfileData.tenaga_kerja[0].keahlian;
+      }
+      if (userProfileData.latitude && userProfileData.longitude) {
+        currentUserLocation = { lat: userProfileData.latitude, lng: userProfileData.longitude };
+      }
+    }
+  }
 
   // Build query
   let queryBuilder = supabase
@@ -363,11 +404,16 @@ export async function searchLowonganKerja(
   // Apply GAKIN priority scoring
   const resultsWithScores = await Promise.all(
     data.map(async (lowongan) => {
+      let jobLocation: { lat: number; lng: number } | null = null;
+      if (lowongan.latitude && lowongan.longitude) {
+        jobLocation = { lat: lowongan.latitude, lng: lowongan.longitude };
+      }
+
       const score = calculateJobMatchScore(
-        [], // userSkills - will be fetched from user profile
+        currentUserSkills,
         lowongan.required_skills || [],
-        null, // userLocation
-        null, // jobLocation
+        currentUserLocation,
+        jobLocation,
         lowongan.urgency_level || 'medium',
         isGakin
       );

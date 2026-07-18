@@ -29,6 +29,14 @@ export default function MarketplaceLayout({
               <span className="logo-sub">Ekonomi Kreatif Umat</span>
             </span>
           </Link>
+          <div className="marketplace-top-actions">
+            <Link href="/user/dashboard" className="marketplace-back-link" title="Kembali ke Dashboard Umat">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="14" height="14">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+              </svg>
+              <span>Dashboard</span>
+            </Link>
+          </div>
           <nav className="navbar-nav" aria-label="Navigasi marketplace">
             <Link href="/marketplace" className="nav-item active">Beranda</Link>
             <Link href="/marketplace/seller/dashboard" className="nav-item">Jual Produk</Link>

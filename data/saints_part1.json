@@ -1,28 +1,5 @@
 [
     {
-        "saint_name":  "Yesus dari Nazaret: Oktaf Natal",
-        "type":  null,
-        "feast_day":  "1/1",
-        "biography":  "Delapan hari setelah kelahiran-Nya, Kanak-kanak Yesus disunat sesuai aturan hukum Taurat Musa (Im 12:3, Luk 2:21, Kis 7:8, Flp 3:5), dan diberi nama Yesus (Yun.: Iesous, Ibr.: Yesyua, Yehosyua, yang berarti â€œYahweh menyelamatkanâ€. Nama ini sebelum Yesus dari Nazaret sudah dipakai oleh Yosua, pengganti Musa. Melalui Yesus dari Nazaret, umat manusia diselamatkan (Kis 4:12, Flp 2:9 â€“ 11). Dia-lah Al-Masih yang dijanjikan Yahweh kepada Israel, bangsa terpilih, dan kelahiran-Nya melalui Perawan Maria menjadikan Dia seorang warga suku bangsa Israel. Sunat, sebagai upacara keagamaan di kalangan orang Ibrani dan lambang keanggotaan seseorang dalam masyarakat, menjadikan Yesus anggota masyarakat Yahudi.\nDengan demikian Yesus, yang adalah Al-Masih, menjadi batu pengunci antara Perjanjian Lama dan Baru, antara nubuat-nubuat nabi dan pemenuhannya, antara perumpamaan dan penetapannya, antara janji dan pelaksanaannya, antara Kerajaan Daud, leluhurnya dan Kerajaan-Nya sendiri yang bersifat universal dan abadi.",
-        "patronage":  [
-                          "Tidak berlaku (Tuhan Yesus Kristus adalah pusat iman Kristiani",
-                          "bukan Orang Kudus dalam pengertian kanonisasi)"
-                      ],
-        "visual_attributes":  [
-                                  "Salib",
-                                  "monogram IHS/Chi-Rho",
-                                  "Anak Domba (Agnus Dei)",
-                                  "cahaya/sinar kemuliaan"
-                              ],
-        "noID":  1,
-        "access_level_min":  0,
-        "domain":  "catechism_module",
-        "bot_access":  [
-                           "bot-3",
-                           "bot-8"
-                       ]
-    },
-    {
         "saint_name":  "Maria, Bunda Allah (Hari Raya Santa Perawan Maria)",
         "type":  "Santa",
         "feast_day":  "1/1",

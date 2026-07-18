@@ -1,54 +1,136 @@
-export const dynamic = 'force-dynamic'
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
+import axios from 'axios';
+import * as cheerio from 'cheerio';
 
-// Simple in-memory cache to avoid hammering upstream on rate-limit
-let cachedResponse: { data: any; timestamp: number } | null = null;
-const CACHE_TTL = 1000 * 60 * 60; // 1 hour
+export const dynamic = 'force-dynamic';
 
-export async function GET() {
-  const now = Date.now();
+interface LiturgicalDay {
+  localDate: string;
+  name: string;
+  readings: { text: string; url: string }[];
+  color: string;
+}
 
-  // Serve cache if available and fresh
-  if (cachedResponse && now - cachedResponse.timestamp < CACHE_TTL) {
-    return NextResponse.json(cachedResponse.data);
-  }
-
+async function fetchLiturgicalCalendar(yearMonth: string): Promise<LiturgicalDay[]> {
+  const [year, month] = yearMonth.split('-');
+  const url = `https://www.imankatolik.or.id/kalender.php?t=${year}&b=${month}`;
+  
   try {
-    const today = new Date();
-    const year = today.getFullYear();
-
-    const url = `https://litcal.johnromanodorazio.com/api/dev/calendar?year=${year}&locale=la`;
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 8000);
-
-    let res: Response;
-    try {
-      res = await fetch(url, {
-        headers: { 'Accept': 'application/json' },
-        // Do NOT use `next.revalidate` here â€” we handle caching manually
-        signal: controller.signal,
+    const response = await axios.get(url);
+    const $ = cheerio.load(response.data);
+    const calendarData: LiturgicalDay[] = [];
+    
+    // The page has table.k_tbl containing td.k_tbl_td cells
+    $('table.k_tbl').each((_, table) => {
+      $(table).find('td.k_tbl_td').each((_, element) => {
+        const date = $(element).find('.k_tgl').text().trim();
+        const name = $(element).find('.k_perayaan').text().trim();
+        const readingsElements = $(element).find('.k_alkitab a');
+        const readings: { text: string; url: string }[] = [];
+        
+        readingsElements.each((i, el) => {
+          const readingText = $(el).text().trim();
+          const readingLink = $(el).attr('href');
+          if (readingLink) {
+            readings.push({
+              text: readingText,
+              url: readingLink.startsWith('http') ? readingLink : `https://www.imankatolik.or.id${readingLink}`
+            });
+          }
+        });
+        
+        const color = $(element).find('.k_pakaian').text().replace('Warna Liturgi ', '').trim();
+        
+        // Only add if we have at least a date or name
+        if (date || name) {
+          calendarData.push({
+            localDate: `${date} ${month} ${year}`,
+            name,
+            readings,
+            color,
+          });
+        }
       });
-    } finally {
-      clearTimeout(timeout);
-    }
-
-    if (!res.ok) {
-      const status = res.status;
-      // 429 Too Many Requests: serve stale cache or fallback silently
-      if (status === 429) {
-        if (cachedResponse) return NextResponse.json(cachedResponse.data);
-        return NextResponse.json({ litcal: [] }, { status: 200 });
-      }
-      throw new Error(`Upstream HTTP ${status}`);
-    }
-
-    const data = await res.json();
-    cachedResponse = { data, timestamp: now };
-    return NextResponse.json(data);
+    });
+    
+    return calendarData;
   } catch (error) {
-    // On network errors, serve stale cache if available
-    if (cachedResponse) return NextResponse.json(cachedResponse.data);
-    // Otherwise return empty litcal so client fallback applies
-    return NextResponse.json({ litcal: [] }, { status: 200 });
+    console.error('Error fetching liturgical calendar:', error);
+    return [];
+  }
+}
+
+function formatDateToISO(localDate: string): string {
+  // Input: "17 Juli 2026" or "17 07 2026"
+  const months: Record<string, string> = {
+    'Januari': '01', 'Februari': '02', 'Maret': '03', 'April': '04',
+    'Mei': '05', 'Juni': '06', 'Juli': '07', 'Agustus': '08',
+    'September': '09', 'Oktober': '10', 'November': '11', 'Desember': '12'
+  };
+  
+  const parts = localDate.split(' ');
+  if (parts.length === 3) {
+    const [day, monthNameOrNum, year] = parts;
+    const month = months[monthNameOrNum] || monthNameOrNum;
+    return `${year}-${month}-${day.padStart(2, '0')}`;
+  }
+  return localDate;
+}
+
+export async function GET(request: NextRequest) {
+  try {
+    const { searchParams } = new URL(request.url);
+    const dateParam = searchParams.get('date');
+    
+    let targetDate: Date;
+    if (dateParam) {
+      targetDate = new Date(dateParam);
+    } else {
+      targetDate = new Date();
+    }
+    
+    const yearMonth = `${targetDate.getFullYear()}-${String(targetDate.getMonth() + 1).padStart(2, '0')}`;
+    const calendarData = await fetchLiturgicalCalendar(yearMonth);
+    
+    if (calendarData.length === 0) {
+      return NextResponse.json({
+        date: targetDate.toISOString().split('T')[0],
+        season: 'Unknown',
+        color: 'hijau',
+        readings: [],
+        source: 'external'
+      });
+    }
+    
+    const targetDateStr = targetDate.toISOString().split('T')[0];
+    const todayInfo = calendarData.find(item => {
+      const itemDate = formatDateToISO(item.localDate);
+      return itemDate === targetDateStr;
+    });
+    
+    if (!todayInfo) {
+      return NextResponse.json({
+        date: targetDateStr,
+        season: 'Hari Biasa',
+        color: 'hijau',
+        readings: [],
+        source: 'external'
+      });
+    }
+    
+    return NextResponse.json({
+      date: targetDateStr,
+      season: todayInfo.name,
+      color: todayInfo.color.toLowerCase(),
+      readings: todayInfo.readings.map(r => r.text),
+      source: 'external'
+    });
+    
+  } catch (error) {
+    console.error('Error in /api/liturgi/calendar:', error);
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    );
   }
 }

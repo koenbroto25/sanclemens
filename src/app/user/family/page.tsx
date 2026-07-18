@@ -20,15 +20,26 @@ interface FamilyMember {
 export default function KeluargaPage() {
   const [members, setMembers] = useState<FamilyMember[]>([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+
+  async function fetchFamily() {
+    try {
+      setError(null)
+      const res = await fetch("/api/family")
+      if (!res.ok) {
+        throw new Error(`Gagal memuat data keluarga (${res.status})`)
+      }
+      const result = await res.json()
+      setMembers(result.data || [])
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Gagal memuat data keluarga')
+    } finally {
+      setLoading(false)
+    }
+  }
 
   useEffect(() => {
-    fetch("/api/family")
-      .then(res => res.json())
-      .then(result => {
-        setMembers(result.data || [])
-        setLoading(false)
-      })
-      .catch(() => setLoading(false))
+    fetchFamily()
   }, [])
 
   return (
@@ -51,6 +62,18 @@ export default function KeluargaPage() {
           </Button>
         </div>
       </div>
+
+      {error && (
+        <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+          <div className="flex items-center gap-2">
+            <p className="text-red-700 font-medium">Gagal memuat data</p>
+          </div>
+          <p className="text-red-600 text-sm mt-1">{error}</p>
+          <button onClick={fetchFamily} className="mt-3 px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition-colors">
+            Coba Lagi
+          </button>
+        </div>
+      )}
 
       {loading ? (
         <Card className="p-6">Memuat data keluarga...</Card>
